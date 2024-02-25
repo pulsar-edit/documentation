@@ -18,7 +18,6 @@ const containerRender = (name) => {
       let openingTag = `<div class="${name} custom-container">\n`;
 
       if (content) {
-        console.log(content);
         openingTag += `<p class="custom-container-title">${md.utils.escapeHtml(content[1])}</p>`;
       }
 
