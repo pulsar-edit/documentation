@@ -1,0 +1,28 @@
+{
+  "name": "pulsar-documentation-eleventy",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "serve": "npx @11ty/eleventy --serve",
+    "build:debug": "cross-env DEBUG=Eleventy* npm run build",
+    "serve:debug": "cross-env DEBUG=Eleventy* npm run serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@mdit/plugin-tab": "^0.8.0",
+    "clean-css": "^5.3.3",
+    "cross-env": "^7.0.3",
+    "less": "^4.2.0",
+    "markdown-it": "^14.0.0",
+    "markdown-it-attrs": "^4.1.6",
+    "markdown-it-container": "^4.0.0",
+    "markdown-it-include": "^2.0.0",
+    "markdown-it-kbd": "^2.2.2",
+    "skeleton-less": "github:WhatsNewSaes/Skeleton-Less",
+    "terser": "^5.28.1"
+  }
+}

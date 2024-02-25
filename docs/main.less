@@ -1,0 +1,65 @@
+@import 'skeleton-less/less/skeleton.less';
+@import 'themes.less';
+
+.header {
+  text-align: center;
+}
+
+.tabs-tabs-wrapper {
+  .tabs-tabs-header {
+    overflow-x: auto;
+    margin: 0.85rem 0 1rem;
+    padding: 0;
+    border-radius: 6px 6px 0 0;
+    background: @tab-header-background;
+    list-style: none;
+    white-space: nowrap;
+
+    .tabs-tab-button {
+      border-width: 0;
+      position: relative;
+      min-width: 3rem;
+      margin: 0;
+      padding: 6px 12px;
+      border-radius: 6px 6px 0 0;
+      background: transparent;
+      color: @tab-button-color;
+      font-weight: 600;
+      font-size: .85rem;
+      line-height: 1.4;
+      cursor: pointer;
+    }
+
+    .tabs-tab-button.active {
+      background: @tab-button-active-background;
+    }
+  }
+
+  .tabs-tabs-container {
+    .tabs-tab-content {
+      display: none;
+    }
+    .tabs-tab-content.active {
+      display: block;
+    }
+  }
+}
+
+.custom-container {
+  position: relative;
+  margin: 1rem 0;
+  padding: 0.25rem 1rem;
+  border-left-width: 0.3rem;
+  border-left-style: solid;
+  border-radius: 0.5rem;
+
+  .custom-container-title {
+    padding-left: 1.5rem;
+    color: @custom-container-title-color;
+  }
+
+  &.note {
+    border-color: @custom-container-note-border;
+    background: @custom-container-note-background;
+  }
+}
