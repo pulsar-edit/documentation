@@ -124,7 +124,7 @@ cursors. This can be incredibly helpful in manipulating long lists of text.
 Using these commands you can place cursors in multiple places in your document
 and effectively execute the same commands in multiple places at once.
 
-![Using multiple cursors](@images/atom/multiple-cursors.gif)
+![Using multiple cursors](/img/atom/multiple-cursors.gif)
 
 This can be incredibly helpful in doing many type of repetitive tasks such as
 renaming variables or changing the format of some text. You can use this with
@@ -152,7 +152,7 @@ The whitespace commands are implemented in the [whitespace](https://github.com/p
 package. The settings for the whitespace commands are managed on the page for
 the `whitespace` package.
 
-![Managing your whitespace settings](@images/atom/whitespace.png)
+![Managing your whitespace settings](/img/atom/whitespace.png)
 
 ::: note Note
 
@@ -238,7 +238,7 @@ When you open a file, Pulsar will try to auto-detect the encoding. If Pulsar
 can't identify the encoding, the encoding will default to UTF-8, which is also
 the default encoding for new files.
 
-![Changing your file encoding](@images/atom/encodings.png)
+![Changing your file encoding](/img/atom/encodings.png)
 
 If you pull up the encoding menu and change the active encoding to something
 else, the file will be written out in that encoding the next time you save the

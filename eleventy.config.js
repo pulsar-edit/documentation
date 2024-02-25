@@ -12,6 +12,11 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.setLibrary("md", require("./plugins/markdown-it.js"));
 
+  // Add passthrough file copies
+
+  // copy the images from `pulsar-edit/.github`
+  eleventyConfig.addPassthroughCopy({ ".github/images": "img" });
+
   // Add custom collections
 
   // Return config
