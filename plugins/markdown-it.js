@@ -46,4 +46,8 @@ md
   "info", { render: containerRender("info") }
 ).use(container,
   "note", { render: containerRender("note") }
-);
+).use(container,
+  "tip", { render: containerRender("tip") }
+).use(require("markdown-it-include"), {
+  root: "./"
+});

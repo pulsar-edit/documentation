@@ -1,0 +1,12 @@
+[
+  {
+    "text": "What is Pulsar?",
+    "icon": "solid fa-rocket",
+    "link": "what-is-pulsar"
+  },
+  {
+    "text": "Installing Pulsar",
+    "icon": "solid fa-rocket",
+    "link": "installing-pulsar"
+  }
+]

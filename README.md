@@ -40,3 +40,22 @@ The biggest aspects of this that still have to be completed:
 - [ ] Create collections and automatically create collection views on summary pages
 - [ ] Implement Dark Mode
 - [ ] Add all relevant documentation
+- [ ] Update **ALL** Links!
+
+## Style Guide
+
+Here will be the very short, non-complete style guide:
+
+### Links to GitHub
+
+If linking to a resource on GitHub, such as the `language-git` package, ensure to never include the branch.
+
+By default if you copy paste the link to the `language-git` package it will look like:
+  `https://github.com/pulsar-edit/pulsar/tree/master/packages/language-git`
+
+But in the rare event the branch name never changes, we can make simple changes now to avoid stress later, by replacing the `master` here with `HEAD`, such as:
+  `https://github.com/pulsar-edit/pulsar/tree/HEAD/packages/language-git`
+
+### Heading Levels
+
+Within each page of markdown you should never include an `<h1>` heading level (`#`) always start on `<h2>` (`##`) as the title of the page is extracted and used as a level one heading in all cases.
