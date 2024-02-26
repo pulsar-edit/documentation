@@ -1,0 +1,25 @@
+{
+  "sidebar": [
+    {
+      "text": "Package: Word Count"
+    },
+    {
+      "text": "Package: Modifying Text"
+    },
+    {
+      "text": "Package: Active Editor Info"
+    },
+    {
+      "text": "Example: Creating a Theme"
+    },
+    {
+      "text": "Example: Creating Node Tree-Sitter Grammar"
+    },
+    {
+      "text": "Example: Creating Text-Mate Grammar"
+    },
+    {
+      "text": "Example: Converting Text-Mate Grammar"
+    }
+  ]
+}

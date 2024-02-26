@@ -1,1 +1,18 @@
 <!-- Used for the index of each section of the docs -->
+<%-include("header")%>
+
+  <body>
+    <%-include("sidebar", { bar: root_sidebar, include_summary: false })%>
+    <div class="container">
+      <section class="header">
+        <h1 class="title"><%=title%></h1>
+      </section>
+
+      <%- content %>
+
+      <%-include("blocks", { blocks: sidebar })%>
+
+    </div>
+  </body>
+
+<%-include("footer")%>

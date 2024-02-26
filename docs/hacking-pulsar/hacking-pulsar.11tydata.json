@@ -1,0 +1,17 @@
+{
+  "sidebar": [
+    {
+      "text": "Building Pulsar"
+    },
+    {
+      "text": "Using PPM"
+    },
+    {
+      "text": "Hacking on the Core"
+    },
+    {
+      "text": "Tools of the Trade"
+    }
+  ]
+
+}

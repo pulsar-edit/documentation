@@ -1,0 +1,19 @@
+
+<div class="sidebar">
+  <div class="sidebar_contents">
+
+    <ul>
+      <li><a href="/">Home</a></li>
+
+      <% if (include_summary) { %>
+        <li><a href="../">Summary</a></li>
+      <% } %>
+
+      <% for (const node of bar) { %>
+        <li><a href="../<%=node.link%>" ><%=node.text%></a></li>
+      <% } %>
+    </ul>
+
+  </div>
+
+</div>

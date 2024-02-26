@@ -2,9 +2,10 @@
 <%-include("header")%>
 
   <body>
+    <%-include("sidebar", { bar: sidebar, include_summary: true })%>
     <div class="container">
       <section class="header">
-        <h2 class="title"><%=title%></h2>
+        <h1 class="title"><%=title%></h1>
       </section>
 
       <%- content %>

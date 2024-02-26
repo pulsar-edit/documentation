@@ -1,0 +1,23 @@
+{
+  "sidebar": [
+    {
+      "text": "Configuration API"
+    },
+    {
+      "text": "Keymaps in-depth"
+    },
+    {
+      "text": "Scoped settings, scopes and scope descriptors"
+    },
+    {
+      "text": "Serialization in Pulsar"
+    },
+    {
+      "text": "Developing node modules"
+    },
+    {
+      "text": "Interacting with other packages via services"
+    }
+  ]
+
+}

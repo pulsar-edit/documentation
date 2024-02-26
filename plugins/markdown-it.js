@@ -48,6 +48,4 @@ md
   "note", { render: containerRender("note") }
 ).use(container,
   "tip", { render: containerRender("tip") }
-).use(require("markdown-it-include"), {
-  root: "./"
-});
+);

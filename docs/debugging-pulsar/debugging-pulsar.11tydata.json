@@ -1,0 +1,56 @@
+{
+  "sidebar": [
+    {
+      "text": "Update to the Latest Version"
+    },
+    {
+      "text": "Using Safe Mode"
+    },
+    {
+      "text": "Clearing Saved State"
+    },
+    {
+      "text": "Reset to Factory Defaults"
+    },
+    {
+      "text": "Check for linked Packages"
+    },
+    {
+      "text": "Check for incompatible packages"
+    },
+    {
+      "text": "Check Pulsar and Package Settings"
+    },
+    {
+      "text": "Check your configuration"
+    },
+    {
+      "text": "Check your keybindings"
+    },
+    {
+      "text": "Check font rendering issues"
+    },
+    {
+      "text": "Check for errors in Developer tools"
+    },
+    {
+      "text": "Find crash logs"
+    },
+    {
+      "text": "Diagnose Startup Performance"
+    },
+    {
+      "text": "Diagnose Runtime Performance"
+    },
+    {
+      "text": "Profiling Startup Performance"
+    },
+    {
+      "text": "Check your Build Tools"
+    },
+    {
+      "text": "Check if your GPU is causing the problem"
+    }
+  ]
+
+}

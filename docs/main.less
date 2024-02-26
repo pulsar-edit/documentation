@@ -1,10 +1,12 @@
 @import 'skeleton-less/less/skeleton.less';
 @import 'themes.less';
 
+// Quality of Life changes to header class from skeleton
 .header {
   text-align: center;
 }
 
+// Tabs from markdown-it
 .tabs-tabs-wrapper {
   .tabs-tabs-header {
     overflow-x: auto;
@@ -45,6 +47,7 @@
   }
 }
 
+// Custom containers from markdown-it
 .custom-container {
   position: relative;
   margin: 1rem 0;
@@ -61,5 +64,69 @@
   &.note {
     border-color: @custom-container-note-border;
     background: @custom-container-note-background;
+  }
+}
+
+// Sidebar
+.sidebar {
+  border: dotted;
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  min-height: 50vh;
+  max-height: 100vh;
+  flex-direction: column;
+  width: 15%;
+  margin-right: 5%;
+}
+
+.sidebar_contents {
+  padding: 10px;
+}
+
+body {
+  display: flex;
+  margin-left: 2%;
+}
+
+// Blocks
+.blocks {
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 1rem;
+  display: grid;
+
+  .block {
+
+    border-width: 1px;
+    border-radius: 0.75rem;
+    width: 100%;
+    display: block;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+
+    .block_inner {
+
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+
+      .block_icon {
+
+      }
+
+      .block_title {
+        font-weight: 600;
+        font-size: 2rem;
+        line-height: 1.5rem;
+      }
+
+      .block_summary {
+
+      }
+    }
   }
 }
