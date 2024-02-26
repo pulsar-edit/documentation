@@ -59,3 +59,17 @@ But in the rare event the branch name never changes, we can make simple changes 
 ### Heading Levels
 
 Within each page of markdown you should never include an `<h1>` heading level (`#`) always start on `<h2>` (`##`) as the title of the page is extracted and used as a level one heading in all cases.
+
+### Links between pages
+
+For simplicity, and ability to find and replace links in the future, all links between pages should be from the root of the website.
+
+Meaning start all links with `/` and direct to the page you are attempting to link to.
+
+A safe exception to this rule is for anchor links on the same page, as those can just be the anchor itself.
+
+But for all other links, please do follow this rule and do not use relative links.
+
+Examples: When linking to `/example/sub/page` from `/example/sub/hello`
+  - Do: `/example/sub/page`
+  - Do **NOT**: `../page`

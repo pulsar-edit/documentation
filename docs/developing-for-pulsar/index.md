@@ -3,7 +3,7 @@ title: Developing for Pulsar
 layout: summary.ejs
 ---
 
-Part of what makes Pulsar great is the amazing community behind it, specifically
+Part of what makes Pulsar great is the amazing community behind it, in this case
 the community of community package authors, that create and publish packages that
 extend, customize, and improve the behavior and features of Pulsar.
 
