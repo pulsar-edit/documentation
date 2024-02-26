@@ -1,35 +1,54 @@
 {
   "sidebar": [
     {
-      "text": "Find and Replace"
+      "text": "Find and Replace",
+      "link": "find-and-replace",
+      "summary": "Find and replace text"
     },
     {
-      "text": "Snippets"
+      "text": "Snippets",
+      "link": "snippets",
+      "summary": "Expand text"
     },
     {
-      "text": "Autocomplete"
+      "text": "Autocomplete",
+      "link": "autocomplete",
+      "summary": "Work with suggested autocompletions as you type"
     },
     {
-      "text": "Folding"
+      "text": "Folding",
+      "link": "folding",
+      "summary": "Collapse text in a file"
     },
     {
-      "text": "Panes"
+      "text": "Panes",
+      "link": "panes",
+      "summary": "Understand the layout within Pulsar"
     },
     {
-      "text": "Grammar"
+      "text": "Grammar",
+      "link": "grammar",
+      "summary": "Learn how text receives Syntax Highlighting"
     },
     {
-      "text": "Version Control in Pulsar"
+      "text": "Version Control in Pulsar",
+      "link": "version-control-in-pulsar",
+      "summary": "Keep a history of your files changes"
     },
     {
-      "text": "GitHub Package"
+      "text": "GitHub Package",
+      "link": "github-package",
+      "summary": "Integrate directly within GitHub"
     },
     {
-      "text": "Spell Check"
+      "text": "Spell Check",
+      "link": "spell-check",
+      "summary": "Fix mis-spellings in your text"
     },
     {
-      "text": "Previews"
+      "text": "Previews",
+      "link": "previews",
+      "summary": "See what your prose files look like rendered"
     }
   ]
-
 }

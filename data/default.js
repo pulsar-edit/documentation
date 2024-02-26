@@ -4,4 +4,6 @@ module.exports = {
   // everything still works when rendering EJS
   title: "Pulsar Documentation",
   layout: "doc.ejs", // Have the default view be the one used most often
+  changefreq: "monthly",
+  url: "https://docs.pulsar-edit.dev"
 };

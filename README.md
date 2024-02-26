@@ -36,8 +36,8 @@ Switch links with `@images` to `/img`
 The biggest aspects of this that still have to be completed:
 
 - [ ] Finalize CSS implementations
-- [ ] Create all EJS templates needed
-- [ ] Create collections and automatically create collection views on summary pages
+- [X] Create all EJS templates needed
+- [X] Create collections and automatically create collection views on summary pages
 - [ ] Implement Dark Mode
 - [ ] Add all relevant documentation
 - [ ] Update **ALL** Links!
