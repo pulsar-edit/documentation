@@ -1,13 +1,17 @@
 {
   "sidebar": [
     {
-      "text": "Summary"
+      "text": "Summary",
+      "link": "summary",
+      "summary": ""
     },
     {
-      "text": "Developing a Package"
+      "text": "Developing a Package",
+      "link": "developing-a-package"
     },
     {
-      "text": "Developing a Theme"
+      "text": "Developing a Theme",
+      "link": "developing-a-theme"
     },
     {
       "text": "Creating a Grammar Overview"
