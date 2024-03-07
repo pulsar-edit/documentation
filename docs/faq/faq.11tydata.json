@@ -1,10 +1,12 @@
 {
   "sidebar": [
     {
-      "text": "Having Trouble?"
+      "text": "Having Trouble?",
+      "link": "having-trouble"
     },
     {
-      "text": "Common Issues"
+      "text": "Common Issues",
+      "link": "common-issues"
     }
   ]
 
