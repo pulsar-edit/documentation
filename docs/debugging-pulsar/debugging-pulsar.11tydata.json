@@ -1,55 +1,72 @@
 {
   "sidebar": [
     {
-      "text": "Update to the Latest Version"
+      "text": "Update to the Latest Version",
+      "link": "update-to-the-latest-version"
     },
     {
-      "text": "Using Safe Mode"
+      "text": "Using Safe Mode",
+      "link": "using-safe-mode"
     },
     {
-      "text": "Clearing Saved State"
+      "text": "Clearing Saved State",
+      "link": "clearing-saved-state"
     },
     {
-      "text": "Reset to Factory Defaults"
+      "text": "Reset to Factory Defaults",
+      "link": "reset-to-factory-defaults"
     },
     {
-      "text": "Check for linked Packages"
+      "text": "Check for linked Packages",
+      "link": "check-for-linked-packages"
     },
     {
-      "text": "Check for incompatible packages"
+      "text": "Check for incompatible packages",
+      "link": "check-for-incompatible-packages"
     },
     {
-      "text": "Check Pulsar and Package Settings"
+      "text": "Check Pulsar and Package Settings",
+      "link": "check-pulsar-and-package-settings"
     },
     {
-      "text": "Check your configuration"
+      "text": "Check your configuration",
+      "link": "check-your-configuration"
     },
     {
-      "text": "Check your keybindings"
+      "text": "Check your keybindings",
+      "link": "check-your-keybindings"
     },
     {
-      "text": "Check font rendering issues"
+      "text": "Check font rendering issues",
+      "link": "check-font-rendering-issues"
     },
     {
-      "text": "Check for errors in Developer tools"
+      "text": "Check for errors in Developer tools",
+      "link": "check-for-errors-in-developer-tools"
     },
     {
-      "text": "Find crash logs"
+      "text": "Find crash logs",
+      "link": "find-crash-logs"
     },
     {
-      "text": "Diagnose Startup Performance"
+      "text": "Diagnose Startup Performance",
+      "link": "diagnose-startup-performance"
     },
     {
-      "text": "Diagnose Runtime Performance"
+      "text": "Diagnose Runtime Performance",
+      "link": "diagnose-runtime-performance"
     },
     {
-      "text": "Profiling Startup Performance"
+      "text": "Profiling Startup Performance",
+      "link": "profiling-startup-performance"
     },
     {
-      "text": "Check your Build Tools"
+      "text": "Check your Build Tools",
+      "link": "check-your-build-tools"
     },
     {
-      "text": "Check if your GPU is causing the problem"
+      "text": "Check if your GPU is causing the problem",
+      "link": "check-if-your-gpu-is-causing-the-problem"
     }
   ]
 
