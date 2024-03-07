@@ -9,7 +9,7 @@ This project superseedes previous efforts utilizing `sloth` as it's been determi
 ```bash
 npm install
 git submodule init
-git sumboldule update
+git submodule update
 ```
 
 ## Running
@@ -39,7 +39,9 @@ The biggest aspects of this that still have to be completed:
 - [X] Create all EJS templates needed
 - [X] Create collections and automatically create collection views on summary pages
 - [ ] Implement Dark Mode
+- [X] Add all original Launch Manual Docs
 - [ ] Add all relevant documentation
+- [ ] Implement Pulsar API Docs
 - [ ] Update **ALL** Links!
 
 ## Style Guide
