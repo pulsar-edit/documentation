@@ -122,6 +122,12 @@ Pulsar on Windows supports a standard installation as well as running Pulsar in 
 
 To install Pulsar regularly download the `Setup` file, and double click to run. During the installation process you'll be able to choose either the default "User" install, or a "Machine" install. Either is fine, while knowing a "Machine" install will require administrative privilege's. Although a "User" install is recommended.
 
+:::note
+Current the Pulsar Windows binaries are not signed, what this means is that you
+**will** get a Windows Defender popup telling you that it cannot verify if Pulsar is
+safe. This is expected, unless you are on Windows S-Mode, or otherwise disable by the administrator, you can click "More Info" then "Run Anyway" to continue the installation.
+:::
+
 ### Dependencies: For Community Package Native Modules
 
 As mentioned above, some platforms will need additional dependencies to build native modules used by some community packages.

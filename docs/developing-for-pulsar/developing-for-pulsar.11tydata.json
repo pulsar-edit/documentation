@@ -14,40 +14,52 @@
       "link": "developing-a-theme"
     },
     {
-      "text": "Creating a Grammar Overview"
+      "text": "Creating a Grammar Overview",
+      "link": "creating-a-grammar"
     },
     {
-      "text": "Creating a Grammar (Node Tree-Sitter)"
+      "text": "Creating a Grammar (Modern Tree-sitter)",
+      "link": "creating-a-grammar-modern-tree-sitter"
     },
     {
-      "text": "Creating a Grammar (Legacy Tree-Sitter)"
+      "text": "Creating a Grammar (Legacy Tree-sitter)",
+      "link": "creating-a-grammar-legacy-tree-sitter"
     },
     {
-      "text": "Creating a Grammar (TextMate)"
+      "text": "Creating a Grammar (TextMate)",
+      "link": "creating-a-grammar-textmate"
     },
     {
-      "text": "Creating a Grammar (Converting from TextMate)"
+      "text": "Creating a Grammar (Converting from TextMate)",
+      "link": "creating-a-grammar-converting-from-textmate"
     },
     {
-      "text": "Publishing"
+      "text": "Publishing",
+      "link": "publishing"
     },
     {
-      "text": "Iconography"
+      "text": "Iconography",
+      "link": "iconography"
     },
     {
-      "text": "Writing Specs"
+      "text": "Writing Specs",
+      "link": "writing-specs"
     },
     {
-      "text": "Handling URIs"
+      "text": "Handling URIs",
+      "link": "handling-uris"
     },
     {
-      "text": "Contributing to official Pulsar packages"
+      "text": "Contributing to official Pulsar packages",
+      "link": "contributing-to-official-pulsar-packages"
     },
     {
-      "text": "Creating a fork of a core package"
+      "text": "Creating a fork of a core package",
+      "link": "creating-a-fork-of-a-core-package"
     },
     {
-      "text": "Maintaining a fork of a core package"
+      "text": "Maintaining a fork of a core package",
+      "link": "maintaining-a-fork-of-a-core-package"
     }
   ]
 
