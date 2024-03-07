@@ -139,7 +139,7 @@ To be able to build community package's native modules on Windows you'll need to
     - Make sure to install the "Windows SDK"
   * Python
 
-!!!include(native-module-versions.md)!!!
+!!!include(_partial_docs/native-module-versions.md)!!!
 
 ### Officially Supported Package Managers
 

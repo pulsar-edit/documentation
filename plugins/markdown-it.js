@@ -37,7 +37,7 @@ md
 }).use(require("markdown-it-kbd"), {
 
 }).use(require("markdown-it-include"),
-  "_partial_docs"
+  "./"
 ).use(tab, {
   name: "tabs"
 }).use(container,

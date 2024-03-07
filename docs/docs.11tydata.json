@@ -39,6 +39,10 @@
     {
       "text": "FAQ",
       "link": "faq"
+    },
+    {
+      "text": "Maintaining Pulsar",
+      "link": "maintaining-pulsar"
     }
   ]
 
