@@ -48,4 +48,6 @@ md
   "note", { render: containerRender("note") }
 ).use(container,
   "tip", { render: containerRender("tip") }
+).use(container,
+  "danger", { render: containerRender("danger") }
 );
