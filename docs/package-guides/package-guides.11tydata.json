@@ -1,25 +1,32 @@
 {
   "sidebar": [
     {
-      "text": "Package: Word Count"
+      "text": "Package: Word Count",
+      "link": "package-word-count"
     },
     {
-      "text": "Package: Modifying Text"
+      "text": "Package: Modifying Text",
+      "link": "package-modifying-text"
     },
     {
-      "text": "Package: Active Editor Info"
+      "text": "Package: Active Editor Info",
+      "link": "package-active-editor-info"
     },
     {
-      "text": "Example: Creating a Theme"
+      "text": "Example: Creating a Theme",
+      "link": "example-creating-a-theme"
     },
     {
-      "text": "Example: Creating Node Tree-Sitter Grammar"
+      "text": "Example: Creating a Modern Tree-sitter Grammar",
+      "link": "example-creating-a-modern-tree-sitter-grammar"
     },
     {
-      "text": "Example: Creating Text-Mate Grammar"
+      "text": "Example: Creating a TextMate Grammar",
+      "link": "example-creating-a-textmate-grammar"
     },
     {
-      "text": "Example: Converting Text-Mate Grammar"
+      "text": "Example: Converting a TextMate Grammar",
+      "link": "example-converting-a-textmate-grammar"
     }
   ]
 }
