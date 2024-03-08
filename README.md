@@ -41,7 +41,7 @@ The biggest aspects of this that still have to be completed:
 - [ ] Implement Dark Mode
 - [X] Add all original Launch Manual Docs
 - [ ] Add all relevant documentation
-- [ ] Implement Pulsar API Docs
+- [X] Implement Pulsar API Docs
 - [ ] Update **ALL** Links!
 
 ## Style Guide
