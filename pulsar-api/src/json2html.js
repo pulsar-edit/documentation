@@ -1,11 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 const ejs = require("ejs");
-const md = require("../../plugins/markdown-it.js");
-
-function mdRender(content) {
-  return md.render(content);
-}
+const mdRender = require("./md.js");
 
 module.exports =
 async function convert(name, content) {
@@ -13,7 +9,7 @@ async function convert(name, content) {
   let file = "";
 
   for await (const section of content.sections) {
-    file += `<h3>${section.name}</h3>`;
+    file += `<h3 id="${anchorize(section.name)}">${section.name}</h3>`;
     file += await lookupSection(section.name, "classProperties", content);
     file += await lookupSection(section.name, "classMethods", content);
     file += await lookupSection(section.name, "instanceProperties", content);
@@ -26,7 +22,9 @@ async function convert(name, content) {
       title: name,
       content: content,
       file: file,
-      mdRender: mdRender
+      mdRender: mdRender,
+      sidebar: sections2sidebar(content.sections, name),
+      anchorize: anchorize
     },
     {
       views: [ path.resolve(__dirname, "../../layouts") ],
@@ -56,7 +54,8 @@ async function lookupSection(sectionName, prop, content) {
     getTemplate(prop),
     {
       content: foundItems,
-      mdRender: mdRender
+      mdRender: mdRender,
+      anchorize: anchorize
     },
     {
       views: [ path.resolve(__dirname, "../layouts") ]
@@ -68,4 +67,25 @@ async function lookupSection(sectionName, prop, content) {
 
 function getTemplate(name) {
   return fs.readFileSync(path.resolve(__dirname, "../layouts", `${name}.ejs`), { encoding: "utf8" });
+}
+
+function sections2sidebar(sections, pageRoot) {
+  // Converts a sections array into valid sidebar data
+  let sidebar = [];
+
+  for (let i = 0; i < sections.length; i++) {
+    sidebar.push({
+      text: sections[i].name,
+      summary: mdRender(sections[i].description),
+      link: `${pageRoot}#${anchorize(sections[i].name)}`
+    });
+  }
+
+  return sidebar;
+}
+
+function anchorize(content) {
+  let str = content.toLowerCase();
+  str = str.replace(/\W/g, "-");
+  return str;
 }

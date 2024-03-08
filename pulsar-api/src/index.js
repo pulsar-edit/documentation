@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const ejs = require("ejs");
 const convert = require("./json2html.js");
 
 const IN = path.join(__dirname, "../content");
@@ -27,6 +28,25 @@ async function main() {
 
     await createIfDirAbsent(path.join(OUT, item));
 
+    // Lets create the summary page
+    let summaryHTML = await ejs.render(
+      fs.readFileSync(path.resolve(__dirname, "../layouts/summary.ejs"), { encoding: "utf8" }),
+      {
+        title: item,
+        sidebar: JSON.parse(fs.readFileSync(path.resolve(__dirname, "../../docs/docs.11tydata.json"), { encoding: "utf8" })).root_sidebar,
+        blocks: content2sidebar(objs[item].classes)
+      },
+      {
+        views: [ path.resolve(__dirname, "../../layouts") ]
+      }
+    );
+
+    fs.writeFileSync(
+      path.join(OUT, item, "index.html"),
+      summaryHTML,
+      { encoding: "utf8" }
+    );
+
     for (let apiClass in objs[item].classes) {
       let html = await convert(apiClass, objs[item].classes[apiClass]);
 
@@ -42,6 +62,20 @@ async function main() {
 
   }
 
+}
+
+function content2sidebar(content) {
+  let sidebar = [];
+
+  for (let item in content) {
+    sidebar.push({
+      text: content[item].name,
+      summary: content[item].summary,
+      link: content[item].name
+    });
+  }
+
+  return sidebar;
 }
 
 async function enumerateFiles(dir, pathArray, fileCallback) {

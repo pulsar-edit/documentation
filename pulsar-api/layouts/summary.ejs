@@ -1,4 +1,4 @@
-<!-- Pulsar API Documentation Page -->
+<!-- Pulsar API Documentation Summary Page -->
 <%-include("header")%>
 
   <body>
@@ -8,10 +8,11 @@
         <h1 class="title"><%=title%></h1>
       </section>
 
-      <%- mdRender(content.description) %>
+      <p>
+        This section details the Pulsar Application API for version <code><%=title%></code>.
+      </p>
 
-      <%- file %>
-
+      <%-include("blocks", { blocks: blocks })%>
     </div>
   </body>
 

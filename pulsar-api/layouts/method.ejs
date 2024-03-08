@@ -1,7 +1,7 @@
 <% for (const item of content) { %>
-  <div class="api-entry">
+  <div class="api-entry" id="<%=anchorize(`${item.visibility} ${item.name}`)%>">
     <h5 class="api-entry-name">
-      <a href="#<%=item.visibility%>-<%=item.name%>">
+      <a href="#<%=anchorize(`${item.visibility} ${item.name}`)%>">
         .<%=item.name%><%-include("argument_list", { item: item })%>
       </a>
     </h5>
