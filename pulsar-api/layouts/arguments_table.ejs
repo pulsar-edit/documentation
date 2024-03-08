@@ -1,0 +1,13 @@
+<table class="arguments">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for (const arg of arguments) { %>
+      <%-include("arguments_table_row", { arg: arg, level: 0 })%>
+    <% } %>
+  </tbody>
+</table>

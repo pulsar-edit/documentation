@@ -1,0 +1,12 @@
+<% for (const item of content) { %>
+  <div class="api-entry">
+    <h5 class="api-entry-name">
+      <a href="#<%=item.visibility%>-<%=item.name%>">
+        <span>::<%=item.name%></span>
+      </a>
+    </h5>
+    <div class="api-entry-summary">
+      <%- item.md_summary %>
+    </div>
+  </div>
+<% } %>

@@ -1,0 +1,14 @@
+<span class="api-entry-argument-list">
+  <% if (Array.isArray(item.arguments)) { %>
+    (
+      <% for (let i = 0; i < item.arguments.length; i++) { %>
+        <%=item.arguments[i].name%>
+        <% if (i < item.arguments.length-1) { %>
+          ,
+        <% } %>
+      <% } %>
+    )
+  <% } else { %>
+    ()
+  <% } %>
+</span>

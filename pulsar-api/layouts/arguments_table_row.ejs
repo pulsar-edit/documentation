@@ -1,0 +1,16 @@
+<tr class="argument-depth-<%=level%>">
+  <td>
+    <code><%=arg.name%></code>
+  </td>
+  <td>
+    <% if (arg.isOptional) { %>
+      <span class="optional">optional</span>
+    <% } %>
+    <%=arg.description%>
+  </td>
+</tr>
+<% if (Array.isArray(arg.children) && arg.children.length > 0) { %>
+  <% for (const argChild of arg.children) { %>
+    <%-include("arguments_table_row", { arg: argChild, level: level + 1 })%>
+  <% } %>
+<% } %>

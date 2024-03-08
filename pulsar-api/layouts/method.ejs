@@ -1,0 +1,19 @@
+<% for (const item of content) { %>
+  <div class="api-entry">
+    <h5 class="api-entry-name">
+      <a href="#<%=item.visibility%>-<%=item.name%>">
+        .<%=item.name%><%-include("argument_list", { item: item })%>
+      </a>
+    </h5>
+    <div class="api-entry-summary">
+      <%- item.md_description %>
+
+      <% if (Array.isArray(item.arguments) && item.arguments.length > 0) { %>
+        <%-include("arguments_table", { arguments: item.arguments })%>
+      <% } %>
+      <% if (Array.isArray(item.returnValues) && item.returnValues.length > 0) { %>
+        <%-include("return_values_table", { returnValues: item.returnValues })%>
+      <% } %>
+    </div>
+  </div>
+<% } %>
