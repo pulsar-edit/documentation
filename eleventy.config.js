@@ -1,11 +1,5 @@
 const pulsarApi = require("./pulsar-api/src/index.js");
 
-// Handle rendering our Pulsar API data first
-
-(async () => {
-  await pulsarApi();
-})();
-
 module.exports = (eleventyConfig) => {
 
   // Add custom templates
@@ -24,8 +18,10 @@ module.exports = (eleventyConfig) => {
   // copy the images from `pulsar-edit/.github`
   eleventyConfig.addPassthroughCopy({ ".github/images": "img" });
 
-  // copy the documents generated from our api docs
-  eleventyConfig.addPassthroughCopy({ "_pulsar-api": "pulsar-api" });
+  // Utilize Eleventy events to trigger Pulsar API Documentation Generation
+  eleventyConfig.on("eleventy.after", async (data) => {
+    await pulsarApi();
+  });
 
   // Add custom collections
 

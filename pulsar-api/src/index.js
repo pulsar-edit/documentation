@@ -4,7 +4,7 @@ const ejs = require("ejs");
 const convert = require("./json2html.js");
 
 const IN = path.join(__dirname, "../content");
-const OUT = path.join(__dirname, "../../_pulsar-api");
+const OUT = path.join(__dirname, "../../_dist/api/pulsar");
 
 module.exports =
 async function main() {
@@ -46,6 +46,7 @@ async function main() {
       summaryHTML,
       { encoding: "utf8" }
     );
+    console.log(`[pulsar-api] Writing ${path.relative(process.cwd(), path.join(OUT, item, "index.html"))}`);
 
     for (let apiClass in objs[item].classes) {
       let html = await convert(apiClass, objs[item].classes[apiClass]);
@@ -57,6 +58,7 @@ async function main() {
         html,
         { encoding: "utf8" }
       );
+      console.log(`[pulsar-api] Writing ${path.relative(process.cwd(), path.join(OUT, item, apiClass, "index.html"))}`);
 
     }
 
