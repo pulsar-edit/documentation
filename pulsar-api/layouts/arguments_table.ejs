@@ -7,7 +7,7 @@
   </thead>
   <tbody>
     <% for (const arg of arguments) { %>
-      <%-include("arguments_table_row", { arg: arg, level: 0 })%>
+      <%-include("arguments_table_row", { arg: arg, level: 0, mdRender: mdRender })%>
     <% } %>
   </tbody>
 </table>

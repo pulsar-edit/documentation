@@ -3,6 +3,10 @@ const fs = require("fs");
 const ejs = require("ejs");
 const md = require("../../plugins/markdown-it.js");
 
+function mdRender(content) {
+  return md.render(content);
+}
+
 module.exports =
 async function convert(name, content) {
 
@@ -20,10 +24,9 @@ async function convert(name, content) {
     getTemplate("page"),
     {
       title: name,
-      md_summary: md.render(content.summary),
-      md_description: md.render(content.description),
       content: content,
-      file: file
+      file: file,
+      mdRender: mdRender
     },
     {
       views: [ path.resolve(__dirname, "../../layouts") ],
@@ -48,17 +51,12 @@ async function lookupSection(sectionName, prop, content) {
     }
   }
 
-  // now prior to rendering we want to render the markdown content within each one
-  for (let i = 0; i < foundItems.length; i++) {
-    foundItems[i].md_summary = md.render(foundItems[i].summary);
-    foundItems[i].md_description = md.render(foundItems[i].description);
-  }
-
   // now to render these items
   const file = await ejs.render(
     getTemplate(prop),
     {
-      content: foundItems
+      content: foundItems,
+      mdRender: mdRender
     },
     {
       views: [ path.resolve(__dirname, "../layouts") ]

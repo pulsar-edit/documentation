@@ -8,7 +8,7 @@
     <% for (const val of returnValues) { %>
       <tr>
         <td>
-          <%=val.description%>
+          <%- mdRender(val.description) %>
         </td>
       </tr>
     <% } %>
