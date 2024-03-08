@@ -43,6 +43,7 @@ The biggest aspects of this that still have to be completed:
 - [ ] Add all relevant documentation
 - [X] Implement Pulsar API Docs
 - [ ] Update **ALL** Links!
+- [ ] Special cards would be awesome, such as {settings-view} as a popup card on hover with details of this package.
 
 ## Style Guide
 
