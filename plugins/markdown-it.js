@@ -32,8 +32,8 @@ const containerRender = (name) => {
 module.exports =
 md
 .use(require("markdown-it-attrs"), {
-  leftDelimiter: "{",
-  rightDelimiter: "}"
+  leftDelimiter: "$",
+  rightDelimiter: "$"
 }).use(require("markdown-it-kbd"), {
 
 }).use(require("markdown-it-include"),
@@ -50,4 +50,4 @@ md
   "tip", { render: containerRender("tip") }
 ).use(container,
   "danger", { render: containerRender("danger") }
-);
+).use(require("../markdown-it-plugins/hovercard.js"));
