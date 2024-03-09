@@ -2,15 +2,18 @@
 <%-include("header")%>
 
   <body>
-    <div class="container">
-      <section class="header">
-        <h1 class="title"><%=title%></h1>
-      </section>
+    <%-include("page_header")%>
+    <div class="content">
+      <div class="container">
+        <section class="header">
+          <h1 class="title"><%=title%></h1>
+        </section>
 
-      <%- content %>
+        <%- content %>
 
-      <%-include("blocks", { blocks: root_sidebar })%>
+        <%-include("blocks", { blocks: root_sidebar })%>
 
+      </div>
     </div>
   </body>
 

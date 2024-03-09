@@ -17,6 +17,8 @@ module.exports = (eleventyConfig) => {
 
   // copy the images from `pulsar-edit/.github`
   eleventyConfig.addPassthroughCopy({ ".github/images": "img" });
+  // copy the data from static to static
+  eleventyConfig.addPassthroughCopy({ "static": "static" });
 
   // Utilize Eleventy events to trigger Pulsar API Documentation Generation
   eleventyConfig.on("eleventy.after", async (data) => {
