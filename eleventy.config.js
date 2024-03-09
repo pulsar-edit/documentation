@@ -1,4 +1,5 @@
 const pulsarApi = require("./pulsar-api/src/index.js");
+const hovercardResolution = require("./hovercard_resolution/index.js");
 
 module.exports = (eleventyConfig) => {
 
@@ -23,6 +24,7 @@ module.exports = (eleventyConfig) => {
   // Utilize Eleventy events to trigger Pulsar API Documentation Generation
   eleventyConfig.on("eleventy.after", async (data) => {
     await pulsarApi();
+    await hovercardResolution();
   });
 
   // Add custom collections

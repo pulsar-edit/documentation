@@ -1,0 +1,22 @@
+{
+  "string": {
+    "title": "String",
+    "description": "The <code>String</code> object is used to represent and manipulate a sequence of characters.",
+    "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"
+  },
+  "number": {
+    "title": "Number",
+    "description": "<code>Number</code> values represent floating-point numbers like <code>37</code> or <code>-9.25</code>.",
+    "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number"
+  },
+  "array": {
+    "title": "Array",
+    "description": "The <code>Array</code> object, as with arrays in other programming languages, enables storing a collection of multiple items under a single variable name.",
+    "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+  },
+  "boolean": {
+    "title": "Boolean",
+    "description": "The <code>Boolean</code> object represents a truth value: <code>true</code> or <code>false</code>.",
+    "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean"
+  }
+}
