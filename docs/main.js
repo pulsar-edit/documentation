@@ -1,6 +1,7 @@
 
 window.addEventListener("load", () => {
   setupTabs();
+  setupHovercards();
 });
 
 function setupTabs() {
@@ -54,4 +55,45 @@ function tabBtnEventListener(event) {
   button.classList.add("active");
   // Activate the Section
   section.classList.add("active");
+}
+
+function setupHovercards() {
+  let nodes = document.querySelectorAll("[data-hovercard]");
+
+  for (let i = 0; i < nodes.length; i++) {
+    nodes[i].addEventListener("mouseover", hovercardEventListener);
+    nodes[i].addEventListener("mouseleave", (event) => {
+      document.getElementById("hovercard").classList.remove("visible");
+    });
+    nodes[i].addEventListener("mouseout", (event) => {
+      document.getElementById("hovercard").classList.remove("visible");
+    });
+  }
+}
+
+async function hovercardEventListener(event) {
+  let node = event.target;
+  let value = node.dataset.hovercard;
+
+  const res = await fetch(`/hovercards/${value}.json`);
+  const card = await res.json();
+
+  let hovercard = `
+    <div class="hovercard-card">
+      <div class="hovercard-title">
+        <a href="${card.link}" target="_blank">
+          ${card.title}
+        </a>
+      </div>
+      <div class="hovercard-summary">
+        ${card.description}
+      </div>
+    </div>
+  `;
+
+  const ele = document.getElementById("hovercard");
+  ele.innerHTML = hovercard;
+  ele.style.left = `${event.clientX}px`;
+  ele.style.top = `${event.pageY}px`;
+  ele.classList.add("visible");
 }

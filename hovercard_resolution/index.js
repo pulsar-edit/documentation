@@ -39,7 +39,9 @@ async function resolve() {
 async function resolveHovercard(val) {
   // The resolutions object contains the function order in which to resolve a hovercard value.
   const resolutions = [
-    resolveStaticHovercard
+    resolveStaticHovercard,
+    resolveApiHovercard,
+    resolveBundledPackages
   ];
 
   const emptyHovercard = {
@@ -84,8 +86,127 @@ async function resolveStaticHovercard(val) {
   }
 }
 
+async function resolveApiHovercard(val) {
+  const latest = JSON.parse(fs.readFileSync(path.join(__dirname, "../docs/api/api.11tydata.json"), { encoding: "utf8" })).latestPulsarVersion;
+  const api = JSON.parse(fs.readFileSync(path.join(__dirname, `../pulsar-api/content/${latest}.json`), { encoding: "utf8" }));
+
+  let resolved = false;
+  // First we will attempt to resolve classes
+  for (const apiClass in api.classes) {
+    let reducedClass = simplifyLabel(apiClass);
+    if (reducedClass == val) {
+      resolved = {
+        value: val,
+        title: api.classes[apiClass].name,
+        description: api.classes[apiClass].summary,
+        link: `/api/pulsar/${latest}/${apiClass}`
+      };
+      break;
+    }
+
+    // Now to attempt to resolve if our value is pointing to a specific function within the class
+    // this can usually be discovered if the original text was `Config::get` which means our value is `config__get`
+    if (val.includes("_")) {
+      let reducedVal = val.split("_").filter((ele) => ele.length !== 0);
+      if (reducedVal.length == 2) {
+        // this could point to a class and function within the class
+        if (reducedClass == reducedVal[0]) {
+          // we now must search through the different parts of this class to determine if we can find the second call
+          for (let i = 0; i < api.classes[apiClass].classMethods.length; i++) {
+            let reducedMethod = simplifyLabel(api.classes[apiClass].classMethods[i].name);
+            if (reducedMethod === reducedVal[1]) {
+              resolved = {
+                value: val,
+                title: `${api.classes[apiClass].name}.${api.classes[apiClass].classMethods[i].name}`,
+                description: api.classes[apiClass].classMethods[i].summary,
+                link: `/api/pulsar/${latest}/${apiClass}#${anchorize(`${api.classes[apiClass].classMethods[i].visibility} ${api.classes[apiClass].classMethods[i].name}`)}`
+              };
+              break;
+            }
+          }
+          for (let i = 0; i < api.classes[apiClass].instanceMethods.length; i++) {
+            let reducedMethod = simplifyLabel(api.classes[apiClass].instanceMethods[i].name);
+            if (reducedMethod === reducedVal[1]) {
+              resolved = {
+                value: val,
+                title: `${api.classes[apiClass].name}.${api.classes[apiClass].instanceMethods[i].name}`,
+                description: api.classes[apiClass].instanceMethods[i].summary,
+                link: `/api/pulsar/${latest}/${apiClass}#${anchorize(`${api.classes[apiClass].instanceMethods[i].visibility} ${api.classes[apiClass].instanceMethods[i].name}`)}`
+              };
+              break;
+            }
+          }
+          for (let i = 0; i < api.classes[apiClass].classProperties.length; i++) {
+            let reducedProp = simplifyLabel(api.classes[apiClass].classProperties[i].name);
+            if (reducedProp === reducedVal[1]) {
+              resolved = {
+                value: val,
+                title: `${api.classes[apiClass].name}.${api.classes[apiClass].classProperties[i].name}`,
+                description: api.classes[apiClass].classProperties[i].summary,
+                link: `/api/pulsar/${latest}/${apiClass}#${anchorize(`${api.classes[apiClass].classProperties[i].visibility} ${api.classes[apiClass].classProperties[i].name}`)}`
+              };
+              break;
+            }
+          }
+          for (let i = 0; i < api.classes[apiClass].instanceProperties.length; i++) {
+            let reducedProp = simplifyLabel(api.classes[apiClass].instanceProperties[i].name);
+            if (reducedProp === reducedVal[1]) {
+              resolved = {
+                value: val,
+                title: `${api.classes[apiClass].name}.${api.classes[apiClass].instanceProperties[i].name}`,
+                description: api.classes[apiClass].instanceProperties[i].summary,
+                link: `/api/pulsar/${latest}/${apiClass}#${anchorize(`${api.classes[apiClass].instanceProperties[i].visibility} ${api.classes[apiClass].instanceProperties[i].name}`)}`
+              };
+              break;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  return resolved;
+}
+
+async function resolveBundledPackages(val) {
+  const bundledPackages = fs.readdirSync(path.join(__dirname, "../pulsar/packages"));
+
+  let resolved = false;
+
+  for (const pack of bundledPackages) {
+    let reducedPack = simplifyLabel(pack);
+    if (reducedPack == val) {
+      let data = JSON.parse(fs.readFileSync(path.join(__dirname, "../pulsar/packages", pack, "package.json"), { encoding: "utf8" }));
+
+      resolved = {
+        value: val,
+        title: data.name,
+        description: data.description,
+        link: `https://github.com/pulsar-edit/pulsar/tree/HEAD/packages/${pack}`
+      };
+      break;
+    }
+  }
+
+  return resolved;
+}
+
 async function createIfDirAbsent(file) {
   if (!fs.existsSync(file)) {
     fs.mkdirSync(file);
   }
+}
+
+function simplifyLabel(str) {
+  let newStr = str;
+  newStr = newStr.toLowerCase();
+  newStr = newStr.replace(/[^a-z0-9]/gi, "_");
+  return newStr;
+}
+
+function anchorize(str) {
+  let newStr = str;
+  newStr = newStr.toLowerCase();
+  newStr = newStr.replace(/\W/g, "-");
+  return newStr;
 }

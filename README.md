@@ -40,10 +40,10 @@ The biggest aspects of this that still have to be completed:
 - [X] Create collections and automatically create collection views on summary pages
 - [ ] Implement Dark Mode
 - [X] Add all original Launch Manual Docs
-- [ ] Add all relevant documentation
+- [X] Add all relevant documentation
 - [X] Implement Pulsar API Docs
 - [ ] Update **ALL** Links!
-- [ ] Special cards would be awesome, such as {settings-view} as a popup card on hover with details of this package.
+- [X] Implement Hovercards
 
 ## Style Guide
 

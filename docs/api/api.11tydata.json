@@ -1,4 +1,5 @@
 {
+  "latestPulsarVersion": "v1.60.0",
   "sidebar": [
     {
       "text": "Pulsar API",

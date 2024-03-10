@@ -12,8 +12,14 @@
 
         <%- content %>
 
+        <% if (typeof includeTemplate !== "undefined") { %>
+          <% for (const includes of includeTemplate) {%>
+            <%-include(includes)%>
+          <% } %>
+        <% } %>
       </div>
     </div>
+    <%-include("hovercard")%>
   </body>
 
 <%-include("footer")%>

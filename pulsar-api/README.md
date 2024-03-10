@@ -22,3 +22,7 @@ As in it seems the workfow was something like:
 
 * JavaScript Code: (`joanna` => `tello` => `atomdoc`) = `grunt-atomdoc`
 * CoffeeScript Code: (`donna` => `tello` => `atomdoc`) = `grunt-atomdoc`
+
+## Latest Version
+
+The latest version of the API for the website to show is tracked in `./docs/api/api.11tydata.json` as the `latestPulsarVersion` key.
