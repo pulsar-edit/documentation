@@ -3,7 +3,7 @@ const path = require("path");
 
 const OUT = path.join(__dirname, "../_dist/hovercards");
 let emptyHovercards = 0;
-
+let emptyHovercardsValues = [];
 /*
 Hovercard Format:
   Within each file, named after the hovercard value, will be the following data:
@@ -33,6 +33,7 @@ async function resolve() {
 
   if (emptyHovercards > 0) {
     console.log(`There are '${emptyHovercards}' unresolved hovercard values!`);
+    console.log(emptyHovercardsValues);
   }
 }
 
@@ -63,6 +64,7 @@ async function resolveHovercard(val) {
   if (!hovercard) {
     // we never did find a resolution after checking all possible values
     emptyHovercards = emptyHovercards + 1;
+    emptyHovercardsValues.push(val);
     return emptyHovercard;
   } else {
     // we did find a resolution
@@ -161,6 +163,13 @@ async function resolveApiHovercard(val) {
             }
           }
         }
+      } else if (reducedVal.length === 1) {
+        // After removing the underscores from the text, our length is only one.
+        // This commonly happens if our original string was `::AbortTransaction`
+        // which would imply it's documenting a method that was contextually linked to the
+        // document it came from. Unfortunately we can't retroactively discover that context.
+        // Meaning our possible only shot is to scan all items and see if this is unique.
+        // Or TODO see if we can include some contextual information, although very unlikely.
       }
     }
   }

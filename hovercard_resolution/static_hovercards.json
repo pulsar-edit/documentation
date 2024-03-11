@@ -18,5 +18,35 @@
     "title": "Boolean",
     "description": "The <code>Boolean</code> object represents a truth value: <code>true</code> or <code>false</code>.",
     "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean"
+  },
+  "object": {
+    "title": "Object",
+    "description": "The <code>Object</code> type represents one of JavaScript's data types. It is used to store various keyed collections and more complex entities.",
+    "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object"
+  },
+  "function": {
+    "title": "Function",
+    "description": "The <code>Function</code> object provides methods for functions.",
+    "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function"
+  },
+  "regexp": {
+    "title": "RegExp",
+    "description": "The <code>RegExp</code> object is used for matching text with a pattern.",
+    "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp"
+  },
+  "promise": {
+    "title": "Promise",
+    "description": "The <code>Promise</code> object represents the eventual completion of (failure) of an asynchornous operation and its resulting value.",
+    "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"
+  },
+  "error": {
+    "title": "Error",
+    "description": "<code>Error</code> objects are thrown when runtime errors occur.",
+    "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error"
+  },
+  "htmlelement": {
+    "title": "HTMLElement",
+    "description": "The <code>HTMLElement</code> interface represents any HTML element.",
+    "link": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement"
   }
 }

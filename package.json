@@ -9,7 +9,7 @@
     "serve:debug": "cross-env DEBUG=Eleventy* npm run serve"
   },
   "keywords": [],
-  "author": "",
+  "author": "confused-Techie",
   "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
@@ -24,5 +24,8 @@
     "markdown-it-kbd": "^2.2.2",
     "skeleton-less": "github:WhatsNewSaes/Skeleton-Less",
     "terser": "^5.28.1"
+  },
+  "peerDependencies": {
+    "ejs": "^3.x.x"
   }
 }
