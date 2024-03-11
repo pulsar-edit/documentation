@@ -16,6 +16,8 @@ async function convert(name, content) {
     file += await lookupSection(section.name, "instanceMethods", content);
   }
 
+  file += await lookupNullSections(content);
+
   const render = await ejs.render(
     getTemplate("page"),
     {
@@ -50,10 +52,34 @@ async function lookupSection(sectionName, prop, content) {
   }
 
   // now to render these items
+  const file = await renderSection(prop, foundItems);
+
+  return file;
+}
+
+async function lookupNullSections(content) {
+  // Originally this directive in the Atom docs would only grab uncategorized methods
+  // but we will look for everything
+  let nullClassMethods = content.classMethods.filter((ele) => ele.sectionName === null);
+  let nullInstanceMethods = content.instanceMethods.filter((ele) => ele.sectionName === null);
+  let nullClassProperties = content.classProperties.filter((ele) => ele.sectionName === null);
+  let nullInstanceProperties = content.instanceProperties.filter((ele) => ele.sectionName === null);
+
+  // now to render these items
+  let file = "";
+  file += await renderSection("classMethods", nullClassMethods);
+  file += await renderSection("instanceMethods", nullInstanceMethods);
+  file += await renderSection("classProperties", nullClassProperties);
+  file += await renderSection("instanceProperties", nullInstanceProperties);
+
+  return file;
+}
+
+async function renderSection(prop, content) {
   const file = await ejs.render(
     getTemplate(prop),
     {
-      content: foundItems,
+      content: content,
       mdRender: mdRender,
       anchorize: anchorize
     },

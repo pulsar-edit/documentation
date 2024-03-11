@@ -12,6 +12,24 @@
 
         <%- mdRender(content.description) %>
 
+        <% if (typeof content.examples !== "undefined") { %>
+          <div class="api-entry" id="examples">
+            <h5 class="api-entry-name">
+              <a href="#examples">
+                Examples
+              </a>
+            </h5>
+            <div class="api-entry-summary">
+              <% for (const example of content.examples) { %>
+                <div class="api-example">
+                  <%- mdRender(example.description) %>
+                  <%- mdRender(example.raw) %>
+                </div>
+              <% } %>
+            </div>
+          </div>
+        <% } %>
+
         <%- file %>
 
       </div>
