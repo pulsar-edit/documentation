@@ -1,5 +1,5 @@
 @import 'skeleton-less/less/skeleton.less';
-@import 'themes.less';
+@import 'less/themes.less';
 
 // Quality of Life changes to header class from skeleton
 .header {
@@ -13,7 +13,7 @@
     margin: 0.85rem 0 1rem;
     padding: 0;
     border-radius: 6px 6px 0 0;
-    background: @tab-header-background;
+    background: var(--tab-header-background);
     list-style: none;
     white-space: nowrap;
 
@@ -25,7 +25,7 @@
       padding: 6px 12px;
       border-radius: 6px 6px 0 0;
       background: transparent;
-      color: @tab-button-color;
+      color: var(--tab-button-color);
       font-weight: 600;
       font-size: .85rem;
       line-height: 1.4;
@@ -33,7 +33,7 @@
     }
 
     .tabs-tab-button.active {
-      background: @tab-button-active-background;
+      background: var(--tab-button-active-background);
     }
   }
 
@@ -58,12 +58,12 @@
 
   .custom-container-title {
     padding-left: 1.5rem;
-    color: @custom-container-title-color;
+    color: var(--custom-container-title-color);
   }
 
   &.note {
-    border-color: @custom-container-note-border;
-    background: @custom-container-note-background;
+    border-color: var(--custom-container-note-border);
+    background: var(--custom-container-note-background);
   }
 }
 
@@ -142,7 +142,7 @@ body {
 .page_header {
 
   padding: 1.5rem;
-  background-color: #161b22;
+  background-color: var(--page-header-background);
   gap: 1.5rem;
   align-items: center;
   display: flex;
@@ -178,7 +178,7 @@ body {
   }
 
   .page_header__link {
-    color: #c9d1d9;
+    color: var(--page-header-link);
   }
 }
 
@@ -202,16 +202,14 @@ body {
   text-decoration: none;
   z-index: 15;
   padding-top: 1rem;
-  background: white;
-  /* TODO */
+  background: var(--hovercard-background);
 
   .hovercard-card {
     width: 330px;
     padding: 15px 20px;
     border-radius: 5px;
     box-sizing: border-box;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-    //max-height: 200px;
+    box-shadow: 0px 5px 10px var(--hovercard-box-shadow);
     overflow: hidden;
 
     h3 {
@@ -226,4 +224,29 @@ body {
   &.visible {
     display: block;
   }
+}
+
+// Overwrite Skeleton values
+
+body {
+  color: var(--font-color);
+}
+
+a {
+  color: var(--link-color);
+
+  &:hover {
+    color: var(--link-color-hover);
+  }
+}
+
+code {
+  background: var(--code-background);
+  border: 1px solid var(--code-background-color);
+}
+
+.button,
+button {
+  color: var(--button-color);
+  border: 1px solid var(--button-border-color);
 }
