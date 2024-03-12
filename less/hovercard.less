@@ -1,0 +1,43 @@
+// Hovercard
+
+[data-hovercard]::before {
+  content: "{";
+}
+
+[data-hovercard]::after {
+  content: "}";
+}
+
+[data-hovercard] {
+  cursor: pointer;
+}
+
+.hovercard-element {
+  position: absolute;
+  display: none;
+  text-decoration: none;
+  z-index: 15;
+  padding-top: 1rem;
+  background: var(--hovercard-bg);
+
+  .hovercard-card {
+    width: 330px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 0px 5px 10px var(--hovercard-box-shadow);
+    overflow: hidden;
+
+    h3 {
+      padding-top: 0;
+      margin-top: 0;
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &.visible {
+    display: block;
+  }
+}

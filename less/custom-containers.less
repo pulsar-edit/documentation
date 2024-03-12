@@ -1,0 +1,35 @@
+
+// Custom containers from markdown-it
+.custom-container {
+  position: relative;
+  margin: 1rem 0;
+  padding: 0.25rem 1rem;
+  border-left-width: 0.3rem;
+  border-left-style: solid;
+  border-radius: 0.5rem;
+
+  .custom-container-title {
+    padding-left: 1.5rem;
+    color: var(--customContainerTitle-color);
+  }
+
+  &.note {
+    color: var(--customContainer_note-color, --font-color);
+    border-color: var(--customContainer_note-border, --customContainer-border);
+    background: var(--customContainer_note-bg, --customContainer-bg);
+
+    .custom-container-title {
+      color: var(--customContainerTitle_note-color, --customContainerTitle-color);
+    }
+  }
+
+  &.warning {
+    color: var(--customContainer_warning-color, --font-color);
+    border-color: var(--customContainer_warning-border, --customContainer-border);
+    background: var(--customContainer_warning-bg, --customContainer-bg);
+
+    .custom-container-title {
+      color: var(--customContainerTitle_warning-color, --customContainerTitle-color);
+    }
+  }
+}

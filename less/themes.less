@@ -9,57 +9,139 @@
   - font-color
 */
 
+// Variable Naming Guide
+/*
+  Each field below is optional and can stack:
+  <element name>_<variant>-<property>__<status>
+
+  Examples:
+    Tab Header Background
+      --tabHeader-bg:
+    Tab Header Background With "Hover" Status
+      --tabHeader-bg__hover:
+    Tab Header Background that's Primary Classed
+      --tabHeader_primary-bg:
+    Tab Header Background that's Primary Classed with "Hover" Status
+      --tabHeader_primary-bg__hover:
+
+  Recognized Properties:
+    * bg = background-color
+    * color = color
+    * border = border-color
+*/
+
 :root {
   // The default is set as dark in the HTML
-  --tab-header-background: #3a404c;
-  --tab-button-color: #eee;
-  --tab-button-active-background: #282c34;
-  --custom-container-title-color: #fdfdfe;
-  --custom-container-note-border: #d4d5d8;
-  --custom-container-note-background: #474748;
-  --page-header-background: #161b22;
-  --page-header-link: #c9d1d9;
-  --hovercard-background: white;
-  --hovercard-box-shadow: rgba(0, 0, 0, 0.1);
+
+  // Global Page Elements
+  --body-color: white;
   --font-color: #222;
+
+  // Generic Page Elements
+
+  // - links
   --link-color: #1eaedb;
-  --link-color-hover: #1b9cc5;
-  --code-background: #f1f1f1;
-  --code-border-color: #e1e1e1;
-  --button-color: #555;
-  --button-border-color: #bbb;
-  --input-btn-color: @secondary-color;
-  --button-color_hover: @dark-grey;
-  --button-color_hover-border: lighten(@dark-grey, 33.3%);
-  --input-btn-color_hover: @dark-grey;
-  --input-btn-border-color_hover: lighten(@dark-grey, 33.3%);
-  --button-color_focus: @dark-grey;
-  --button-border-color_focus: lighten(@dark-grey, 33.3%);
-  --input-btn-color_focus: @dark-grey;
-  --input-btn-border-color_focus: lighten(@dark-grey, 33.3%);
-  --button-color_primary: #fff;
-  --button-background-color_primary: @primary-color;
-  --button-border-color_primary: @primary-color;
-  --button-color_primary_hover: #fff;
-  --button-background-color_primary_hover: @link-color;
-  --button-border-color_primary_hover: @link-color;
-  --input-btn-color_hover: #fff;
-  --input-btn-background-color_hover: @link-color;
-  --input-btn-border-color_hover: @link-color;
-  --button-color_primary_focus: #fff;
-  --button-background-color_primary_focus: @link-color;
-  --button-border-color_primary_focus: @link-color;
-  --input-btn-color_primary_focus: #fff;
-  --input-btn-background-color_primary_focus: @link-color;
-  --input-bnt-border-color_primary_focus: @link-color;
-  --input-field-background-color: #fff;
-  --input-field-border-color: lighten(@border-color, 8.8%);
-  --textarea-background-color: #fff;
-  --textarea-border-color: lighten(@border-color, 8.8%);
-  --input-field-border-color_focus: @primary-color;
-  --textarea-border-color_focus: @primary-color;
-  --table-border-color: @light-grey;
-  --thematic-break-color: @light-grey;
+  --link-color__hover: #1b9cc5;
+
+  // - code blocks
+  --code-bg: #f1f1f1;
+  --code-border: #e1e1e1;
+
+  // - thematic break
+  --thematicBreak-color: @light-grey;
+
+  // - tables
+  --table-border: @light-grey;
+
+  // Buttons
+  --btn-color: #555;
+  --btn-border: #bbb;
+
+  --btn-color__hover: @dark-grey;
+  --btn-border__hover: lighten(@dark-grey, 33.3%);
+
+  --btn-color__focus: @dark-grey;
+  --btn-border__focus: lighten(@dark-grey, 33.3%);
+
+  --btn_primary-color: #fff;
+  --btn_primary-bg: @primary-color;
+  --btn_primary-border: @primary-color;
+
+  --btn_primary-color__hover: #fff;
+  --btn_primary-bg__hover: @link-color;
+  --btn_primary-border__hover: @link-color;
+
+  --btn_primary-color__focus: #fff;
+  --btn_primary-bg__focus: @link-color;
+  --btn_primary-border__focus: @link-color;
+
+  // Inputs
+
+  // - input buttons
+  --input_btn-color: @secondary-color;
+  --input_btn-border: #e1e1e1;
+
+  --input_btn-color__hover: @dark-grey;
+  --input_btn-border__hover: lighten(@dark-grey, 33.3%);
+
+  --input_btn-color__focus: @dark-grey;
+  --input_btn-border__focus: lighten(@dark-grey, 33.3%);
+
+  --input_btn_primary-color__hover: @dark-grey;
+  --input_btn_primary-bg__hover: @primary-color;
+  --input_btn_primary-border__hover: @primary-color;
+
+  --input_btn_primary-color__focus: #fff;
+  --input_btn_primary-bg__focus: @link-color;
+  --input_btn_primary-border__focus: @link-color;
+
+  // - input fields
+  --input_field-bg: #fff;
+  --input_field-border: lighten(@border-color, 8.8%);
+
+  --input_field-border__focus: @primary-color;
+
+  // - textareas
+  --textarea-bg: #fff;
+  --textarea-border: lighten(@border-color, 8.8%);
+
+  --textarea-border__focus: @primary-color;
+
+  // Tab Headers
+  --tabHeader-bg: #3a404c;
+  --tabBtn-color: #eee;
+  --tabBtn-bg_active: #282c34;
+
+
+  // Page Header
+  --pageHeader-bg: #161b22;
+  --pageHeader_link-color: #c9d1d9;
+
+  // Custom Containers
+
+  // - generic
+  --customContainerTitle-color: #fdfdfe;
+  --customContainer-border: #d4d5d8;
+  --customContainer-bg: #474748;
+
+  // - note
+  --customContainerTitle_note-color: #fdfdfe;
+  --customContainer_note-color: black;
+  --customContainer_note-border: #d4d5d8;
+  --customContainer_note-bg: #474748;
+
+  // - warning
+  --customContainerTitle_warning-color: white;
+  --customContainer_warning-color: black;
+  --customContainer_warning-border: #d4d5d8;
+  --customContainer_warning-bg: #474748;
+
+  // Hovercards
+  --hovercard-bg: white;
+  --hovercard-box-shadow: rgba(0, 0, 0, 0.1);
+
+  // Sidebar
+  --sidebar-border: black;
 }
 
 :root[data-theme="dark"] {

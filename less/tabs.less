@@ -1,0 +1,41 @@
+
+// Tabs from markdown-it
+.tabs-tabs-wrapper {
+  .tabs-tabs-header {
+    overflow-x: auto;
+    margin: 0.85rem 0 1rem;
+    padding: 0;
+    border-radius: 6px 6px 0 0;
+    background: var(--tabHeader-bg);
+    list-style: none;
+    white-space: nowrap;
+
+    .tabs-tab-button {
+      border-width: 0;
+      position: relative;
+      min-width: 3rem;
+      margin: 0;
+      padding: 6px 12px;
+      border-radius: 6px 6px 0 0;
+      background: transparent;
+      color: var(--tabBtn-color);
+      font-weight: 600;
+      font-size: .85rem;
+      line-height: 1.4;
+      cursor: pointer;
+    }
+
+    .tabs-tab-button.active {
+      background: var(--tabBtn-bg_active);
+    }
+  }
+
+  .tabs-tabs-container {
+    .tabs-tab-content {
+      display: none;
+    }
+    .tabs-tab-content.active {
+      display: block;
+    }
+  }
+}
