@@ -17,7 +17,7 @@ module.exports = (eleventyConfig) => {
   // Add passthrough file copies
 
   // copy the images from `pulsar-edit/.github`
-  eleventyConfig.addPassthroughCopy({ ".github/images": "img" });
+  eleventyConfig.addPassthroughCopy({ "dot-github/images": "img" });
   // copy the data from static to static
   eleventyConfig.addPassthroughCopy({ "static": "static" });
 

@@ -1,6 +1,6 @@
-[submodule ".github"]
-	path = .github
-	url = https://github.com/pulsar-edit/.github
 [submodule "pulsar"]
 	path = pulsar
 	url = https://github.com/pulsar-edit/pulsar
+[submodule "dot-github"]
+	path = dot-github
+	url = https://github.com/pulsar-edit/.github
