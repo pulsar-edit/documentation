@@ -25,4 +25,6 @@ As in it seems the workfow was something like:
 
 ## Latest Version
 
-The latest version of the API for the website to show is tracked in `./docs/api/api.11tydata.json` as the `latestPulsarVersion` key.
+The latest version of the API for the website to show is tracked in `./latest.json` as the `latest` key.
+
+The latest version of the API documentation according to the above file is always available at `latest`

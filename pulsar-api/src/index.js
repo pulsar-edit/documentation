@@ -23,10 +23,21 @@ async function main() {
   });
 
   // OBJS now has all API content
+  const latestVer = JSON.parse(fs.readFileSync(path.join(__dirname, "../latest.json"), { encoding: "utf8" } )).latest;
 
   for (let item in objs) {
+    let isLatestVer = false;
+
+    if (item == latestVer) {
+      isLatestVer = true;
+      // this means the current version we are documenting is the latest version
+    }
 
     await createIfDirAbsent(path.join(OUT, item));
+
+    if (isLatestVer) {
+      await createIfDirAbsent(path.join(OUT, "latest"));
+    }
 
     // Lets create the summary page
     let summaryHTML = await ejs.render(
@@ -48,10 +59,23 @@ async function main() {
     );
     console.log(`[pulsar-api] Writing ${path.relative(process.cwd(), path.join(OUT, item, "index.html"))}`);
 
+    if (isLatestVer) {
+      fs.writeFileSync(
+        path.join(OUT, "latest", "index.html"),
+        summaryHTML,
+        { encoding: "utf8" }
+      );
+      console.log(`[pulsar-api] Writing ${path.relative(process.cwd(), path.join(OUT, "latest", "index.html"))}`);
+    }
+
     for (let apiClass in objs[item].classes) {
       let html = await convert(apiClass, objs[item].classes[apiClass]);
 
       await createIfDirAbsent(path.join(OUT, item, apiClass));
+
+      if (isLatestVer) {
+        await createIfDirAbsent(path.join(OUT, "latest", apiClass));
+      }
 
       fs.writeFileSync(
         path.join(OUT, item, apiClass, "index.html"),
@@ -60,6 +84,14 @@ async function main() {
       );
       console.log(`[pulsar-api] Writing ${path.relative(process.cwd(), path.join(OUT, item, apiClass, "index.html"))}`);
 
+      if (isLatestVer) {
+        fs.writeFileSync(
+          path.join(OUT, "latest", apiClass, "index.html"),
+          html,
+          { encoding: "utf8" }
+        );
+        console.log(`[pulsar-api] Writing ${path.relative(process.cwd(), path.join(OUT, "latest", apiClass, "index.html"))}`);
+      }
     }
 
   }

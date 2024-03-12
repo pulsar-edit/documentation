@@ -42,11 +42,11 @@ future whenever the value of that key path changes. If you only want to invoke
 the callback the next time the value changes, use `atom.config.onDidChange`
 instead.
 
-Subscription methods return {Disposable}
+Subscription methods return [`Disposable`](/api/pulsar/latest/Disposable/)
 objects that can be used to unsubscribe. Note in the example above how we save
 the subscription to the `@fontSizeObserveSubscription` instance variable and
 dispose of it when the view is detached. To group multiple subscriptions
-together, you can add them all to a [`CompositeDisposable`](https://atom.io/docs/api/latest/CompositeDisposable)
+together, you can add them all to a [`CompositeDisposable`](/api/pulsar/latest/CompositeDisposable/)
 that you dispose when the view is detached.
 
 ## Writing Config Settings
@@ -63,4 +63,4 @@ atom.config.set("core.showInvisibles", true);
 
 If you're exposing package configuration via specific key paths, you'll want to
 associate them with a schema in your package's main module. Read more about
-schemas in the [Config API documentation](https://atom.io/docs/api/latest/Config). <!--TODO: There is no Pulsar API documented yet so keeping link to Atom until we have this-->
+schemas in the [Config API documentation](/api/pulsar/latest/Config/).

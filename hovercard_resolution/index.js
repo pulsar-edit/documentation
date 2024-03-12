@@ -89,7 +89,7 @@ async function resolveStaticHovercard(val) {
 }
 
 async function resolveApiHovercard(val) {
-  const latest = JSON.parse(fs.readFileSync(path.join(__dirname, "../docs/api/api.11tydata.json"), { encoding: "utf8" })).latestPulsarVersion;
+  const latest = JSON.parse(fs.readFileSync(path.join(__dirname, "../pulsar-api/latest.json"), { encoding: "utf8" })).latest;
   const api = JSON.parse(fs.readFileSync(path.join(__dirname, `../pulsar-api/content/${latest}.json`), { encoding: "utf8" }));
 
   let resolved = false;
