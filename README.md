@@ -39,8 +39,8 @@ The biggest aspects of this that still have to be completed:
 - [X] Create all EJS templates needed
 - [X] Create collections and automatically create collection views on summary pages
 - [X] Implement Dark Mode
-- [ ] Implement Light Mode
-- [ ] Implement Theme Switcher
+- [X] Implement Light Mode
+- [X] Implement Theme Switcher
 - [X] Add all original Launch Manual Docs
 - [X] Add all relevant documentation
 - [X] Implement Pulsar API Docs

@@ -2,6 +2,7 @@
 window.addEventListener("load", () => {
   setupTabs();
   setupHovercards();
+  setupThemeSwitcher();
 });
 
 function setupTabs() {
@@ -96,4 +97,58 @@ async function hovercardEventListener(event) {
   ele.style.left = `${event.clientX}px`;
   ele.style.top = `${event.pageY}px`;
   ele.classList.add("visible");
+}
+
+function setupThemeSwitcher() {
+  const themeBtn = document.getElementById("theme-switcher");
+
+  // We want to:
+  //  - listen for clicks on this button to switch the theme
+  //  - change this theme according to the OS prefferred theme
+  //  - change this theme according to any stored preferences on this site
+  //  - listen for OS prefferred theme changing
+
+  let userPref = findSavedUserPrefTheme() ?? findOSThemePref() ?? "dark";
+
+  document.documentElement.dataset.theme = userPref;
+
+  // setup listens
+  themeBtn.addEventListener("click", (event) => {
+    let curValue = document.documentElement.dataset.theme;
+
+    if (curValue === "dark") {
+      document.documentElement.dataset.theme = "light";
+      localStorage.setItem("preferred-theme", "light");
+    } else if (curValue === "light") {
+      document.documentElement.dataset.theme = "dark";
+      localStorage.setItem("preferred-theme", "dark");
+    } else {
+      // this was an unsupported value
+      document.documentElement.dataset.theme = DEFAULT_THEME;
+    }
+  });
+
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
+    let newScheme = event.matches ? "dark" : "light";
+    document.documentElement.dataset.theme = newScheme;
+  });
+}
+
+function findOSThemePref() {
+  if (window.matchMedia) {
+    if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+      // os prefers light
+      return "light";
+    } else {
+      // os prefers dark
+      return "dark";
+    }
+  } else {
+    // this API is not available
+    return null;
+  }
+}
+
+function findSavedUserPrefTheme() {
+  return localStorage.getItem("preferred-theme");
 }

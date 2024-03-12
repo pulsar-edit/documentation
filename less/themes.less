@@ -341,5 +341,155 @@
 }
 
 :root[data-theme="light"] {
+  // Global Page Elements
+  --body-color: hsl(230, 1%, 92%);
+  --font-color: hsl(230, 1%, 26%);
 
+  // Generic Page Elements
+
+  // - links
+  --link-color: hsl(208, 100%, 54%);
+  --link-color__hover: hsl(208, 100%, 58%);
+
+  // - code blocks
+  --code-bg: hsl(0, 0%, 100%);
+  --code-border: hsl(130, 1%, 86%);
+
+  // - thematic break
+  --thematicBreak-color: hsl(230, 1%, 92%);
+
+  // - tables
+  --table-border: hsl(230, 1%, 92%);
+
+  // Buttons
+  --btn-color: hsl(130, 1%, 26%);
+  --btn-border: hsl(230, 1%, 86%);
+  --btn-bg: hsl(0, 0%, 100%);
+
+  --btn-color__hover: hsl(230, 1%, 14%);
+  --btn-border__hover: hsl(230, 1%, 866%);
+  --btn-bg__hover: hsl(0, 0%, 96%);
+
+  --btn-color__focus: hsl(230, 1%, 26%);
+  --btn-border__focus: #556de8;
+  --btn-bg__focus: hsl(0, 0%, 96%);
+
+  --btn_primary-color: white;
+  --btn_primary-bg: #5871ef;
+  --btn_primary-border: hsl(230, 1%, 86%);
+
+  --btn_primary-color__hover: white;
+  --btn_primary-bg__hover: #5871ef;
+  --btn_primary-border__hover: hsl(230, 1%, 86%);
+
+  --btn_primary-color__focus: white;
+  --btn_primary-bg__focus: #5871ef;
+  --btn_primary-border__focus: transparent;
+
+  // Inputs
+
+  // - input buttons
+  --input_btn-color: var(--btn-color);
+  --input_btn-border: var(--btn-border);
+  --input_btn-bg: var(--btn-bg);
+
+  --input_btn-color__hover: var(--btn-color__hover);
+  --input_btn-border__hover: var(--btn-border__hover);
+  --input_btn-bg__hover: var(--btn-bg__hover);
+
+  --input_btn-color__focus: var(--btn-color__focus);
+  --input_btn-border__focus: var(--btn-border__focus);
+  --input_btn-bg__focus: var(--btn-bg__focus);
+
+  --input_btn_primary-color: var(--btn_primary-color);
+  --input_btn_primary-bg: var(--btn_primary-bg);
+  --input_btn_primary-border: var(--btn_primary-border);
+
+  --input_btn_primary-color__hover: var(--btn_primary-color__hover);
+  --input_btn_primary-bg__hover: var(--btn_primary-bg__hover);
+  --input_btn_primary-border__hover: var(--btn_primary-border__hover);
+
+  --input_btn_primary-color__focus: var(--btn_primary-color__focus);
+  --input_btn_primary-bg__focus: var(--btn_primary-bg__focus);
+  --input_btn_primary-border__focus: var(--btn_primary-border__focus);
+
+  // - input fields
+  --input_field-bg: hsl(0, 0%, 100%);
+  --input_field-border: hsl(230, 1%, 86%);
+
+  --input_field-border__focus: #556de8;
+
+  // - textareas
+  --textarea-bg: var(--input_field-bg);
+  --textarea-border: var(--input_field-border);
+
+  --textarea-border__focus: var(--input_field-border__focus);
+
+  // Tab Headers
+  --tabHeader-bg: hsl(230, 1%, 92%);
+  --tabHeader-box-shadow: hsl(230deg 1% 86%);
+  --tabBtn-color: hsl(230, 1%, 14%);
+  --tabBtn-border: hsl(230, 1%, 86%);
+  --tabBtn-bg_active: hsl(230, 1%, 96%);
+
+
+  // Page Header
+  --pageHeader-bg: hsl(230, 1%, 92%);
+  --pageHeader-border: hsl(230, 1%, 86%);
+  --pageHeader_link-color: hsl(230, 1%, 14%);
+
+  // Custom Containers
+
+  // - generic
+  --customContainerTitle-color: hsl(230, 1%, 26%);
+  --customContainer-border: hsl(230, 1%, 92%);
+  --customContainer-bg: hsl(230, 1%, 92%);
+  --customContainer-color: var(--font-color);
+
+  // - note
+  --customContainerTitle_note-color: hsl(230, 1%, 26%);
+  --customContainer_note-color: var(--customContainer-color);
+  --customContainer_note-border: var(--customContainer-border);
+  --customContainer_note-bg: var(--customContainer-bg);
+
+  // - warning
+  --customContainerTitle_warning-color: hsl(37, 90%, 44%);
+  --customContainer_warning-color: var(--customContainer-color);
+  --customContainer_warning-border: var(--customContainer-border);
+  --customContainer_warning-bg: var(--customContainer-bg);
+
+  // - info
+  --customContainerTitle_info-color: hsl(208, 100%, 54%);
+  --customContainer_info-color: var(--customContainer-color);
+  --customContainer_info-border: var(--customContainer-border);
+  --customContainer_info-bg: var(--customContainer-bg);
+
+  // - tip
+  --customContainerTitle_tip-color: hsl(132, 60%, 44%);
+  --customContainer_tip-color: var(--customContainer-color);
+  --customContainer_tip-border: var(--customContainer-border);
+  --customContainer_tip-bg: var(--customContainer-bg);
+
+  // - danger
+  --customContainerTitle_danger-color: hsl(0, 90%, 56%);
+  --customContainer_danger-color: var(--customContainer-color);
+  --customContainer_danger-border: var(--customContainer-border);
+  --customContainer_danger-bg: var(--customContainer-bg);
+
+  // Hovercards
+  --hovercard-bg: var(--body-color);
+  --hovercard-box-shadow: hsl(0deg 0% 0% / 40%);
+  --hovercard-color: hsl(230, 1%, 26%);
+
+  // Sidebar
+  --sidebar-border: hsl(230, 1%, 86%);
+
+  // Blocks
+  --block-color: var(--btn-color);
+  --block-border: var(--btn-border);
+  --block-bg: var(--btn-bg);
+
+  --block-color__hover: var(--btn-color__hover);
+  --block-border__hover: var(--btn-border__hover);
+  --block-bg__hover: var(--btn-bg__hover);
 }
