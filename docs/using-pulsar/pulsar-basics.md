@@ -7,7 +7,7 @@ Now that Pulsar is installed on your system, let's fire it up, configure it and 
 
 When you launch Pulsar for the first time, you should get a screen that looks like this:
 
-![Pulsar's welcome screen](TODO)
+![Pulsar's welcome screen](/img/atom/first-launch.png)
 
 This is the Pulsar welcome screen (powered by the `welcome` package) and it gives you a pretty good starting point for how to get started with the editor.
 
@@ -21,11 +21,11 @@ A buffer is the text content of a file in Pulsar. It's basically the same as a f
 
 ### Command
 
-A command is a bit of functionality in Pulsar that can be triggered by the user either through a [keybinding]() or a menu item.
+A command is a bit of functionality in Pulsar that can be triggered by the user either through a [keybinding](/using-pulsar/pulsar-basics/#keybinding) or a menu item.
 
 ### Dock
 
-Docks are collapsible [pane containers]() that attach to the left, right, and bottom sides of the Pulsar window.
+Docks are collapsible [pane containers](/using-pulsar/pulsar-basics/#pane-container) that attach to the left, right, and bottom sides of the Pulsar window.
 
 Examples:
 
@@ -49,30 +49,30 @@ A key sequence is a special case of a key combination. It is a key combination t
 
 ### Keybinding
 
-A keybinding is a mapping of a [key combination](), such as [[Ctrl+Enter]] to a Pulsar command.
+A keybinding is a mapping of a [key combination](/using-pulsar/pulsar-basics/#key-combination), such as [[Ctrl+Enter]] to a Pulsar command.
 
 ### Keymap
 
-A keymap is a collection of [keybindings](). It can also refer to a file or files containing keybindings for a Pulsar package or Pulsar itself.
+A keymap is a collection of [keybindings](/using-pulsar/pulsar-basics/#keybinding). It can also refer to a file or files containing keybindings for a Pulsar package or Pulsar itself.
 
 ### Package
 
-A Pulsar plugin. There is a bunch more information in the section on [Pulsar Packages]().
+A Pulsar plugin. There is a bunch more information in the section on [Pulsar Packages](/using-pulsar/pulsar-packages/).
 
 ### Pane
 
-A pane is a visual section of the editor space. Each pane can hold multiple [pane items](). There is always at least one pane in each Pulsar window.
+A pane is a visual section of the editor space. Each pane can hold multiple [pane items](/using-pulsar/pulsar-basics/#pane-item). There is always at least one pane in each Pulsar window.
 
 ### Pane Container
 
-A section of the Pulsar UI that can contain multiple [panes]().
+A section of the Pulsar UI that can contain multiple [panes](/using-pulsar/pulsar-basics/#pane).
 
 ### Pane Item
 
-Some item, often an editor, that is displayed within a [pane](). In the default configuration of Pulsar, pane items are represented by tags at the top of each pane.
+Some item, often an editor, that is displayed within a [pane](/using-pulsar/pulsar-basics/#pane-item). In the default configuration of Pulsar, pane items are represented by tags at the top of each pane.
 
 ::: info
-**Note:** The reason why we don't call them "tabs" is because you can disable the [tabs package]() and then there aren't any tabs. For a similar reason, we don't call them files because some things can be shown in a pane that aren't files, like the Settings View.
+**Note:** The reason why we don't call them "tabs" is because you can disable the {tabs} package and then there aren't any tabs. For a similar reason, we don't call them files because some things can be shown in a pane that aren't files, like the Settings View.
 :::
 
 ### Panel
@@ -95,19 +95,19 @@ This search-driven menu can do just about any major task that is possible in Pul
 
 and search for the command.
 
-![Command Palette](TODO "Command Palette")
+![Command Palette](/img/atom/command-palette.png "Command Palette")
 
 Not only can you see and quickly search through thousands of possible commands, but you can also see if there is a keybinding associated with it. This is great because it means you can guess your way to doing interesting things while also learning the shortcut key strokes for doing it.
 
-For the rest of this documentation, we will try to be clear as to the text you can search for in the Command Paelette in addition to the keybinding for different commands.
+For the rest of this documentation, we will try to be clear as to the text you can search for in the Command Palette in addition to the keybinding for different commands.
 
 ## Settings and Preferences
 
 Pulsar has a number of settings and preferences you can modify in the Settings View.
 
-![Settings View](TODO "Settings View")
+![Settings View](/img/atom/settings-view.png "Settings View")
 
-This includes things like changing the theme, specifying how to handle wrapping, font settings, tab size, scroll speed and much more. You can also use this screen to install new packages and themes, which we'll cover in [Pulsar Packages](TODO).
+This includes things like changing the theme, specifying how to handle wrapping, font settings, tab size, scroll speed and much more. You can also use this screen to install new packages and themes, which we'll cover in [Pulsar Packages](/using-pulsar/pulsar-packages/).
 
 To open the Settings View, you can:
 
@@ -116,7 +116,7 @@ To open the Settings View, you can:
   **_MAC_**: _Pulsar > Preferences_ -
   **_WIN_**: _File > Settings_
   menu item in the menu bar
-- Search for `settings-view:open` in the [Command Palette](#command-palette)
+- Search for `settings-view:open` in the [Command Palette](/using-pulsar/pulsar-basics/#command-palette)
 - Use the
   **_LNX/WIN_**: [[Ctrl+,]] -
   **_MAC_**: [[Cmd+,]]
@@ -137,7 +137,7 @@ The Settings View also lets you change the themes for Pulsar. Pulsar ships with 
 
 The UI themes control the style of UI elements like the tabs and the tree view, while the syntax themes control the syntax highlighting of text you load into the editor. To change the syntax or UI theme, simply pick something different in the appropriate dropdown list.
 
-There are also hundreds of themes on the [Pulsar Package Repository](https://web.pulsar-edit.dev) that you can choose from if you want something different. Customizing a theme in [Style Tweaks](TODO) and creating your own theme in [Creating a Theme](TODO) will be covered later.
+There are also hundreds of themes on the [Pulsar Package Repository](https://web.pulsar-edit.dev) that you can choose from if you want something different. Customizing a theme in [Style Tweaks](/customize-pulsar/style-tweaks/) and creating your own theme in [Developing a Theme](/developing-for-pulsar/developing-a-theme/) will be covered later.
 
 ### Soft Wrap
 

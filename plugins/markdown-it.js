@@ -50,4 +50,7 @@ md
   "tip", { render: containerRender("tip") }
 ).use(container,
   "danger", { render: containerRender("danger") }
-).use(require("../markdown-it-plugins/hovercard.js"));
+)
+.use(require("../markdown-it-plugins/hovercard.js"))
+.use(require("markdown-it-anchor"),
+);

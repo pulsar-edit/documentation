@@ -148,7 +148,7 @@ There are no keybindings for the whitespace commands, so you will have to search
 your command palette for "Convert Spaces to Tabs" (or vice versa) to run one of
 these commands.
 
-The whitespace commands are implemented in the [whitespace](https://github.com/pulsar-edit/whitespace)
+The whitespace commands are implemented in the {whitespace}
 package. The settings for the whitespace commands are managed on the page for
 the `whitespace` package.
 
@@ -205,7 +205,7 @@ There are a few other interesting bracket related commands that you can use.
 
 :::
 
-The brackets functionality is implemented in the [bracket-matcher](https://github.com/pulsar-edit/bracket-matcher)
+The brackets functionality is implemented in the {bracket-matcher}
 package. Like all of these packages, to change defaults related to bracket
 handling, or to disable it entirely, you can navigate to this package in the
 Settings view.
@@ -244,5 +244,5 @@ If you pull up the encoding menu and change the active encoding to something
 else, the file will be written out in that encoding the next time you save the
 file.
 
-The encoding selector is implemented in the [encoding-selector](https://github.com/pulsar-edit/encoding-selector)
+The encoding selector is implemented in the {encoding-selector}
 package.
