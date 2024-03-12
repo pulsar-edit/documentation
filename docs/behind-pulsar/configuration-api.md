@@ -42,7 +42,7 @@ future whenever the value of that key path changes. If you only want to invoke
 the callback the next time the value changes, use `atom.config.onDidChange`
 instead.
 
-Subscription methods return [`Disposable`](https://atom.io/docs/api/latest/Disposable) <!--TODO: There is no Pulsar API documented yet so keeping link to Atom until we have this-->
+Subscription methods return {Disposable}
 objects that can be used to unsubscribe. Note in the example above how we save
 the subscription to the `@fontSizeObserveSubscription` instance variable and
 dispose of it when the view is detached. To group multiple subscriptions
