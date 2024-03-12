@@ -7,9 +7,11 @@
   display: grid;
 
   .block {
-
-    border-width: 1px;
     border-radius: 0.75rem;
+    background-color: var(--block-bg);
+    text-align: center;
+    border: 1px solid var(--block-border);
+    color: var(--block-color);
     width: 100%;
     display: block;
     margin-top: 0.5rem;
@@ -37,5 +39,15 @@
 
       }
     }
+  }
+
+  .block:hover {
+    background-color: var(--block-bg__hover);
+    border-color: var(--block-border__hover);
+    color: var(--block-color__hover);
+  }
+
+  a {
+    text-decoration: none;
   }
 }

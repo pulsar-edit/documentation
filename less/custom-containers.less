@@ -7,6 +7,9 @@
   border-left-width: 0.3rem;
   border-left-style: solid;
   border-radius: 0.5rem;
+  color: var(--customContainer-color);
+  border-color: var(--customContainer-border);
+  background-color: var(--customContainer-bg);
 
   .custom-container-title {
     padding-left: 1.5rem;
@@ -14,9 +17,9 @@
   }
 
   &.note {
-    color: var(--customContainer_note-color, --font-color);
+    color: var(--customContainer_note-color, --customContainer-color);
     border-color: var(--customContainer_note-border, --customContainer-border);
-    background: var(--customContainer_note-bg, --customContainer-bg);
+    background-color: var(--customContainer_note-bg, --customContainer-bg);
 
     .custom-container-title {
       color: var(--customContainerTitle_note-color, --customContainerTitle-color);
@@ -24,9 +27,9 @@
   }
 
   &.warning {
-    color: var(--customContainer_warning-color, --font-color);
+    color: var(--customContainer_warning-color, --customContainer-color);
     border-color: var(--customContainer_warning-border, --customContainer-border);
-    background: var(--customContainer_warning-bg, --customContainer-bg);
+    background-color: var(--customContainer_warning-bg, --customContainer-bg);
 
     .custom-container-title {
       color: var(--customContainerTitle_warning-color, --customContainerTitle-color);

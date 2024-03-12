@@ -18,6 +18,7 @@ a {
 button {
   color: var(--btn-color);
   border-color: var(--btn-border);
+  background-color: var(--btn-bg);
 }
 
 input {
@@ -26,13 +27,15 @@ input {
   &[type="button"] {
     color: var(--input_btn-color);
     border-color: var(--input_btn-border);
+    background-color: var(--input_btn-bg);
   }
 }
 
 .button:hover,
 button:hover {
   color: var(--btn-color__hover);
-  border-color: var(--button-color_hover-border);
+  border-color: var(--btn-border__hover);
+  background-color: var(--btn-bg__hover);
 }
 
 input {
@@ -41,6 +44,7 @@ input {
   &[type="button"]:hover {
     color: var(--input_btn-color__hover);
     border-color: var(--input_btn-border__hover);
+    background-color: var(--input_btn-bg__hover);
   }
 }
 
@@ -48,6 +52,7 @@ input {
 button:focus {
   color: var(--btn-color__focus);
   border-color: var(--btn-border__focus);
+  background-color: var(--btn-bg__focus);
 }
 
 input {
@@ -56,6 +61,7 @@ input {
   &[type="button"]:focus {
     color: var(--input_btn-color__focus);
     border-color: var(--input_btn-border__focus);
+    background-color: var(--input_btn-bg__focus);
   }
 }
 
@@ -64,6 +70,16 @@ button.button-primary {
   color: var(--btn_primary-color);
   background-color: var(--btn_primary-bg);
   border-color: var(--btn_primary-border);
+}
+
+input {
+  &[type="submit"].button-primary,
+  &[type="reset"].button-primary,
+  &[type="button"].button-primary {
+    color: var(--input_btn_primary-color);
+    border-color: var(--input_btn_primary-border);
+    background-color: var(--input_btn_primary-bg);
+  }
 }
 
 .button.button-primary:hover,
