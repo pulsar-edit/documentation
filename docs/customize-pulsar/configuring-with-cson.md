@@ -3,8 +3,8 @@ title: Configuring with CSON
 layout: doc.ejs
 ---
 
-All of Pulsar's config files (with the exception of your [style sheet](#style-tweaks)
-and your [Init Script](../core-hacking#the-init-file) are written in CSON, short
+All of Pulsar's config files (with the exception of your [style sheet](/customize-pulsar/style-tweaks/)
+and your [Init Script](/customize-pulsar/the-init-file/) are written in CSON, short
 for [CoffeeScript Object Notation](https://github.com/bevry/cson#what-is-cson).
 Just like its namesake JSON, [JavaScript Object Notation](https://json.org/),
 CSON is a text format for storing structured data in the form of simple objects

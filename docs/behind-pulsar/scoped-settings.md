@@ -48,7 +48,7 @@ targets specific nodes in the DOM. Some examples:
 '.function.name' # selects all function names in any language
 ```
 
-[`Config::set`](https://atom.io/docs/api/latest/Config#instance-set) accepts a <!--TODO: There is currently no Pulsar API doc so this is being left for the time being-->
+[`Config::set`](/api/pulsar/latest/Config/#essential-set) accepts a
 `scopeSelector`. If you'd like to set a setting for JavaScript function names,
 you can give it the JavaScript function name `scopeSelector`:
 
@@ -60,7 +60,7 @@ atom.config.set("my-package.my-setting", "special value", {
 
 ## Scope Descriptors
 
-A scope descriptor is an [Object](https://atom.io/docs/api/latest/ScopeDescriptor) <!--TODO: There is currently no Pulsar API doc so this is being left for the time being-->
+A scope descriptor is an [Object](/api/pulsar/latest/ScopeDescriptor/)
 that wraps an `Array` of `String`s. The Array describes a path from the root of
 the syntax tree to a token including _all_ scope names for the entire path.
 
@@ -71,7 +71,7 @@ would be:
 ["source.js", "meta.function.js", "entity.name.function.js"];
 ```
 
-[`Config::get`](https://atom.io/docs/api/latest/Config#instance-get) accepts a <!--TODO: There is currently no Pulsar API doc so this is being left for the time being-->
+[`Config::get`](/api/pulsar/latest/Config/#essential-get) accepts a
 `scopeDescriptor`. You can get the value for your setting scoped to JavaScript
 function names via:
 
@@ -89,11 +89,11 @@ const value = atom.config.get("my-package.my-setting", {
 But, you do not need to generate scope descriptors by hand. There are a couple
 methods available to get the scope descriptor from the editor:
 
-- [`Editor::getRootScopeDescriptor`](https://atom.io/docs/api/latest/TextEditor#instance-getRootScopeDescriptor) <!--TODO: There is currently no Pulsar API doc so this is being left for the time being-->
+- [`Editor::getRootScopeDescriptor`](/api/pulsar/latest/TextEditor/#essential-getrootscopedescriptor)
   to get the language's descriptor. For example: `[".source.js"]`
-- [`Editor::scopeDescriptorForBufferPosition`](https://atom.io/docs/api/latest/TextEditor#instance-scopeDescriptorForBufferPosition) <!--TODO: There is currently no Pulsar API doc so this is being left for the time being-->
+- [`Editor::scopeDescriptorForBufferPosition`](/api/pulsar/latest/TextEditor/#essential-scopedescriptorforbufferposition)
   to get the descriptor at a specific position in the buffer.
-- [`Cursor::getScopeDescriptor`](https://atom.io/docs/api/latest/Cursor#instance-getScopeDescriptor) <!--TODO: There is currently no Pulsar API doc so this is being left for the time being-->
+- [`Cursor::getScopeDescriptor`](/api/pulsar/latest/Cursor/#public-getscopedescriptor)
   to get a cursor's descriptor based on position. eg. if the cursor were in the
   name of the method in our example it would return `["source.js", "meta.function.js", "entity.name.function.js"]`
 

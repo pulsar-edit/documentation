@@ -68,7 +68,7 @@ take precedence over anything set in the global section for that language only.
 
 In order to write these overrides effectively, you'll need to know the scope
 name for the language. We've already done this for finding a scope for writing a
-snippet in [Snippet Format](#snippet-format), but we can quickly cover it
+snippet in [Snippet Format](/customize-pulsar/creating-your-own-snippets/#snippet-format), but we can quickly cover it
 again.
 
 The scope name is shown in the settings view for each language. Click on

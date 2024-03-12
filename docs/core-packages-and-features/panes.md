@@ -64,7 +64,7 @@ configure whether panes auto-close when empty in the Settings View with the
 ::: tip Tip
 
 If you don't like using tabs, you don't have to. You can disable the
-[tabs package](https://github.com/pulsar-edit/tabs) and each pane will still support
+{tabs} package and each pane will still support
 multiple pane items. You just won't have tabs to use to click between them.
 
 :::

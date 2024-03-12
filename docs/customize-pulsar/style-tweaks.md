@@ -24,7 +24,7 @@ rule to your `styles.less` file:
 ```
 
 The easiest way to see what classes are available to style is to inspect the DOM
-manually via the Developer Tools. To go over the Developer Tools in great detail [refer to it's documentation](), but for now let's take a simple look. You can open
+manually via the Developer Tools. To go over the Developer Tools in great detail [refer to it's documentation](/debugging-pulsar/check-for-errors-in-developer-tools/), but for now let's take a simple look. You can open
 the Developer Tools by pressing
 **_LNX/WIN_**: <kbd>Ctrl+Shift+I</kbd> -
 **_MAC_**: <kbd>Alt+Cmd+I</kbd>, which will bring up the Chromium Developer Tools

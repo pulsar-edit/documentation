@@ -83,6 +83,6 @@ with `folder1` to search only in the first folder.
 Press [[Esc]] while focused on the Find and Replace panel to clear the
 pane from your workspace.
 
-The Find and Replace functionality is implemented in the [find-and-replace](https://github.com/pulsar-edit/find-and-replace)
+The Find and Replace functionality is implemented in the {find-and-replace}
 package and uses the [scandal](https://github.com/pulsar-edit/scandal) Node module to
 do the actual searching.

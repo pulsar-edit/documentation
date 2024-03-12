@@ -28,7 +28,7 @@ You can open this file in an editor from the
 ## Configuration Key Reference
 
 - `core`
-  - `customFileTypes`: Associations of language scope to file extensions (see [Customizing Language Recognition](#customizing-language-recognition))
+  - `customFileTypes`: Associations of language scope to file extensions (see [Customizing Language Recognition](/customize-pulsar/customizing-language-recognition/))
   - `disabledPackages`: An array of package names to disable
   - `excludeVcsIgnoredPaths`: Don't search within files specified by `.gitignore`
   - `ignoredNames`: File names to ignore across all of Pulsar

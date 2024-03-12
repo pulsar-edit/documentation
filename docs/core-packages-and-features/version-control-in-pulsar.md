@@ -29,7 +29,7 @@ This command goes onto the undo stack so you can use
 
 ## Git status list
 
-Pulsar ships with the [fuzzy-finder package](https://github.com/pulsar-edit/pulsar/tree/HEAD/packages/fuzzy-finder)
+Pulsar ships with the {fuzzy-finder} package
 which provides
 **_LNX/WIN_**: [[Ctrl+T]] -
 **_MAC_**: [[Cmd+T]] to quickly open files
@@ -49,7 +49,7 @@ untracked or modified.
 
 ## Commit editor
 
-Pulsar can be used as your Git commit editor and ships with the [language-git package](https://github.com/pulsar-edit/pulsar/tree/HEAD/packages/language-git)
+Pulsar can be used as your Git commit editor and ships with the {language-git} package
 which adds syntax highlighting to edited commit, merge, and rebase messages.
 
 ![Git commit message highlighting](/img/atom/git-message.gif "Git commit message highlighting")
@@ -62,13 +62,13 @@ You can configure Pulsar to be your Git commit editor with the following command
 $ git config --global core.editor "pulsar --wait"
 ```
 
-The [language-git](https://github.com/pulsar-edit/pulsar/tree/HEAD/packages/language-git) package will help
+The {language-git} package will help
 remind you to be brief by colorizing the first lines of commit messages when
 they're longer than 50 or 65 characters.
 
 ## Status bar icons
 
-The [status-bar](https://github.com/pulsar-edit/pulsar/tree/HEAD/packages/status-bar) package that ships with
+The {status-bar} package that ships with
 Pulsar includes several Git decorations that display on the right side of the
 status bar:
 
@@ -81,7 +81,7 @@ the file was last committed will be displayed as well.
 
 ## Line diffs
 
-The included [git-diff](https://github.com/pulsar-edit/pulsar/tree/HEAD/packages/git-diff) package colorizes
+The included {git-diff} package colorizes
 the gutter next to lines that have been added, edited, or removed.
 
 ![Git line diff indications](/img/atom/git-lines.png "Git line diff indications")

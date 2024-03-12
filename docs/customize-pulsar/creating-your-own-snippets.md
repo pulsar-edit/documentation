@@ -63,7 +63,7 @@ place the cursor after the `;`
 
 Snippet keys, unlike CSS selectors, can only be repeated once per level. If
 there are duplicate keys at the same level, then only the last one will be read.
-See [Configuring with CSON](TODO)
+See [Configuring with CSON](/customize-pulsar/configuring-with-cson/)
 for more information.
 
 :::
@@ -124,14 +124,14 @@ keys for additional snippets inside the scope key:
     'body': '![GitHub Octocat](https://assets-cdn.github.com/images/modules/logos_page/Octocat.png)'
 ```
 
-Again, see [Configuring with CSON](TODO)
+Again, see [Configuring with CSON](/customize-pulsar/configuring-with-cson/)
 for more information on CSON key structure and non-repeatability.
 
 ## More Info
 
-The snippets functionality is implemented in the [snippets](https://github.com/pulsar-edit/snippets)
+The snippets functionality is implemented in the {snippets}
 package.
 
-For more examples, see the snippets in the [language-html](https://github.com/pulsar-edit/language-html/blob/master/snippets/language-html.cson)
-and [language-javascript](https://github.com/pulsar-edit/language-javascript/blob/master/snippets/language-javascript.cson)
+For more examples, see the snippets in the [language-html](https://github.com/pulsar-edit/pulsar/tree/HEAD/packages/language-html/snippets/language-html.cson)
+and [language-javascript](https://github.com/pulsar-edit/pulsar/tree/HEAD/packages/language-javascript/snippets/language-javascript.cson)
 packages.

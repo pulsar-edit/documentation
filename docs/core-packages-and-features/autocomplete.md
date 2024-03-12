@@ -19,4 +19,4 @@ package you can toggle a setting to make autocomplete-plus look for text in all
 your open buffers rather than just the current file.
 
 The Autocomplete functionality is implemented in the
-[autocomplete-plus](https://github.com/pulsar-edit/autocomplete-plus) package.
+{autocomplete-plus} package.

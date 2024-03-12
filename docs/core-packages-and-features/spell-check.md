@@ -23,5 +23,5 @@ The default grammars to spell check are `text.plain`, `source.gfm`,
 `text.git-commit`, `source.asciidoc`, `source.rst`, and `text.restructuredtext`
 but you can add other grammars if you wish to check those types of files too.
 
-The spell checking is implemented in the [spell-check](https://github.com/pulsar-edit/pulsar/tree/HEAD/packages/spell-check)
+The spell checking is implemented in the {spell-check}
 package.

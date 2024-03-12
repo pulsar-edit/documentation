@@ -21,5 +21,5 @@ clipboard when the preview is focused and you press
 **_MAC_**: [[Cmd+C]] or if you right-click in the preview
 pane and choose "Copy as HTML".
 
-Markdown preview is implemented in the [markdown-preview](https://github.com/pulsar-edit/pulsar/tree/HEAD/packages/markdown-preview)
+Markdown preview is implemented in the {markdown-preview}
 package.

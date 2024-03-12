@@ -23,5 +23,5 @@ wish to change the selected grammar, you can pull up the Grammar Selector with
 When the grammar of a file is changed, Atom will remember that for the current
 session.
 
-The Grammar Selector functionality is implemented in the [grammar-selector](https://github.com/pulsar-edit/pulsar/tree/master/packages/grammar-selector)
+The Grammar Selector functionality is implemented in the {grammar-selector}
 package.

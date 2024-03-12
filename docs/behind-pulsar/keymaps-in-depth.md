@@ -312,7 +312,7 @@ atom.keymaps.addKeystrokeResolver ({event}) ->
 ```
 
 If you want to know the `event` for the keystroke you pressed you can paste the
-following script to your [developer tools console](https://flight-manual.atom.io/hacking-atom/sections/debugging/#check-for-errors-in-the-developer-tools) <!--TODO: Convert to Pulsar docs when created-->
+following script to your [developer tools console](/debugging-pulsar/check-for-errors-in-developer-tools/)
 
 ```js
 document.addEventListener("keydown", (e) => console.log(e), true);

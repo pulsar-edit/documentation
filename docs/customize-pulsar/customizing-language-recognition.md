@@ -19,6 +19,6 @@ add this to your configuration file under the `*.core` section:
 ```
 
 In the example above, `source.coffee` is the language's scope name (see
-[Finding a Language's Scope Name](#finding-a-language-s-scope-name) for more
+[Finding a Language's Scope Name](/customize-pulsar/language-specific-configuration-settings/#finding-a-language's-scope-name) for more
 information) and `foo` is the file extension to match without the period. Adding
 a period to the beginning of either of these will not work.
