@@ -44,8 +44,13 @@ The biggest aspects of this that still have to be completed:
 - [X] Add all original Launch Manual Docs
 - [X] Add all relevant documentation
 - [X] Implement Pulsar API Docs
-- [ ] Update **ALL** Links!
 - [X] Implement Hovercards
+- [ ] Update **ALL** Links!
+- [ ] Ensure all sidebar descriptions are filled in
+- [ ] Add support for syntax highlighting
+- [ ] Design CSS to account for indented returns in the API view
+- [ ] Find a way to generate API docs from most recent Pulsar versions
+- [ ] GHA to generate new Pulsar Docs once above is done 
 
 ## Style Guide
 
