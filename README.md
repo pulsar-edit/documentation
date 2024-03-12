@@ -35,10 +35,12 @@ Switch links with `@images` to `/img`
 
 The biggest aspects of this that still have to be completed:
 
-- [ ] Finalize CSS implementations
+- [X] Finalize CSS implementations
 - [X] Create all EJS templates needed
 - [X] Create collections and automatically create collection views on summary pages
-- [ ] Implement Dark Mode
+- [X] Implement Dark Mode
+- [ ] Implement Light Mode
+- [ ] Implement Theme Switcher
 - [X] Add all original Launch Manual Docs
 - [X] Add all relevant documentation
 - [X] Implement Pulsar API Docs
