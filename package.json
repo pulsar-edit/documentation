@@ -18,17 +18,16 @@
     "cross-env": "^7.0.3",
     "less": "^4.2.0",
     "markdown-it": "^14.0.0",
+    "markdown-it-anchor": "^8.6.7",
     "markdown-it-attrs": "^4.1.6",
     "markdown-it-container": "^4.0.0",
     "markdown-it-include": "^2.0.0",
     "markdown-it-kbd": "^2.2.2",
+    "pulsardoc": "github:confused-Techie/pulsardoc",
     "skeleton-less": "github:WhatsNewSaes/Skeleton-Less",
     "terser": "^5.28.1"
   },
   "peerDependencies": {
     "ejs": "^3.x.x"
-  },
-  "dependencies": {
-    "markdown-it-anchor": "^8.6.7"
   }
 }
