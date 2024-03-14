@@ -6,7 +6,8 @@
     "build": "npx @11ty/eleventy",
     "serve": "npx @11ty/eleventy --serve",
     "build:debug": "cross-env DEBUG=Eleventy* npm run build",
-    "serve:debug": "cross-env DEBUG=Eleventy* npm run serve"
+    "serve:debug": "cross-env DEBUG=Eleventy* npm run serve",
+    "generate:docs": "node ./pulsar-api/generate/index.js"
   },
   "keywords": [],
   "author": "confused-Techie",

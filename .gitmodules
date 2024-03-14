@@ -4,3 +4,18 @@
 [submodule "dot-github"]
 	path = dot-github
 	url = https://github.com/pulsar-edit/.github
+[submodule "event-kit"]
+	path = event-kit
+	url = https://github.com/pulsar-edit/event-kit
+[submodule "second-mate"]
+	path = second-mate
+	url = https://github.com/pulsar-edit/second-mate
+[submodule "text-buffer"]
+	path = text-buffer
+	url = https://github.com/pulsar-edit/text-buffer
+[submodule "node-pathwatcher"]
+	path = node-pathwatcher
+	url = https://github.com/pulsar-edit/node-pathwatcher
+[submodule "atom-keymap"]
+	path = atom-keymap
+	url = https://github.com/pulsar-edit/atom-keymap
