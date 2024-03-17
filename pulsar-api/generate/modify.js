@@ -71,24 +71,22 @@ function resolveSrcUrl(srcUrl, filepath, versions) {
   let loc = srcUrl.split("#")[1];
 
   if (filepath.includes(PULSAR_PATH)) {
-    let ver = `v${versions.pulsar}` ?? "HEAD";
-    newUrl = `https://github.com/pulsar-edit/pulsar/blob/${ver}/${resolveFilename(filepath)}#${loc}`;
+    newUrl = `https://github.com/pulsar-edit/pulsar/blob/${getVer(versions.pulsar)}/${resolveFilename(filepath)}#${loc}`;
   } else if (filepath.includes(PATHWATCHER_PATH)) {
-    let ver = `v${versions.pathwatcher}` ?? "HEAD";
-    newUrl = `https://github.com/pulsar-edit/node-pathwatcher/blob/${ver}/${resolveFilename(filepath)}#${loc}`;
+    newUrl = `https://github.com/pulsar-edit/node-pathwatcher/blob/${getVer(versions.pathwatcher)}/${resolveFilename(filepath)}#${loc}`;
   } else if (filepath.includes(KEYMAP_PATH)) {
-    let ver = `v${versions.keymap}` ?? "HEAD";
-    newUrl = `https://github.com/pulsar-edit/atom-keymap/blob/${ver}/${resolveFilename(filepath)}#${loc}`;
+    newUrl = `https://github.com/pulsar-edit/atom-keymap/blob/${getVer(versions.keymap)}/${resolveFilename(filepath)}#${loc}`;
   } else if (filepath.includes(EVENTKIT_PATH)) {
-    let ver = `v${versions.eventkit}` ?? "HEAD";
-    newUrl = `https://github.com/pulsar-edit/event-kit/blob/${ver}/${resolveFilename(filepath)}#${loc}`;
+    newUrl = `https://github.com/pulsar-edit/event-kit/blob/${getVer(versions.eventkit)}/${resolveFilename(filepath)}#${loc}`;
   } else if (filepath.includes(SECONDMATE_PATH)) {
-    let ver = `v${versions.secondmate}`;
-    newUrl = `https://github.com/pulsar-edit/second-mate/blob/${ver}/${resolveFilename(filepath)}#${loc}`;
+    newUrl = `https://github.com/pulsar-edit/second-mate/blob/${getVer(versions.secondmate)}/${resolveFilename(filepath)}#${loc}`;
   } else if (filepath.includes(TEXTBUFFER_PATH)) {
-    let ver = `v${versions.textbuffer}` ?? "HEAD";
-    newUrl = `https://github.com/pulsar-edit/text-buffer/blob/${ver}/${resolveFilename(filepath)}#${loc}`;
+    newUrl = `https://github.com/pulsar-edit/text-buffer/blob/${getVer(versions.textbuffer)}/${resolveFilename(filepath)}#${loc}`;
   }
 
   return newUrl;
+}
+
+function getVer(item) {
+  return item != null ? `v${item}` : "HEAD";
 }

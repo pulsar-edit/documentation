@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const semver = require("semver");
-const PulsarDoc = require("pulsardoc");
+const PulsarDoc = require("pulsardoc").PulsarDocLegacy;
 const modify = require("./modify.js");
 
 const latest = JSON.parse(fs.readFileSync(path.join(__dirname, "../latest.json"), { encoding: "utf8" }));
