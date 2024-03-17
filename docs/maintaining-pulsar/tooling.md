@@ -3,4 +3,4 @@ title: Tooling
 layout: doc.ejs
 ---
 
-!!!include(dot-github/TOOLING.md)!!!
+!!!include(submodules/dot-github/TOOLING.md)!!!

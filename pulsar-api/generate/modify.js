@@ -8,12 +8,12 @@ const process = require("process");
 
 // We will also modify the `srcUrl` property here as well
 
-const PULSAR_PATH = path.join(__dirname, "../../pulsar");
-const PATHWATCHER_PATH = path.join(__dirname, "../../node-pathwatcher");
-const KEYMAP_PATH = path.join(__dirname, "../../atom-keymap");
-const EVENTKIT_PATH = path.join(__dirname, "../../event-kit");
-const SECONDMATE_PATH = path.join(__dirname, "../../second-mate");
-const TEXTBUFFER_PATH = path.join(__dirname, "../../text-buffer");
+const PULSAR_PATH = path.join(__dirname, "../../submodules/pulsar");
+const PATHWATCHER_PATH = path.join(__dirname, "../../submodules/node-pathwatcher");
+const KEYMAP_PATH = path.join(__dirname, "../../submodules/atom-keymap");
+const EVENTKIT_PATH = path.join(__dirname, "../../submodules/event-kit");
+const SECONDMATE_PATH = path.join(__dirname, "../../submodules/second-mate");
+const TEXTBUFFER_PATH = path.join(__dirname, "../../submodules/text-buffer");
 
 module.exports =
 function modify(doc, versions) {

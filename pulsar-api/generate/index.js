@@ -6,7 +6,7 @@ const modify = require("./modify.js");
 
 const latest = JSON.parse(fs.readFileSync(path.join(__dirname, "../latest.json"), { encoding: "utf8" }));
 
-const current = JSON.parse(fs.readFileSync(path.join(__dirname, "../../pulsar/package.json"), { encoding: "utf8" }));
+const current = JSON.parse(fs.readFileSync(path.join(__dirname, "../../submodules/pulsar/package.json"), { encoding: "utf8" }));
 const curVer = current.version.replace("-dev", "");
 
 if (semver.lte(curVer, latest.latest)) {
@@ -16,12 +16,12 @@ if (semver.lte(curVer, latest.latest)) {
 
 const pulsardoc = new PulsarDoc(
   [
-    path.join(__dirname, "../../pulsar/src"),
-    //path.join(__dirname, "../../node-pathwatcher/src"), // TODO awaiting coffee support in pulsardoc
-    //path.join(__dirname, "../../atom-keymap/src"), // TODO awaiting coffee support in pulsardoc
-    path.join(__dirname, "../../event-kit/lib"),
-    path.join(__dirname, "../../second-mate/lib"),
-    //path.join(__dirname, "../../text-buffer/src") // TODO awaiting coffee support in pulsardoc
+    path.join(__dirname, "../../submodules/pulsar/src"),
+    //path.join(__dirname, "../../submodules/node-pathwatcher/src"), // TODO awaiting coffee support in pulsardoc
+    //path.join(__dirname, "../../submodules/atom-keymap/src"), // TODO awaiting coffee support in pulsardoc
+    path.join(__dirname, "../../submodules/event-kit/lib"),
+    path.join(__dirname, "../../submodules/second-mate/lib"),
+    //path.join(__dirname, "../../submodules/text-buffer/src") // TODO awaiting coffee support in pulsardoc
   ]
 ).main();
 
@@ -29,11 +29,11 @@ const pulsardoc = new PulsarDoc(
 modify(pulsardoc, {
   // add versions for all the submodules included
   pulsar: curVer,
-  pathwatcher: JSON.parse(fs.readFileSync(path.join(__dirname, "../../node-pathwatcher/package.json"), { encoding: "utf8" })).version,
-  keymap: JSON.parse(fs.readFileSync(path.join(__dirname, "../../atom-keymap/package.json"), { encoding: "utf8" })).version,
-  eventkit: JSON.parse(fs.readFileSync(path.join(__dirname, "../../event-kit/package.json"), { encoding: "utf8" })).version,
-  secondmate: JSON.parse(fs.readFileSync(path.join(__dirname, "../../second-mate/package.json"), { encoding: "utf8" })).version,
-  textbuffer: JSON.parse(fs.readFileSync(path.join(__dirname, "../../text-buffer/package.json"), { encoding: "utf8" })).version
+  pathwatcher: JSON.parse(fs.readFileSync(path.join(__dirname, "../../submodules/node-pathwatcher/package.json"), { encoding: "utf8" })).version,
+  keymap: JSON.parse(fs.readFileSync(path.join(__dirname, "../../submodules/atom-keymap/package.json"), { encoding: "utf8" })).version,
+  eventkit: JSON.parse(fs.readFileSync(path.join(__dirname, "../../submodules/event-kit/package.json"), { encoding: "utf8" })).version,
+  secondmate: JSON.parse(fs.readFileSync(path.join(__dirname, "../../submodules/second-mate/package.json"), { encoding: "utf8" })).version,
+  textbuffer: JSON.parse(fs.readFileSync(path.join(__dirname, "../../submodules/text-buffer/package.json"), { encoding: "utf8" })).version
 });
 
 // Write files

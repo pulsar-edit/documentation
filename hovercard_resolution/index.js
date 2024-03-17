@@ -178,14 +178,14 @@ async function resolveApiHovercard(val) {
 }
 
 async function resolveBundledPackages(val) {
-  const bundledPackages = fs.readdirSync(path.join(__dirname, "../pulsar/packages"));
+  const bundledPackages = fs.readdirSync(path.join(__dirname, "../submodules/pulsar/packages"));
 
   let resolved = false;
 
   for (const pack of bundledPackages) {
     let reducedPack = simplifyLabel(pack);
     if (reducedPack == val) {
-      let data = JSON.parse(fs.readFileSync(path.join(__dirname, "../pulsar/packages", pack, "package.json"), { encoding: "utf8" }));
+      let data = JSON.parse(fs.readFileSync(path.join(__dirname, "../submodules/pulsar/packages", pack, "package.json"), { encoding: "utf8" }));
 
       resolved = {
         value: val,

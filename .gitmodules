@@ -1,21 +1,21 @@
-[submodule "pulsar"]
-	path = pulsar
-	url = https://github.com/pulsar-edit/pulsar
-[submodule "dot-github"]
-	path = dot-github
-	url = https://github.com/pulsar-edit/.github
-[submodule "event-kit"]
-	path = event-kit
-	url = https://github.com/pulsar-edit/event-kit
-[submodule "second-mate"]
-	path = second-mate
-	url = https://github.com/pulsar-edit/second-mate
-[submodule "text-buffer"]
-	path = text-buffer
-	url = https://github.com/pulsar-edit/text-buffer
-[submodule "node-pathwatcher"]
-	path = node-pathwatcher
-	url = https://github.com/pulsar-edit/node-pathwatcher
-[submodule "atom-keymap"]
-	path = atom-keymap
+[submodule "submodules/atom-keymap"]
+	path = submodules/atom-keymap
 	url = https://github.com/pulsar-edit/atom-keymap
+[submodule "submodules/text-buffer"]
+	path = submodules/text-buffer
+	url = https://github.com/pulsar-edit/text-buffer
+[submodule "submodules/second-mate"]
+	path = submodules/second-mate
+	url = https://github.com/pulsar-edit/second-mate
+[submodule "submodules/pulsar"]
+	path = submodules/pulsar
+	url = https://github.com/pulsar-edit/pulsar
+[submodule "submodules/event-kit"]
+	path = submodules/event-kit
+	url = https://github.com/pulsar-edit/event-kit
+[submodule "submodules/dot-github"]
+	path = submodules/dot-github
+	url = https://github.com/pulsar-edit/.github
+[submodule "submodules/node-patchwatcher"]
+	path = submodules/node-patchwatcher
+	url = https://github.com/pulsar-edit/node-pathwatcher
