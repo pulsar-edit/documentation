@@ -1,11 +1,27 @@
 const pulsarApi = require("./pulsar-api/src/index.js");
 const hovercardResolution = require("./hovercard_resolution/index.js");
+const less = require("less");
 
 module.exports = (eleventyConfig) => {
 
   // Add custom templates
   eleventyConfig.addTemplateFormats("less");
-  eleventyConfig.addExtension("less", require("./plugins/less.js"));
+  eleventyConfig.addExtension("less", {
+    outputFileExtension: "css",
+    compile: async function (input, inputPath) {
+      try {
+        const output = await less.render(input, {
+          math: "always" // required for use with Skeleton
+        });
+
+        this.addDependencies(inputPath, output.imports)
+        return async () => output.css;
+      } catch(err) {
+        console.error(`Error compiling less:\n`, err);
+        throw err;
+      }
+    }
+  })
 
   eleventyConfig.addTemplateFormats("js");
   eleventyConfig.addExtension("js", require("./plugins/terser.js"));
@@ -22,10 +38,12 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy({ "static": "static" });
 
   // Utilize Eleventy events to trigger Pulsar API Documentation Generation
-  eleventyConfig.on("eleventy.after", async (data) => {
+  eleventyConfig.on("eleventy.after", async () => {
     await pulsarApi();
     await hovercardResolution();
   });
+
+  eleventyConfig.addWatchTarget("./less/");
 
   // Add custom collections
 
@@ -38,6 +56,7 @@ module.exports = (eleventyConfig) => {
     dir: {
       input: "docs",
       output: "_dist",
+      includes: "less",
       // Below values are relative to the `./docs` folder
       layouts: "../layouts",
       data: "../data"
