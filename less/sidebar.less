@@ -1,7 +1,6 @@
 
 // Sidebar
 .sidebar {
-  border: 1px solid var(--sidebar-border);
   position: sticky;
   top: 0;
   bottom: 0;
@@ -10,9 +9,38 @@
   max-height: 100vh;
   flex-direction: column;
   width: 15%;
-  margin-right: 5%;
+
+  // Margin-top matches the height of the heading plus its padding — so that
+  // the sidebar and the main content area are aligned.
+  margin-top: 5.5rem;
+  overflow: auto;
 }
 
 .sidebar_contents {
-  padding: 10px;
+  padding: 1.5rem 0;
+  max-height: 100%;
+}
+
+.sidebar_contents ul {
+  list-style: none;
+}
+
+// Attempt to replicate the outline style that we've got on the main Pulsar
+// site.
+.sidebar_contents ul li {
+  border-left: 2px solid var(--sidebar-border);
+  padding-bottom: 0.2rem;
+  padding-left: 1rem;
+  margin: 0;
+
+  a {
+    color: var(--link-color-subtle);
+  }
+
+  &.active {
+    border-color: var(--link-color);
+    a {
+      color: var(--link-color);
+    }
+  }
 }

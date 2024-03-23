@@ -1,11 +1,55 @@
-
 body {
   margin-top: 0px;
   margin-right: 0px;
   margin-left: 0px;
+  font-family: system-ui;
 }
 
 .content {
   display: flex;
-  margin-left: 2%;
+  justify-content: flex-start;
+  gap: 4rem;
+  margin-left: var(--margin-x);
+  margin-right: var(--margin-x);
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+code {
+  font-size: initial;
+}
+
+.content .container {
+  margin: 0;
+}
+
+@media (min-width: 550px) {
+  h1 {
+    font-size: 4rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+    font-weight: 400;
+  }
+
+  h3 {
+    font-size: 2.8rem;
+    font-weight: 500;
+  }
+
+  h4 {
+    font-size: 2.6rem;
+    font-weight: 500;
+  }
+
+  h5 {
+    font-size: 2.4rem;
+    font-weight: 400;
+  }
 }
