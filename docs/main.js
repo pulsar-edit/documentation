@@ -1,9 +1,7 @@
-
-window.addEventListener("load", () => {
-  setupTabs();
-  setupHovercards();
-  setupThemeSwitcher();
-});
+const DEFAULT_THEME = "dark";
+setupThemeSwitcher();
+setupTabs();
+setupHovercards();
 
 function setupTabs() {
   let nodes = document.getElementsByClassName("tabs-tabs-wrapper");
@@ -59,25 +57,41 @@ function tabBtnEventListener(event) {
 }
 
 function setupHovercards() {
+  // Ignore links on hovercard triggers that don't link to anything.
+  document.body.addEventListener('click', (event) => {
+    let hovercard = event.target.closest('[data-hovercard]');
+    if (!hovercard) return;
+    if (hovercard?.href && hovercard.getAttribute('href') === '#') {
+      event.preventDefault();
+    }
+  });
+
   let nodes = document.querySelectorAll("[data-hovercard]");
 
-  for (let i = 0; i < nodes.length; i++) {
-    nodes[i].addEventListener("mouseover", hovercardEventListener);
-    nodes[i].addEventListener("mouseleave", (event) => {
-      document.getElementById("hovercard").classList.remove("visible");
-    });
-    nodes[i].addEventListener("mouseout", (event) => {
+  for (let node of nodes) {
+    node.addEventListener("mouseenter", hovercardEventListener);
+    node.addEventListener("mouseleave", () => {
       document.getElementById("hovercard").classList.remove("visible");
     });
   }
 }
 
 async function hovercardEventListener(event) {
-  let node = event.target;
+  let node = event.currentTarget;
   let value = node.dataset.hovercard;
+
+  let targetRect = node.getBoundingClientRect();
+  let bodyRect = document.body.getBoundingClientRect();
+
+  let top = Math.abs(bodyRect.top) + targetRect.top + targetRect.height;
+  let left = Math.abs(bodyRect.left) + targetRect.left + targetRect.width;
 
   const res = await fetch(`/hovercards/${value}.json`);
   const card = await res.json();
+
+  if (card.empty) {
+    return;
+  }
 
   let hovercard = `
     <div class="hovercard-card">
@@ -92,14 +106,37 @@ async function hovercardEventListener(event) {
     </div>
   `;
 
+  if (node.matches('a[href]') && node.href === '#') {
+    node.href = card.link;
+  }
+
   const ele = document.getElementById("hovercard");
   ele.innerHTML = hovercard;
-  ele.style.left = `${event.clientX}px`;
-  ele.style.top = `${event.pageY}px`;
+  ele.style.left = `${left}px`;
+  ele.style.top = `${top}px`;
   ele.classList.add("visible");
+
+  let rect = ele.getBoundingClientRect();
+  if (rect.bottom >= window.innerHeight || rect.right >= window.innerWidth) {
+    let newTop = top;
+    let newLeft = left;
+    if (rect.bottom >= window.innerHeight) {
+      // Display above the link instead of below it.
+      newTop = top - targetRect.height - rect.height;
+    }
+    if (rect.right >= window.innerWidth) {
+      // Nudge the hovercard to the left as much as it needs to go so that its
+      // right edge is inside the window.
+      let difference = rect.right - window.innerWidth;
+      newLeft -= difference;
+    }
+    ele.style.top = `${newTop}px`;
+    ele.style.left = `${newLeft}px`;
+  }
 }
 
 function setupThemeSwitcher() {
+  let root = document.documentElement;
   const themeBtn = document.getElementById("theme-switcher");
 
   // We want to:
@@ -108,23 +145,23 @@ function setupThemeSwitcher() {
   //  - change this theme according to any stored preferences on this site
   //  - listen for OS prefferred theme changing
 
-  let userPref = findSavedUserPrefTheme() ?? findOSThemePref() ?? "dark";
+  let userPref = findSavedUserPrefTheme() ?? findOSThemePref() ?? DEFAULT_THEME;
+  if (root.dataset.theme !== userPref) {
+    root.dataset.theme = userPref;
+  }
 
-  document.documentElement.dataset.theme = userPref;
-
-  // setup listens
-  themeBtn.addEventListener("click", (event) => {
-    let curValue = document.documentElement.dataset.theme;
+  themeBtn.addEventListener("click", () => {
+    let curValue = root.dataset.theme;
 
     if (curValue === "dark") {
-      document.documentElement.dataset.theme = "light";
+      root.dataset.theme = "light";
       localStorage.setItem("preferred-theme", "light");
     } else if (curValue === "light") {
-      document.documentElement.dataset.theme = "dark";
+      root.dataset.theme = "dark";
       localStorage.setItem("preferred-theme", "dark");
     } else {
-      // this was an unsupported value
-      document.documentElement.dataset.theme = DEFAULT_THEME;
+      // This was an unsupported value; reset to a known good value.
+      root.dataset.theme = DEFAULT_THEME;
     }
   });
 
@@ -135,17 +172,13 @@ function setupThemeSwitcher() {
 }
 
 function findOSThemePref() {
-  if (window.matchMedia) {
-    if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-      // os prefers light
-      return "light";
-    } else {
-      // os prefers dark
-      return "dark";
-    }
+  if (!window.matchMedia) return null;
+  if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+    // os prefers light
+    return "light";
   } else {
-    // this API is not available
-    return null;
+    // os prefers dark
+    return "dark";
   }
 }
 

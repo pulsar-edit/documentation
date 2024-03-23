@@ -46,6 +46,7 @@ async function resolveHovercard(val) {
   ];
 
   const emptyHovercard = {
+    empty: true,
     value: val,
     title: val,
     description: "After looking high and low more information couldn't be found. Please report an issue.",
@@ -55,7 +56,7 @@ async function resolveHovercard(val) {
   let hovercard = false;
   let resolutionIdx = 0;
 
-  while(hovercard == false && resolutionIdx < resolutions.length) {
+  while (hovercard == false && resolutionIdx < resolutions.length) {
     hovercard = await resolutions[resolutionIdx](val);
 
     resolutionIdx = resolutionIdx + 1;

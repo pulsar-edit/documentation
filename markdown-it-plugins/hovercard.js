@@ -25,15 +25,18 @@ function replacer(state) {
   state.pos = labelStart;
   state.posMax = labelEnd;
 
-  const token_o = state.push("span_open", "span", 1);
-  const attrs = [["data-hovercard", simplifyLabel(label) ]];
+  const token_o = state.push("a_open", "a", 1);
+  const attrs = [
+    ["data-hovercard", simplifyLabel(label)],
+    ["href", "#"]
+  ];
   token_o.attrs = attrs;
 
   state.linkLevel++;
   state.md.inline.tokenize(state);
   state.linkLevel--;
 
-  state.push("span_close", "span", -1);
+  state.push("a_close", "a", -1);
 
   // call our hovercard tracker
   writeDownHovercard(simplifyLabel(label));
