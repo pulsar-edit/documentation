@@ -342,14 +342,17 @@
 
 :root[data-theme="light"] {
   // Global Page Elements
-  --body-color: hsl(230, 1%, 92%);
-  --font-color: hsl(230, 1%, 26%);
+  --body-color: white;
+  --font-color: hsl(211, 29%, 32%);
+  --font-color-subtle: hsl(211, 0%, 46%);
 
   // Generic Page Elements
 
   // - links
-  --link-color: hsl(208, 100%, 54%);
-  --link-color__hover: hsl(208, 100%, 58%);
+  --link-color: hsl(153, 48%, 46%);
+  --link-color__hover: hsl(153, 48%, 36%);
+
+  --link-color-subtle: hsl(153, 0%, 46%);
 
   // - code blocks
   --code-bg: hsl(0, 0%, 100%);
@@ -492,4 +495,9 @@
   --block-color__hover: var(--btn-color__hover);
   --block-border__hover: var(--btn-border__hover);
   --block-bg__hover: var(--btn-bg__hover);
+}
+
+
+:root {
+  --margin-x: 4rem;
 }
