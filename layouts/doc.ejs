@@ -5,7 +5,7 @@
     <%-include("page_header")%>
     <div class="content">
       <%-include("sidebar", { bar: sidebar, include_summary: true })%>
-      <div class="container">
+      <main class="container">
         <section class="header">
           <h1 class="title"><%=title%></h1>
         </section>
@@ -17,7 +17,7 @@
             <%-include(includes)%>
           <% } %>
         <% } %>
-      </div>
+      </main>
     </div>
     <%-include("hovercard")%>
   </body>
