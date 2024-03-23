@@ -2,9 +2,18 @@ const fs = require("fs");
 const path = require("path");
 const ejs = require("ejs");
 const convert = require("./json2html.js");
+const mdRender = require("./md.js");
 
 const IN = path.join(__dirname, "../content");
 const OUT = path.join(__dirname, "../../_dist/api/pulsar");
+
+const LAYOUT_DIR = path.resolve(__dirname, "../../layouts/api")
+const ROOT_LAYOUT_DIR = path.resolve(__dirname, "../../layouts")
+
+function getLayout (name) {
+  let layoutPath = path.join(LAYOUT_DIR, `${name}.ejs`);
+  return fs.readFileSync(layoutPath, { encoding: "utf8" })
+}
 
 module.exports =
 async function main() {
@@ -39,16 +48,16 @@ async function main() {
       await createIfDirAbsent(path.join(OUT, "latest"));
     }
 
-    // Lets create the summary page
-    let summaryHTML = await ejs.render(
-      fs.readFileSync(path.resolve(__dirname, "../layouts/summary.ejs"), { encoding: "utf8" }),
+    // Create the summary page
+    let summaryHTML = ejs.render(
+      getLayout("summary"),
       {
         title: item,
         sidebar: JSON.parse(fs.readFileSync(path.resolve(__dirname, "../../docs/docs.11tydata.json"), { encoding: "utf8" })).root_sidebar,
         blocks: content2sidebar(objs[item].classes)
       },
       {
-        views: [ path.resolve(__dirname, "../../layouts") ]
+        views: [ROOT_LAYOUT_DIR]
       }
     );
 
@@ -104,7 +113,7 @@ function content2sidebar(content) {
   for (let item in content) {
     sidebar.push({
       text: content[item].name,
-      summary: content[item].summary,
+      summary: mdRender(content[item].summary),
       link: content[item].name
     });
   }

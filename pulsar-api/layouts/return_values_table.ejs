@@ -1,16 +1,11 @@
-<table class="return-values">
-  <thead>
-    <tr>
-      <th>Return values</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% for (const val of returnValues) { %>
-      <tr>
-        <td>
-          <%- mdRender(val.description) %>
-        </td>
-      </tr>
-    <% } %>
-  </tbody>
-</table>
+<section class="return-values">
+  <header><h6>Return values</h6></header>
+
+  <ul class="return-values-content">
+    <% for (const val of returnValues) { -%>
+    <li>
+      <%- mdRender(val.description) -%>
+    </li>
+    <% } -%>
+  </ul>
+</section>

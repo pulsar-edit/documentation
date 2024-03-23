@@ -5,12 +5,17 @@
     <%-include("page_header")%>
     <div class="content">
       <%-include("sidebar", { bar: sidebar, include_summary: true })%>
-      <div class="container">
+      <main class="container">
         <section class="header">
           <h1 class="title"><%=title%></h1>
         </section>
 
-        <%- mdRender(content.description) %>
+        <section class="description">
+          <header class="description__header">
+            Description
+          </header>
+          <%- mdRender(content.description) %>
+        </section>
 
         <% if (typeof content.examples !== "undefined") { %>
           <div class="api-entry" id="examples">
@@ -32,7 +37,7 @@
 
         <%- file %>
 
-      </div>
+      </main>
     </div>
     <%-include("hovercard")%>
   </body>
