@@ -3,6 +3,9 @@ const fs = require("fs");
 const ejs = require("ejs");
 const mdRender = require("./md.js");
 
+const LAYOUT_DIR = path.resolve(__dirname, "../../layouts/api")
+const ROOT_LAYOUT_DIR = path.resolve(__dirname, "../../layouts")
+
 function convert(name, content) {
 
   let file = "";
@@ -30,18 +33,17 @@ function convert(name, content) {
       file,
       mdRender,
       sidebar: sections2sidebar(content.sections, name),
-      anchorize,
-      sections
+      anchorize
     },
     {
-      views: [ path.resolve(__dirname, "../../layouts") ],
+      views: [ ROOT_LAYOUT_DIR ],
     }
   );
 
   return render;
 }
 
-async function lookupSection(sectionName, prop, content) {
+function lookupSection(sectionName, prop, content) {
   let item = content[prop];
 
   if (!Array.isArray(item) || item.length < 1) {
@@ -89,7 +91,7 @@ function renderSection(prop, content) {
       anchorize: anchorize
     },
     {
-      views: [ path.resolve(__dirname, "../layouts") ]
+      views: [ LAYOUT_DIR ]
     }
   );
 
@@ -98,7 +100,7 @@ function renderSection(prop, content) {
 
 function getTemplate(name) {
   return fs.readFileSync(
-    path.resolve(__dirname, "../layouts", `${name}.ejs`),
+    path.join(LAYOUT_DIR, `${name}.ejs`),
     { encoding: "utf8" }
   );
 }
