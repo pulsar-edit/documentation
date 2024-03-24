@@ -405,6 +405,13 @@ function findSavedUserPrefTheme() {
 
 class SystemSwitcher {
   constructor() {
+
+    this.BUTTON_TEXT_FOR_PLATFORM = {
+      mac: 'macOS',
+      linux: 'Linux',
+      win: 'Windows'
+    };
+
     this.list = document.querySelector('.platform-switcher');
     this.list.addEventListener('click', (event) => {
       let button = event.target.closest('button');
@@ -425,18 +432,19 @@ class SystemSwitcher {
   }
 
   detectPlatform () {
-    const userAgent = window.navigator.userAgent,
-        platform = window.navigator?.userAgentData?.platform || window.navigator.platform,
-        macosPlatforms = ['macOS', 'Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
-        windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
-        iosPlatforms = ['iPhone', 'iPad', 'iPod'];
+    const userAgent = window.navigator.userAgent;
+    const platform = window.navigator?.userAgentData?.platform || window.navigator.platform;
+    const macosPlatforms = ['macOS', 'Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'];
+    const windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'];
+    const iosPlatforms = ['iPhone', 'iPad', 'iPod'];
+
     let os = null;
 
-    if (macosPlatforms.indexOf(platform) !== -1) {
+    if (macosPlatforms.includes(platform)) {
       os = 'mac';
-    } else if (iosPlatforms.indexOf(platform) !== -1) {
+    } else if (iosPlatforms.includes(platform)) {
       os = 'mac';
-    } else if (windowsPlatforms.indexOf(platform) !== -1) {
+    } else if (windowsPlatforms.includes(platform)) {
       os = 'win';
     } else if (/Android/.test(userAgent)) {
       os = 'win';
@@ -463,6 +471,20 @@ class SystemSwitcher {
     let selector = `button[data-platform="${newPlatform}"]`;
     let newActive = this.list.querySelector(selector);
     newActive.classList.add('active');
+
+    // Are there any tabbed containers with different content based on
+    // platform? Those should be kept in sync with the platform selector. This
+    // also ensures that the correct tab is focused for the user's platform
+    // when the page is first shown.
+    let tabWrappers = document.querySelectorAll('.tabs-tabs-wrapper');
+    let targetButtonText = this.BUTTON_TEXT_FOR_PLATFORM[newPlatform];
+    for (let wrapper of tabWrappers) {
+      let buttons = Array.from(wrapper.querySelectorAll('button'));
+      // innerText can reflect CSS text-transform, amazingly. Normalize text
+      // before comparison.
+      let button = buttons.find(b => b.innerText.toLowerCase() === targetButtonText.toLowerCase());
+      button?.click();
+    }
   }
 }
 
