@@ -3,13 +3,13 @@
     {
       "text": "What is Pulsar?",
       "icon": "solid fa-rocket",
-      "link": "what-is-pulsar",
+      "link": "/getting-started/what-is-pulsar",
       "summary": "What is Pulsar made of and what's it's history?"
     },
     {
       "text": "Installing Pulsar",
       "icon": "solid fa-rocket",
-      "link": "installing-pulsar",
+      "link": "/getting-started/installing-pulsar",
       "summary": "Get Pulsar installed on any platform"
     }
   ]

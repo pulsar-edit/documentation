@@ -2,53 +2,53 @@
   "sidebar": [
     {
       "text": "Find and Replace",
-      "link": "find-and-replace",
-      "summary": "Find and replace text"
+      "link": "/core-packages-and-features/find-and-replace",
+      "summary": "Find and replace within buffers and across the project."
     },
     {
       "text": "Snippets",
-      "link": "snippets",
-      "summary": "Expand text"
+      "link": "/core-packages-and-features/snippets",
+      "summary": "Expand text via special prefixes or via the autocomplete menu."
     },
     {
       "text": "Autocomplete",
-      "link": "autocomplete",
-      "summary": "Work with suggested autocompletions as you type"
-    },
-    {
-      "text": "Folding",
-      "link": "folding",
-      "summary": "Collapse text in a file"
-    },
-    {
-      "text": "Panes",
-      "link": "panes",
-      "summary": "Understand the layout within Pulsar"
-    },
-    {
-      "text": "Grammar",
-      "link": "grammar",
-      "summary": "Learn how text receives Syntax Highlighting"
+      "link": "/core-packages-and-features/autocomplete",
+      "summary": "Work with suggested autocompletions as you type."
     },
     {
       "text": "Version Control in Pulsar",
-      "link": "version-control-in-pulsar",
-      "summary": "Keep a history of your files changes"
+      "link": "/core-packages-and-features/version-control-in-pulsar",
+      "summary": "Keep a history of your files’ changes."
     },
     {
       "text": "GitHub Package",
-      "link": "github-package",
-      "summary": "Integrate directly within GitHub"
+      "link": "/core-packages-and-features/github-package",
+      "summary": "Integrate with GitHub from within Pulsar."
     },
     {
       "text": "Spell Check",
-      "link": "spell-check",
-      "summary": "Fix mis-spellings in your text"
+      "link": "/core-packages-and-features/spell-check",
+      "summary": "Fix misspellings in your text."
     },
     {
       "text": "Previews",
-      "link": "previews",
-      "summary": "See what your prose files look like rendered"
+      "link": "/core-packages-and-features/previews",
+      "summary": "See what your prose files look like rendered."
+    },
+    {
+      "text": "Folding",
+      "link": "/core-packages-and-features/folding",
+      "summary": "Collapse text in a file."
+    },
+    {
+      "text": "Panes",
+      "link": "/core-packages-and-features/panes",
+      "summary": "Understand how items are arranged in the Pulsar workspace."
+    },
+    {
+      "text": "Grammars",
+      "link": "/core-packages-and-features/grammar",
+      "summary": "Learn how text receives syntax highlighting."
     }
   ]
 }

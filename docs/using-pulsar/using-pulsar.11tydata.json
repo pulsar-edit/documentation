@@ -2,27 +2,27 @@
   "sidebar": [
     {
       "text": "Pulsar Basics",
-      "link": "pulsar-basics",
+      "link": "/using-pulsar/pulsar-basics",
       "summary": "Get acquainted with Pulsar"
     },
     {
       "text": "Moving in Pulsar",
-      "link": "moving-in-pulsar",
+      "link": "/using-pulsar/moving-in-pulsar",
       "summary": "Moving the cursor in Pulsar"
     },
     {
       "text": "Pulsar Packages",
-      "link": "pulsar-packages",
+      "link": "/using-pulsar/pulsar-packages",
       "summary": "How to use packages in Pulsar"
     },
     {
       "text": "Pulsar Selections",
-      "link": "pulsar-selections",
+      "link": "/using-pulsar/pulsar-selections",
       "summary": "Select text in Pulsar"
     },
     {
       "text": "Editing & Deleting Text",
-      "link": "editing-and-deleting-text",
+      "link": "/using-pulsar/editing-and-deleting-text",
       "summary": "Edit and Delete the text in Pulsar"
     }
   ]

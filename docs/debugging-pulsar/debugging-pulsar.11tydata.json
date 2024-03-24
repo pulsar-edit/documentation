@@ -2,71 +2,71 @@
   "sidebar": [
     {
       "text": "Update to the Latest Version",
-      "link": "update-to-the-latest-version"
+      "link": "/debugging-pulsar/update-to-the-latest-version"
     },
     {
       "text": "Using Safe Mode",
-      "link": "using-safe-mode"
+      "link": "/debugging-pulsar/using-safe-mode"
     },
     {
       "text": "Clearing Saved State",
-      "link": "clearing-saved-state"
+      "link": "/debugging-pulsar/clearing-saved-state"
     },
     {
       "text": "Reset to Factory Defaults",
-      "link": "reset-to-factory-defaults"
+      "link": "/debugging-pulsar/reset-to-factory-defaults"
     },
     {
       "text": "Check for linked Packages",
-      "link": "check-for-linked-packages"
+      "link": "/debugging-pulsar/check-for-linked-packages"
     },
     {
       "text": "Check for incompatible packages",
-      "link": "check-for-incompatible-packages"
+      "link": "/debugging-pulsar/check-for-incompatible-packages"
     },
     {
       "text": "Check Pulsar and Package Settings",
-      "link": "check-pulsar-and-package-settings"
+      "link": "/debugging-pulsar/check-pulsar-and-package-settings"
     },
     {
       "text": "Check your configuration",
-      "link": "check-your-configuration"
+      "link": "/debugging-pulsar/check-your-configuration"
     },
     {
       "text": "Check your keybindings",
-      "link": "check-your-keybindings"
+      "link": "/debugging-pulsar/check-your-keybindings"
     },
     {
       "text": "Check font rendering issues",
-      "link": "check-font-rendering-issues"
+      "link": "/debugging-pulsar/check-font-rendering-issues"
     },
     {
       "text": "Check for errors in Developer tools",
-      "link": "check-for-errors-in-developer-tools"
+      "link": "/debugging-pulsar/check-for-errors-in-developer-tools"
     },
     {
       "text": "Find crash logs",
-      "link": "find-crash-logs"
+      "link": "/debugging-pulsar/find-crash-logs"
     },
     {
       "text": "Diagnose Startup Performance",
-      "link": "diagnose-startup-performance"
+      "link": "/debugging-pulsar/diagnose-startup-performance"
     },
     {
       "text": "Diagnose Runtime Performance",
-      "link": "diagnose-runtime-performance"
+      "link": "/debugging-pulsar/diagnose-runtime-performance"
     },
     {
       "text": "Profiling Startup Performance",
-      "link": "profiling-startup-performance"
+      "link": "/debugging-pulsar/profiling-startup-performance"
     },
     {
       "text": "Check your Build Tools",
-      "link": "check-your-build-tools"
+      "link": "/debugging-pulsar/check-your-build-tools"
     },
     {
       "text": "Check if your GPU is causing the problem",
-      "link": "check-if-your-gpu-is-causing-the-problem"
+      "link": "/debugging-pulsar/check-if-your-gpu-is-causing-the-problem"
     }
   ]
 

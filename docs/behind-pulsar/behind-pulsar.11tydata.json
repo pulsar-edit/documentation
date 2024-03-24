@@ -2,27 +2,27 @@
   "sidebar": [
     {
       "text": "Configuration API",
-      "link": "configuration-api"
+      "link": "/behind-pulsar/configuration-api"
     },
     {
       "text": "Keymaps in-depth",
-      "link": "keymaps-in-depth"
+      "link": "/behind-pulsar/keymaps-in-depth"
     },
     {
       "text": "Scoped settings, scopes and scope descriptors",
-      "link": "scoped-settings"
+      "link": "/behind-pulsar/scoped-settings"
     },
     {
       "text": "Serialization in Pulsar",
-      "link": "serialization-in-pulsar"
+      "link": "/behind-pulsar/serialization-in-pulsar"
     },
     {
       "text": "Developing node modules",
-      "link": "developing-node-modules"
+      "link": "/behind-pulsar/developing-node-modules"
     },
     {
       "text": "Interacting with other packages via services",
-      "link": "interacting-with-other-packages-via-services"
+      "link": "/behind-pulsar/interacting-with-other-packages-via-services"
     }
   ]
 
