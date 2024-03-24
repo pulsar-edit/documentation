@@ -15,11 +15,13 @@ function makeContainerRenderer (name) {
     if (tokens[idx].nesting === 1) {
       let openingTag = `<aside class="${name} custom-container">\n`;
       if (content) {
-        openingTag += `<div class="custom-container-title">${md.utils.escapeHtml(content[1])}</div>`;
+        openingTag += `<div class="custom-container-title">${md.utils.escapeHtml(content[1])}</div>\n<div class="custom-container-content">\n`;
+      } else {
+        openingTag += `<div class="custom-container-content">\n`
       }
       return openingTag;
     } else {
-      return `</aside>\n`;
+      return `</div>\n</aside>\n`;
     }
   }
 }
