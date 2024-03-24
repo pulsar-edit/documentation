@@ -1,16 +1,20 @@
 .platform-switcher-wrapper {
+  --min-margin-right: var(--margin-x);
+  --max-margin-right: calc((100vw - var(--content-max-width)) / 2 + var(--margin-x));
   margin-top: -3rem;
   margin-bottom: 3rem;
   margin-left: auto;
-  margin-right: auto;
+  // Escaping this value because Less doesn't seem to handle it correctly.
+  margin-right: e("max(var(--min-margin-right), var(--max-margin-right));");
   contain: paint;
-  max-width: var(--content-max-width);
+  position: sticky;
+  width: min-content;
+  top: 0;
+  z-index: 1;
 }
 
 .platform-switcher {
   margin-left: auto;
-  position: sticky;
-  top: 0;
   width: min-content;
   list-style-type: none;
   display: flex;
@@ -18,13 +22,11 @@
   flex-direction: row;
   gap: 5px;
   padding: 0.5rem;
-  margin-right: var(--margin-x);
   background-color: var(--body-color);
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
   border: 1px solid var(--btn-border);
   border-top-width: 0;
-  z-index: 1;
 
   span {
     font-style: italic;
