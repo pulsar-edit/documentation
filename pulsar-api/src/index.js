@@ -10,111 +10,99 @@ const OUT = path.join(__dirname, "../../_dist/api/pulsar");
 const LAYOUT_DIR = path.resolve(__dirname, "../../layouts/api")
 const ROOT_LAYOUT_DIR = path.resolve(__dirname, "../../layouts")
 
-function getLayout (name) {
+const LAYOUT_CACHE = new Map();
+function getLayout(name) {
   let layoutPath = path.join(LAYOUT_DIR, `${name}.ejs`);
-  return fs.readFileSync(layoutPath, { encoding: "utf8" })
+  if (!LAYOUT_CACHE.has(name)) {
+    let layout = fs.readFileSync(layoutPath, { encoding: "utf8" });
+    LAYOUT_CACHE.set(name, layout);
+  }
+  return LAYOUT_CACHE.get(name);
 }
 
-module.exports =
+const VERSION_CACHE = new Map();
+
 async function main() {
-  const objs = {};
 
   // create our output dir if it doesn't exist
-  await createIfDirAbsent(OUT);
+  createDirIfAbsent(OUT);
 
-  await enumerateFiles(IN, [], (file, pathArray, filename, immediateReturn) => {
+  await enumerateFiles(IN, [], (file, _pathArray, filename, _immediateReturn) => {
     try {
-      objs[filename.replace(".json", "")] = JSON.parse(fs.readFileSync(file, { encoding: "utf8" }));
+      VERSION_CACHE.set(
+        filename.replace(/\.json$/, ''),
+        JSON.parse(fs.readFileSync(file, { encoding: "utf8" }))
+      );
     } catch(err) {
       console.error(err);
       console.error(`Failed to read: ${filename}`);
     }
   });
 
-  // OBJS now has all API content
-  const latestVer = JSON.parse(fs.readFileSync(path.join(__dirname, "../latest.json"), { encoding: "utf8" } )).latest;
+  const latestVer = JSON.parse(
+    fs.readFileSync(
+      path.join(__dirname, "../latest.json"),
+      { encoding: "utf8" }
+    )
+  ).latest;
 
-  for (let item in objs) {
-    let isLatestVer = false;
+  const sidebarDocsData = JSON.parse(
+    fs.readFileSync(
+      path.resolve(__dirname, "../../docs/docs.11tydata.json"),
+      { encoding: "utf8" }
+    )
+  );
 
-    if (item == latestVer) {
-      isLatestVer = true;
-      // this means the current version we are documenting is the latest version
-    }
-
-    await createIfDirAbsent(path.join(OUT, item));
-
-    if (isLatestVer) {
-      await createIfDirAbsent(path.join(OUT, "latest"));
-    }
+  for (let version of VERSION_CACHE.keys()) {
+    let isLatestVer = version === latestVer;
 
     // Create the summary page
     let summaryHTML = ejs.render(
       getLayout("summary"),
       {
-        title: item,
-        sidebar: JSON.parse(fs.readFileSync(path.resolve(__dirname, "../../docs/docs.11tydata.json"), { encoding: "utf8" })).root_sidebar,
-        blocks: content2sidebar(objs[item].classes)
+        title: version,
+        sidebar: sidebarDocsData.root_sidebar,
+        blocks: content2sidebar(VERSION_CACHE.get(version).classes)
       },
       {
         views: [ROOT_LAYOUT_DIR]
       }
     );
 
-    fs.writeFileSync(
-      path.join(OUT, item, "index.html"),
-      summaryHTML,
-      { encoding: "utf8" }
-    );
-    console.log(`[pulsar-api] Writing ${path.relative(process.cwd(), path.join(OUT, item, "index.html"))}`);
+    writeContentForNameAndVersion(summaryHTML, null, version, isLatestVer);
 
-    if (isLatestVer) {
-      fs.writeFileSync(
-        path.join(OUT, "latest", "index.html"),
-        summaryHTML,
-        { encoding: "utf8" }
-      );
-      console.log(`[pulsar-api] Writing ${path.relative(process.cwd(), path.join(OUT, "latest", "index.html"))}`);
+    let allClasses = VERSION_CACHE.get(version).classes;
+    for (let [name, klass] of Object.entries(allClasses)) {
+      let html = convert(name, klass);
+      writeContentForNameAndVersion(html, name, version, isLatestVer);
     }
-
-    for (let apiClass in objs[item].classes) {
-      let html = await convert(apiClass, objs[item].classes[apiClass]);
-
-      await createIfDirAbsent(path.join(OUT, item, apiClass));
-
-      if (isLatestVer) {
-        await createIfDirAbsent(path.join(OUT, "latest", apiClass));
-      }
-
-      fs.writeFileSync(
-        path.join(OUT, item, apiClass, "index.html"),
-        html,
-        { encoding: "utf8" }
-      );
-      console.log(`[pulsar-api] Writing ${path.relative(process.cwd(), path.join(OUT, item, apiClass, "index.html"))}`);
-
-      if (isLatestVer) {
-        fs.writeFileSync(
-          path.join(OUT, "latest", apiClass, "index.html"),
-          html,
-          { encoding: "utf8" }
-        );
-        console.log(`[pulsar-api] Writing ${path.relative(process.cwd(), path.join(OUT, "latest", apiClass, "index.html"))}`);
-      }
-    }
-
   }
+}
 
+function writeContentForNameAndVersion (content, name, version, isLatestVer) {
+  if (name === null) {
+    outputPath = path.join(OUT, version);
+  } else {
+    outputPath = path.join(OUT, version, name);
+  }
+  createDirIfAbsent(outputPath);
+  let outputFilePath = path.join(outputPath, 'index.html');
+  console.log(`[pulsar-api] Writing ${path.relative(process.cwd(), outputFilePath)}`);
+  fs.writeFileSync(outputFilePath, content, { encoding: 'utf8' });
+
+  if (isLatestVer) {
+    writeContentForNameAndVersion(content, name, 'latest', false);
+  }
 }
 
 function content2sidebar(content) {
   let sidebar = [];
 
-  for (let item in content) {
+  for (let item of Object.values(content)) {
     sidebar.push({
-      text: content[item].name,
-      summary: mdRender(content[item].summary),
-      link: content[item].name
+      text: item.name,
+      summary: mdRender(item.summary),
+      link: item.name
     });
   }
 
@@ -126,7 +114,7 @@ async function enumerateFiles(dir, pathArray, fileCallback) {
   // pathArray: The array of path entries
   // fileCallback: Function to invoke when a file is found
   // When a callback is invoked the following is passed:
-  // - file: Which is the file and it's preceeding path. A relative path to a specific file.
+  // - file: Which is the file and its preceeding path. A relative path to a specific file.
   // - pathArray: The path as an array leading up to that file, from the initial dir passed.
   // - filename: The specific file's name.
   // - immediateReturn: An overloaded paramter passed only when the immediate dir
@@ -151,8 +139,10 @@ async function enumerateFiles(dir, pathArray, fileCallback) {
   }
 }
 
-async function createIfDirAbsent(file) {
+function createDirIfAbsent(file) {
   if (!fs.existsSync(file)) {
     fs.mkdirSync(file);
   }
 }
+
+module.exports = main;
