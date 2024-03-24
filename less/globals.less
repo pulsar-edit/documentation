@@ -1,3 +1,7 @@
+:root {
+  --content-max-width: 1200px;
+}
+
 body {
   margin-top: 0px;
   margin-right: 0px;
@@ -12,8 +16,11 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
   display: flex;
   justify-content: flex-start;
   gap: 4rem;
-  margin-left: var(--margin-x);
-  margin-right: var(--margin-x);
+  padding-left: var(--margin-x);
+  padding-right: var(--margin-x);
+  max-width: var(--content-max-width);
+  box-sizing: border-box;
+  margin: 0 auto;
 }
 
 a {
@@ -27,6 +34,7 @@ code {
   font-size: initial;
   white-space: initial;
 }
+
 
 .content .container {
   margin: 0;

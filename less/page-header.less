@@ -1,22 +1,27 @@
 
 .page_header {
-  padding: 1.5rem;
   background-color: var(--pageHeader-bg);
-  gap: 1.5rem;
-  align-items: center;
-  display: flex;
   margin-bottom: 3rem;
   font-size: 1.7rem;
   line-height: 1.2;
   border-bottom: 1px solid var(--pageHeader-border);
 
-  padding-left: var(--margin-x);
-  padding-right: var(--margin-x);
-
   .page_header__img {
     height: 4.5rem;
     max-width: 100%;
     display: block;
+  }
+
+  .page_header__inner {
+    padding: 1.5rem;
+    padding-left: var(--margin-x);
+    padding-right: var(--margin-x);
+    align-items: center;
+    display: flex;
+    gap: 1.5rem;
+    max-width: var(--content-max-width);
+    box-sizing: border-box;
+    margin: 0 auto;
   }
 
   .page_header__items {

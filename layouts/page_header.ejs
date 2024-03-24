@@ -1,38 +1,41 @@
 <header class="page_header">
-
-  <a href="/" class="page_header__link">
-    <img class="page_header__img" src="/static/logo-name-navbar-dark.svg">
-  </a>
-
-  <nav class="page_header__items">
-    <a class="page_header__link" href="/api/pulsar">
-      Pulsar API Docs
+  <div class="page_header__inner">
+    <a href="/" class="page_header__link">
+      <img class="page_header__img" src="/static/logo-name-navbar-dark.svg">
     </a>
-    <a class="page_header__link" href="https://api.pulsar-edit.dev/swagger-ui/">
-      PPR API Docs
-    </a>
-    <a class="page_header__link" href="https://pulsar-edit.dev">
-      Pulsar Homepage
-    </a>
-  </nav>
 
-  <nav class="page_header__actions">
-    <div class="theme-switcher-menu">
-      <button type="button" id="theme-switcher">
-        <span>
-          <span class="icon icon-theme-os-default"></span>
-          Switch Theme
-        </span>
-      </button>
-    </div>
-  </nav>
+    <nav class="page_header__items">
+      <a class="page_header__link" href="/api/pulsar">
+        Pulsar API Docs
+      </a>
+      <a class="page_header__link" href="https://api.pulsar-edit.dev/swagger-ui/">
+        PPR API Docs
+      </a>
+      <a class="page_header__link" href="https://pulsar-edit.dev">
+        Pulsar Homepage
+      </a>
+    </nav>
+
+    <nav class="page_header__actions">
+      <div class="theme-switcher-menu">
+        <button type="button" id="theme-switcher">
+          <span>
+            <span class="icon icon-theme-os-default"></span>
+            Switch Theme
+          </span>
+        </button>
+      </div>
+    </nav>
+  </div>
 </header>
 
 <% if (system_switcher) { -%>
-<div class="platform-switcher">
-  <span>Platform:</span>
-  <button data-platform="mac" type="button">Mac</button>
-  <button data-platform="win" type="button">Windows</button>
-  <button data-platform="linux" type="button">Linux</button>
+<div class="platform-switcher-wrapper">
+  <div class="platform-switcher">
+    <span>Platform:</span>
+    <button data-platform="mac" type="button">Mac</button>
+    <button data-platform="win" type="button">Windows</button>
+    <button data-platform="linux" type="button">Linux</button>
+  </div>
 </div>
 <% } %>
