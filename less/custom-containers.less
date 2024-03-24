@@ -2,18 +2,36 @@
 // Custom containers from markdown-it
 .custom-container {
   position: relative;
-  margin: 1rem 0;
-  padding: 0.25rem 1rem;
+  margin: 1rem 3rem 2rem 0;
+  padding: 0rem 1rem 0.25rem;
   border-left-width: 0.3rem;
   border-left-style: solid;
   border-radius: 0.5rem;
   color: var(--customContainer-color);
-  border-color: var(--customContainer-border);
+  border: 1px solid var(--customContainer-border);
   background-color: var(--customContainer-bg);
 
+  overflow: clip;
+
+  & > :last-child {
+    margin-bottom: 0.5rem;
+  }
+
+  & > :first-child:not(.custom-container-title) {
+    margin-top: 0.5rem;
+  }
+
   .custom-container-title {
-    padding-left: 1.5rem;
     color: var(--customContainerTitle-color);
+    background-color: var(--customContainerTitle-bg);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 0.5rem !important;
   }
 
   &.note {
@@ -23,6 +41,7 @@
 
     .custom-container-title {
       color: var(--customContainerTitle_note-color, --customContainerTitle-color);
+      background-color: var(--customContainerTitle_note-bg, --customContainerTitle-bg);
     }
   }
 
@@ -33,6 +52,40 @@
 
     .custom-container-title {
       color: var(--customContainerTitle_warning-color, --customContainerTitle-color);
+      background-color: var(--customContainerTitle_warning-bg, --customContainerTitle-bg);
+    }
+  }
+
+  &.info {
+    color: var(--customContainer_info-color, --customContainer-color);
+    border-color: var(--customContainer_info-border, --customContainer-border);
+    background-color: var(--customContainer_info-bg, --customContainer-bg);
+
+    .custom-container-title {
+      color: var(--customContainerTitle_info-color, --customContainerTitle-color);
+      background-color: var(--customContainerTitle_info-bg, --customContainerTitle-bg);
+    }
+  }
+
+  &.tip {
+    color: var(--customContainer_tip-color, --customContainer-color);
+    border-color: var(--customContainer_tip-border, --customContainer-border);
+    background-color: var(--customContainer_tip-bg, --customContainer-bg);
+
+    .custom-container-title {
+      color: var(--customContainerTitle_tip-color, --customContainerTitle-color);
+      background-color: var(--customContainerTitle_tip-bg, --customContainerTitle-bg);
+    }
+  }
+
+  &.danger {
+    color: var(--customContainer_danger-color, --customContainer-color);
+    border-color: var(--customContainer_danger-border, --customContainer-border);
+    background-color: var(--customContainer_danger-bg, --customContainer-bg);
+
+    .custom-container-title {
+      color: var(--customContainerTitle_danger-color, --customContainerTitle-color);
+      background-color: var(--customContainerTitle_danger-bg, --customContainerTitle-bg);
     }
   }
 }
