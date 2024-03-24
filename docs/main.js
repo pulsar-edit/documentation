@@ -1,12 +1,6 @@
-const DEFAULT_THEME = "dark";
 setupThemeSwitcher();
 setupTabs();
 setupHovercards();
-
-let threshold = [];
-for (let i = 0; i <= 20; i++) {
-  threshold.push(i * 0.05);
-}
 
 function debounce (fn, delay) {
   let timeout = null;
@@ -40,6 +34,11 @@ class HeadingObserver {
         this.setActive(closest?.id ?? null);
       }
     };
+
+    let threshold = [];
+    for (let i = 0; i <= 20; i++) {
+      threshold.push(i * 0.05);
+    }
 
     let debouncedRecheck = debounce(() => {
       // Sanity check to make sure that the element is still within the
@@ -352,6 +351,7 @@ async function hovercardEventListener(event) {
 }
 
 function setupThemeSwitcher() {
+  let DEFAULT_THEME = "dark";
   let root = document.documentElement;
   const themeBtn = document.getElementById("theme-switcher");
 
@@ -401,3 +401,69 @@ function findOSThemePref() {
 function findSavedUserPrefTheme() {
   return localStorage.getItem("preferred-theme");
 }
+
+
+class SystemSwitcher {
+  constructor() {
+    this.list = document.querySelector('.platform-switcher');
+    this.list.addEventListener('click', (event) => {
+      let button = event.target.closest('button');
+      if (!button) return;
+      this.onClick(button);
+    })
+    this.observer = new MutationObserver(
+      (mutationList) => {
+      for (let mutation of mutationList) {
+        if (mutation.type !== 'attributes') continue;
+        if (mutation.attributeName !== 'data-platform') continue;
+        this.reactToPlatformChange(document.body.dataset.platform);
+      }
+    });
+    this.observer.observe(document.body, { attributes: true });
+    this.setPlatform(this.detectPlatform());
+    this.reactToPlatformChange(document.body.dataset.platform);
+  }
+
+  detectPlatform () {
+    const userAgent = window.navigator.userAgent,
+        platform = window.navigator?.userAgentData?.platform || window.navigator.platform,
+        macosPlatforms = ['macOS', 'Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+        windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+        iosPlatforms = ['iPhone', 'iPad', 'iPod'];
+    let os = null;
+
+    if (macosPlatforms.indexOf(platform) !== -1) {
+      os = 'mac';
+    } else if (iosPlatforms.indexOf(platform) !== -1) {
+      os = 'mac';
+    } else if (windowsPlatforms.indexOf(platform) !== -1) {
+      os = 'win';
+    } else if (/Android/.test(userAgent)) {
+      os = 'win';
+    } else if (/Linux/.test(platform)) {
+      os = 'linux';
+    }
+
+    return os;
+  }
+
+  setPlatform (platform) {
+    document.body.setAttribute(`data-platform`, platform);
+  }
+
+  onClick (button) {
+    this.setPlatform(button.dataset.platform);
+  }
+
+  reactToPlatformChange (newPlatform) {
+    let active = this.list.querySelector('.active');
+    if (active?.dataset.platform === newPlatform) return;
+    active?.classList.remove('active');
+
+    let selector = `button[data-platform="${newPlatform}"]`;
+    let newActive = this.list.querySelector(selector);
+    newActive.classList.add('active');
+  }
+}
+
+new SystemSwitcher();

@@ -1,0 +1,65 @@
+.platform-switcher {
+  margin-top: -3rem;
+  margin-bottom: 3rem;
+  margin-left: auto;
+  position: sticky;
+  top: 0;
+  width: min-content;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 5px;
+  padding: 0.5rem;
+  margin-right: var(--margin-x);
+  background-color: var(--body-color);
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border: 1px solid var(--btn-border);
+  border-top-width: 0;
+  z-index: 1;
+
+  span {
+    font-style: italic;
+    font-size: 13px;
+    padding: 0 0.5rem;
+  }
+
+  button {
+    padding: 0 1rem ;
+    line-height: 20px;
+    height: auto;
+    margin: 0;
+    opacity: 0.5;
+  }
+
+  button.active {
+    opacity: 1;
+    background-color: var(--btn_primary-bg);
+    color: var(--btn_primary-color);
+  }
+}
+
+// When active platform is Mac, show only `.platform-mac`.
+body[data-platform="mac"] {
+  .platform-win:not(.platform-mac),
+  .platform-linux:not(.platform-mac) {
+    display: none;
+  }
+}
+
+// When active platform is Windows, show only `.platform-win`.
+body[data-platform="win"] {
+  .platform-mac:not(.platform-win),
+  .platform-linux:not(.platform-win) {
+    display: none;
+  }
+}
+
+// When active platform is Linux, show only `.platform-linux`.
+body[data-platform="linux"] {
+  .platform-win:not(.platform-linux),
+  .platform-mac:not(.platform-linux) {
+    display: none;
+  }
+}
