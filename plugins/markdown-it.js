@@ -45,6 +45,10 @@ md
   { name: "tabs" }
 ).use(
   container,
+  "aside",
+  { render: makeContainerRenderer("aside") }
+).use(
+  container,
   "warning",
   { render: makeContainerRenderer("warning") }
 ).use(
