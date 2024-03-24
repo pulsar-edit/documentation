@@ -7,50 +7,62 @@ const md = MarkdownIT({
   html: true
 });
 
-const containerRender = (name) => {
+function makeContainerRenderer (name) {
   return (tokens, idx) => {
-    const str = `^${name}\\s+(.*)$`;
-    const reg = new RegExp(str);
-    const content = tokens[idx].info.trim().match(reg);
+    const titlePattern = new RegExp(`^${name}\\s+(.*)$`);
+    const content = tokens[idx].info.trim().match(titlePattern);
 
     if (tokens[idx].nesting === 1) {
-      // opening tag
-      let openingTag = `<div class="${name} custom-container">\n`;
-
+      let openingTag = `<aside class="${name} custom-container">\n`;
       if (content) {
-        openingTag += `<p class="custom-container-title">${md.utils.escapeHtml(content[1])}</p>`;
+        openingTag += `<div class="custom-container-title">${md.utils.escapeHtml(content[1])}</div>`;
       }
-
       return openingTag;
     } else {
-      // closing tag
-      return "</div>\n";
+      return `</aside>\n`;
     }
-  };
-};
+  }
+}
 
 module.exports =
 md
-.use(require("markdown-it-attrs"), {
-  leftDelimiter: "$",
-  rightDelimiter: "$"
-}).use(require("markdown-it-kbd"), {
-
-}).use(require("markdown-it-include"),
+.use(
+  require("markdown-it-attrs"),
+  {
+    leftDelimiter: "$",
+    rightDelimiter: "$"
+  }
+).use(
+  require("markdown-it-kbd"),
+  {}
+).use(
+  require("markdown-it-include"),
   "./"
-).use(tab, {
-  name: "tabs"
-}).use(container,
-  "warning", { render: containerRender("warning") }
-).use(container,
-  "info", { render: containerRender("info") }
-).use(container,
-  "note", { render: containerRender("note") }
-).use(container,
-  "tip", { render: containerRender("tip") }
-).use(container,
-  "danger", { render: containerRender("danger") }
-)
-.use(require("../markdown-it-plugins/hovercard.js"))
-.use(require("markdown-it-anchor"),
+).use(
+  tab,
+  { name: "tabs" }
+).use(
+  container,
+  "warning",
+  { render: makeContainerRenderer("warning") }
+).use(
+  container,
+  "info",
+  { render: makeContainerRenderer("info") }
+).use(
+  container,
+  "note",
+  { render: makeContainerRenderer("note") }
+).use(
+  container,
+  "tip",
+  { render: makeContainerRenderer("tip") }
+).use(
+  container,
+  "danger",
+  { render: makeContainerRenderer("danger") }
+).use(
+  require("../markdown-it-plugins/hovercard.js")
+).use(
+  require("markdown-it-anchor")
 );
