@@ -3,6 +3,222 @@ setupThemeSwitcher();
 setupTabs();
 setupHovercards();
 
+let threshold = [];
+for (let i = 0; i <= 20; i++) {
+  threshold.push(i * 0.05);
+}
+
+function debounce (fn, delay) {
+  let timeout = null;
+  return function() {
+    clearTimeout(timeout);
+    timeout = setTimeout(fn, delay);
+  };
+}
+
+// Highlight the sidebar navigation item that corresponds to the section that
+// the user is reading.
+class HeadingObserver {
+  constructor() {
+    let sidebar = document.querySelector('.sidebar');
+    if (!sidebar) return;
+
+    this.sidebar = sidebar;
+    this.activeId = null;
+
+    let listener = (entries, observer) => {
+      if (this.clickedOnAnchor) return;
+      let matched = false;
+      for (let entry of entries) {
+        matched ||= this.didIntersect(entry, observer);
+      }
+
+      if (matched) return;
+
+      if (this.narrowObserver === observer) {
+        let closest = this.getClosestHeadingToTopOfViewport();
+        this.setActive(closest?.id ?? null);
+      }
+    };
+
+    let debouncedRecheck = debounce(() => {
+      // Sanity check to make sure that the element is still within the
+      // viewport. If it is, then we won't second-guess the
+      // `IntersectionObserver`s.
+      if (this.activeId && this.withinViewport(this.activeId)) return
+
+      // Otherwise, we should invoke both observers manually — preferring the
+      // narrow observer, then falling back to the wide observer.
+      let narrowRecords = this.narrowObserver.takeRecords();
+      let wideRecords = this.wideObserver.takeRecords();
+
+      // Only take action on either observer if there are new records. If there
+      // aren't, that means that no headings changed intersection state since
+      // the last time we checked.
+      if (narrowRecords > 0) {
+        listener(narrowRecords, this.narrowObserver);
+      } else if (wideRecords > 0) {
+        listener(narrowRecords, this.wideObserver);
+      }
+
+      if (!this.activeId) {
+        let closest = this.getClosestHeadingToTopOfViewport();
+        this.setActive(closest?.id ?? null);
+      }
+
+    }, 200);
+
+    // When the window scrolls very quickly — like when the user presses
+    // Home/End, or otherwise jumps to the top or bottom — sometimes it's so
+    // fast that the IntersectionObservers don't even react. We can fix this by
+    // invoking them manually after the scroll has finished.
+    window.addEventListener('scroll', debouncedRecheck);
+
+    this.narrowObserver = new IntersectionObserver(
+      listener,
+      {
+        // Draw an imaginary rectangle the size of the viewport, then decrease
+        // the height so that the rectangle covers only the top 10% of the
+        // viewport.
+        //
+        // When a heading passes into this imaginary rectangle, that's the
+        // active heading.
+        //
+        // If no heading is within this imaginary rectangle, the active heading
+        // is the closest heading _above_ the top edge of the viewport.
+        //
+        // If no such heading qualifies, the active heading is the closest
+        // heading to the top edge of the viewport.
+        rootMargin: '0px 0px -90% 0px',
+        threshold
+      }
+    );
+
+    // When nothing has yet gone past the narrow viewport, we fall back to a
+    // different `IntersectionObserver` that looks at the entire viewport. In
+    // that scenario, we should mark the first header in the document as active
+    // as long as it's within the viewport.
+    this.wideObserver = new IntersectionObserver(listener);
+
+    this.ids = [];
+    this.headings = [];
+
+    this.sidebar.addEventListener('click', (event) => {
+      let link = event.target.closest('a');
+      if (!link) return;
+      this.didClickLink(link);
+    })
+
+    this.scanSidebar();
+  }
+
+  scanSidebar() {
+    this.wideObserver.disconnect();
+    this.narrowObserver.disconnect();
+    let links = this.sidebar.querySelectorAll('a');
+    for (let link of links) {
+      let href = link.getAttribute('href');
+      if (!href?.startsWith('#')) continue;
+
+      let id = href.substring(1);
+      let heading = document.getElementById(id);
+      if (!heading) continue;
+
+      this.ids.push(id);
+      this.headings.push(heading);
+
+      this.wideObserver.observe(heading);
+      this.narrowObserver.observe(heading);
+    }
+  }
+
+  setActive(id) {
+    this.activeId = id;
+    let href = `#${id}`;
+
+    let previousActive = this.sidebar.querySelector('li.active a');
+    previousActive?.closest('li')?.classList.remove('active');
+
+    let linkForId = this.sidebar.querySelector(`a[href="${href}"]`);
+    if (!linkForId) return;
+
+    linkForId.closest('li')?.classList.add('active');
+  }
+
+  getClosestHeadingToTopOfViewport() {
+    let windowHeight = window.innerHeight;
+    let previousHeading;
+    for (let heading of this.headings) {
+      let rect = heading.getBoundingClientRect();
+      if (rect.bottom >= 0) {
+        if (previousHeading) {
+          return previousHeading;
+        } else if (rect.bottom <= windowHeight) {
+          // If this is the first heading on the page, we'll still consider it
+          // active if it's at least within the viewport.
+          return heading;
+        } else {
+          // Otherwise we have no active heading.
+          return null;
+        }
+      }
+      previousHeading = heading;
+    }
+  }
+
+  didIntersect(entry, observer) {
+    let { target, isIntersecting } = entry;
+    if (!target.id) return;
+    if (!isIntersecting) {
+      if (target.id === this.activeId) {
+        this.setActive(null);
+      }
+      return
+    };
+    if (observer === this.narrowObserver) {
+      this.setActive(target.id);
+      return true;
+    }
+    if (observer === this.wideObserver && this.activeId === null) {
+      this.setActive(target.id);
+    }
+    return false;
+  }
+
+  // Clicking on a link with a heading anchor should always make that link the
+  // active link, even if it otherwise wouldn't qualify. (Like if it's a short
+  // section at the bottom of the page and cannot reach the top of the
+  // viewport.)
+  didClickLink(link) {
+    let href = link.getAttribute('href');
+    if (!href.startsWith('#')) return;
+
+    let id = href.substring(1);
+    if (!this.ids.includes(id)) return;
+
+    this.clickedOnAnchor = true;
+
+    requestAnimationFrame(() => {
+      this.setActive(id);
+    })
+
+    setTimeout(() => {
+      this.clickedOnAnchor = false;
+    }, 200)
+  }
+
+  withinViewport(elementOrId) {
+    let element = typeof elementOrId === 'string' ? document.getElementById(elementOrId) : elementOrId;
+    let rect = element.getBoundingClientRect();
+    if (rect.top < 0) return false;
+    if (rect.bottom > window.innerHeight) return false;
+    return true;
+  }
+}
+
+new HeadingObserver();
+
+
 function setupTabs() {
   let nodes = document.getElementsByClassName("tabs-tabs-wrapper");
 
