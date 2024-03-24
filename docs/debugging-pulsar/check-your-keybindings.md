@@ -9,11 +9,7 @@ combination. Pulsar ships with the [Keybinding Resolver](https://github.com/puls
 a neat package which helps you understand what key Pulsar saw you press and the
 command that was triggered because of it.
 
-Show the keybinding resolver with
-**_LNX/WIN_**: [[Ctrl+.]] -
-**_MAC_**: [[Cmd+.]],
-or with `Keybinding Resolver: Show` from the Command palette. With the
-Keybinding Resolver shown, press a key combination:
+Show the keybinding resolver with <kbd class="platform-linux platform-win">Ctrl+.</kbd> <kbd class="platform-mac">Cmd+.</kbd>, or with `Keybinding Resolver: Show` from the Command palette. With the Keybinding Resolver shown, press a key combination:
 
 ![Keybinding Resolver](/img/atom/keybinding-resolver.png)
 

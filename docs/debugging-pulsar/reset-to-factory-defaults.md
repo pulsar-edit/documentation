@@ -36,9 +36,6 @@ as if you first installed Pulsar.
 
 The command given above doesn't delete the old configuration, just puts it
 somewhere that Pulsar can't find it. If there are pieces of the old
-configuration you want to retrieve, you can find them in the
-**_LNX/MAC_**: `~/.pulsar-backup` -
-**_WIN_**: `%USERPROFILE%\.pulsar-backup`
-directory.
+configuration you want to retrieve, you can find them in the <span class="platform-mac platform-linux">`~/.pulsar-backup`</span> <span class="platform-win">`%USERPROFILE%\.pulsar-backup`</span> directory.
 
 :::

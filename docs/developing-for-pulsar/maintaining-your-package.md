@@ -83,21 +83,13 @@ The name of your package will be reserved even after being unpublished!
 
 :::
 
-If you no longer want to support your package and cannot find anyone to take it
-over, you can unpublish your package from [https://pulsar-edit.dev](https://web.pulsar-edit.dev).
-For example, if your package is named `package-name` then the command you would
-execute is:
+If you no longer want to support your package and cannot find anyone to take it over, you can unpublish your package from [https://pulsar-edit.dev](https://web.pulsar-edit.dev). For example, if your package is named `package-name` then the command you would execute is:
 
 ```sh
-$ pulsar -p unpublish <package-name>
+$ pulsar -p unpublish package-name
 ```
 
-This will remove your package from the [https://pulsar-edit.dev](https://web.pulsar-edit.dev)
-package registry. Anyone who has already downloaded a copy of your package will
-still have it and be able to use it, but it will no longer be available for
-installation by others. Additionally, to prevent a possible [Supply Chain Attack](https://en.wikipedia.org/wiki/Supply_chain_attack)
-the name your package used will **forever** be unusable by yourself or any other
-community package.
+This will remove your package from the [https://pulsar-edit.dev](https://web.pulsar-edit.dev) package registry. Anyone who has already downloaded a copy of your package will still have it and be able to use it, but it will no longer be available for installation by others. Additionally, to prevent a possible [supply chain attack](https://en.wikipedia.org/wiki/Supply_chain_attack), the name your package used will **forever** be unusable by yourself or any other community package.
 
 ### Unpublish a Specific Version
 
@@ -107,7 +99,7 @@ your package. For example, if your package is named `package-name` and the bad
 version of your package is v1.2.3 then the command you would execute is:
 
 ```sh
-$ pulsar -p unpublish <package-name@1.2.3>
+$ pulsar -p unpublish package-name@1.2.3
 ```
 
 This will remove just this particular version from the [https://pulsar-edit.dev](https://web.pulsar-edit.dev)

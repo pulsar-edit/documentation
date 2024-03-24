@@ -36,12 +36,7 @@ to you, but this tutorial will be written in CSON.
 
 ## Create the Package
 
-To get started, press
-**_LNX/WIN_**: <kbd>Ctrl+Shift+P</kbd> -
-**_MAC_**: <kbd>Cmd+Shift+P</kbd>
-and start typing "Generate Package" to generate a new grammar package. Select
-"Package Generator: Generate Package," and you'll be asked for the path where
-your package will be created. Let's call ours `language-flight-manual`.
+To get started, press <kbd class="platform-linux platform-win">Ctrl+Shift+P</kbd> <kbd class="platform-mac">Cmd+Shift+P</kbd> and start typing "Generate Package" to generate a new grammar package. Select "Package Generator: Generate Package," and you'll be asked for the path where your package will be created. Let's call ours `language-flight-manual`.
 
 ::: tip Tip
 

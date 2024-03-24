@@ -20,17 +20,9 @@ This means that packages can be incredibly powerful and can change everything
 from the very look and feel of the entire interface to the basic operation of
 even core functionality.
 
-In order to install a new package, you can use the Install tab in the now
-familiar Settings View. Open up the Settings View using
-**_LNX/WIN_**: [[Ctrl+,]] -
-**_MAC_**: [[Cmd+,]]
-click on the "Install" tab and type your search query into
-the box under Install Packages.
+In order to install a new package, you can use the Install tab in the now familiar Settings View. Open up the Settings View using <kbd class="platform-linux platform-win">Ctrl+,</kbd> <kbd class="platform-mac">Cmd+,</kbd> click on the "Install" tab, and type your search query into the box under Install Packages.
 
-The packages listed here have been published to [https://web.pulsar-edit.dev](https://web.pulsar-edit.dev)
-which is the official registry for Pulsar packages. Searching on the Settings
-View will go to the Pulsar package registry and pull in anything that matches
-your search terms.
+The packages listed here have been published to [https://web.pulsar-edit.dev](https://web.pulsar-edit.dev) which is the official registry for Pulsar packages. Searching on the Settings View will go to the Pulsar package registry and pull in anything that matches your search terms.
 
 ![Package install screen](/img/atom/packages-install.png "Package install screen") <!--TODO: Replace with Pulsar branded pictures-->
 

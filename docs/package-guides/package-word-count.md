@@ -3,14 +3,13 @@ title: "Package: Word Count"
 layout: doc.ejs
 ---
 
-Let's get started by writing a very simple package, that will tell you how many
-words are in the current buffer and display it in a small modal window.
+Let's get started by writing a very simple package that will tell you how many words are in the current buffer and display it in a small modal window.
 
-Get started with the [package generator]() to create your package, which we will
-title `your-name-word-count`.
+The simplest way to start a package is to use the built-in package generator that ships with Atom. As you might expect by now, this generator is itself a separate package implemented in [package-generator][].
 
-By default with the package generator, generated code if we run `your-name-word-count:toggle`
-command through the menu or command palette, we'll get a dialog that says "The YourNameWordCount
+You can run the generator by invoking the command palette and searching for "Generate Package". A dialog will appear asking you to name your new project. Name it `your-name-word-count`. Atom will then create that directory and fill it out with a skeleton project and link it into your `~/.atom/packages` directory so it's loaded when you launch your editor next time.
+
+Your new project will also automatically be opened for editing. The boilerplate for the new package contains one command called “Your Name Word Count: Toggle”; if you were to invoke this command through the menu or command palette, you’d see a dialog that says "The YourNameWordCount
 package is Alive! It's Alive!".
 
 ![Wordcount Package is Alive Dialog](/img/atom/toggle.png)
@@ -129,15 +128,11 @@ The `deactivate` method simply destroys the various class instances we've
 created and the `serialize` method simply passes on the serialization to the
 View class. Nothing too exciting here.
 
-The `activate` command does a number of things. For one, it is not called
-automatically when Pulsar starts up, it is first called when one of the
-`activationCommands` as defined in the `package.json` file are called. In this
-case, `activate` is only called the first time the `toggle` command is called.
-If nobody ever invokes the menu item or hotkey, this code is never called.
+The `activate` command does a number of things. First of all, it isn’t always called automatically when Pulsar starts! If desired, a package author can defer their package’s activation until later by defining one or more `activationCommands` in their package’s `package.json`. In this case, `activate` is only called the first time the `toggle` command is called. If nobody ever invokes the menu item or hotkey, this package is never activated.
 
-This method does two things. The first is that it creates an instance of the
-View class we have and adds the element that it creates to a hidden modal panel
-in the Pulsar workspace.
+This is a good idea! It means that Pulsar will open project windows more quickly because it can skip calling `activate` on some packages until later. It’s not always possible to defer your package’s activation, but please consider if it makes sense for yours.
+
+Our `activate` method does two things. First it creates an instance of our View and adds the view’s element to a hidden modal panel in the Pulsar workspace.
 
 ```js
 this.yourNameWordCountView = new YourNameWordCountView(
@@ -152,9 +147,7 @@ this.modalPanel = atom.workspace.addModalPanel({
 We'll ignore the state stuff for now, since it's not important for this simple
 package. The rest should be fairly straightforward.
 
-The next thing this method does is create an instance of the CompositeDisposable
-class so it can register all the commands that can be called from the package so
-other packages could subscribe to these events.
+Next, our `activate` method creates an instance of the `CompositeDisposable` class. It does this because some methods that are typically called during package activation — adding commands, subscribing to events, and so on — will create side-effects that should be cleaned up if this package is ever deactivated. A `CompositeDisposable` helps us keep track of all of those clean-up tasks.
 
 ```js
 // Events subscribed to in Pulsar's system can be easily cleaned up with a CompositeDisposable
@@ -183,7 +176,7 @@ toggle() {
 ```
 
 This should be fairly simple to understand. We're looking to see if the modal
-element is visible or hiding or showing it depending on its current state.
+element is visible, then hiding or showing it depending on what we observe.
 
 ## The Flow
 
@@ -231,14 +224,14 @@ toggle() {
 }
 ```
 
-Let's look at the 3 lines we've added. First we get an instance of the current
-editor object (where our text to count is) by calling [`atom.workspace.getActiveTextEditor()`](https://atom.io/docs/api/latest/Workspace#instance-getActiveTextEditor). <!--TODO: Update when API is documented-->
+Let's look at the three lines we've added. First we get an instance of the current
+`TextEditor` object by calling [`atom.workspace.getActiveTextEditor()`](https://atom.io/docs/api/latest/Workspace#instance-getActiveTextEditor).
 
-Next we get the number of words by calling [`getText()`](https://atom.io/docs/api/latest/TextEditor#instance-getText) <!--TODO: Update when API is documented-->
-on our new editor object, then splitting that text on whitespace with a regular
-expression and then getting the length of that array.
+Next we get the number of words by calling [`getText()`](https://atom.io/docs/api/latest/TextEditor#instance-getText)
+on our new editor object, splitting that text on whitespace with a regular
+expression, and getting the length of that array.
 
-Finally, we tell our view to update the word count it displays by calling the
+Finally, we’ll tell our view to update the word count it displays by calling the
 `setCount()` method on our view and then showing the modal again. Since that
 method doesn't yet exist, let's create it now.
 
@@ -258,7 +251,7 @@ string that we then stick into the element that our view is controlling.
 
 To see your changes, you'll need to reload the code. You can do this by
 reloading the window (The `window:reload` command in the Command Palette). A
-common practice is to have two Pulsar windows, one for developing your package,
+common practice is to have two Pulsar windows: one for developing your package,
 and one for testing and reloading.
 
 :::

@@ -86,14 +86,9 @@ Examples:
 
 ## Command Palette
 
-In that welcome screen, we are introduced to probably the most important feature in Pulsar, the Command Palette. If you press **_MAC_**: [[Cmd+Shift+P]] **_LNX/WIN_**: [[Ctrl+Shift+P]] while focused in an editor pane, the command palette will pop up.
+In that welcome screen, we are introduced to probably the most important feature in Pulsar, the Command Palette. If you press <kbd class="platform-linux platform-win">Ctrl+Shift+P</kbd> <kbd class="platform-mac">Cmd+Shift+P</kbd> while focused in an editor pane, the command palette will pop up.
 
-This search-driven menu can do just about any major task that is possible in Pulsar. Instead of clicking around all the application menus to look for something, you can press:
-
-**_LNX/WIN_**: [[Ctrl+Shift+P]] -
-**_MAC_**: [[Cmd+Shift+P]]
-
-and search for the command.
+This search-driven menu can do just about any major task that is possible in Pulsar. Instead of clicking around all the application menus to look for something, you can press <kbd class="platform-linux platform-win">Ctrl+Shift+P</kbd> <kbd class="platform-mac">Cmd+Shift+P</kbd> and search for the command.
 
 ![Command Palette](/img/atom/command-palette.png "Command Palette")
 
@@ -111,16 +106,9 @@ This includes things like changing the theme, specifying how to handle wrapping,
 
 To open the Settings View, you can:
 
-- Use the
-  **_LNX_**: _Edit > Preferences_ -
-  **_MAC_**: _Pulsar > Preferences_ -
-  **_WIN_**: _File > Settings_
-  menu item in the menu bar
+- Use the <span class="platform-linux">_Edit > Preferences_</span> <span class="platform-mac">_Pulsar > Preferences_</span> <span class="platform-win">_File > Settings_</span> menu item in the menu bar
 - Search for `settings-view:open` in the [Command Palette](/using-pulsar/pulsar-basics/#command-palette)
-- Use the
-  **_LNX/WIN_**: [[Ctrl+,]] -
-  **_MAC_**: [[Cmd+,]]
-  keybinding.
+- Use the <kbd class="platform-linux platform-win">Ctrl+,</kbd> <kbd class="platform-mac">Cmd+,</kbd> keybinding.
 
 ### Finding Settings
 
@@ -157,12 +145,7 @@ Now that your editor is looking and acting how you want, let's start opening up 
 
 ### Opening a File
 
-There are several ways to open a file in Pulsar. You can do it by choosing _File > Open_ from the menu bar or by pressing:
-
-**_LNX/WIN_**: [[Ctrl+O]] -
-**_MAC_**: [[Cmd+0]]
-
-to choose a file from the standard dialog.
+There are several ways to open a file in Pulsar. You can do it by choosing _File > Open_ from the menu bar or by pressing <kbd class="platform-linux platform-win">Ctrl+O</kbd> <kbd class="platform-mac">Cmd+O</kbd> to choose a file from the standard dialog.
 
 ![Open file by dialog](/img/atom/open-file.png "Open file by dialog")
 
@@ -170,7 +153,7 @@ This is useful for opening a file that is not contained in the project you're cu
 
 Another way to open a file in Pulsar is from the command line using the `pulsar command.`
 
-::: info
+::: info Info
 The `pulsar` command may not be available by default after installation. Adding this feature is detailed further in [Integrating Pulsar into the Operating System](TODO).
 :::
 
@@ -315,22 +298,15 @@ copying the file path to the clipboard.
 
 :::
 
-::: note Note
-**Pulsar Packages**
+::: note Pulsar Packages
 
-Like many parts of Pulsar, the Tree View is not built directly into the editor,
-but is its own standalone package that is shipped with Pulsar by default. Packages
-that are bundled with Pulsar are referred to as Core packages. Ones that aren't
-bundled with Pulsar are referred to as Community packages.
+Like many parts of Pulsar, the Tree View is not built directly into the editor, but is its own package called `tree-view` that is shipped with Pulsar by default.
 
-You can find the source code to the Tree View on GitHub at
-https://github.com/pulsar-edit/pulsar/packages/tree-view.
+Packages that are bundled with Pulsar are called as _core packages_, and packages that aren’t are called _community packages_. The only difference between them is how they’re distributed — community packages have the same privileges and API access as core packages.
 
-This is one of the interesting things about Pulsar. Many of its core features are
-actually just packages implemented the same way you would implement any other
-functionality. This means that if you don't like the Tree View for example, you
-could write your own implementation of that functionality and replace it
-entirely.
+You can find the [source code to the `tree-view` package on GitHub](https://github.com/pulsar-edit/pulsar/packages/tree-view).
+
+This is one of the interesting things about Pulsar. Many of its core features are actually just packages implemented the same way you would implement any other functionality. If you didn’t like `tree-view`, for example, you could disable it and replace it with a package of your own creation.
 :::
 
 ### Opening a File in a Project

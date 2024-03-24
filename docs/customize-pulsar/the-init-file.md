@@ -4,24 +4,20 @@ layout: doc.ejs
 ---
 
 ::: info
-The default init file for Pulsar has been changed from the previous CoffeeScript
-`init.coffee` file used by Atom to JavaScript. The CoffeeScript file will still
-work but should you wish to reference the specific version of this document
-for it then you should look at the [Atom Archive](../../../../atom-archive/hacking-atom/#the-init-file).
+The default init file for Pulsar has been changed from the previous CoffeeScript `init.coffee` file used by Atom to JavaScript. You are still able to use an old `init.coffee` file — and even create a new one for use instead of `init.js`. Should you wish to reference the specific version of this document for CoffeeScript, you can find it in the [Atom Archive](../../../../atom-archive/hacking-atom/#the-init-file).
 :::
 
 When Pulsar finishes loading, it will evaluate `init.js` in your
-**_LNX/MAC_**: `~/.pulsar` -
-**_WIN_**: `%USERPROFILE%\.pulsar`
+<span class="platfom-linux platform-mac">`~/.pulsar`</span> <span class="platform-win">`%USERPROFILE%\.pulsar`</span>
 directory, giving you a chance to run JavaScript code to make customizations.
 Code in this file has full access to [Pulsar's API](https://atom.io/docs/api/latest).<!--TODO: Replace link when we have the API documented-->
 If customizations become extensive, consider creating a package, which we will
 cover in [Package: Word Count](#package-word-count).
 
 You can open the `init.js` file in an editor from the
-**_LNX_**: _Atom > Init Script_ -
-**_MAC_**: _File > Init Script_ -
-**_WIN_**: _Edit > Init Script_
+<span class="platform-linux">_Atom > Init Script_</span>
+<span class="platform-mac">_File > Init Script_</span>
+<span class="platform-win">_Edit > Init Script_</span>
 menu.
 
 For example, if you have the Audio Beep configuration setting enabled, you could

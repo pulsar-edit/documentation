@@ -9,6 +9,7 @@
   max-height: 100vh;
   flex-direction: column;
   width: 15%;
+  max-width: 250px;
   min-width: 250px;
 
   // Margin-top matches the height of the heading plus its padding — so that
@@ -24,6 +25,7 @@
 
 .sidebar_contents ul {
   list-style: none;
+  margin: 0;
 }
 
 // Attempt to replicate the outline style that we've got on the main Pulsar
@@ -31,7 +33,8 @@
 .sidebar_contents ul li {
   border-left: 2px solid var(--sidebar-border);
   padding-bottom: 0.2rem;
-  padding-left: 1rem;
+  padding-left: 1.5rem;
+  text-indent: -0.5rem;
   margin: 0;
 
   a {

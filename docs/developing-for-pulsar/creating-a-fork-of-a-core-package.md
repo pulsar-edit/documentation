@@ -28,9 +28,7 @@ name "one-light-ui-plus".
 
 1. Download the [current contents of the pulsar-edit/pulsar repository as a zip file](https://github.com/pulsar-edit/pulsar/archive/master.zip)
 
-2. Unzip the file to a temporary location (for example
-   **_LNX/MAC_**: `/tmp/pulsar` -
-   **_WIN_**: `C:\TEMP\pulsar`)
+2. Unzip the file to a temporary location (for example <span class="platform-mac platfomr-linux">`/tmp/pulsar`</span><span class="platform-win">`C:\TEMP\pulsar`</span>)
 
 3. Copy the contents of the desired package into a working directory for your
    fork

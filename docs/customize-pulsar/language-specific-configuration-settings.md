@@ -35,15 +35,9 @@ language of your choice, select it, and edit away!
 
 ## Language-specific Settings in your Config File
 
-You can also edit the `config.cson` directly. To open your configuration file
-via the Command Palette, press
-**_LNX/WIN_**: [[Ctrl+Shift+P]] -
-**_MAC_**: [[Cmd+Shift+P]] type `open config`,
-and press [[Enter]].
+You can also edit the `config.cson` directly. To open your configuration file via the Command Palette, press <kbd class="platform-linux platform-win">Ctrl+Shift+P</kbd> <kbd class="platform-mac">Cmd+Shift+P</kbd>, type `open config`, and press [[Enter]].
 
-Global settings are under the `*` key, and each language can have its own
-top-level key. This key is the language's scope. Language-specific settings
-take precedence over anything set in the global section for that language only.
+Global settings are under the `*` key, and each language can have its own top-level key. This key is the language's scope. Language-specific settings take precedence over anything set in the global section for that language only.
 
 ```coffee
 '*': # all languages unless overridden
@@ -66,28 +60,14 @@ take precedence over anything set in the global section for that language only.
 
 ## Finding a Language's Scope Name
 
-In order to write these overrides effectively, you'll need to know the scope
-name for the language. We've already done this for finding a scope for writing a
-snippet in [Snippet Format](/customize-pulsar/creating-your-own-snippets/#snippet-format), but we can quickly cover it
-again.
+In order to write these overrides effectively, you'll need to know the scope name for the language. We've already done this for finding a scope for writing a snippet in [Snippet Format](/customize-pulsar/creating-your-own-snippets/#snippet-format), but we can quickly cover it again.
 
-The scope name is shown in the settings view for each language. Click on
-"Packages" in the navigation on the left, search for the language of your
-choice, select it, and you should see the scope name under the language name
-heading:
+The scope name is shown in the settings view for each language. Click on "Packages" in the navigation on the left, search for the language of your choice, select it, and you should see the scope name under the language name heading:
 
 ![Finding a language grammar](/img/atom/python-grammar.png "Finding a grammar's scope name")
 
-Another way to find the scope for a specific language is to open a file of its
-kind and:
-
-- **_LNX/WIN_**: Choose "Editor: Log Cursor Scope" in the Command Palette
-- **_MAC_**: Press [[Alt+Cmd+P]]
-  to show all scopes for the current position of the cursor. The scope mentioned
-  top most is always the language for this kind of file, the scopes following are
-  specific to the cursor position:
+Another way to find the scope for a specific language is to open a file of its kind and <span class="platform-linux platform-win">choose "Editor: Log Cursor Scope" in the Command Palette</span><span class="platform-mac">press <kbd>Alt+Cmd+P</kbd></span> to show all scopes for the current position of the cursor. The first scope in the list is always the root language scope for this kind of file. Each subsequent scope in the list represents a progressively more specific region of the buffer.
 
 ![Finding a language grammar with cursor scope](/img/atom/cursor-scope.png "Finding a language grammar with cursor scope")
 
-These scopes can be especially useful to style the editor, since they can also
-be used as class names in your stylesheet.
+These scopes can be especially useful to style the editor, since they can also be used as class names in your stylesheet.

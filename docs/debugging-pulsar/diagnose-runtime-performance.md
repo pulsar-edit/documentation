@@ -8,10 +8,7 @@ If you're experiencing performance problems in a particular situation, your
 will be more valuable if you include a saved profile from Chrome's CPU profiler
 that gives some insight into what is slow.
 
-To run a profile, open the Developer Tools with
-**_LNX/WIN_**: [[Ctrl+Shift+I]] -
-**_MAC_**: [[Alt+Cmd+I]].
-From there:
+To run a profile, open the Developer Tools with <kbd class="platform-linux platform-win">Ctrl+Shift+I</kbd> <kbd class="platform-mac">Alt+Cmd+I</kbd>. From there:
 
 1. Click the Profiles tab
 2. Select "Collect JavaScript CPU Profile"

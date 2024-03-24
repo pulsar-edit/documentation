@@ -2,7 +2,7 @@
 <%-include("header")%>
 
   <body>
-    <%-include("page_header")%>
+    <%- include("page_header", { system_switcher: false }) %>
     <div class="content">
       <%-include("sidebar", { bar: sidebar, include_summary: true })%>
       <main class="container">

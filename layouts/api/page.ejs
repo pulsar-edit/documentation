@@ -2,9 +2,9 @@
 <%-include("header")%>
 
   <body>
-    <%-include("page_header")%>
+    <%- include("page_header", { system_switcher: false }) %>
     <div class="content">
-      <%-include("sidebar", { bar: sidebar, include_summary: true })%>
+      <%-include("sidebar", { bar: sidebar, include_summary: false })%>
       <main class="container">
         <section class="header">
           <h1 class="title"><%=title%></h1>

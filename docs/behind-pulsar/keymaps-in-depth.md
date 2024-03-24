@@ -62,13 +62,7 @@ when keystrokes pass through `atom-text-editor` elements:
 
 :::
 
-Beneath the first selector are several keybindings, mapping specific key
-combinations to commands. When an element with the `atom-text-editor` class is
-focused and
-**_LNX/WIN_**: [[Ctrl+Backspace]] -
-**_MAC_**: [[Alt+Backspace]]
-is pressed, a custom DOM event called `editor:delete-to-beginning-of-word` is
-emitted on the `atom-text-editor` element.
+Beneath the first selector are several keybindings, mapping specific key combinations to commands. When an element with the `atom-text-editor` class is focused and <kbd class="platform-linux platform-win">Ctrl+Backspace</kbd> <kbd class="platform-mac">Alt+Backspace</kbd> is pressed, a custom DOM event called `editor:delete-to-beginning-of-word` is emitted on the `atom-text-editor` element.
 
 The second selector group also targets editors, but only if they don't have the
 `mini` attribute. In this example, the commands for code folding don't really
@@ -107,13 +101,7 @@ atom.commands.add("atom-text-editor", {
 `atom.commands` refers to the global `CommandRegistry` instance where all
 commands are set and consequently picked up by the command palette.
 
-When you are looking to bind new keys, it is often useful to use the Command
-Palette
-(**_LNX/WIN_**: [[Ctrl+Shift+P]] -
-**_MAC_**: [[Cmd+Shift+P]])
-to discover what commands are being listened for in a given focus context.
-Commands are "humanized" following a simple algorithm, so a command like
-`editor:fold-current-row` would appear as "Editor: Fold Current Row".
+When you are looking to bind new keys, it is often useful to use the Command Palette <kbd class="platform-linux platform-win">Ctrl+Shift+P</kbd> <kbd class="platform-mac">Cmd+Shift+P</kbd> to discover what commands are being listened for in a given focus context. Command names are "humanized" following a simple algorithm, so a command like `editor:fold-current-row` would appear as "Editor: Fold Current Row".
 
 ### "Composed" Commands
 
@@ -182,15 +170,9 @@ which is normally used to trigger the `tree-view:add-file` command:
 
 ![Keybinding Resolver](/img/atom/keybinding.png)
 
-But if some element above the Tree View had a keybinding for `a`, that
-keybinding would still execute even when the focus is inside the Tree View.
+But if some element above the Tree View had a keybinding for `a`, that keybinding would still execute even when the focus is inside the Tree View.
 
-When the keymap system encounters a binding with the `abort!` directive as its
-command, it will stop searching for a keybinding. For example, the following
-code removes the keybinding for
-**_LNX/WIN_**: [[Ctrl+O]] -
-**_MAC_**: [[Cmd+O]]
-when the selection is inside an editor pane:
+When the keymap system encounters a binding with the `abort!` directive as its command, it will stop searching for a keybinding. For example, the following code removes the keybinding for <kbd class="platform-linux platform-win">Ctrl+O</kbd> <kbd class="platform-mac">Cmd+O</kbd> when the selection is inside an editor pane:
 
 ::: tabs#behind-pulsar
 
@@ -217,10 +199,7 @@ when the selection is inside an editor pane:
 
 :::
 
-But if you click inside the Tree View and press
-**_LNX/WIN_**: [[Ctrl+O]] -
-**_MAC_**: [[Cmd+O]]
-, it will work.
+But if you click inside the Tree View and press <kbd class="platform-linux platform-win">Ctrl+O</kbd> <kbd class="platform-mac">Cmd+O</kbd>, it will work.
 
 ## Forcing Chromium's Native Keystroke Handling
 

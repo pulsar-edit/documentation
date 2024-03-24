@@ -55,13 +55,6 @@ You can then change directory to `my-theme` to see the converted theme.
 
 ### Activate the Theme
 
-Once your theme is installed you can enable it by launching Pulsar and opening
-the Settings View with the
-**_LNX_**: _Edit > Preferences_ -
-**_MAC_**: _Pulsar > Preferences_ -
-**_WIN_**: _File > Preferences_
-menu item. Then select the "Themes" tab on the left side navigation. Finally,
-choose "My Theme" from the "Syntax Theme" dropdown menu to enable your new
-theme.
+Once your theme is installed, you can enable it by launching Pulsar and opening the Settings View with the <span class="platform-linux">_Edit > Preferences_</span><span class="platform-mac">_Pulsar > Preferences_</span><span class="platform-win">_File > Preferences_</span> menu item. Then select the "Themes" tab on the left side navigation. Finally, choose "My Theme" from the "Syntax Theme" dropdown menu to enable your new theme.
 
-Your theme is now enabled, open an editor to see it in action!
+Your theme is now enabled. Open an editor to see it in action!

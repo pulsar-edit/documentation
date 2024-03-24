@@ -2,7 +2,7 @@
 <%-include("header")%>
 
   <body>
-    <%-include("page_header")%>
+    <%- include("page_header", { system_switcher: true }) %>
     <div class="content">
       <%-include("sidebar", { bar: root_sidebar, include_summary: false })%>
       <main class="container">
@@ -12,7 +12,7 @@
 
         <%- content %>
 
-        <%-include("blocks", { blocks: sidebar })%>
+        <%-include("list", { blocks: sidebar })%>
 
       </main>
     </div>

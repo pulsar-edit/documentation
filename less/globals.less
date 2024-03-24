@@ -4,6 +4,9 @@ body {
   margin-left: 0px;
   font-family: system-ui;
 }
+blockquote, dl, figure, form, ol, p, pre, table, ul {
+  margin-bottom: 2rem;
+}
 
 .content {
   display: flex;
@@ -11,6 +14,7 @@ body {
   gap: 4rem;
   margin-left: var(--margin-x);
   margin-right: var(--margin-x);
+  max-width: calc(100vw - 250px);
 }
 
 a {
@@ -57,4 +61,28 @@ code {
     font-size: 2.4rem;
     font-weight: 400;
   }
+}
+
+
+ul {
+  list-style: disc;
+  margin-left: 2rem;
+}
+
+pre > code {
+  overflow: auto;
+  white-space: pre-wrap;
+}
+
+kbd {
+  padding: 0.125rem 0.5rem;
+  border: 2px solid var(--btn-border);
+  border-radius: 5px;
+  box-shadow: 0px 2px 0px var(--btn-border);
+}
+
+// Inline code blocks within headings should be scaled relative to the
+// heading's font size.
+*:is(h1, h2, h3, h4, h5, h6) code {
+  font-size: 0.9em;
 }

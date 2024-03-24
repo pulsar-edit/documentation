@@ -16,8 +16,7 @@ if (atom.config.get("editor.showInvisibles")) {
 }
 ```
 
-Or you can subscribe via `atom.config.observe` to track changes from any view
-object.
+Or you can subscribe via `atom.config.observe` to track changes from any view object.
 
 ```js
 const {View} = require('space-pen')
@@ -36,31 +35,17 @@ class MyView extends View {
 }
 ```
 
-The `atom.config.observe` method will call the given callback immediately with
-the current value for the specified key path, and it will also call it in the
-future whenever the value of that key path changes. If you only want to invoke
-the callback the next time the value changes, use `atom.config.onDidChange`
-instead.
+The `atom.config.observe` method will call the given callback immediately with the current value for the specified key path, and it will also call it in the future whenever the value of that key path changes. If you only want to invoke the callback the next time the value changes, use `atom.config.onDidChange` instead.
 
-Subscription methods return [`Disposable`](/api/pulsar/latest/Disposable/)
-objects that can be used to unsubscribe. Note in the example above how we save
-the subscription to the `@fontSizeObserveSubscription` instance variable and
-dispose of it when the view is detached. To group multiple subscriptions
-together, you can add them all to a [`CompositeDisposable`](/api/pulsar/latest/CompositeDisposable/)
-that you dispose when the view is detached.
+Subscription methods return [`Disposable`](/api/pulsar/latest/Disposable/) objects that can be used to unsubscribe. Note in the example above how we save the subscription to the `@fontSizeObserveSubscription` instance variable and dispose of it when the view is detached. To group multiple subscriptions together, you can add them all to a [`CompositeDisposable`](/api/pulsar/latest/CompositeDisposable/) that you dispose when the view is detached.
 
 ## Writing Config Settings
 
-The `atom.config` database is populated on startup from
-**_LNX/MAC_**: `~/.pulsar/config.cson` -
-**_WIN_**: `%USERPROFILE%\.pulsar\config.cson`
-but you can programmatically write to it with `atom.config.set`:
+The `atom.config` database is populated on startup from <span class="platform-linux platform-mac">`~/.pulsar/config.cson`</span> <span class="platform-win">`%USERPROFILE%\.pulsar\config.cson`</span> but you can programmatically write to it with `atom.config.set`:
 
 ```js
 // basic key update
 atom.config.set("core.showInvisibles", true);
 ```
 
-If you're exposing package configuration via specific key paths, you'll want to
-associate them with a schema in your package's main module. Read more about
-schemas in the [Config API documentation](/api/pulsar/latest/Config/).
+If you're exposing package configuration via specific key paths, you'll want to associate them with a schema in your package's main module. Read more about schemas in the [Config API documentation](/api/pulsar/latest/Config/).

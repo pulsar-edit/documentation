@@ -11,15 +11,9 @@ package for previewing Markdown by default.
 
 ![Preview your prose](/img/atom/preview.png)
 
-As you edit the text, the preview will also update automatically. This makes it
-fairly easy to check your syntax as you type.
+As you edit the text, the preview will also update automatically. This makes it fairly easy to check your syntax as you type.
 
-You can also copy the rendered HTML from the preview pane into your system
-clipboard when the preview is focused and you press
-**_LNX_**: [[Ctrl+Ins]] -
-**_WIN_**: [[Ctrl+C]] -
-**_MAC_**: [[Cmd+C]] or if you right-click in the preview
-pane and choose "Copy as HTML".
+You can also copy the rendered HTML from the preview pane into your system clipboard when the preview is focused: either press <kbd class="platform-linux">Ctrl+Ins</kbd> <kbd class="platform-win">Ctrl+C</kbd> <kbd class="platform-mac">Cmd+C</kbd> or right-click in the preview pane and choose _Copy as HTML_.
 
 Markdown preview is implemented in the {markdown-preview}
 package.

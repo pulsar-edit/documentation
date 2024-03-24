@@ -7,12 +7,6 @@ This section is all about how to start using Pulsar, such as how to install it a
 
 But before diving into the documentation, it's helpful to go over some aspects of how the documentation is written.
 
-Throughout the documentation, we will use shortcut keybindings like:
+Throughout the documentation, we will refer to platform-specific keybindings, file system locations, and menu items. We make a guess as to what your platform might be. If we’ve guessed wrong, you can use the platform switcher at the top of each page to change these values to the right ones for your platform.
 
-**_LNX_**: [[Ctrl+Shift+P]] -
-**_MAC_**: [[Cmd+Shift+P]] -
-**_WIN_**: [[Ctrl+Shift+P]]
-
-Which demonstrate how to run commands, or keyboard shortcuts used for different features. This style helps to show what the expected keyboard shortcut is for each platform Pulsar supports.
-
-If you have customized your Pulsar keymap, you can always see the keybinding you have mapped in the Command Palette or the Keybindings tab in [Settings View](TODO). But more on those subjects later.
+If you have customized your Pulsar keymap, you can always see the keybinding you have mapped in the Command Palette or the Keybindings tab in [Settings View](TODO).

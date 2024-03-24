@@ -26,5 +26,13 @@
       </button>
     </div>
   </nav>
-
 </header>
+
+<% if (system_switcher) { -%>
+<div class="platform-switcher">
+  <span>Platform:</span>
+  <button data-platform="mac" type="button">Mac</button>
+  <button data-platform="win" type="button">Windows</button>
+  <button data-platform="linux" type="button">Linux</button>
+</div>
+<% } %>
