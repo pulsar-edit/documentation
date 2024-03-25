@@ -4,22 +4,21 @@
   position: relative;
   margin: 1rem 3rem 2rem 0;
   padding: 0rem 1rem 0.25rem;
-  border-radius: 0.5rem;
+  border-radius: 0.8rem;
   color: var(--customContainer-color);
-  border: 0.5px solid var(--customContainer-border);
-  border-left-width: 0.5rem;
-  border-left-style: solid;
+  border-left: 0.45rem solid var(--customContainer-border);
   background-color: var(--customContainer-bg);
 
   overflow: clip;
 
   .custom-container-content {
-    & > :last-child {
-      margin-bottom: 0.5rem;
+    // (when there's no title)
+    &:first-child {
+      padding-top: 0.75rem;
     }
 
-    & > :first-child:not(.custom-container-title) {
-      margin-top: 0.5rem;
+    & > :last-child {
+      margin-bottom: 0.75rem;
     }
   }
 
@@ -28,8 +27,9 @@
     background-color: var(--customContainerTitle-bg);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 0.5rem -1rem;
+    // letter-spacing: 1px;
+    margin: 0rem -1rem 0.25rem;
+    padding-top: 0.75rem;
     padding-left: 1rem;
     padding-right: 1rem;
   }
