@@ -47,4 +47,4 @@ Although there are only a handful of Markdown snippets (`b` for bold, `i` for it
 
 ## Creating Your Own Snippets
 
-So that's pretty cool, but what if there is something the language package didn't include or something that is custom to the code your write? Luckily it's [incredibly easy to add your own snippets](/customize-pulsar/creating-your-own-snippets).
+So that's pretty cool, but what if there is something the language package didn't include or something that is custom to the code you write? Luckily it's [incredibly easy to add your own snippets](/customize-pulsar/creating-your-own-snippets).

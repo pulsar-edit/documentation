@@ -26,7 +26,7 @@ This command goes onto the undo stack — so you can use <kbd class="platform-li
 
 ## Git status list
 
-Pulsar ships with the {fuzzy-finder} package which provides <kbd class="platform-linux platform-win">Ctrl+T</kbd> <kbd class="platform-mac">Cmd+X</kbd> to quickly open files in the project and <kbd class="platform-linux platform-win">Ctrl+B</kbd> <kbd class="platform-mac">Cmd+B</kbd> to jump to any open editor. The package also provides <kbd class="platform-linux platform-win">Ctrl+Shift+B</kbd> <kbd class="platform-mac">Cmd+Shift+B</kbd> which displays a list of all the untracked and modified files in the project. These will be the same files that you would see on the command line if you ran `git status`.
+Pulsar ships with the {fuzzy-finder} package which provides <kbd class="platform-linux platform-win">Ctrl+T</kbd> <kbd class="platform-mac">Cmd+T</kbd> to quickly open files in the project and <kbd class="platform-linux platform-win">Ctrl+B</kbd> <kbd class="platform-mac">Cmd+B</kbd> to jump to any open editor. The package also provides <kbd class="platform-linux platform-win">Ctrl+Shift+B</kbd> <kbd class="platform-mac">Cmd+Shift+B</kbd> which displays a list of all the untracked and modified files in the project. These will be the same files that you would see on the command line if you ran `git status`.
 
 ![Git status list](/img/atom/git-status.gif "`git status` list")
 
