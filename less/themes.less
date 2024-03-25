@@ -31,6 +31,9 @@
 */
 
 .light-mode() {
+  --svg-logo: url(/static/logo-name-navbar-light.svg);
+
+
   // Global Page Elements
   --body-color: white;
   --font-color: hsl(211, 29%, 32%);
@@ -132,9 +135,10 @@
   --tabContainer-bg: hsl(230, 1%, 96%);
 
   // Page Header
-  --pageHeader-bg: hsl(230, 1%, 92%);
+  --pageHeader-bg: hsla(0, 100%, 100%, 0.9);
   --pageHeader-border: hsl(230, 1%, 86%);
-  --pageHeader_link-color: hsl(230, 1%, 14%);
+  --pageHeader_link-color: hsl(0, 0%, 40%);
+  --pageHeader_box-shadow-color: rgba(0, 0, 0, .15);
 
   // Custom Containers
 
@@ -193,6 +197,8 @@
 }
 
 .dark-mode() {
+  --svg-logo: url(/static/logo-name-navbar-dark.svg);
+
   // Global Page Elements
   --body-color: hsl(220, 13%, 15%);
   --font-color: hsl(220, 13%, 66%);
@@ -293,9 +299,10 @@
 
 
   // Page Header
-  --pageHeader-bg: #292a2d;
+  --pageHeader-bg: hsla(218, 12%, 13%, 80%);
   --pageHeader-border: hsl(220, 13%, 10.8%);
   --pageHeader_link-color: #c9d1d9;
+  --pageHeader_box-shadow-color: rgba(0, 0, 0, .15);
 
   // Custom Containers
 

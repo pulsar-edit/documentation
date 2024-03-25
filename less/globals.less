@@ -7,6 +7,7 @@ body {
   margin-right: 0px;
   margin-left: 0px;
   font-family: system-ui;
+  font-size: 16px;
 }
 blockquote, dl, figure, form, ol, p, pre, table, ul {
   margin-bottom: 2rem;
@@ -14,13 +15,25 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
 
 .content {
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
-  gap: 4rem;
+  gap: 1rem;
   padding-left: var(--margin-x);
   padding-right: var(--margin-x);
   max-width: var(--content-max-width);
   box-sizing: border-box;
   margin: 0 auto;
+}
+
+@media (min-width: 1000px) {
+  .content {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .content .container {
+    max-width: calc(100vw - 250px);
+  }
 }
 
 a {
@@ -35,39 +48,60 @@ code {
   white-space: initial;
 }
 
-
 .content .container {
-  margin: 0;
-  max-width: calc(100vw - 250px);
+  margin: 0 0 10rem;
+  width: 100% !important;
 }
+
 
 .content img {
   max-width: 100%;
 }
 
+.h1() {
+  font-size: 3.2rem;
+  font-weight: 500;
+}
+
+.h2() {
+  font-size: 2.64rem;
+  font-weight: 500;
+}
+
+.h3() {
+  font-size: 2.16rem;
+  font-weight: 500;
+}
+
+.h4() {
+  font-size: 1.84rem;
+  font-weight: 500;
+}
+
+.h5() {
+  font-size: 1.68rem;
+  font-weight: 500;
+}
+
 @media (min-width: 550px) {
   h1 {
-    font-size: 4rem;
+    .h1();
   }
 
   h2 {
-    font-size: 3rem;
-    font-weight: 400;
+    .h2();
   }
 
   h3 {
-    font-size: 2.8rem;
-    font-weight: 500;
+    .h3();
   }
 
   h4 {
-    font-size: 2.6rem;
-    font-weight: 500;
+    .h4();
   }
 
   h5 {
-    font-size: 2.4rem;
-    font-weight: 400;
+    .h5();
   }
 }
 

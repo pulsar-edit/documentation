@@ -1,19 +1,70 @@
 
+:root {
+  --color-transition: .3s ease;
+  --pageHeader_height: 55px;
+}
+
+.border-hover-effect() {
+  // Gives the element a position context, much like `position: relative`.
+  contain: paint;
+
+  &:after {
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    right: 50%;
+    left: 50%;
+    background: var(--link-color);
+    visibility: hidden;
+    transition: left .2s ease-in-out, right .2s ease-in-out;
+  }
+
+  &:hover {
+    // border-bottom: 2px solid var(--link-color);
+    &:after {
+      right: 0;
+      left: 0;
+      visibility: visible;
+    }
+  }
+}
+
+
 .page_header {
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: var(--pageHeader-height);
   background-color: var(--pageHeader-bg);
+  box-shadow: 0 2px 8px var(--pageHeader_box-shadow-color);
   margin-bottom: 3rem;
   font-size: 1.7rem;
   line-height: 1.2;
   border-bottom: 1px solid var(--pageHeader-border);
 
+  // Use the SVG to size the area properly, but hide it…
   .page_header__img {
     height: 4.5rem;
     max-width: 100%;
     display: block;
+    visibility: hidden;
+  }
+
+  // …so that we can show the correct SVG as a background image.
+  .page_header__logo {
+    display: block;
+    height: 4.5rem;
+    max-width: 100%;
+    width: auto;
+    // width: 400px;
+    background: var(--svg-logo) no-repeat center;
+    background-size: contain;
   }
 
   .page_header__inner {
-    padding: 1.5rem;
+    padding: 0.5rem;
     padding-left: var(--margin-x);
     padding-right: var(--margin-x);
     align-items: center;
@@ -26,17 +77,30 @@
 
   .page_header__items {
     display: flex;
-    gap: 1.5rem;
+    gap: 0.5rem;
 
     @media (min-width: 786px) {
       padding: 0;
       flex-direction: row;
       width: 100%;
+      justify-content: center;
       position: static;
     }
   }
 
   .page_header__link {
+    padding: 0 4px;
     color: var(--pageHeader_link-color);
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 3.2rem;
+    text-decoration: none;
+    .border-hover-effect();
+  }
+}
+
+.theme-switcher-menu {
+  button {
+    margin: 0;
   }
 }
