@@ -9,6 +9,7 @@ body {
   font-family: system-ui;
   font-size: 16px;
 }
+
 blockquote, dl, figure, form, ol, p, pre, table, ul {
   margin-bottom: 2rem;
 }
@@ -61,26 +62,31 @@ code {
 .h1() {
   font-size: 3.2rem;
   font-weight: 500;
+  letter-spacing: 0;
 }
 
 .h2() {
   font-size: 2.64rem;
   font-weight: 500;
+  letter-spacing: 0;
 }
 
 .h3() {
   font-size: 2.16rem;
   font-weight: 500;
+  letter-spacing: 0;
 }
 
 .h4() {
   font-size: 1.84rem;
   font-weight: 500;
+  letter-spacing: 0;
 }
 
 .h5() {
   font-size: 1.68rem;
   font-weight: 500;
+  letter-spacing: 0;
 }
 
 @media (min-width: 550px) {
@@ -117,6 +123,7 @@ pre > code {
 }
 
 kbd {
+  font-size: 0.8em;
   padding: 0.125rem 0.5rem;
   border: 2px solid var(--kbd-border, var(--btn-border));
   border-radius: 5px;
@@ -127,4 +134,17 @@ kbd {
 // heading's font size.
 *:is(h1, h2, h3, h4, h5, h6) code {
   font-size: 0.9em;
+}
+
+.plain-button() {
+  &, &:hover, &:focus {
+    color: inherit;
+    background-color: transparent;
+    border-width: 0;
+    padding: 0;
+    margin: 0;
+    height: auto;
+    width: auto;
+    display: inline-block;
+  }
 }
