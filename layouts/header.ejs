@@ -7,10 +7,12 @@
     <script type="text/javascript">
       {
         // Populate the theme as early as possible to prevent a flash on load.
-        let theme = localStorage.getItem("preferred-theme");
-        if (!theme) {
+        let themeSetting = localStorage.getItem("preferred-theme");
+        let theme = themeSetting;
+        if (!themeSetting || themeSetting === "auto") {
           theme = (window.matchMedia("(prefers-color-scheme: light)").matches) ? "light" : "dark";
         }
+        document.documentElement.dataset.themeSetting = themeSetting ?? theme;
         document.documentElement.dataset.theme = theme;
       }
     </script>

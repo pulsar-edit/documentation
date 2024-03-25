@@ -2,6 +2,7 @@
 :root {
   --color-transition: .3s ease;
   --pageHeader_height: 55px;
+  --theme-switcher-height: 20px;
 }
 
 .border-hover-effect() {
@@ -100,7 +101,38 @@
 }
 
 .theme-switcher-menu {
+  line-height: 0;
   button {
+    .plain-button();
+    width:  var(--theme-switcher-height) !important;
+    height: var(--theme-switcher-height) !important;
     margin: 0;
+
+    svg.icon {
+      width: var(--theme-switcher-height);
+      height: var(--theme-switcher-height);
+      display: none;
+    }
+  }
+}
+
+[data-theme-setting="auto"] {
+  .auto-icon {
+    display: block !important;
+  }
+}
+
+[data-theme-setting="dark"] {
+  .dark-icon {
+    display: block !important;
+  }
+}
+
+[data-theme-setting="light"] {
+  .theme-switcher-menu {
+    // color: var(--body-color);
+    .light-icon {
+      display: block !important;
+    }
   }
 }

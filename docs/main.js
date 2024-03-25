@@ -362,23 +362,32 @@ function setupThemeSwitcher() {
   //  - listen for OS prefferred theme changing
 
   let userPref = findSavedUserPrefTheme() ?? findOSThemePref() ?? DEFAULT_THEME;
+
   if (root.dataset.theme !== userPref) {
     root.dataset.theme = userPref;
   }
 
   themeBtn.addEventListener("click", () => {
-    let curValue = root.dataset.theme;
+    let curValue = findSavedUserPrefTheme() ?? root.dataset.theme;
+    let newValue;
 
     if (curValue === "dark") {
-      root.dataset.theme = "light";
-      localStorage.setItem("preferred-theme", "light");
+      newValue = "light";
     } else if (curValue === "light") {
-      root.dataset.theme = "dark";
-      localStorage.setItem("preferred-theme", "dark");
+      newValue = "auto";
+    } else if (curValue === "auto") {
+      newValue = "dark";
     } else {
       // This was an unsupported value; reset to a known good value.
-      root.dataset.theme = DEFAULT_THEME;
+      newValue = DEFAULT_THEME;
     }
+    let newTheme = newValue;
+    if (newValue === "auto") {
+      newTheme = findOSThemePref();
+    }
+    root.dataset.theme = newTheme;
+    root.dataset.themeSetting = newValue;
+    localStorage.setItem("preferred-theme", newValue);
   });
 
   window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
