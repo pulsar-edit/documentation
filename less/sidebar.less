@@ -24,6 +24,7 @@
 
   ul ul {
     font-size: 95%;
+    line-height: 110%;
   }
 
   ul {
@@ -37,7 +38,16 @@
       line-height: 24px;
     }
   }
+}
 
+.sidebar__toc {
+  li {
+    a {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: clip;
+    }
+  }
 }
 
 .sidebar__contents {
