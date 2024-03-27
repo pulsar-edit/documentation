@@ -208,7 +208,8 @@ class HeadingObserver {
     let windowHeight = window.innerHeight;
     let threshold = this.topMargin + (windowHeight * 0.1);
     let previousHeading;
-    for (let heading of this.headings) {
+    let lastIndex = this.headings.length - 1;
+    for (let [index, heading] of this.headings.entries()) {
       let rect = heading.getBoundingClientRect();
       if (rect.bottom >= threshold) {
         if (previousHeading) {
@@ -221,6 +222,8 @@ class HeadingObserver {
           // Otherwise we have no active heading.
           return null;
         }
+      } else if (index === lastIndex) {
+        return heading;
       }
       previousHeading = heading;
     }
