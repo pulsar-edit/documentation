@@ -4,34 +4,93 @@
   display: flex;
   flex-direction: column;
   font-size: 14px;
+
+  h6 {
+    margin: 0;
+  }
 }
 
-.sidebar_contents {
+.sidebar__contents,
+.sidebar__toc {
   padding: 1.5rem 0;
   max-height: 100%;
+
+  ul ul {
+    font-size: 95%;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+  }
+
+  li {
+    margin: 0;
+    a {
+      line-height: 24px;
+    }
+  }
+
 }
 
-.sidebar_contents ul {
-  list-style: none;
-  margin: 0;
+.sidebar__contents {
+  li {
+    a {
+      padding-left: 1.5rem;
+      text-indent: -0.5rem;
+      line-height: 24px;
+    }
+  }
 }
 
-// Attempt to replicate the outline style that we've got on the main Pulsar
-// site.
-.sidebar_contents ul li {
-  border-left: 2px solid var(--sidebar-border);
-  padding-bottom: 0.2rem;
-  padding-left: 1.5rem;
-  text-indent: -0.5rem;
+.sidebar__toc {
+  a {
+    text-indent: -0.5rem;
+  }
+
+  a[data-level="0"] {
+    padding-left: 1.5rem;
+  }
+  a[data-level="1"] {
+    padding-left: 2.0rem;
+  }
+  a[data-level="2"] {
+    padding-left: 2.5rem;
+  }
+  a[data-level="3"] {
+    padding-left: 3.0rem;
+  }
+  a[data-level="4"] {
+    padding-left: 3.5rem;
+  }
+  a[data-level="5"] {
+    padding-left: 4.0rem;
+  }
+}
+
+.sidebar__pages {
+  margin-top: 1rem;
+}
+
+.sidebar--compact {
+  .sidebar__item-optional {
+    display: none;
+  }
+
+}
+
+// Attempt to replicate the TOC style that we've got on the main Pulsar site.
+.sidebar__contents ul li,
+.sidebar__toc ul li {
   margin: 0;
 
   a {
+    display: block;
+    border-left: 2px solid var(--sidebar-border);
     color: var(--link-color-subtle);
-  }
 
-  &.active {
-    border-color: var(--link-color);
-    a {
+    &.active {
+      border-color: var(--link-color);
       color: var(--link-color);
     }
   }

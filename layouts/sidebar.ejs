@@ -1,19 +1,54 @@
 
-<div class="sidebar">
-  <div class="sidebar_contents">
+<div class="sidebar sidebar--compact">
+  <div class="sidebar__contents">
 
-    <ul>
+    <ul class="sidebar__breadcrumbs">
       <li><a href="/">Home</a></li>
-
       <% if (include_summary) { %>
-        <li><a href="../">Summary</a></li>
-      <% } %>
-
-      <% for (const node of bar) { %>
-        <li><a href="<%= node.link %>" ><%= node.text %></a></li>
+        <li><a href="../"><%= locals.indexTitle ?? "Summary" %></a></li>
       <% } %>
     </ul>
 
+    <% if (bar.length > 0) { -%>
+    <ul class="sidebar__pages">
+      <% for (const node of bar) { -%>
+        <li class="sidebar__item-optional"><a href="<%= node.link %>" ><%= node.text %></a></li>
+      <% } -%>
+      <li class="sidebar__item-toggle">
+        <a type="button" data-label-expand="Expand" data-label-collapse="Collapse" class="sidebar__button-toggle" href="#">Expand</a>
+      </li>
+    </ul>
+    <% } -%>
+
   </div>
 
+  <% if (locals.include_toc) { -%>
+  <div class="sidebar__toc"></div>
+  <% } -%>
+
 </div>
+
+<script type="text/javascript">
+  {
+
+    let SIDEBAR = document.querySelector('.sidebar');
+    let TOGGLE = document.querySelector('.sidebar__button-toggle');
+    function setToggleText() {
+      if (SIDEBAR.classList.contains('sidebar--compact')) {
+        TOGGLE.innerText = TOGGLE.dataset.labelExpand;
+      } else {
+        TOGGLE.innerText = TOGGLE.dataset.labelCollapse;
+      }
+    }
+    TOGGLE?.addEventListener('click', (event) => {
+      console.log('TOGGLING!');
+      event.preventDefault();
+      if (SIDEBAR.classList.contains('sidebar--compact')) {
+        SIDEBAR.classList.remove('sidebar--compact');
+      } else {
+        SIDEBAR.classList.add('sidebar--compact');
+      }
+      setToggleText();
+    })
+  }
+</script>
