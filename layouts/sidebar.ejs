@@ -27,28 +27,3 @@
   <% } -%>
 
 </div>
-
-<script type="text/javascript">
-  {
-
-    let SIDEBAR = document.querySelector('.sidebar');
-    let TOGGLE = document.querySelector('.sidebar__button-toggle');
-    function setToggleText() {
-      if (SIDEBAR.classList.contains('sidebar--compact')) {
-        TOGGLE.innerText = TOGGLE.dataset.labelExpand;
-      } else {
-        TOGGLE.innerText = TOGGLE.dataset.labelCollapse;
-      }
-    }
-    TOGGLE?.addEventListener('click', (event) => {
-      console.log('TOGGLING!');
-      event.preventDefault();
-      if (SIDEBAR.classList.contains('sidebar--compact')) {
-        SIDEBAR.classList.remove('sidebar--compact');
-      } else {
-        SIDEBAR.classList.add('sidebar--compact');
-      }
-      setToggleText();
-    })
-  }
-</script>

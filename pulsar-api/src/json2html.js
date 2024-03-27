@@ -32,7 +32,9 @@ function convert(name, content) {
       content,
       file,
       mdRender,
-      sidebar: sections2sidebar(content.sections, name),
+      // We don't need explicit sections in the sidebar nav — we can build it
+      // dynamically with `AutoTOC`.
+      sidebar: [],
       anchorize
     },
     {

@@ -399,85 +399,6 @@ const Hovercards = {
   },
 };
 
-function setupHovercards() {
-  // Ignore links on hovercard triggers that don't link to anything.
-  document.body.addEventListener('click', (event) => {
-    let hovercard = event.target.closest('[data-hovercard]');
-    if (!hovercard) return;
-    if (hovercard?.href && hovercard.getAttribute('href') === '#') {
-      event.preventDefault();
-    }
-  });
-
-  let nodes = document.querySelectorAll("[data-hovercard]");
-
-  for (let node of nodes) {
-    node.addEventListener("mouseenter", hovercardEventListener);
-    node.addEventListener("mouseleave", () => {
-      document.getElementById("hovercard").classList.remove("visible");
-    });
-  }
-}
-
-async function hovercardEventListener(event) {
-  let node = event.currentTarget;
-  let value = node.dataset.hovercard;
-
-  let targetRect = node.getBoundingClientRect();
-  let bodyRect = document.body.getBoundingClientRect();
-
-  let top = Math.abs(bodyRect.top) + targetRect.top + targetRect.height;
-  let left = Math.abs(bodyRect.left) + targetRect.left + targetRect.width;
-
-  const res = await fetch(`/hovercards/${value}.json`);
-  const card = await res.json();
-
-  if (card.empty) {
-    return;
-  }
-
-  let hovercard = `
-    <div class="hovercard-card">
-      <div class="hovercard-title">
-        <a href="${card.link}" target="_blank">
-          ${card.title}
-        </a>
-      </div>
-      <div class="hovercard-summary">
-        ${card.description}
-      </div>
-    </div>
-  `;
-
-  if (node.matches('a[href]') && node.href === '#') {
-    node.href = card.link;
-  }
-
-  const ele = document.getElementById("hovercard");
-  ele.innerHTML = hovercard;
-  ele.style.left = `${left}px`;
-  ele.style.top = `${top}px`;
-  ele.classList.add("visible");
-
-  let rect = ele.getBoundingClientRect();
-  if (rect.bottom >= window.innerHeight || rect.right >= window.innerWidth) {
-    let newTop = top;
-    let newLeft = left;
-    if (rect.bottom >= window.innerHeight) {
-      // Display above the link instead of below it.
-      newTop = top - targetRect.height - rect.height;
-    }
-    if (rect.right >= window.innerWidth) {
-      // Nudge the hovercard to the left as much as it needs to go so that its
-      // right edge is inside the window.
-      let difference = rect.right - window.innerWidth;
-      newLeft -= difference;
-    }
-    ele.style.top = `${newTop}px`;
-    ele.style.left = `${newLeft}px`;
-  }
-}
-
 const ThemeSwitcher = {
   DEFAULT_THEME_PREFERENCE: "auto",
   MEDIA: window.matchMedia(`(prefers-color-scheme: light)`),
@@ -641,6 +562,35 @@ class SystemSwitcher {
   }
 }
 
+const Sidebar = {
+  setup () {
+    this.root = document.querySelector('.sidebar');
+    this.toggle = document.querySelector('.sidebar__button-toggle');
+    if (!this.toggle) return;
+
+    this.setToggleText();
+
+    this.toggle.addEventListener('click', (event) => {
+      event.preventDefault();
+      let { classList } = this.root;
+      if (classList.contains('sidebar--compact')) {
+        classList.remove('sidebar--compact');
+      } else {
+        classList.add('sidebar--compact');
+      }
+      this.setToggleText();
+    });
+  },
+
+  setToggleText () {
+    if (this.root.classList.contains('sidebar--compact')) {
+      this.toggle.innerText = this.toggle.dataset.labelExpand;
+    } else {
+      this.toggle.innerText = this.toggle.dataset.labelCollapse;
+    }
+  },
+};
+
 // Must be declared before the heading observer.
 let autoToc = new AutoTOC();
 
@@ -654,5 +604,6 @@ let autoToc = new AutoTOC();
 Tabs.setup();
 ThemeSwitcher.setup();
 Hovercards.setup();
+Sidebar.setup();
 
 new SystemSwitcher();
