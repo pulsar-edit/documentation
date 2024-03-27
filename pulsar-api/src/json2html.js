@@ -21,7 +21,7 @@ function convert(name, content) {
   file += lookupNullSections(content);
 
   file = `
-    <h2>API documentation</h2>
+    <h2 id="api-documentation">API documentation</h2>
     ${file}
   `;
 
