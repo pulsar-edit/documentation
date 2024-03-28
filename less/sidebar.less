@@ -1,5 +1,5 @@
 
-// Sidebar
+// In narrow presentations, the “sidebar” goes above the content.
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -10,18 +10,44 @@
   }
 }
 
-.sidebar__item-toggle {
-  font-style: italic;
-  a {
-    opacity: 0.6;
+@media (min-width: 1000px) {
+  // Once we've got enough window width for it, we can put the sidebar on the
+  // side, and keep it on screen as the user scrolls.
+  .sidebar {
+    position: sticky;
+    top: calc(var(--pageHeader_height, 0) + 1.5rem);
+    bottom: 0;
+    min-height: 50vh;
+    max-height: calc(100vh - var(--pageHeader_height));
+    max-width: 250px;
+    min-width: 250px;
+    // Margin-top matches the height of the heading plus its padding — so that
+    // the sidebar and the main content area are aligned.
+    margin-top: 6rem;
+    overflow: auto;
   }
 }
 
+
+// There can be up to three different lists of links in the sidebar. The first
+// two are contained in `.sidebar__contents` and consist of (a) a breadcrumb
+// trail and (b) a list of sibling pages.
+//
+// The second area, `.sidebar__toc`, contains the third list, if it's
+// configured to display: a hierarchical outline built from whichever headings
+// on the page have `id` attributes.
+
+// Attempt to replicate the TOC style that we've got on the main Pulsar site.
 .sidebar__contents,
 .sidebar__toc {
-  padding: 1.5rem 0;
+  padding: 0 0 1.5rem;
   max-height: 100%;
 
+  ul li {
+    margin: 0;
+  }
+
+  // Hierarchical lists should decrease in size very gradually.
   ul ul {
     font-size: 95%;
     line-height: 110%;
@@ -35,17 +61,23 @@
   li {
     margin: 0;
     a {
+      // Setting a fixed line-height here is how we can ensure each list item
+      // takes up the same amount of vertical space even if the font size
+      // decreases. The trade-off is that it'll look weird if it wraps to a
+      // second line — which is also why we force ellipsis (in a separate style
+      // block below) rather than allow it to wrap to a second line.
       line-height: 24px;
     }
   }
-}
 
-.sidebar__toc {
-  li {
-    a {
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow: clip;
+  a {
+    display: block;
+    border-left: 2px solid var(--sidebar-border);
+    color: var(--link-color-subtle);
+
+    &.active {
+      border-color: var(--link-color);
+      color: var(--link-color);
     }
   }
 }
@@ -60,8 +92,33 @@
   }
 }
 
+ul.sidebar__pages {
+  margin-top: 1rem;
+}
+
+// This item controls the visibility of the sibling page list. Since it's not
+// part of the breadcrumbs, it could be confusing to show this on page load. I
+// don't know if I've figured out the right presentation here.
+.sidebar__item-toggle {
+  font-style: italic;
+  a {
+    opacity: 0.6;
+  }
+}
+
+// Clicking on that item toggles the `.sidebar--compact` class name on the
+// root, which in turn controls the visibility of the sibling page links.
+.sidebar--compact {
+  .sidebar__item-optional {
+    display: none;
+  }
+}
+
 .sidebar__toc {
   a {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: clip;
     text-indent: -0.5rem;
   }
 
@@ -82,51 +139,5 @@
   }
   a[data-level="5"] {
     padding-left: 4.0rem;
-  }
-}
-
-.sidebar__pages {
-  margin-top: 1rem;
-}
-
-.sidebar--compact {
-  .sidebar__item-optional {
-    display: none;
-  }
-
-}
-
-// Attempt to replicate the TOC style that we've got on the main Pulsar site.
-.sidebar__contents ul li,
-.sidebar__toc ul li {
-  margin: 0;
-
-  a {
-    display: block;
-    border-left: 2px solid var(--sidebar-border);
-    color: var(--link-color-subtle);
-
-    &.active {
-      border-color: var(--link-color);
-      color: var(--link-color);
-    }
-  }
-}
-
-
-@media (min-width: 1000px) {
-  .sidebar {
-    position: sticky;
-    top: var(--pageHeader_height, 0);
-    bottom: 0;
-    min-height: 50vh;
-    max-height: 100vh;
-    width: 15%;
-    max-width: 250px;
-    min-width: 250px;
-    // Margin-top matches the height of the heading plus its padding — so that
-    // the sidebar and the main content area are aligned.
-    margin-top: 5.5rem;
-    overflow: auto;
   }
 }
