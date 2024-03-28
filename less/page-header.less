@@ -1,10 +1,12 @@
 
 :root {
-  --color-transition: .3s ease;
   --pageHeader_height: 55px;
   --theme-switcher-height: 20px;
 }
 
+// When we use anchor links, add some padding here to account for the height of
+// the fixed header. Otherwise the headings we link to will be covered up by
+// the header.
 html {
   scroll-padding-top: calc(var(--pageHeader_height) + 1rem);
 }
@@ -26,7 +28,6 @@ html {
   }
 
   &:hover {
-    // border-bottom: 2px solid var(--link-color);
     &:after {
       right: 0;
       left: 0;
@@ -80,16 +81,12 @@ html {
   }
 
   .page_header__items {
+    padding: 0;
+    width: 100%;
     display: flex;
+    flex-direction: row;
+    justify-content: center;
     gap: 0.5rem;
-
-    @media (min-width: 786px) {
-      padding: 0;
-      flex-direction: row;
-      width: 100%;
-      justify-content: center;
-      position: static;
-    }
   }
 
   .page_header__link {
