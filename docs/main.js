@@ -408,6 +408,7 @@ const ThemeSwitcher = {
   setup () {
     this.root = document.documentElement;
     this.button = document.getElementById('theme-switcher');
+    this.metaScheme = document.getElementById('meta-scheme');
 
     // We want to:
     //  - listen for clicks on this button to switch the theme
@@ -438,6 +439,11 @@ const ThemeSwitcher = {
   setTheme (newTheme) {
     if (this.root.dataset.theme === newTheme) return;
     this.root.dataset.theme = newTheme;
+
+    this.metaScheme.setAttribute(
+      "content",
+      newTheme
+    );
   },
 
   setPreference (newPreference) {

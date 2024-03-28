@@ -3,7 +3,8 @@
   <head>
     <title><%=title%></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="<%=title%>">
+    <meta name="color-scheme" id="meta-scheme" content="">
+    <meta property="og:title" content="<%= title %>">
     <script type="text/javascript">
       {
         // Populate the theme as early as possible to prevent a flash on load.
@@ -12,6 +13,7 @@
         if (!themeSetting || themeSetting === "auto") {
           theme = (window.matchMedia("(prefers-color-scheme: light)").matches) ? "light" : "dark";
         }
+        document.getElementById('meta-scheme').setAttribute("content", theme);
         document.documentElement.dataset.themeSetting = themeSetting ?? theme;
         document.documentElement.dataset.theme = theme;
       }
