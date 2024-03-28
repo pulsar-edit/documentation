@@ -97,10 +97,11 @@ class AutoTOC {
 // the user is reading.
 class HeadingObserver {
   constructor({ topMargin = 0 }) {
-    let sidebar = document.querySelector('.sidebar__toc');
-    if (!sidebar) return;
+    let container = document.querySelector('.sidebar__toc');
+    if (!container) return;
 
-    this.sidebar = sidebar;
+    this.container = container;
+    this.sidebar = document.querySelector('.sidebar');
     this.activeId = null;
     this.topMargin = topMargin;
 
@@ -145,7 +146,7 @@ class HeadingObserver {
     this.ids = [];
     this.headings = [];
 
-    this.sidebar.addEventListener('click', (event) => {
+    this.container.addEventListener('click', (event) => {
       let link = event.target.closest('a');
       if (!link) return;
       this.didClickLink(link);
@@ -158,7 +159,7 @@ class HeadingObserver {
     this.pathName = window.location.pathname;
     this.observer.disconnect();
 
-    let links = this.sidebar.querySelectorAll('a');
+    let links = this.container.querySelectorAll('a');
 
     for (let link of links) {
       let href = link.getAttribute('href');
@@ -184,16 +185,17 @@ class HeadingObserver {
     this.activeId = id;
     let href = `#${id}`;
 
-    let previousActive = this.sidebar.querySelector('a.active');
+    let previousActive = this.container.querySelector('a.active');
     if (previousActive?.getAttribute('href').startsWith('#')) {
       previousActive?.classList.remove('active');
     }
 
-    let linkForId = this.sidebar.querySelector(`a[href="${href}"]`);
+    let linkForId = this.container.querySelector(`a[href="${href}"]`);
     if (!linkForId) return;
 
     linkForId?.classList.add('active');
     if (updateHash) {
+      this.scrollIntoView(linkForId)
       this.setHistoryEntry(href);
     }
   }
@@ -202,6 +204,26 @@ class HeadingObserver {
     let hash = location.hash;
     let newUrl = location.toString().replace(hash, '');
     history.replaceState(null, '', `${newUrl}${newHash}`);
+  }
+
+  scrollIntoView (element) {
+    let { sidebar } = this;
+    // If there's no scrollbar on the container, there's nothing to scroll.
+    if (sidebar.scrollHeight === sidebar.offsetHeight) return;
+
+    let sidebarRect = sidebar.getBoundingClientRect();
+    let elementRect = element.getBoundingClientRect();
+    let yDistanceTop = elementRect.top - sidebarRect.top;
+    if (yDistanceTop < 0) {
+      // The active link is above the scroll position. Nudge it in the negative
+      // direction just enough to bring the link on screen.
+      sidebar.scrollTop += yDistanceTop;
+    } else if (elementRect.bottom > window.innerHeight) {
+      // The active link is below the scroll position. Nudge it in the positive
+      // direction jsut enough to bring the link on screen.
+      let diff = elementRect.bottom - window.innerHeight;
+      sidebar.scrollTop += diff;
+    }
   }
 
   getClosestHeadingToTopOfViewport() {
