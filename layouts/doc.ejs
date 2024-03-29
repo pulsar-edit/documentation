@@ -20,7 +20,7 @@
       <% } %>
 
       <%
-        let [prev, next] = helpers.nextAndPreviousSidebarEntries(title, sidebar)
+        let [prev, next] = helpers.nextAndPreviousSidebarEntries(page.url, sidebar)
       -%>
 
       <% if (prev || next) { -%>
