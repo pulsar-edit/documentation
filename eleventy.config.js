@@ -1,6 +1,7 @@
 const pulsarApi = require("./pulsar-api/src/index.js");
 const hovercardResolution = require("./hovercard_resolution/index.js");
 const less = require("less");
+const _helpers = require('./helpers');
 
 module.exports = (eleventyConfig) => {
 
@@ -45,7 +46,9 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.addWatchTarget("./less/");
 
-  // Add custom collections
+  // Defining a global from within this closure seems to be the magical way to
+  // make something visible to EJS.
+  helpers = _helpers;
 
   // Return config
   return {
