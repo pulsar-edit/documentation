@@ -48,7 +48,7 @@ module.exports = (eleventyConfig) => {
 
   // Defining a global from within this closure seems to be the magical way to
   // make something visible to EJS.
-  helpers = _helpers;
+  globalThis.helpers = _helpers;
 
   // Return config
   return {
