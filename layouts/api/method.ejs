@@ -1,18 +1,18 @@
 <% for (const item of content) { %>
-  <div class="api-entry" id="<%=anchorize(`${item.visibility} ${item.name}`)%>">
+  <div class="api-entry" id="<%= anchorize(item.name) %>">
     <h5 class="api-entry-name">
-      <a href="#<%=anchorize(`${item.visibility} ${item.name}`)%>">
-        .<%=item.name%><%-include("argument_list", { item: item })%>
+      <a href="#<%= anchorize(item.name) %>">
+        .<%= item.name %><%- include("argument_list", { item: item }) %>
       </a>
     </h5>
     <div class="api-entry-summary">
       <%- mdRender(item.description) %>
 
       <% if (Array.isArray(item.arguments) && item.arguments.length > 0) { %>
-        <%-include("arguments_table", { arguments: item.arguments, mdRender: mdRender })%>
+        <%- include("arguments_table", { arguments: item.arguments, mdRender }) %>
       <% } %>
       <% if (Array.isArray(item.returnValues) && item.returnValues.length > 0) { %>
-        <%-include("return_values_table", { returnValues: item.returnValues, mdRender: mdRender })%>
+        <%- include("return_values_table", { returnValues: item.returnValues, mdRender }) %>
       <% } %>
     </div>
   </div>

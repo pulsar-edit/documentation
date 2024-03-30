@@ -7,11 +7,6 @@ nav.adjacent {
   display: flex;
   justify-content: space-between;
 
-  .adjacent__next {
-    margin-left: auto;
-    text-align: right;
-  }
-
   .adjacent__previous,
   .adjacent__next {
     display: flex;
@@ -20,6 +15,8 @@ nav.adjacent {
   }
 
   .adjacent__previous {
+    padding-right: 3vw;
+
     &::before {
       content: '←';
       display: block;
@@ -27,6 +24,10 @@ nav.adjacent {
     }
   }
   .adjacent__next {
+    margin-left: auto;
+    text-align: right;
+    padding-left: 3vw;
+
     &::after {
       content: '→';
       display: block;

@@ -96,12 +96,20 @@ function writeContentForNameAndVersion (content, name, version, isLatestVer) {
 }
 
 function content2sidebar(content) {
+  // Ensure items are sorted alphabetically.
+  let map = new Map();
+  for (let item of Object.values(content)) {
+    map.set(item.name, item);
+  }
+
+  let keys = Array.from(map.keys()).sort();
   let sidebar = [];
 
-  for (let item of Object.values(content)) {
+  for (let key of keys) {
+    let item = map.get(key);
     sidebar.push({
       text: item.name,
-      summary: mdRender(item.summary),
+      summary: mdRender(item.summary, { type: 'api', name: item.name }),
       link: item.name
     });
   }

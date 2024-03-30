@@ -1,9 +1,24 @@
 const pulsarApi = require("./pulsar-api/src/index.js");
 const hovercardResolution = require("./hovercard_resolution/index.js");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const less = require("less");
 const _helpers = require('./helpers');
+const PRISM_LANGUAGE_SCM = require('./plugins/prism-language-scm');
 
 module.exports = (eleventyConfig) => {
+
+  eleventyConfig.setServerOptions({
+    // Prevent the server from trying to do a clever hot-reload when only
+    // Markdown is changed. We have JavaScript code that needs to react to
+    // changed content, so it’s better to reload the page instead.
+    domDiff: false
+  });
+
+  eleventyConfig.addPlugin(syntaxHighlight, {
+    init({ Prism }) {
+      Prism.languages.scm = PRISM_LANGUAGE_SCM;
+    }
+  });
 
   // Add custom templates
   eleventyConfig.addTemplateFormats("less");

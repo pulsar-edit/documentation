@@ -9,17 +9,6 @@
       <% } %>
     </ul>
 
-    <% if (bar.length > 0) { -%>
-    <ul class="sidebar__pages">
-      <% for (const node of bar) { -%>
-        <li class="sidebar__item-optional"><a href="<%= node.link %>" ><%= node.text %></a></li>
-      <% } -%>
-      <li class="sidebar__item-toggle">
-        <a type="button" data-label-expand="Expand" data-label-collapse="Collapse" class="sidebar__button-toggle" href="#">Expand</a>
-      </li>
-    </ul>
-    <% } -%>
-
   </div>
 
   <% if (locals.include_toc) { -%>
