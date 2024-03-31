@@ -134,7 +134,7 @@ function buildCacheForClass (label, klass, cacheByLabel) {
     cacheByLabel.set(value, {
       value: simplifyLabel(value),
       title: value,
-      description: instanceMethod.description || (instanceMethod.returnValues?.[0]?.description ?? ""),
+      description: instanceMethod.summary || (instanceMethod.returnValues?.[0]?.description ?? ""),
       link: `${baseLink}${instanceMethodAnchor(instanceMethod.name)}`
     });
   }
@@ -144,7 +144,7 @@ function buildCacheForClass (label, klass, cacheByLabel) {
     cacheByLabel.set(value, {
       value: simplifyLabel(value),
       title: value,
-      description: instanceProperty.description ?? "",
+      description: instanceProperty.summary ?? "",
       link: `${baseLink}${instanceMethodAnchor(instanceProperty.name)}`
     });
   }
@@ -154,7 +154,7 @@ function buildCacheForClass (label, klass, cacheByLabel) {
     cacheByLabel.set(value, {
       value: simplifyLabel(value),
       title: value,
-      description: classMethod.description || (classMethod.returnValues?.[0]?.description ?? ""),
+      description: classMethod.summary || (classMethod.returnValues?.[0]?.description ?? ""),
       link: `${baseLink}${classMethodAnchor(classMethod.name)}`
     });
   }
@@ -164,7 +164,7 @@ function buildCacheForClass (label, klass, cacheByLabel) {
     cacheByLabel.set(value, {
       value: simplifyLabel(value),
       title: value,
-      description: classProperty.description  ?? "",
+      description: classProperty.summary  ?? "",
       link: `${baseLink}${classMethodAnchor(classProperty.name)}`
     });
   }
