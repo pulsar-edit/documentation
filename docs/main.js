@@ -96,7 +96,7 @@ class AutoTOC {
 // Highlight the sidebar navigation item that corresponds to the section that
 // the user is reading.
 class HeadingObserver {
-  constructor({ topMargin = 0 }) {
+  constructor({ topMargin = 0, manageHistoryEntries = true }) {
     let container = document.querySelector('.sidebar__toc');
     if (!container) return;
 
@@ -104,6 +104,7 @@ class HeadingObserver {
     this.sidebar = document.querySelector('.sidebar');
     this.activeId = null;
     this.topMargin = topMargin;
+    this.manageHistoryEntries = manageHistoryEntries;
 
     let threshold = [];
     for (let i = 0; i <= 20; i++) {
@@ -201,6 +202,7 @@ class HeadingObserver {
   }
 
   setHistoryEntry(newHash) {
+    if (!this.manageHistoryEntries) return;
     let hash = location.hash;
     let newUrl = location.toString().replace(hash, '');
     history.replaceState(null, '', `${newUrl}${newHash}`);
@@ -627,7 +629,8 @@ let autoToc = new AutoTOC();
 
 {
   let topMargin = document.querySelector('.page_header')?.offsetHeight ?? 0;
-  window.headingObserver = new HeadingObserver({ topMargin });
+  let manageHistoryEntries = !location.pathname.startsWith('/api/');
+  window.headingObserver = new HeadingObserver({ topMargin, manageHistoryEntries });
 }
 
 // Tab boxes need to be set up before the system switcher so that the latter
