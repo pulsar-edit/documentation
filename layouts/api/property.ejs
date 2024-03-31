@@ -1,8 +1,8 @@
 <% for (const item of content) { %>
-  <div class="api-entry" id="<%=anchorize(`${item.visibility} ${item.name}`)%>">
+  <div class="api-entry" id="<%= anchorize(item.name) %>">
     <h5 class="api-entry-name">
-      <a href="#<%=anchorize(`${item.visibility} ${item.name}`)%>">
-        <span>::<%=item.name%></span>
+      <a href="#<%= anchorize(item.name) %>">
+        <span>::<%= item.name %></span>
       </a>
     </h5>
     <div class="api-entry-summary">

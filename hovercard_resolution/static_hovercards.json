@@ -26,8 +26,8 @@
   },
   "function": {
     "title": "Function",
-    "description": "The <code>Function</code> object provides methods for functions.",
-    "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function"
+    "description": "A JavaScript <code>Function</code> is an object that performs a task when invoked.",
+    "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions"
   },
   "regexp": {
     "title": "RegExp",
@@ -36,7 +36,7 @@
   },
   "promise": {
     "title": "Promise",
-    "description": "The <code>Promise</code> object represents the eventual completion of (failure) of an asynchornous operation and its resulting value.",
+    "description": "The <code>Promise</code> object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.",
     "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"
   },
   "error": {
