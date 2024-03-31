@@ -117,8 +117,24 @@ function inferHrefFromHovercardText (text) {
     let [_, klass, method] = match;
     return `../${klass}/${classMethodAnchor(method)}`;
   }
-  // Assume it's a bare class name.
-  return `../${text}`;
+  // One we've filtered out references to methods and properties, the remaining
+  // possible meanings are (a) class names and (b) names of packages.
+  if (!text.includes(' ')) {
+    if (text.charAt(0).toUpperCase() === text.charAt(0)) {
+      // This is a capitalized word, so it's probably a class reference.
+      return `../${text}`;
+    } else {
+      // It's a single word that starts with a lower-case letter, so it's
+      // probably a package name.
+      //
+      // TODO: We might just want to add a whitelist of package names to
+      // `static_hovercards.json`.
+      return `https://web.pulsar-edit.dev/packages/${text}`;
+    }
+  }
+
+  // If we get this far, we're out of ideas.
+  return '#';
 }
 
 const HOVERCARD_STORE = new Map();
