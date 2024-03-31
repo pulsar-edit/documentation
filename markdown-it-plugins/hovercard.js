@@ -1,5 +1,11 @@
 const FS = require('fs');
 const { classMethodAnchor, instanceMethodAnchor, simplifyLabel } = require('../hovercard_resolution/util');
+const STATIC_HOVERCARDS = require('../hovercard_resolution/static_hovercards.json');
+
+const STATIC_HOVERCARD_URLS = new Map();
+for (let value of Object.values(STATIC_HOVERCARDS)) {
+  STATIC_HOVERCARD_URLS.set(value.title, value.link);
+}
 
 module.exports =
 function setup(md) {
@@ -31,11 +37,18 @@ function replacer(state) {
   state.pos = labelStart;
   state.posMax = labelEnd;
 
+  let href;
+  if (STATIC_HOVERCARD_URLS.has(label)) {
+    href = STATIC_HOVERCARD_URLS.get(label);
+  } else {
+    href = inferHrefFromHovercardText(label);
+  }
+
   const token_o = state.push("a_open", "a", 1);
   const attrs = [
     ["data-hovercard", simpleLabel],
     ["data-hovercard-full", normalizedLabel],
-    ["href", inferHrefFromHovercardText(label)]
+    ["href", href]
   ];
   token_o.attrs = attrs;
 
