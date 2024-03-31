@@ -8,30 +8,50 @@
 }
 
 .section-name {
-  border-bottom: 1px solid rgba(gray, 0.5);
+  border-bottom: 1px solid var(--table-border);
 }
 
 .description__header {
   .h2();
 }
 
-.api-entry-name {
-  a {
-    .monospace();
-    letter-spacing: initial;
-    font-size: 1.5rem;
-    color: var(--entry-name-color);
-    text-decoration: none;
+.api-entry {
+  padding-bottom: 4rem;
+  border-bottom: 5px solid var(--table-border);
+  margin-bottom: 4rem;
 
-    &:hover {
-      text-decoration: underline;
+  &__source-link {
+    .octicon(file-code);
+  }
+
+  &__name {
+    a {
+      .monospace();
+      letter-spacing: initial;
+      font-size: 1.6rem;
+      color: var(--entry-name-color);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__argument {
+    color: var(--argument-color);
+  }
+
+  &__summary {
+    &:last-child {
+      &,
+      & > :last-child {
+        margin-bottom: 0;
+      }
     }
   }
 }
 
-.api-entry-argument {
-  color: var(--argument-color);
-}
 
 span.optional {
   text-transform: uppercase;
@@ -47,6 +67,7 @@ span.optional {
 }
 
 table.arguments {
+  font-size: 1.5rem;
   border-collapse: collapse;
 
   th, td {
@@ -74,33 +95,59 @@ table.arguments {
     }
   }
 
-  tr.argument-depth-1 {
+  th:first-of-type,
+  td:first-of-type {
+    padding-left: 0;
+
+    code {
+      font-size: 85%;
+    }
+  }
+
+  td:last-of-type {
+    padding-right: 0;
+  }
+
+  tr.argument--depth-1 {
+    td:first-of-type {
+      padding-left: 1.5rem;
+    }
+  }
+
+  tr.argument--depth-2 {
     td:first-of-type {
       padding-left: 3.0rem;
     }
   }
 
-  tr.argument-depth-2 {
+  tr.argument--depth-3 {
     td:first-of-type {
       padding-left: 4.5rem;
-    }
-  }
-
-  tr.argument-depth-3 {
-    td:first-of-type {
-      padding-left: 6.0rem;
     }
   }
 }
 
 .return-values {
   h6 {
-    font-weight: 500;
+    font-weight: 700;
     font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid var(--table-border);
+    padding: 0.5rem 0;
+  }
+
+  &__content {
+    list-style: none;
+    margin-left: 0;
+    margin-bottom: 0;
+
+    & > li,
+    & > li > :last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
-.return-values-content {
-  list-style: circle;
-  margin-left: 2rem;
-}
+// .return-values__content {
+//   list-style: circle;
+// }
