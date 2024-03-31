@@ -3,10 +3,10 @@ const fs = require("fs");
 const ejs = require("ejs");
 const mdRender = require("./md.js");
 
-const LAYOUT_DIR = path.resolve(__dirname, "../../layouts/api")
-const ROOT_LAYOUT_DIR = path.resolve(__dirname, "../../layouts")
+const LAYOUT_DIR = path.resolve(__dirname, "../../layouts/api");
+const ROOT_LAYOUT_DIR = path.resolve(__dirname, "../../layouts");
 
-function convert(name, content) {
+function convert(name, content, version) {
 
   let file = "";
   // Metadata available to Markdown plugins.
@@ -33,6 +33,7 @@ function convert(name, content) {
       title: name,
       content,
       file,
+      version,
       mdRender: (content) => mdRender(content, env),
       // We don't need explicit sections in the sidebar nav — we can build it
       // dynamically with `AutoTOC`.

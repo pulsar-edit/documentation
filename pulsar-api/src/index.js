@@ -73,7 +73,7 @@ async function main() {
 
     let allClasses = VERSION_CACHE.get(version).classes;
     for (let [name, klass] of Object.entries(allClasses)) {
-      let html = convert(name, klass);
+      let html = convert(name, klass, version);
       writeContentForNameAndVersion(html, name, version, isLatestVer);
     }
   }
