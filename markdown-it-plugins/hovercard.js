@@ -41,7 +41,7 @@ function replacer(state) {
   if (STATIC_HOVERCARD_URLS.has(label)) {
     href = STATIC_HOVERCARD_URLS.get(label);
   } else {
-    href = inferHrefFromHovercardText(label);
+    href = inferHrefFromHovercardText(label, state.env?.type === 'api');
   }
 
   const token_o = state.push("a_open", "a", 1);
@@ -100,7 +100,12 @@ function parseHovercard(state, start) {
 
 const INSTANCE_METHOD_PATTERN = /([A-Za-z]+)::([A-Za-z]+)/
 const CLASS_METHOD_PATTERN = /([A-Za-z]+)\.([A-Za-z]+)/
-function inferHrefFromHovercardText (text) {
+function inferHrefFromHovercardText (text, isApiPage) {
+  // If we're generating this from an API page, we should link relatively so
+  // that we point to whatever version of the API docs we're already in. If
+  // we're not on an API page, then we're in the main docs, which should always
+  // point to the most recent API docs.
+  let base = isApiPage ? '..' : `/api/pulsar/latest`;
   if (text.startsWith('::')) {
     return instanceMethodAnchor(text.substring(2));
   }
@@ -110,19 +115,19 @@ function inferHrefFromHovercardText (text) {
   let match = text.match(INSTANCE_METHOD_PATTERN);
   if (match) {
     let [_, klass, method] = match;
-    return `../${klass}/${instanceMethodAnchor(method)}`;
+    return `${base}/${klass}/${instanceMethodAnchor(method)}`;
   }
   match = text.match(CLASS_METHOD_PATTERN);
   if (match) {
     let [_, klass, method] = match;
-    return `../${klass}/${classMethodAnchor(method)}`;
+    return `${base}/${klass}/${classMethodAnchor(method)}`;
   }
   // One we've filtered out references to methods and properties, the remaining
   // possible meanings are (a) class names and (b) names of packages.
   if (!text.includes(' ')) {
     if (text.charAt(0).toUpperCase() === text.charAt(0)) {
       // This is a capitalized word, so it's probably a class reference.
-      return `../${text}`;
+      return `${base}/${text}`;
     } else {
       // It's a single word that starts with a lower-case letter, so it's
       // probably a package name.
