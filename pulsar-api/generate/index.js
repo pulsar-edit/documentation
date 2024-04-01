@@ -16,12 +16,12 @@ const curVer = current.version.replace("-dev", "");
 
 const pulsardoc = new PulsarDoc(
   [
-    path.join(__dirname, "../../submodules/pulsar/src"),
     path.join(__dirname, "../../submodules/node-pathwatcher/src"),
     path.join(__dirname, "../../submodules/atom-keymap/src"),
     path.join(__dirname, "../../submodules/event-kit/lib"),
     path.join(__dirname, "../../submodules/second-mate/lib"),
-    path.join(__dirname, "../../submodules/text-buffer/src")
+    path.join(__dirname, "../../submodules/text-buffer/src"),
+    path.join(__dirname, "../../submodules/pulsar/src")
   ]
 ).main();
 
