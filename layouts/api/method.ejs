@@ -2,7 +2,7 @@
   <div class="api-entry" id="<%= anchorize(item.name) %>">
     <h5 class="api-entry__name">
       <a href="#<%= anchorize(item.name) %>">
-        <%= locals.separator ?? '::' %><%= item.name -%><%- include("argument_list", { item: item }) -%></a>
+        <%= locals.separator ?? '::' %><%= item.name -%><%- include("argument_list", { item: item }).trim() -%></a>
       <a class="icon api-entry__source-link" href="<%=  item.srcUrl %>" aria-label="Source link"></a>
     </h5>
     <div class="api-entry__summary">
