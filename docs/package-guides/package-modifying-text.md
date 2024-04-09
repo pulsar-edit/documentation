@@ -24,9 +24,7 @@ The final package can be viewed at https://github.com/pulsar-edit/ascii-art.
 
 ## Basic Text Insertion
 
-To begin, press
-**_LNX/WIN_**: [[Ctrl+Shift+P]] -
-**_MAC_**: [[Cmd+Shift+P]]
+To begin, press <kbd class="platform-linux platform-win">Ctrl+Shift+P</kbd> <kbd class="platform-mac">Cmd+Shift+P</kbd>
 to bring up the [Command Palette](https://github.com/pulsar-edit/command-palette).
 Type "generate package" and select the "Package Generator: Generate Package"
 command, just as we did in [the section on package generation](#package-generator).
@@ -97,9 +95,7 @@ the "Hello, World!" text.
 
 Before we can trigger `ascii-art:convert`, we need to load the latest code for
 our package by reloading the window. Run the command "Window: Reload" from the
-Command Palette or by pressing
-**_LNX/WIN_**: [[Ctrl+Shift+F5]] -
-**_MAC_**: [[Alt+Cmd+Ctrl+L]]
+Command Palette or by pressing <kbd class="platform-linux platform-win">Ctrl+Shift+F5</kbd> <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd>.
 
 ### Trigger the Command
 

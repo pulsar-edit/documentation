@@ -1,0 +1,19 @@
+<% for (const item of content) { %>
+  <div class="api-entry" id="<%= anchorize(item.name) %>">
+    <h5 class="api-entry__name">
+      <a href="#<%= anchorize(item.name) %>">
+        <%= locals.separator ?? '::' %><%= item.name -%><%- include("argument_list", { item: item }).trim() -%></a>
+      <a class="icon api-entry__source-link" href="<%=  item.srcUrl %>" aria-label="Source link"></a>
+    </h5>
+    <div class="api-entry__summary">
+      <%- mdRender(item.description) %>
+    </div>
+
+      <% if (Array.isArray(item.arguments) && item.arguments.length > 0) { %>
+        <%- include("arguments_table", { arguments: item.arguments, mdRender }) %>
+      <% } %>
+      <% if (Array.isArray(item.returnValues) && item.returnValues.length > 0) { %>
+        <%- include("return_values_table", { returnValues: item.returnValues, mdRender }) %>
+      <% } %>
+  </div>
+<% } %>

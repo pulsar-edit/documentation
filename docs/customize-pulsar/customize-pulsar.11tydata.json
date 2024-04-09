@@ -1,48 +1,49 @@
 {
+  "indexTitle": "Customize Pulsar",
   "sidebar": [
     {
       "text": "Creating your own Snippets",
-      "link": "creating-your-own-snippets",
+      "link": "/customize-pulsar/creating-your-own-snippets",
       "summary": "Guide to create a custom Snippet"
     },
     {
       "text": "Configuring with CSON",
-      "link": "configuring-with-cson",
+      "link": "/customize-pulsar/configuring-with-cson",
       "summary": "Utilize CSON to configure Pulsar"
     },
     {
       "text": "Style Tweaks",
-      "link": "style-tweaks",
+      "link": "/customize-pulsar/style-tweaks",
       "summary": "How to modify the look of Pulsar"
     },
     {
       "text": "Customizing Keybindings",
-      "link": "customizing-keybindings",
+      "link": "/customize-pulsar/customizing-keybindings",
       "summary": "Change what keyboard shortcuts do in Pulsar"
     },
     {
       "text": "Global Configuration Settings",
-      "link": "global-configuration-settings",
+      "link": "/customize-pulsar/global-configuration-settings",
       "summary": "Introduction of Pulsar's Settings"
     },
     {
       "text": "Language Specific Configuration Settings",
-      "link": "language-specific-configuration-settings",
+      "link": "/customize-pulsar/language-specific-configuration-settings",
       "summary": "Scope Settings on a per language basis"
     },
     {
       "text": "Customizing Language Recognition",
-      "link": "customizing-language-recognition",
+      "link": "/customize-pulsar/customizing-language-recognition",
       "summary": "Change the grammar chosen for a file"
     },
     {
       "text": "Controlling where customization is stored",
-      "link": "controlling-where-customization-is-stored",
+      "link": "/customize-pulsar/controlling-where-customization-is-stored",
       "summary": "Modify where your configuration data lives"
     },
     {
       "text": "The Init File",
-      "link": "the-init-file",
+      "link": "/customize-pulsar/the-init-file",
       "summary": "Learn the power of the Init file"
     }
   ]

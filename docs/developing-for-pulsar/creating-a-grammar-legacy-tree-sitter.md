@@ -8,9 +8,7 @@ While the legacy version is still supported (which won't be for long) this docum
 aide in working with this older format.
 
 ::: warning
-Legacy Tree-sitter grammars are deprecated, and support for them **will** be removed
-in newer Pulsar versions. It is **not** recommended to develop any new package's in
-this format. These format has been disabled in the settings in Pulsar v1.114.0.
+Legacy Tree-sitter grammars are deprecated, and support for them **will be removed** in newer Pulsar versions. It is **not recommended** to develop any new packages in this format. As of version 1.114.0, legacy Tree-sitter grammars are not the default, and must be opted into.
 :::
 
 ## Getting Started

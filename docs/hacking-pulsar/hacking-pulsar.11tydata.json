@@ -1,23 +1,24 @@
 {
+  "indexTitle": "Hacking Pulsar",
   "sidebar": [
     {
       "text": "Building Pulsar",
-      "link": "building-pulsar",
+      "link": "/hacking-pulsar/building-pulsar",
       "summary": "Build Pulsar from source code"
     },
     {
       "text": "Using PPM",
-      "link": "using-ppm",
+      "link": "/hacking-pulsar/using-ppm",
       "summary": "Learn the bundled tool PPM"
     },
     {
       "text": "Hacking on the Core",
-      "link": "hacking-on-the-core",
+      "link": "/hacking-pulsar/hacking-on-the-core",
       "summary": "The basics about preparing Pulsar to modify core functionality"
     },
     {
       "text": "Tools of the Trade",
-      "link": "tools-of-the-trade",
+      "link": "/hacking-pulsar/tools-of-the-trade",
       "summary": "The baseline knowledge and tools you should have to start hacking"
     }
   ]

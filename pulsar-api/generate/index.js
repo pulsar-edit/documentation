@@ -9,19 +9,19 @@ const latest = JSON.parse(fs.readFileSync(path.join(__dirname, "../latest.json")
 const current = JSON.parse(fs.readFileSync(path.join(__dirname, "../../submodules/pulsar/package.json"), { encoding: "utf8" }));
 const curVer = current.version.replace("-dev", "");
 
-if (semver.lte(curVer, latest.latest)) {
-  console.log(`Pulsar's version '${curVer}' is not newer than '${latest.latest}' and does not quality for a generation of new docs.`);
-  process.exit(0);
-}
+// if (semver.lte(curVer, latest.latest)) {
+//   console.log(`Pulsar's version '${curVer}' is not newer than '${latest.latest}' and does not qualify for a generation of new docs.`);
+//   process.exit(0);
+// }
 
 const pulsardoc = new PulsarDoc(
   [
-    path.join(__dirname, "../../submodules/pulsar/src"),
-    //path.join(__dirname, "../../submodules/node-pathwatcher/src"), // TODO awaiting coffee support in pulsardoc
-    //path.join(__dirname, "../../submodules/atom-keymap/src"), // TODO awaiting coffee support in pulsardoc
+    path.join(__dirname, "../../submodules/node-pathwatcher/src"),
+    path.join(__dirname, "../../submodules/atom-keymap/src"),
     path.join(__dirname, "../../submodules/event-kit/lib"),
     path.join(__dirname, "../../submodules/second-mate/lib"),
-    //path.join(__dirname, "../../submodules/text-buffer/src") // TODO awaiting coffee support in pulsardoc
+    path.join(__dirname, "../../submodules/text-buffer/src"),
+    path.join(__dirname, "../../submodules/pulsar/src")
   ]
 ).main();
 

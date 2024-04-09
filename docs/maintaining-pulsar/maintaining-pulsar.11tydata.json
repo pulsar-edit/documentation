@@ -1,8 +1,9 @@
 {
+  "indexTitle": "Maintaining Pulsar",
   "sidebar": [
     {
       "text": "Tooling",
-      "link": "tooling"
+      "link": "/maintaining-pulsar/tooling"
     }
   ]
 }

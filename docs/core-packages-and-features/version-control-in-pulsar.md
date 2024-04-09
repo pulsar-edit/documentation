@@ -12,8 +12,7 @@ Git repository.
 
 ## Checkout HEAD revision
 
-The **_LNX/WIN_**: [[Alt+Ctrl+Z]] -
-**_MAC_**: [[Alt+Cmd+Z]] keybinding checks out the
+The <kbd class="platform-linux platform-win">Alt+Ctrl+Z</kbd> <kbd class="platform-mac">Alt+Cmd+Z</kbd> keybinding checks out the
 `HEAD` revision of the file in the editor.
 
 This is a quick way to discard any saved and staged changes you've made and
@@ -23,24 +22,11 @@ from the command line for that path.
 
 ![Git checkout `HEAD`](/img/atom/git-checkout-head.gif "Git checkout `HEAD`")
 
-This command goes onto the undo stack so you can use
-**_LNX/WIN_**: [[Ctrl+Z]] -
-**_MAC_**: [[Cmd+Z]] afterwards to restore the previous contents.
+This command goes onto the undo stack — so you can use <kbd class="platform-linux platform-win">Ctrl+Z</kbd> <kbd class="platform-mac">Cmd+Z</kbd> afterwards to restore the previous contents.
 
 ## Git status list
 
-Pulsar ships with the {fuzzy-finder} package
-which provides
-**_LNX/WIN_**: [[Ctrl+T]] -
-**_MAC_**: [[Cmd+T]] to quickly open files
-in the project and
-**_LNX/WIN_**: [[Ctrl+B]] -
-**_MAC_**: [[Cmd+B]] to jump to any
-open editor. The package also provides
-**_LNX/WIN_**: [[Ctrl+Shift+B]] -
-**_MAC_**: [[Cmd+Shift+B]] which displays a list of all the untracked and modified
-files in the project. These will be the same files that you would see on the
-command line if you ran `git status`.
+Pulsar ships with the {fuzzy-finder} package which provides <kbd class="platform-linux platform-win">Ctrl+T</kbd> <kbd class="platform-mac">Cmd+T</kbd> to quickly open files in the project and <kbd class="platform-linux platform-win">Ctrl+B</kbd> <kbd class="platform-mac">Cmd+B</kbd> to jump to any open editor. The package also provides <kbd class="platform-linux platform-win">Ctrl+Shift+B</kbd> <kbd class="platform-mac">Cmd+Shift+B</kbd> which displays a list of all the untracked and modified files in the project. These will be the same files that you would see on the command line if you ran `git status`.
 
 ![Git status list](/img/atom/git-status.gif "`git status` list")
 
@@ -49,8 +35,7 @@ untracked or modified.
 
 ## Commit editor
 
-Pulsar can be used as your Git commit editor and ships with the {language-git} package
-which adds syntax highlighting to edited commit, merge, and rebase messages.
+Pulsar can be used as your Git commit editor and ships with the {language-git} package which adds syntax highlighting to edited commit, merge, and rebase messages.
 
 ![Git commit message highlighting](/img/atom/git-message.gif "Git commit message highlighting")
 

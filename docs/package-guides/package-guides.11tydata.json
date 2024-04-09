@@ -1,32 +1,33 @@
 {
+  "indexTitle": "Package Guides",
   "sidebar": [
     {
       "text": "Package: Word Count",
-      "link": "package-word-count"
+      "link": "/package-guides/package-word-count"
     },
     {
       "text": "Package: Modifying Text",
-      "link": "package-modifying-text"
+      "link": "/package-guides/package-modifying-text"
     },
     {
       "text": "Package: Active Editor Info",
-      "link": "package-active-editor-info"
+      "link": "/package-guides/package-active-editor-info"
     },
     {
       "text": "Example: Creating a Theme",
-      "link": "example-creating-a-theme"
+      "link": "/package-guides/example-creating-a-theme"
     },
     {
       "text": "Example: Creating a Modern Tree-sitter Grammar",
-      "link": "example-creating-a-modern-tree-sitter-grammar"
+      "link": "/package-guides/example-creating-a-modern-tree-sitter-grammar"
     },
     {
       "text": "Example: Creating a TextMate Grammar",
-      "link": "example-creating-a-textmate-grammar"
+      "link": "/package-guides/example-creating-a-textmate-grammar"
     },
     {
       "text": "Example: Converting a TextMate Grammar",
-      "link": "example-converting-a-textmate-grammar"
+      "link": "/package-guides/example-converting-a-textmate-grammar"
     }
   ]
 }

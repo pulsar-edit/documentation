@@ -10,11 +10,7 @@ Lets get started by creating and looking at the general layout of a package, and
 The simplest way to start a package is to use the built-in package generator that ships with Pulsar.
 This generator is implemented as a separate package [package-generator](https://github.com/pulsar-edit/pulsar/tree/MAIN/packages/package-generator).
 
-You can run the generator by invoking the command palette and searching for "Generate Package".
-A dialog will appear asking you to name your new project. Whatever name you choose Pulsar will then create that directory and fill it out with a skeleton project and link it into your
-**_LNX/MAC_**: `~/.pulsar/packages` -
-**_WIN_**: `%USERPROFILE%\.pulsar\packages`
-directory so it's loaded when you launch your editor next time.
+You can run the generator by invoking the command palette and searching for "Generate Package". A dialog will appear asking you to name your new project. Whatever name you choose Pulsar will then create that directory and fill it out with a skeleton project and link it into your <span class="platform-linux platform-mac">`~/.pulsar/packages`</span> <span class="platform-win">`%USERPROFILE%\.pulsar\packages`</span> directory so it's loaded when you launch your editor next time.
 
 ::: note Note
 
@@ -188,34 +184,17 @@ Your package's top-level module can implement the following basic methods:
 
 ### Style Sheets
 
-Style sheets for your package should be placed in the `styles` directory. Any
-style sheets in this directory will be loaded and attached to the DOM when your
-package is activated. Style sheets can be written as CSS or [Less](http://lesscss.org),
-but Less is recommended.
+Style sheets for your package should be placed in the `styles` directory. Any style sheets in this directory will be loaded and attached to the DOM when your package is activated. Style sheets can be written as CSS or [Less](http://lesscss.org), but Less is recommended.
 
-Ideally, you won't need much in the way of styling. Pulsar provides a standard
-set of components which define both the colors and UI elements for any package
-that fits into Pulsar seamlessly. You can view all of Pulsar's UI components by
-opening the styleguide: open the command palette
-**_LNX/WIN_**: <kbd>Ctrl+Shift+P</kbd> -
-**_MAC_**: <kbd>Cmd+Shift+P</kbd>
-and search for `styleguide`, or type
-**_LNX/WIN_**: <kbd>Ctrl+Shift+G</kbd> -
-**_MAC_**: <kbd>Cmd+Ctrl+Shift+G</kbd>
+Ideally, you won't need much in the way of styling. Pulsar provides a standard set of components which define both the colors and UI elements for any package that fits into Pulsar seamlessly. You can view all of Pulsar's UI components by opening the styleguide: open the command palette <kbd class="platform-linux platform-win">Ctrl+Shift+P</kbd> <kbd class="platform-mac">Cmd+Shift+P</kbd> and search for `styleguide`, or type <kbd class="platform-linux platform-win">Ctrl+Shift+G</kbd> <kbd class="platform-mac">Cmd+Ctrl+Shift+G</kbd>.
 
-If you _do_ need special styling, try to keep only structural styles in the
-package style sheets. If you _must_ specify colors and sizing, these should be
-taken from the active theme's [ui-variables.less](https://github.com/pulsar-edit/atom-dark-ui/blob/master/styles/ui-variables.less).
+If you _do_ need special styling, try to keep only structural styles in the package style sheets. If you _must_ specify colors and sizing, these should be taken from the active theme's [ui-variables.less](https://github.com/pulsar-edit/atom-dark-ui/blob/master/styles/ui-variables.less).
 
-An optional `styleSheets` array in your `package.json` can list the style sheets
-by name to specify a loading order; otherwise, style sheets are loaded
-alphabetically.
+An optional `styleSheets` array in your `package.json` can list the style sheets by name to specify a loading order; otherwise, style sheets are loaded alphabetically.
 
 ### Keymaps
 
-You can provide key bindings for commonly used actions for your extension,
-especially if you're also adding a new command. In our new package, we have a
-keymap filled in for us already in the `keymaps/your-package-name.json` file:
+You can provide key bindings for commonly used actions for your extension, especially if you're also adding a new command. In our new package, we have a keymap filled in for us already in the `keymaps/your-package-name.json` file:
 
 ```js
 {
@@ -225,37 +204,23 @@ keymap filled in for us already in the `keymaps/your-package-name.json` file:
 }
 ```
 
-This means that if you press <kbd>Alt+Ctrl+O</kbd>, our package will run the
-`your-package-name:toggle` command. We'll look at that code later, but if you
-want to change the default key mapping, you can do that in this file.
+This means that if you press <kbd>Alt+Ctrl+O</kbd>, our package will run the `your-package-name:toggle` command. We'll look at that code later, but if you want to change the default key mapping, you can do that in this file.
 
-Keymaps are placed in the `keymaps` subdirectory. By default, all keymaps are
-loaded in alphabetical order. An optional `keymaps` array in your `package.json`
-can specify which keymaps to load and in what order.
+Keymaps are placed in the `keymaps` subdirectory. By default, all keymaps are loaded in alphabetical order. An optional `keymaps` array in your `package.json` can specify which keymaps to load and in what order.
 
-Keybindings are executed by determining which element the keypress occurred on.
-In the example above, the `your-package-name:toggle` command is executed when
-pressing <kbd>Alt+Ctrl+O</kbd> on the `atom-workspace` element. Because the
-`atom-workspace` element is the parent of the entire Pulsar UI, this means the key
-combination will work anywhere in the application.
+Keybindings are executed by determining which element the keypress occurred on. In the example above, the `your-package-name:toggle` command is executed when pressing <kbd>Alt+Ctrl+O</kbd> on the `atom-workspace` element. Because the `atom-workspace` element is the parent of the entire Pulsar UI, this means the key combination will work anywhere in the application.
 
 We'll cover more advanced keybinding stuff a bit later in [Keymaps in Depth](../../behind-pulsar#keymaps-in-depth).
 
 ### Menus
 
-Menus are placed in the `menus` subdirectory. This defines menu elements like
-what pops up when you right click a context-menu or would go in the application
-menu to trigger functionality in your package.
+Menus are placed in the `menus` subdirectory. This defines menu elements like what pops up when you right click a context-menu or would go in the application menu to trigger functionality in your package.
 
-By default, all menus are loaded in alphabetical order. An optional `menus`
-array in your `package.json` can specify which menus to load and in what order.
+By default, all menus are loaded in alphabetical order. An optional `menus` array in your `package.json` can specify which menus to load and in what order.
 
 #### Application Menu
 
-It's recommended that you create an application menu item under the _Packages_
-menu for common actions with your package that aren't tied to a specific
-element. If we look in the `menus/your-package-name.json` file that was
-generated for us, we'll see a section that looks like this:
+It's recommended that you create an application menu item under the _Packages_ menu for common actions with your package that aren't tied to a specific element. If we look in the `menus/your-package-name.json` file that was generated for us, we'll see a section that looks like this:
 
 ```js
 
@@ -278,16 +243,13 @@ generated for us, we'll see a section that looks like this:
 
 ```
 
-This section puts a "Toggle" menu item under a menu group named "Your Package Name"
- in the "Packages" menu.
+This section puts a "Toggle" menu item under a menu group named "Your Package Name" in the "Packages" menu.
 
 ![Application Menu Item](/img/atom/menu.png)
 
-When you select that menu item, it will run the `your-package-name:toggle`
-command, which we'll look at in a bit.
+When you select that menu item, it will run the `your-package-name:toggle` command, which we'll look at in a bit.
 
-The menu templates you specify are merged with all other templates provided by
-other packages in the order which they were loaded.
+The menu templates you specify are merged with all other templates provided by other packages in the order which they were loaded.
 
 #### Context Menu
 
@@ -361,36 +323,22 @@ could do something like this:
 One of the cool things about Pulsar being built on Chromium is that you can use
 some of the same debugging tools available to your that you have when doing web development.
 
-To open up the Developer Console, press
-**_LNX/WIN_**: [[Ctrl+Shift+I]] -
-**_MAC_**: [[Alt+Cmd+I]]
-or choose the menu option _View > Developer > Toggle Developer Tools_.
+To open up the Developer Console, press <kbd class="platform-linux platform-win">Ctrl+Shift+I</kbd> <kbd class="platform-mac">Alt+Cmd+I</kbd> or choose the menu option _View > Developer > Toggle Developer Tools_.
 
 ![Developer Tools Debugging](/img/atom/dev-tools.png)
 
-From here you can inspect objects, run code and view console output just as though
-you were debugging a web site.
+From here you can inspect objects, run code and view console output just as though you were debugging a web site.
 
 ## Testing
 
-Your package should have tests, and if they're placed in the `spec` directory,
-they can be run by Pulsar.
+Your package should have tests, and if they're placed in the `spec` directory, they can be run by Pulsar.
 
-Under the hood, [Jasmine v1.3](https://jasmine.github.io/archives/1.3/introduction)
-executes your tests, so you can assume that any DSL available there is also
-available to your package.
+Under the hood, [Jasmine v1.3](https://jasmine.github.io/archives/1.3/introduction) executes your tests, so you can assume that any DSL available there is also available to your package.
 
 ### Running Tests
 
-Once you've got your test suite written, you can run it by pressing
-**_LNX/WIN_**: [[Alt+Ctrl+P]] -
-**_MAC_**: [[Alt+Cmd+Ctrl+P]]
-or via the _View > Developer > Run Package Specs_ menu. Our generated package
-comes with an example test suite, so you can run this right away to see what
-happens.
+Once you've got your test suite written, you can run it by pressing <kbd class="platform-linux platform-win">Ctrl+Alt+P</kbd> <kbd class="platform-mac">Alt+Cmd+Ctrl+P</kbd> or via the _View > Developer > Run Package Specs_ menu. Our generated package comes with an example test suite, so you can run this right away to see what happens.
 
 ![Spec Suite Results](/img/atom/spec-suite.png)
 
-You can also use the `pulsar --test spec` command to run them from the command
-line. It prints the test output and results to the console and returns the
-proper status code depending on whether the tests passed or failed.
+You can also use the `pulsar --test spec` command to run them from the command line. It prints the test output and results to the console and returns the proper status code depending on whether the tests passed or failed.

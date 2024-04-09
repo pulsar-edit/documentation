@@ -1,19 +1,18 @@
 
-<div class="sidebar">
-  <div class="sidebar_contents">
+<div class="sidebar sidebar--compact">
+  <div class="sidebar__contents">
 
-    <ul>
+    <ul class="sidebar__breadcrumbs">
       <li><a href="/">Home</a></li>
-
       <% if (include_summary) { %>
-        <li><a href="../">Summary</a></li>
-      <% } %>
-
-      <% for (const node of bar) { %>
-        <li><a href="../<%=node.link%>" ><%=node.text%></a></li>
+        <li><a href="../"><%= locals.indexTitle ?? "Summary" %></a></li>
       <% } %>
     </ul>
 
   </div>
+
+  <% if (locals.include_toc) { -%>
+  <div class="sidebar__toc"></div>
+  <% } -%>
 
 </div>

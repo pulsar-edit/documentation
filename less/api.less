@@ -1,0 +1,161 @@
+.monospace {
+  font-family: Menlo, Consolas, 'Bitstream Vera Sans Mono', monospace;
+}
+
+:root {
+  --entry-name-color: var(--link-color);
+  --argument-color: var(--font-color-subtle);
+}
+
+.section-name {
+  border-bottom: 1px solid var(--table-border);
+}
+
+.description__header {
+  .h2();
+}
+
+.api-entry {
+
+  & + .api-entry {
+    padding-top: 4rem;
+    border-top: 5px solid var(--thematicBreak-color);
+    margin-top: 4rem;
+
+    .api-entry__name {
+      margin-top: 0;
+    }
+  }
+
+  &__source-link {
+    padding-left: 0.5ch;
+    .octicon(file-code);
+  }
+
+  &__name {
+    a {
+      .monospace();
+      letter-spacing: initial;
+      font-size: 1.6rem;
+      color: var(--entry-name-color);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__argument {
+    color: var(--argument-color);
+  }
+
+  &__summary {
+    &:last-child {
+      &,
+      & > :last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+
+span.optional {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 90%;
+  line-height: 100%;
+  display: inline-block;
+  // padding: 4px 6px;
+  border: 1px solid var(--code-border);
+  border-radius: 4px;
+  padding: 2px;
+  margin-right: 4px;
+}
+
+table.arguments {
+  font-size: 1.5rem;
+  border-collapse: collapse;
+
+  th, td {
+    padding: 0.5rem 1.5rem;
+  }
+
+  td {
+    vertical-align: baseline;
+    contain: paint;
+    code {
+      margin: 0;
+      // background-color: #eee;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    span.optional {
+      float: left;
+      margin-top: 2px;
+      // position: absolute;
+      // top: 0;
+      // right: 0;
+    }
+  }
+
+  th:first-of-type,
+  td:first-of-type {
+    padding-left: 0;
+
+    code {
+      font-size: 85%;
+    }
+  }
+
+  td:last-of-type {
+    padding-right: 0;
+  }
+
+  tr.argument--depth-1 {
+    td:first-of-type {
+      padding-left: 1.5rem;
+    }
+  }
+
+  tr.argument--depth-2 {
+    td:first-of-type {
+      padding-left: 3.0rem;
+    }
+  }
+
+  tr.argument--depth-3 {
+    td:first-of-type {
+      padding-left: 4.5rem;
+    }
+  }
+}
+
+.return-values {
+  h6 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid var(--table-border);
+    padding: 0.5rem 0;
+  }
+
+  &__content {
+    list-style: none;
+    margin-left: 0;
+    margin-bottom: 0;
+
+    & > li,
+    & > li > :last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// .return-values__content {
+//   list-style: circle;
+// }

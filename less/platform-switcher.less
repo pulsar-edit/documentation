@@ -1,0 +1,85 @@
+.platform-switcher {
+  // These values help the platform-switcher stay anchored to the implicit line
+  // created on the right edge of the content area. I've forgotten how I
+  // arrived at them.
+  --min-margin-right: var(--margin-x);
+  --max-margin-right: calc((100vw - var(--content-max-width)) / 2 + var(--margin-x));
+
+  // Escaping this value because Less doesn't seem to handle it correctly.
+  margin-right: e("max(var(--min-margin-right), var(--max-margin-right));");
+  margin-top: -3rem;
+  margin-bottom: 3rem;
+  margin-left: auto;
+  contain: paint;
+  position: sticky;
+  width: min-content;
+  // The height of the padge header, but nudged down 1px so as not to overlap
+  // its border.
+  top: calc(var(--pageHeader_height, 0) + 1px);
+  z-index: 1;
+
+  &__inner {
+    margin-left: auto;
+    width: min-content;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 5px;
+    padding: 0.5rem;
+    background-color: var(--pageHeader-bg);
+    backdrop-filter: blur(12px);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border: 1px solid var(--btn-border);
+    border-top-width: 0;
+
+    span {
+      font-style: italic;
+      font-size: 13px;
+      padding: 0 0.5rem;
+    }
+
+    button {
+      padding: 0 1rem ;
+      line-height: 20px;
+      height: auto;
+      margin: 0;
+      opacity: 0.5;
+    }
+
+    button.active {
+      opacity: 1;
+      background-color: var(--btn_primary-bg);
+      color: var(--btn_primary-color);
+    }
+  }
+}
+
+// The buttons of the platform switcher simply set a `data-platform` attribute
+// on the `body` tag — which itself controls the visibility of
+// platform-specific information:
+
+// When active platform is Mac, show only `.platform-mac`.
+body[data-platform="mac"] {
+  .platform-win:not(.platform-mac),
+  .platform-linux:not(.platform-mac) {
+    display: none;
+  }
+}
+
+// When active platform is Windows, show only `.platform-win`.
+body[data-platform="win"] {
+  .platform-mac:not(.platform-win),
+  .platform-linux:not(.platform-win) {
+    display: none;
+  }
+}
+
+// When active platform is Linux, show only `.platform-linux`.
+body[data-platform="linux"] {
+  .platform-win:not(.platform-linux),
+  .platform-mac:not(.platform-linux) {
+    display: none;
+  }
+}

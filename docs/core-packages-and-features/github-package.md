@@ -78,20 +78,10 @@ commit. Choose between staging...
 - **Files**: Double-click a file or select a file and press [[Enter]].
 - **Hunk**: Click on the "Stage Hunk" button or select a hunk and press [[Enter]].
 - **Lines**: Click on a line (or drag on multiple lines) to select, then click
-  on the "Stage Selection" button. Or use the
-  **_LNX/WIN_**: [[Ctrl+/]] -
-  **_MAC_**: [[Cmd-/]] key to toggle from hunk mode to line mode, then
-  press
-  **_LNX/WIN_**: [[Ctrl-Enter]] -
-  **_MAC_**: [[Cmd-Enter]] to stage
-  just a single line.
+  on the "Stage Selection" button. Or use the <kbd class="platform-linux platform-win">Ctrl+/</kbd> <kbd class="platform-mac">Cmd+/</kbd> key to toggle from hunk mode to line mode, then
+  press <kbd class="platform-linux platform-win">Ctrl+Enter</kbd> <kbd class="platform-mac">Cmd+Enter</kbd> to stage just a single line.
 
-Use the
-**_LNX/WIN_**: [[Cmd-Left]] -
-**_MAC_**: [[Ctrl-Left]] or
-**_LNX/WIN_**: [[Ctrl-Right]] -
-**_MAC_**: [[Cmd-Right]] arrow key to switch between
-file list and the diff view. Unstaging can be done in the same way.
+Use the <kbd class="platform-linux platform-win">Ctrl+Left</kbd> <kbd class="platform-mac">Cmd+Left</kbd> or <kbd class="platform-linux platform-win">Ctrl+Right</kbd> <kbd class="platform-mac">Cmd+Right</kbd> arrow keys to switch between file list and the diff view. Unstaging can be done in the same way.
 
 ![Stage changes](/img/atom/github-stage.png "Stage changes")
 

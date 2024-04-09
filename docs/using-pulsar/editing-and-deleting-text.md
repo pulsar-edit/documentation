@@ -43,13 +43,7 @@ lines to changing the case.
 
 :::
 
-Pulsar also has built in functionality to re-flow a paragraph to hard-wrap at a
-given maximum line length. You can format the current selection to have lines no
-longer than 80 (or whatever number `editor.preferredLineLength` is set to)
-characters using
-**_LNX/WIN_**: [[Ctrl+Shift+Q]] -
-**_MAC_**: [[Alt+Cmd+Q]].
-If nothing is selected, the current paragraph will be reflowed.
+Pulsar also has built in functionality to re-flow a paragraph to hard-wrap at a given maximum line length. You can format the current selection to have lines no longer than 80 (or whatever number `editor.preferredLineLength` is set to) characters using <kbd class="platform-linux platform-win">Ctrl+Shift+Q</kbd> <kbd class="platform-mac">Alt+Cmd+Q</kbd>. If nothing is selected, the current paragraph will be reflowed.
 
 ## Deleting and Cutting
 
@@ -131,10 +125,7 @@ renaming variables or changing the format of some text. You can use this with
 almost any package or command - for example, changing case and moving or
 duplicating lines.
 
-You can also use the mouse to select text with the
-**_LNX/WIN_**: [[Ctrl]] -
-**_MAC_**: [[Cmd]] key pressed down to select multiple regions of your
-text simultaneously.
+You can also use the mouse to select text with the <kbd class="platform-linux platform-win">Ctrl</kbd> <kbd class="platform-mac">Cmd</kbd> key pressed down to select multiple regions of your text simultaneously.
 
 Return to a single cursor with [[Esc]] or by clicking anywhere in the file to position a cursor there as normal.
 

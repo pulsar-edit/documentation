@@ -30,326 +30,21 @@
     * border = border-color
 */
 
-:root {
-  // The default is set as dark in the HTML
+.light-mode() {
+  --svg-logo: url(/static/logo-name-navbar-light.svg);
 
   // Global Page Elements
-  --body-color: hsl(220, 13%, 15%);
-  --font-color: hsl(220, 13%, 66%);
+  --body-color: white;
+  --font-color: hsl(211, 29%, 32%);
+  --font-color-subtle: hsl(211, 0%, 56%);
 
   // Generic Page Elements
 
   // - links
-  --link-color: hsl(219, 79%, 66%);
-  --link-color__hover: hsl(219, 79%, 70%);
+  --link-color: hsl(153, 48%, 46%);
+  --link-color__hover: hsl(153, 48%, 36%);
 
-  // - code blocks
-  --code-bg: #2c313c;
-  --code-border: hsl(220deg 13% 11%);
-
-  // - thematic break
-  --thematicBreak-color: hsl(220, 13%, 10.8%);
-
-  // - tables
-  --table-border: hsl(220, 13%, 10.8%);
-
-  // Buttons
-  --btn-color: hsl(220, 13%, 66%);
-  --btn-border: hsl(220, 13%, 10.8%);
-  --btn-bg: hsl(220, 13%, 24%);
-
-  --btn-color__hover: hsl(220, 13%, 86%);
-  --btn-border__hover: hsl(220, 13%, 10.8%);
-  --btn-bg__hover: hsl(220, 13%, 26%);
-
-  --btn-color__focus: hsl(220, 13%, 86%);
-  --btn-border__focus: #568af2;
-  --btn-bg__focus: hsl(220, 13%, 26%);
-
-  --btn_primary-color: white;
-  --btn_primary-bg: #4d78cc;
-  --btn_primary-border: hsl(220, 13%, 10.8%);
-
-  --btn_primary-color__hover: white;
-  --btn_primary-bg__hover: #6187d2;
-  --btn_primary-border__hover: hsl(220, 13%, 10.8%);
-
-  --btn_primary-color__focus: white;
-  --btn_primary-bg__focus: #6187d2;
-  --btn_primary-border__focus: transparent;
-
-  // Inputs
-
-  // - input buttons
-  --input_btn-color: var(--btn-color);
-  --input_btn-border: var(--btn-border);
-  --input_btn-bg: var(--btn-bg);
-
-  --input_btn-color__hover: var(--btn-color__hover);
-  --input_btn-border__hover: var(--btn-border__hover);
-  --input_btn-bg__hover: var(--btn-bg__hover);
-
-  --input_btn-color__focus: var(--btn-color__focus);
-  --input_btn-border__focus: var(--btn-border__focus);
-  --input_btn-bg__focus: var(--btn-bg__focus);
-
-  --input_btn_primary-color: var(--btn_primary-color);
-  --input_btn_primary-bg: var(--btn_primary-bg);
-  --input_btn_primary-border: var(--btn_primary-border);
-
-  --input_btn_primary-color__hover: var(--btn_primary-color__hover);
-  --input_btn_primary-bg__hover: var(--btn_primary-bg__hover);
-  --input_btn_primary-border__hover: var(--btn_primary-border__hover);
-
-  --input_btn_primary-color__focus: var(--btn_primary-color__focus);
-  --input_btn_primary-bg__focus: var(--btn_primary-bg__focus);
-  --input_btn_primary-border__focus: var(--btn_primary-border__focus);
-
-  // - input fields
-  --input_field-bg: hsl(220, 13%, 12%);
-  --input_field-border: hsl(220, 13%, 10.8%);
-
-  --input_field-border__focus: #568af2;
-
-  // - textareas
-  --textarea-bg: var(--input_field-bg);
-  --textarea-border: var(--input_field-border);
-
-  --textarea-border__focus: var(--input_field-border__focus);
-
-  // Tab Headers
-  --tabHeader-bg: hsl(220, 13%, 15%);
-  --tabHeader-box-shadow: hsl(220deg 13% 11%);
-  --tabBtn-color: hsl(220, 13%, 86%);
-  --tabBtn-border: hsl(220, 13%, 10.8%);
-  --tabBtn-bg_active: hsl(220, 13%, 18%);
-
-
-  // Page Header
-  --pageHeader-bg: #292a2d;
-  --pageHeader-border: hsl(220, 13%, 10.8%);
-  --pageHeader_link-color: #c9d1d9;
-
-  // Custom Containers
-
-  // - generic
-  --customContainerTitle-color: white;
-  --customContainer-border: hsl(220, 13%, 10.8%);
-  --customContainer-bg: hsl(220, 13%, 18%);
-  --customContainer-color: var(--font-color);
-
-  // - note
-  --customContainerTitle_note-color: hsl(220, 13%, 66%);
-  --customContainer_note-color: var(--customContainer-color);
-  --customContainer_note-border: var(--customContainer-border);
-  --customContainer_note-bg: var(--customContainer-bg);
-
-  // - warning
-  --customContainerTitle_warning-color: hsl(36, 60%, 72%);
-  --customContainer_warning-color: var(--customContainer-color);
-  --customContainer_warning-border: var(--customContainer-border);
-  --customContainer_warning-bg: var(--customContainer-bg);
-
-  // - info
-  --customContainerTitle_info-color: hsl(219, 79%, 66%);
-  --customContainer_info-color: var(--customContainer-color);
-  --customContainer_info-border: var(--customContainer-border);
-  --customContainer_info-bg: var(--customContainer-bg);
-
-  // - tip
-  --customContainerTitle_tip-color: hsl(140, 44%, 62%);
-  --customContainer_tip-color: var(--customContainer-color);
-  --customContainer_tip-border: var(--customContainer-border);
-  --customContainer_tip-bg: var(--customContainer-bg);
-
-  // - danger
-  --customContainerTitle_danger-color: hsl(9, 100%, 64%);
-  --customContainer_danger-color: var(--customContainer-color);
-  --customContainer_danger-border: var(--customContainer-border);
-  --customContainer_danger-bg: var(--customContainer-bg);
-
-  // Hovercards
-  --hovercard-bg: #252830;
-  --hovercard-box-shadow: hsl(0deg 0% 0% / 40%);
-  --hovercard-color: hsl(220, 13%, 66%);
-
-  // Sidebar
-  --sidebar-border: black;
-
-  // Blocks
-  --block-color: hsl(220, 13%, 66%);
-  --block-border: hsl(220, 13%, 10.8%);
-  --block-bg: hsl(220, 13%, 24%);
-
-  --block-color__hover: hsl(220, 13%, 86%);
-  --block-border__hover: hsl(220, 13%, 10.8%);
-  --block-bg__hover: hsl(220, 13%, 26%);
-}
-
-:root[data-theme="dark"] {
-  // Global Page Elements
-  --body-color: hsl(220, 13%, 15%);
-  --font-color: hsl(220, 13%, 66%);
-
-  // Generic Page Elements
-
-  // - links
-  --link-color: hsl(219, 79%, 66%);
-  --link-color__hover: hsl(219, 79%, 70%);
-
-  // - code blocks
-  --code-bg: #2c313c;
-  --code-border: hsl(220deg 13% 11%);
-
-  // - thematic break
-  --thematicBreak-color: hsl(220, 13%, 10.8%);
-
-  // - tables
-  --table-border: hsl(220, 13%, 10.8%);
-
-  // Buttons
-  --btn-color: hsl(220, 13%, 66%);
-  --btn-border: hsl(220, 13%, 10.8%);
-  --btn-bg: hsl(220, 13%, 24%);
-
-  --btn-color__hover: hsl(220, 13%, 86%);
-  --btn-border__hover: hsl(220, 13%, 10.8%);
-  --btn-bg__hover: hsl(220, 13%, 26%);
-
-  --btn-color__focus: hsl(220, 13%, 86%);
-  --btn-border__focus: #568af2;
-  --btn-bg__focus: hsl(220, 13%, 26%);
-
-  --btn_primary-color: white;
-  --btn_primary-bg: #4d78cc;
-  --btn_primary-border: hsl(220, 13%, 10.8%);
-
-  --btn_primary-color__hover: white;
-  --btn_primary-bg__hover: #6187d2;
-  --btn_primary-border__hover: hsl(220, 13%, 10.8%);
-
-  --btn_primary-color__focus: white;
-  --btn_primary-bg__focus: #6187d2;
-  --btn_primary-border__focus: transparent;
-
-  // Inputs
-
-  // - input buttons
-  --input_btn-color: var(--btn-color);
-  --input_btn-border: var(--btn-border);
-  --input_btn-bg: var(--btn-bg);
-
-  --input_btn-color__hover: var(--btn-color__hover);
-  --input_btn-border__hover: var(--btn-border__hover);
-  --input_btn-bg__hover: var(--btn-bg__hover);
-
-  --input_btn-color__focus: var(--btn-color__focus);
-  --input_btn-border__focus: var(--btn-border__focus);
-  --input_btn-bg__focus: var(--btn-bg__focus);
-
-  --input_btn_primary-color: var(--btn_primary-color);
-  --input_btn_primary-bg: var(--btn_primary-bg);
-  --input_btn_primary-border: var(--btn_primary-border);
-
-  --input_btn_primary-color__hover: var(--btn_primary-color__hover);
-  --input_btn_primary-bg__hover: var(--btn_primary-bg__hover);
-  --input_btn_primary-border__hover: var(--btn_primary-border__hover);
-
-  --input_btn_primary-color__focus: var(--btn_primary-color__focus);
-  --input_btn_primary-bg__focus: var(--btn_primary-bg__focus);
-  --input_btn_primary-border__focus: var(--btn_primary-border__focus);
-
-  // - input fields
-  --input_field-bg: hsl(220, 13%, 12%);
-  --input_field-border: hsl(220, 13%, 10.8%);
-
-  --input_field-border__focus: #568af2;
-
-  // - textareas
-  --textarea-bg: var(--input_field-bg);
-  --textarea-border: var(--input_field-border);
-
-  --textarea-border__focus: var(--input_field-border__focus);
-
-  // Tab Headers
-  --tabHeader-bg: hsl(220, 13%, 15%);
-  --tabHeader-box-shadow: hsl(220deg 13% 11%);
-  --tabBtn-color: hsl(220, 13%, 86%);
-  --tabBtn-border: hsl(220, 13%, 10.8%);
-  --tabBtn-bg_active: hsl(220, 13%, 18%);
-
-
-  // Page Header
-  --pageHeader-bg: #292a2d;
-  --pageHeader-border: hsl(220, 13%, 10.8%);
-  --pageHeader_link-color: #c9d1d9;
-
-  // Custom Containers
-
-  // - generic
-  --customContainerTitle-color: white;
-  --customContainer-border: hsl(220, 13%, 10.8%);
-  --customContainer-bg: hsl(220, 13%, 18%);
-  --customContainer-color: var(--font-color);
-
-  // - note
-  --customContainerTitle_note-color: hsl(220, 13%, 66%);
-  --customContainer_note-color: var(--customContainer-color);
-  --customContainer_note-border: var(--customContainer-border);
-  --customContainer_note-bg: var(--customContainer-bg);
-
-  // - warning
-  --customContainerTitle_warning-color: hsl(36, 60%, 72%);
-  --customContainer_warning-color: var(--customContainer-color);
-  --customContainer_warning-border: var(--customContainer-border);
-  --customContainer_warning-bg: var(--customContainer-bg);
-
-  // - info
-  --customContainerTitle_info-color: hsl(219, 79%, 66%);
-  --customContainer_info-color: var(--customContainer-color);
-  --customContainer_info-border: var(--customContainer-border);
-  --customContainer_info-bg: var(--customContainer-bg);
-
-  // - tip
-  --customContainerTitle_tip-color: hsl(140, 44%, 62%);
-  --customContainer_tip-color: var(--customContainer-color);
-  --customContainer_tip-border: var(--customContainer-border);
-  --customContainer_tip-bg: var(--customContainer-bg);
-
-  // - danger
-  --customContainerTitle_danger-color: hsl(9, 100%, 64%);
-  --customContainer_danger-color: var(--customContainer-color);
-  --customContainer_danger-border: var(--customContainer-border);
-  --customContainer_danger-bg: var(--customContainer-bg);
-
-  // Hovercards
-  --hovercard-bg: #252830;
-  --hovercard-box-shadow: hsl(0deg 0% 0% / 40%);
-  --hovercard-color: hsl(220, 13%, 66%);
-
-  // Sidebar
-  --sidebar-border: black;
-
-  // Blocks
-  --block-color: hsl(220, 13%, 66%);
-  --block-border: hsl(220, 13%, 10.8%);
-  --block-bg: hsl(220, 13%, 24%);
-
-  --block-color__hover: hsl(220, 13%, 86%);
-  --block-border__hover: hsl(220, 13%, 10.8%);
-  --block-bg__hover: hsl(220, 13%, 26%);
-}
-
-:root[data-theme="light"] {
-  // Global Page Elements
-  --body-color: hsl(230, 1%, 92%);
-  --font-color: hsl(230, 1%, 26%);
-
-  // Generic Page Elements
-
-  // - links
-  --link-color: hsl(208, 100%, 54%);
-  --link-color__hover: hsl(208, 100%, 58%);
+  --link-color-subtle: hsl(153, 0%, 46%);
 
   // - code blocks
   --code-bg: hsl(0, 0%, 100%);
@@ -360,6 +55,9 @@
 
   // - tables
   --table-border: hsl(230, 1%, 92%);
+
+  // `kbd` elements
+  --kbd-border: hsl(230, 1%, 66%);
 
   // Buttons
   --btn-color: hsl(130, 1%, 26%);
@@ -426,59 +124,62 @@
   --textarea-border__focus: var(--input_field-border__focus);
 
   // Tab Headers
-  --tabHeader-bg: hsl(230, 1%, 92%);
+  --tabHeader-bg: transparent; //hsl(230, 1%, 92%);
   --tabHeader-box-shadow: hsl(230deg 1% 86%);
   --tabBtn-color: hsl(230, 1%, 14%);
   --tabBtn-border: hsl(230, 1%, 86%);
   --tabBtn-bg_active: hsl(230, 1%, 96%);
 
+  --tabWrapper-border: hsl(230deg, 1%, 66%);
+  --tabContainer-bg: hsl(230, 1%, 96%);
 
   // Page Header
-  --pageHeader-bg: hsl(230, 1%, 92%);
+  --pageHeader-bg: hsla(0, 100%, 100%, 0.9);
   --pageHeader-border: hsl(230, 1%, 86%);
-  --pageHeader_link-color: hsl(230, 1%, 14%);
+  --pageHeader_link-color: hsl(0, 0%, 40%);
+  --pageHeader_box-shadow-color: rgba(0, 0, 0, .15);
 
   // Custom Containers
 
   // - generic
-  --customContainerTitle-color: hsl(230, 1%, 26%);
-  --customContainer-border: hsl(230, 1%, 92%);
-  --customContainer-bg: hsl(230, 1%, 92%);
+  --customContainerTitle-color: hsl(240, 1%, 28%);
+  --customContainer-border: hsl(230deg, 1%, 66%);
+  --customContainer-bg: hsl(230, 1%, 99%);
   --customContainer-color: var(--font-color);
 
   // - note
   --customContainerTitle_note-color: hsl(230, 1%, 26%);
   --customContainer_note-color: var(--customContainer-color);
-  --customContainer_note-border: var(--customContainer-border);
-  --customContainer_note-bg: var(--customContainer-bg);
+  --customContainer_note-border: hsl(48, 64%, 24%);
+  --customContainer_note-bg: hsl(48, 84%, 93%);
 
   // - warning
-  --customContainerTitle_warning-color: hsl(37, 90%, 44%);
+  --customContainerTitle_warning-color: hsl(44, 100%, 15%);
   --customContainer_warning-color: var(--customContainer-color);
-  --customContainer_warning-border: var(--customContainer-border);
-  --customContainer_warning-bg: var(--customContainer-bg);
+  --customContainer_warning-border: hsl(37, 90%, 44%);
+  --customContainer_warning-bg: hsl(37, 90%, 94%);
 
   // - info
-  --customContainerTitle_info-color: hsl(208, 100%, 54%);
+  --customContainerTitle_info-color: hsl(194, 48%, 19%);
   --customContainer_info-color: var(--customContainer-color);
-  --customContainer_info-border: var(--customContainer-border);
-  --customContainer_info-bg: var(--customContainer-bg);
+  --customContainer_info-border: hsl(195, 61%, 56%);
+  --customContainer_info-bg: hsl(196, 79%, 96%);
 
   // - tip
-  --customContainerTitle_tip-color: hsl(132, 60%, 44%);
+  --customContainerTitle_tip-color: hsl(120, 100%, 10%);
   --customContainer_tip-color: var(--customContainer-color);
-  --customContainer_tip-border: var(--customContainer-border);
-  --customContainer_tip-bg: var(--customContainer-bg);
+  --customContainer_tip-border: hsl(120, 100%, 29%);
+  --customContainer_tip-bg: hsl(120, 47%, 93%);
 
   // - danger
-  --customContainerTitle_danger-color: hsl(0, 90%, 56%);
+  --customContainerTitle_danger-color: hsl(358, 63%, 18%);
   --customContainer_danger-color: var(--customContainer-color);
-  --customContainer_danger-border: var(--customContainer-border);
-  --customContainer_danger-bg: var(--customContainer-bg);
+  --customContainer_danger-border: hsl(358, 74%, 54%);
+  --customContainer_danger-bg: hsl(357, 100%, 96%);
 
   // Hovercards
   --hovercard-bg: var(--body-color);
-  --hovercard-box-shadow: hsl(0deg 0% 0% / 40%);
+  --hovercard-box-shadow: hsla(0deg, 0%, 0%, 0.4);
   --hovercard-color: hsl(230, 1%, 26%);
 
   // Sidebar
@@ -492,4 +193,196 @@
   --block-color__hover: var(--btn-color__hover);
   --block-border__hover: var(--btn-border__hover);
   --block-bg__hover: var(--btn-bg__hover);
+
+  // Syntax highlighting
+  --syntax-string:   hsl(119, 34%, 47%);
+  --syntax-comment:  hsl(230, 4%, 64%);
+  --syntax-variable: hsl(  5, 74%, 59%);
+  --syntax-function: hsl(221, 87%, 60%);
+  --syntax-keyword:  hsl(301, 63%, 40%);
+  --syntax-constant: hsl( 35, 99%, 36%);
+}
+
+.dark-mode() {
+  --svg-logo: url(/static/logo-name-navbar-dark.svg);
+
+  // Global Page Elements
+  --body-color: hsl(220, 13%, 15%);
+  --font-color: hsl(220, 13%, 66%);
+  --font-color-subtle: hsl(220, 0%, 66%);
+
+  // Generic Page Elements
+
+  // - links
+  --link-color: hsl(153, 48%, 46%);
+  --link-color__hover: hsl(153, 48%, 36%);
+
+  // - code blocks
+  --code-bg: #2c313c;
+  --code-border: hsl(220deg 13% 11%);
+
+  // - thematic break
+  --thematicBreak-color: hsl(220, 13%, 10.8%);
+
+  // - tables
+  --table-border: hsl(220, 13%, 10.8%);
+
+  // `kbd` elements
+  --kbd-border: hsl(220, 13%, 36%);
+
+  // Buttons
+  --btn-color: hsl(220, 13%, 66%);
+  --btn-border: hsl(220, 13%, 10.8%);
+  --btn-bg: hsl(220, 13%, 24%);
+
+  --btn-color__hover: hsl(220, 13%, 86%);
+  --btn-border__hover: hsl(220, 13%, 10.8%);
+  --btn-bg__hover: hsl(220, 13%, 26%);
+
+  --btn-color__focus: hsl(220, 13%, 86%);
+  --btn-border__focus: #568af2;
+  --btn-bg__focus: hsl(220, 13%, 26%);
+
+  --btn_primary-color: white;
+  --btn_primary-bg: #4d78cc;
+  --btn_primary-border: hsl(220, 13%, 10.8%);
+
+  --btn_primary-color__hover: white;
+  --btn_primary-bg__hover: #6187d2;
+  --btn_primary-border__hover: hsl(220, 13%, 10.8%);
+
+  --btn_primary-color__focus: white;
+  --btn_primary-bg__focus: #6187d2;
+  --btn_primary-border__focus: transparent;
+
+  // Inputs
+
+  // - input buttons
+  --input_btn-color: var(--btn-color);
+  --input_btn-border: var(--btn-border);
+  --input_btn-bg: var(--btn-bg);
+
+  --input_btn-color__hover: var(--btn-color__hover);
+  --input_btn-border__hover: var(--btn-border__hover);
+  --input_btn-bg__hover: var(--btn-bg__hover);
+
+  --input_btn-color__focus: var(--btn-color__focus);
+  --input_btn-border__focus: var(--btn-border__focus);
+  --input_btn-bg__focus: var(--btn-bg__focus);
+
+  --input_btn_primary-color: var(--btn_primary-color);
+  --input_btn_primary-bg: var(--btn_primary-bg);
+  --input_btn_primary-border: var(--btn_primary-border);
+
+  --input_btn_primary-color__hover: var(--btn_primary-color__hover);
+  --input_btn_primary-bg__hover: var(--btn_primary-bg__hover);
+  --input_btn_primary-border__hover: var(--btn_primary-border__hover);
+
+  --input_btn_primary-color__focus: var(--btn_primary-color__focus);
+  --input_btn_primary-bg__focus: var(--btn_primary-bg__focus);
+  --input_btn_primary-border__focus: var(--btn_primary-border__focus);
+
+  // - input fields
+  --input_field-bg: hsl(220, 13%, 12%);
+  --input_field-border: hsl(220, 13%, 10.8%);
+
+  --input_field-border__focus: #568af2;
+
+  // - textareas
+  --textarea-bg: var(--input_field-bg);
+  --textarea-border: var(--input_field-border);
+
+  --textarea-border__focus: var(--input_field-border__focus);
+
+  // Tab Headers
+  --tabHeader-bg: hsl(220, 13%, 15%);
+  --tabHeader-box-shadow: hsl(220deg 13% 11%);
+  --tabBtn-color: hsl(220, 13%, 86%);
+  --tabBtn-border: hsl(220, 13%, 40.8%);
+  --tabBtn-bg_active: hsl(220, 13%, 18%);
+
+  --tabWrapper-border: hsl(220, 13%, 40.8%);
+  --tabContainer-bg: hsl(220, 13%, 18%);
+
+
+  // Page Header
+  --pageHeader-bg: hsla(218, 12%, 13%, 90%);
+  --pageHeader-border: hsl(220, 13%, 10.8%);
+  --pageHeader_link-color: hsl(0, 0%, 60%);
+  --pageHeader_box-shadow-color: rgba(0, 0, 0, .15);
+
+  // Custom Containers
+
+  // - generic
+  --customContainerTitle-color: white;
+  --customContainer-border: hsl(220, 13%, 40.8%);
+  --customContainer-bg: hsl(220, 13%, 18%);
+  --customContainer-color: var(--font-color);
+
+  // - note
+  --customContainerTitle_note-color: hsl(48, 33%, 77%);
+  --customContainer_note-color: var(--customContainer-color);
+  --customContainer_note-border: hsl(48, 64%, 24%);
+  --customContainer_note-bg: var(--customContainer-bg);
+
+  // - warning
+  --customContainerTitle_warning-color: hsl(43, 100%, 95%);
+  --customContainer_warning-color: var(--customContainer-color);
+  --customContainer_warning-border: hsl(44, 100%, 45%);
+  --customContainer_warning-bg: hsl(44, 100%, 15%);
+
+  // - info
+  --customContainerTitle_info-color: hsl(196, 79%, 96%);
+  --customContainer_info-color: var(--customContainer-color);
+  --customContainer_info-border: hsl(195, 61%, 56%);
+  --customContainer_info-bg: hsl(194, 48%, 19%);
+
+  // - tip
+  --customContainerTitle_tip-color: hsl(120, 47%, 93%);
+  --customContainer_tip-color: var(--customContainer-color);
+  --customContainer_tip-border: hsl(140, 44%, 62%);
+  --customContainer_tip-bg: hsl(140, 24%, 17%);
+
+  // - danger
+  --customContainerTitle_danger-color: hsl(357, 100%, 96%);
+  --customContainer_danger-color: var(--customContainer-color);
+  --customContainer_danger-border: hsl(358, 74%, 54%);
+  --customContainer_danger-bg: hsl(359, 63%, 18%);
+
+  // Hovercards
+  --hovercard-bg: #252830;
+  --hovercard-box-shadow: hsl(0deg, 0%, 0%, 0.4);
+  --hovercard-color: hsl(220, 13%, 66%);
+
+  // Sidebar
+  --sidebar-border: black;
+
+  // Blocks
+  --block-color: hsl(220, 13%, 66%);
+  --block-border: hsl(220, 13%, 10.8%);
+  --block-bg: hsl(220, 13%, 24%);
+
+  --block-color__hover: hsl(220, 13%, 86%);
+  --block-border__hover: hsl(220, 13%, 10.8%);
+  --block-bg__hover: hsl(220, 13%, 26%);
+
+  // Syntax highlighting
+  --syntax-string:   hsl( 95, 38%, 62%);
+  --syntax-comment:  hsl(220, 10%, 52%);
+  --syntax-variable: hsl(355, 65%, 65%);
+  --syntax-function: hsl(207, 82%, 66%);
+  --syntax-keyword:  hsl(286, 60%, 67%);
+  --syntax-constant: hsl( 29, 54%, 61%);
+}
+
+:root {
+  .dark-mode();
+}
+
+:root[data-theme="dark"] {
+  .dark-mode();
+}
+
+:root[data-theme="light"] {
+  .light-mode();
 }

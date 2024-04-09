@@ -1,52 +1,53 @@
 {
+  "indexTitle": "",
   "root_sidebar": [
     {
       "text": "Getting Started",
-      "link": "getting-started"
+      "link": "/getting-started"
     },
     {
       "text": "Using Pulsar",
-      "link": "using-pulsar"
+      "link": "/using-pulsar"
     },
     {
       "text": "Pulsar Core Packages & Features",
-      "link": "core-packages-and-features"
+      "link": "/core-packages-and-features"
     },
     {
       "text": "Customize Pulsar",
-      "link": "customize-pulsar"
+      "link": "/customize-pulsar"
     },
     {
       "text": "Hacking Pulsar",
-      "link": "hacking-pulsar"
+      "link": "/hacking-pulsar"
     },
     {
       "text": "Developing for Pulsar",
-      "link": "developing-for-pulsar"
+      "link": "/developing-for-pulsar"
     },
     {
       "text": "Package Guides",
-      "link": "package-guides"
+      "link": "/package-guides"
     },
     {
       "text": "Behind Pulsar",
-      "link": "behind-pulsar"
+      "link": "/behind-pulsar"
     },
     {
       "text": "Debugging Pulsar",
-      "link": "debugging-pulsar"
+      "link": "/debugging-pulsar"
     },
     {
       "text": "FAQ",
-      "link": "faq"
+      "link": "/faq"
     },
     {
       "text": "Maintaining Pulsar",
-      "link": "maintaining-pulsar"
+      "link": "/maintaining-pulsar"
     },
     {
       "text": "API",
-      "link": "api"
+      "link": "/api"
     }
   ]
 

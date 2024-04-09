@@ -51,12 +51,7 @@ in **stable mode**, only switching to development mode to test your changes.
 To open a development mode window, use the `Application: Open Dev` command. You
 can also run dev mode from the command line with `pulsar --dev`.
 
-To load your package in development mode, create a symlink to it in
-**_LNX/MAC_**: `~/.pulsar/dev/packages` -
-**_WIN_**: `%USERPROFILE%\.pulsar\dev\packages`. This occurs automatically when
-you clone the package with `pulsar -p develop`. You can also run
-`pulsar -p link --dev` and `pulsar -p unlink --dev` from the package directory
-to create and remove dev-mode symlinks.
+To load your package in development mode, create a symlink to it in <span class="platform-mac platform-linux">`~/.pulsar/dev/packages`</span> <span class="platform-win">`%USERPROFILE%\.pulsar\dev\packages`</span>. This occurs automatically when you clone the package with `pulsar -p develop`. You can also run `pulsar -p link --dev` and `pulsar -p unlink --dev` from the package directory to create and remove dev-mode symlinks.
 
 ### Installing Dependencies
 

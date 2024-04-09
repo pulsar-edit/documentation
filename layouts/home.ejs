@@ -2,18 +2,18 @@
 <%-include("header")%>
 
   <body>
-    <%-include("page_header")%>
+    <%- include("page_header", { platform_switcher: true }) %>
     <div class="content">
-      <div class="container">
+      <main class="container">
         <section class="header">
-          <h1 class="title"><%=title%></h1>
+          <h1 class="title" id="title"><%=title%></h1>
         </section>
 
         <%- content %>
 
         <%-include("blocks", { blocks: root_sidebar })%>
 
-      </div>
+      </main>
     </div>
   </body>
 

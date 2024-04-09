@@ -1,9 +1,20 @@
-const fs = require("fs");
-const path = require("path");
+const FS = require("fs");
+const Path = require("path");
+const { classMethodAnchor, instanceMethodAnchor, simplifyLabel } = require('./util');
 
-const OUT = path.join(__dirname, "../_dist/hovercards");
-let emptyHovercards = 0;
-let emptyHovercardsValues = [];
+const rawMdRender = require('../pulsar-api/src/md.js');
+function mdRender (content) {
+  // The descriptions inside of hovercards may also have {Text} {Like} {This}.
+  // We want to render it the way we would elsewhere, but we want to skip the
+  // part where we write to disk (the way we did in the earlier phase).
+  return rawMdRender(content, { skip_hovercard: true });
+}
+
+const CWD = process.cwd();
+const OUT = Path.join(__dirname, '..', '_dist', 'hovercards');
+
+let LATEST_API_VERSION;
+
 /*
 Hovercard Format:
   Within each file, named after the hovercard value, will be the following data:
@@ -13,32 +24,60 @@ Hovercard Format:
     - value: The original value
 */
 
+// TODO: Hovercards only consider the most recent version.
 module.exports =
 async function resolve() {
-  const HOVERCARDS = JSON.parse(fs.readFileSync("hovercard_list.json", { encoding: "utf8" }));
+  let emptyHovercards = new Set();
+  LATEST_API_VERSION = JSON.parse(
+    FS.readFileSync(
+      Path.join(__dirname, '..', 'pulsar-api', 'latest.json')
+    )
+  ).latest;
+  let apiData = JSON.parse(
+    FS.readFileSync(
+      Path.join(__dirname, '..', 'pulsar-api', 'content', `${LATEST_API_VERSION}.json`)
+    )
+  );
+  let hovercards = JSON.parse(FS.readFileSync('hovercard_list.json'));
+  let cache = initializeCache(apiData);
 
-  const hovercard_documents = [];
+  const bundles = [];
 
-  for (let i = 0; i < HOVERCARDS.length; i++) {
-    let doc = await resolveHovercard(HOVERCARDS[i]);
-    hovercard_documents.push(doc);
+  let cards = Object.entries(hovercards);
+  for (let [simpleLabel, label] of cards) {
+    let doc = await resolveHovercard(simpleLabel, label, cache);
+    if (doc.empty) {
+      emptyHovercards.add(label);
+      continue;
+    }
+    if (doc.description) {
+      doc.description = mdRender(doc.description, { skip_hovercard: true })
+    }
+    bundles.push(doc);
   }
 
-  await createIfDirAbsent(OUT);
+  await createDirIfAbsent(OUT);
 
-  for (let i = 0; i < hovercard_documents.length; i++) {
-    console.log(`[hovercard] Writing ${path.relative(process.cwd(), path.join(OUT, `${hovercard_documents[i].title}.json`))}`);
-    fs.writeFileSync(path.join(OUT, `${hovercard_documents[i].value}.json`), JSON.stringify(hovercard_documents[i]), { encoding: "utf8" });
+  for (let doc of bundles) {
+    let { title, value } = doc;
+    if (typeof title !== "string" || title.trim() === "") {
+      throw new Error(`Invalid hovercard title: ${JSON.stringify(title)}`);
+    }
+    let targetPath = Path.join(OUT, `${value}.json`);
+    let relativePath = Path.relative(CWD, targetPath);
+    console.log(`[hovercard] Writing ${relativePath}`);
+    FS.writeFileSync(targetPath, JSON.stringify(doc));
   }
 
-  if (emptyHovercards > 0) {
-    console.log(`There are '${emptyHovercards}' unresolved hovercard values!`);
-    console.log(emptyHovercardsValues);
+  if (emptyHovercards.size > 0) {
+    console.log(`There are ${emptyHovercards.size} unresolved hovercard values!`);
+    for (let emptyValue of Array.from(emptyHovercards).sort()) {
+      console.log(emptyValue);
+    }
   }
 }
 
-async function resolveHovercard(val) {
-  // The resolutions object contains the function order in which to resolve a hovercard value.
+async function resolveHovercard(simpleLabel, label, cache) {
   const resolutions = [
     resolveStaticHovercard,
     resolveApiHovercard,
@@ -46,146 +85,111 @@ async function resolveHovercard(val) {
   ];
 
   const emptyHovercard = {
-    value: val,
-    title: val,
+    empty: true,
+    value: simpleLabel,
+    title: label,
     description: "After looking high and low more information couldn't be found. Please report an issue.",
     link: "https://github.com/pulsar-edit/docs/issues"
   };
 
   let hovercard = false;
-  let resolutionIdx = 0;
 
-  while(hovercard == false && resolutionIdx < resolutions.length) {
-    hovercard = await resolutions[resolutionIdx](val);
-
-    resolutionIdx = resolutionIdx + 1;
+  for (let resolution of resolutions) {
+    hovercard = await resolution(simpleLabel, label, cache);
+    if (hovercard) break;
   }
 
-  if (!hovercard) {
-    // we never did find a resolution after checking all possible values
-    emptyHovercards = emptyHovercards + 1;
-    emptyHovercardsValues.push(val);
-    return emptyHovercard;
-  } else {
-    // we did find a resolution
-    return {
-      value: val,
-      title: hovercard.title,
-      description: hovercard.description,
-      link: hovercard.link
-    };
-  }
-
+  return hovercard || emptyHovercard;
 }
 
+let staticHovercards;
 async function resolveStaticHovercard(val) {
-  const statics = JSON.parse(fs.readFileSync(path.join(__dirname, "static_hovercards.json"), { encoding: "utf8" }));
+  staticHovercards ??= JSON.parse(
+    FS.readFileSync(Path.join(__dirname, 'static_hovercards.json'))
+  );
+  return staticHovercards[val] ?? false;
+}
 
-  if (statics[val]) {
-    return statics[val];
-  } else {
-    return false;
+function initializeCache (apiData) {
+  cacheByLabel = new Map();
+  for (const [label, klass] of Object.entries(apiData.classes)) {
+    buildCacheForClass(label, klass, cacheByLabel);
+  }
+  return cacheByLabel;
+}
+
+function buildCacheForClass (label, klass, cacheByLabel) {
+  let simpleLabel = simplifyLabel(label);
+  let baseLink = `/api/pulsar/${LATEST_API_VERSION}/${klass.name}`;
+
+  cacheByLabel.set(label, {
+    value: simpleLabel,
+    title: klass.name,
+    description: klass.summary,
+    link: baseLink
+  });
+
+  for (let instanceMethod of (klass.instanceMethods ?? [])) {
+    let value = `${klass.name}::${instanceMethod.name}`;
+    cacheByLabel.set(value, {
+      value: simplifyLabel(value),
+      title: value,
+      description: instanceMethod.summary || (instanceMethod.returnValues?.[0]?.description ?? ""),
+      link: `${baseLink}${instanceMethodAnchor(instanceMethod.name)}`
+    });
+  }
+
+  for (let instanceProperty of (klass.instanceProperties ?? [])) {
+    let value = `${klass.name}::${instanceProperty.name}`;
+    cacheByLabel.set(value, {
+      value: simplifyLabel(value),
+      title: value,
+      description: instanceProperty.summary ?? "",
+      link: `${baseLink}${instanceMethodAnchor(instanceProperty.name)}`
+    });
+  }
+
+  for (let classMethod of (klass.classMethods ?? [])) {
+    let value = `${klass.name}.${classMethod.name}`;
+    cacheByLabel.set(value, {
+      value: simplifyLabel(value),
+      title: value,
+      description: classMethod.summary || (classMethod.returnValues?.[0]?.description ?? ""),
+      link: `${baseLink}${classMethodAnchor(classMethod.name)}`
+    });
+  }
+
+  for (let classProperty of (klass.classProperties ?? [])) {
+    let value = `${klass.name}::${classProperty.name}`;
+    cacheByLabel.set(value, {
+      value: simplifyLabel(value),
+      title: value,
+      description: classProperty.summary  ?? "",
+      link: `${baseLink}${classMethodAnchor(classProperty.name)}`
+    });
   }
 }
 
-async function resolveApiHovercard(val) {
-  const latest = JSON.parse(fs.readFileSync(path.join(__dirname, "../pulsar-api/latest.json"), { encoding: "utf8" })).latest;
-  const api = JSON.parse(fs.readFileSync(path.join(__dirname, `../pulsar-api/content/${latest}.json`), { encoding: "utf8" }));
-
-  let resolved = false;
-  // First we will attempt to resolve classes
-  for (const apiClass in api.classes) {
-    let reducedClass = simplifyLabel(apiClass);
-    if (reducedClass == val) {
-      resolved = {
-        value: val,
-        title: api.classes[apiClass].name,
-        description: api.classes[apiClass].summary,
-        link: `/api/pulsar/${latest}/${apiClass}`
-      };
-      break;
-    }
-
-    // Now to attempt to resolve if our value is pointing to a specific function within the class
-    // this can usually be discovered if the original text was `Config::get` which means our value is `config__get`
-    if (val.includes("_")) {
-      let reducedVal = val.split("_").filter((ele) => ele.length !== 0);
-      if (reducedVal.length == 2) {
-        // this could point to a class and function within the class
-        if (reducedClass == reducedVal[0]) {
-          // we now must search through the different parts of this class to determine if we can find the second call
-          for (let i = 0; i < api.classes[apiClass].classMethods.length; i++) {
-            let reducedMethod = simplifyLabel(api.classes[apiClass].classMethods[i].name);
-            if (reducedMethod === reducedVal[1]) {
-              resolved = {
-                value: val,
-                title: `${api.classes[apiClass].name}.${api.classes[apiClass].classMethods[i].name}`,
-                description: api.classes[apiClass].classMethods[i].summary,
-                link: `/api/pulsar/${latest}/${apiClass}#${anchorize(`${api.classes[apiClass].classMethods[i].visibility} ${api.classes[apiClass].classMethods[i].name}`)}`
-              };
-              break;
-            }
-          }
-          for (let i = 0; i < api.classes[apiClass].instanceMethods.length; i++) {
-            let reducedMethod = simplifyLabel(api.classes[apiClass].instanceMethods[i].name);
-            if (reducedMethod === reducedVal[1]) {
-              resolved = {
-                value: val,
-                title: `${api.classes[apiClass].name}.${api.classes[apiClass].instanceMethods[i].name}`,
-                description: api.classes[apiClass].instanceMethods[i].summary,
-                link: `/api/pulsar/${latest}/${apiClass}#${anchorize(`${api.classes[apiClass].instanceMethods[i].visibility} ${api.classes[apiClass].instanceMethods[i].name}`)}`
-              };
-              break;
-            }
-          }
-          for (let i = 0; i < api.classes[apiClass].classProperties.length; i++) {
-            let reducedProp = simplifyLabel(api.classes[apiClass].classProperties[i].name);
-            if (reducedProp === reducedVal[1]) {
-              resolved = {
-                value: val,
-                title: `${api.classes[apiClass].name}.${api.classes[apiClass].classProperties[i].name}`,
-                description: api.classes[apiClass].classProperties[i].summary,
-                link: `/api/pulsar/${latest}/${apiClass}#${anchorize(`${api.classes[apiClass].classProperties[i].visibility} ${api.classes[apiClass].classProperties[i].name}`)}`
-              };
-              break;
-            }
-          }
-          for (let i = 0; i < api.classes[apiClass].instanceProperties.length; i++) {
-            let reducedProp = simplifyLabel(api.classes[apiClass].instanceProperties[i].name);
-            if (reducedProp === reducedVal[1]) {
-              resolved = {
-                value: val,
-                title: `${api.classes[apiClass].name}.${api.classes[apiClass].instanceProperties[i].name}`,
-                description: api.classes[apiClass].instanceProperties[i].summary,
-                link: `/api/pulsar/${latest}/${apiClass}#${anchorize(`${api.classes[apiClass].instanceProperties[i].visibility} ${api.classes[apiClass].instanceProperties[i].name}`)}`
-              };
-              break;
-            }
-          }
-        }
-      } else if (reducedVal.length === 1) {
-        // After removing the underscores from the text, our length is only one.
-        // This commonly happens if our original string was `::AbortTransaction`
-        // which would imply it's documenting a method that was contextually linked to the
-        // document it came from. Unfortunately we can't retroactively discover that context.
-        // Meaning our possible only shot is to scan all items and see if this is unique.
-        // Or TODO see if we can include some contextual information, although very unlikely.
-      }
-    }
-  }
-
-  return resolved;
+async function resolveApiHovercard(_simpleLabel, label, cache) {
+  return cache.get(label) ?? false;
 }
 
+let bundledPackages;
 async function resolveBundledPackages(val) {
-  const bundledPackages = fs.readdirSync(path.join(__dirname, "../submodules/pulsar/packages"));
+  bundledPackages ??= FS.readdirSync(
+    Path.join(__dirname, "../submodules/pulsar/packages")
+  );
 
   let resolved = false;
 
   for (const pack of bundledPackages) {
     let reducedPack = simplifyLabel(pack);
     if (reducedPack == val) {
-      let data = JSON.parse(fs.readFileSync(path.join(__dirname, "../submodules/pulsar/packages", pack, "package.json"), { encoding: "utf8" }));
+      let data = JSON.parse(
+        FS.readFileSync(
+          Path.join(__dirname, "../submodules/pulsar/packages", pack, "package.json")
+        )
+      );
 
       resolved = {
         value: val,
@@ -200,22 +204,8 @@ async function resolveBundledPackages(val) {
   return resolved;
 }
 
-async function createIfDirAbsent(file) {
-  if (!fs.existsSync(file)) {
-    fs.mkdirSync(file);
+async function createDirIfAbsent(file) {
+  if (!FS.existsSync(file)) {
+    FS.mkdirSync(file);
   }
-}
-
-function simplifyLabel(str) {
-  let newStr = str;
-  newStr = newStr.toLowerCase();
-  newStr = newStr.replace(/[^a-z0-9]/gi, "_");
-  return newStr;
-}
-
-function anchorize(str) {
-  let newStr = str;
-  newStr = newStr.toLowerCase();
-  newStr = newStr.replace(/\W/g, "-");
-  return newStr;
 }

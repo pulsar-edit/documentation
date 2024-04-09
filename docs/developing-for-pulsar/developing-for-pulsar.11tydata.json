@@ -1,69 +1,70 @@
 {
+  "indexTitle": "Developing for Pulsar",
   "sidebar": [
     {
       "text": "Summary",
-      "link": "summary",
+      "link": "/developing-for-pulsar/summary",
       "summary": ""
     },
     {
       "text": "Developing a Package",
-      "link": "developing-a-package"
+      "link": "/developing-for-pulsar/developing-a-package"
     },
     {
       "text": "Developing a Theme",
-      "link": "developing-a-theme"
+      "link": "/developing-for-pulsar/developing-a-theme"
     },
     {
       "text": "Creating a Grammar Overview",
-      "link": "creating-a-grammar"
+      "link": "/developing-for-pulsar/creating-a-grammar"
     },
     {
       "text": "Creating a Grammar (Modern Tree-sitter)",
-      "link": "creating-a-grammar-modern-tree-sitter"
+      "link": "/developing-for-pulsar/creating-a-grammar-modern-tree-sitter"
     },
     {
       "text": "Creating a Grammar (Legacy Tree-sitter)",
-      "link": "creating-a-grammar-legacy-tree-sitter"
+      "link": "/developing-for-pulsar/creating-a-grammar-legacy-tree-sitter"
     },
     {
       "text": "Creating a Grammar (TextMate)",
-      "link": "creating-a-grammar-textmate"
+      "link": "/developing-for-pulsar/creating-a-grammar-textmate"
     },
     {
       "text": "Creating a Grammar (Converting from TextMate)",
-      "link": "creating-a-grammar-converting-from-textmate"
+      "link": "/developing-for-pulsar/creating-a-grammar-converting-from-textmate"
     },
     {
       "text": "Publishing",
-      "link": "publishing"
+      "link": "/developing-for-pulsar/publishing"
     },
     {
       "text": "Maintaining your Package",
-      "link": "maintaining-your-package"
+      "link": "/developing-for-pulsar/maintaining-your-package"
     },
     {
       "text": "Iconography",
-      "link": "iconography"
+      "link": "/developing-for-pulsar/iconography"
     },
     {
       "text": "Writing Specs",
-      "link": "writing-specs"
+      "link": "/developing-for-pulsar/writing-specs"
     },
     {
       "text": "Handling URIs",
-      "link": "handling-uris"
+      "link": "/developing-for-pulsar/handling-uris"
     },
     {
       "text": "Contributing to official Pulsar packages",
-      "link": "contributing-to-official-pulsar-packages"
+      "link": "/developing-for-pulsar/contributing-to-official-pulsar-packages"
     },
     {
       "text": "Creating a fork of a core package",
-      "link": "creating-a-fork-of-a-core-package"
+      "link": "/developing-for-pulsar/creating-a-fork-of-a-core-package"
     },
     {
       "text": "Maintaining a fork of a core package",
-      "link": "maintaining-a-fork-of-a-core-package"
+      "link": "/developing-for-pulsar/maintaining-a-fork-of-a-core-package"
     }
   ]
 

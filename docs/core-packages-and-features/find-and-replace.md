@@ -5,22 +5,10 @@ layout: doc.ejs
 
 Finding and replacing text in your file or project is quick and easy in Pulsar.
 
-::: tabs#using-pulsar
+::: info Shortcuts
 
-@tab Linux
-
-- [[Ctrl+F]] - Search within a buffer
-- [[Ctrl+Shift+F]] - Search the entire project
-
-@tab macOS
-
-- [[Cmd+F]] - Search within a buffer
-- [[Cmd+Shift+F]] - Search the entire project
-
-@tab Windows
-
-- [[Ctrl+F]] - Search within a buffer
-- [[Ctrl+Shift+F]] - Search the entire project
+- <kbd class="platform-linux platform-win">Ctrl+F</kbd> <kbd class="platform-mac">Cmd+F</kbd> - Search within a buffer
+- <kbd class="platform-linux platform-win">Ctrl+Shift+F</kbd> <kbd class="platform-mac">Cmd-Shift-F</kbd> - Search the entire project
 
 :::
 
@@ -29,13 +17,7 @@ Replace panel at the bottom of your screen.
 
 ![Find and replace text in the current file](/img/atom/find-replace-file.png "Find and replace text in the current file")
 
-To search within your current file you can press
-**_LNX/WIN_**: [[Cmd+F]] -
-**_MAC_**: [[Ctrl+F]], type in a search string and press
-**_LNX/WIN/MAC_**: [[Enter]] or
-**_LNX/WIN_**[[F3]] -
-**_MAC_**: [[Cmd+G]] or the "Find Next" button) multiple
-times to cycle through all the matches in that file. [[Alt+Enter]] will
+To search within your current file you can press <kbd class="platform-linux platform-win">Ctrl+F</kbd> <kbd class="platform-mac">Cmd+F</kbd>, type in a search string and press <span class="platform-linux platform-win"><kbd>Enter</kbd> or <kbd>F3</kbd></span> <span class="platform-mac"><kbd>Enter</kbd> or <kbd>Cmd+G</kbd></span> (or the “Find Next” button) multiple times to cycle through all the matches in that file. [[Alt+Enter]] will
 find all occurrences of the search string. The Find and Replace panel also
 contains buttons for toggling case sensitivity, performing regular expression
 matching, scoping the search to selections, and performing whole word search.
@@ -57,8 +39,7 @@ to learn more about regular expression syntax you can use in Pulsar.
 :::
 
 You can also find and replace throughout your entire project if you invoke the
-panel with **_LNX/WIN_**: [[Ctrl+Shift+F]] -
-**_MAC_**: [[Cmd+Shift+F]].
+panel with <kbd class="platform-linux platform-win">Ctrl+Shift+F</kbd> <kbd class="platform-mac">Cmd+Shift+F</kbd>.
 
 ![Find and replace text in your project](/img/atom/find-replace-project.png "Find and replace text in your project")
 

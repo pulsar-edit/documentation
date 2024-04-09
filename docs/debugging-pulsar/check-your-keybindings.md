@@ -9,11 +9,7 @@ combination. Pulsar ships with the [Keybinding Resolver](https://github.com/puls
 a neat package which helps you understand what key Pulsar saw you press and the
 command that was triggered because of it.
 
-Show the keybinding resolver with
-**_LNX/WIN_**: [[Ctrl+.]] -
-**_MAC_**: [[Cmd+.]],
-or with `Keybinding Resolver: Show` from the Command palette. With the
-Keybinding Resolver shown, press a key combination:
+Show the keybinding resolver with <kbd class="platform-linux platform-win">Ctrl+.</kbd> <kbd class="platform-mac">Cmd+.</kbd>, or with `Keybinding Resolver: Show` from the Command palette. With the Keybinding Resolver shown, press a key combination:
 
 ![Keybinding Resolver](/img/atom/keybinding-resolver.png)
 
@@ -36,22 +32,14 @@ If the command you wanted to trigger is listed in the Keybinding Resolver, but
 wasn't the one that was executed, this is normally explained by one of two
 causes:
 
-- The key combination was not used in the context defined by the keybinding's selector
+- **The key combination was not used in the context defined by the keybinding's selector.** For example, you can't trigger the keybinding for the `tree-view:add-file` command if the Tree View is not focused.
 
-  For example, you can't trigger the keybinding for the `tree-view:add-file`
-  command if the Tree View is not focused.
-
-- There is another keybinding that took precedence
-
-  This often happens when you install a package which defines keybindings that
-  conflict with existing keybindings. If the package's keybindings have
-  selectors with higher specificity or were loaded later, they'll have priority
-  over existing ones.
+- **There is another keybinding that took precedence.** This often happens when you install a package which defines keybindings that conflict with existing keybindings. If the package's keybindings have selectors with higher specificity or were loaded later, they'll have priority over existing ones.
 
 Pulsar loads core Pulsar keybindings and package keybindings first, and
 user-defined keybindings last. Since user-defined keybindings are loaded last,
 you can use your `keymap.cson` file to tweak the keybindings and sort out
-problems like these. See the [Keymaps in Depth section](../../behind-pulsar/#keymaps-in-depth)
+problems like these. See the [Keymaps in Depth section](/behind-pulsar/keymaps-in-depth)
 for more information.
 
 If you notice that a package's keybindings are taking precedence over core

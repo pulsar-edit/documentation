@@ -2,37 +2,90 @@
 // Custom containers from markdown-it
 .custom-container {
   position: relative;
-  margin: 1rem 0;
-  padding: 0.25rem 1rem;
-  border-left-width: 0.3rem;
-  border-left-style: solid;
-  border-radius: 0.5rem;
+  margin: 1rem 3rem 2rem 0;
+  padding: 0rem 1rem 0.25rem;
+  border-radius: 0.8rem;
   color: var(--customContainer-color);
-  border-color: var(--customContainer-border);
+  border-left: 0.45rem solid var(--customContainer-border);
   background-color: var(--customContainer-bg);
 
+  overflow: clip;
+
+  .custom-container-content {
+    // (when there's no title)
+    &:first-child {
+      padding-top: 0.75rem;
+    }
+
+    & > :last-child {
+      margin-bottom: 0.75rem;
+    }
+  }
+
   .custom-container-title {
-    padding-left: 1.5rem;
     color: var(--customContainerTitle-color);
+    background-color: var(--customContainerTitle-bg);
+    font-weight: 700;
+    text-transform: uppercase;
+    // letter-spacing: 1px;
+    margin: 0rem -1rem 0.25rem;
+    padding-top: 0.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   &.note {
-    color: var(--customContainer_note-color, --customContainer-color);
-    border-color: var(--customContainer_note-border, --customContainer-border);
-    background-color: var(--customContainer_note-bg, --customContainer-bg);
+    color: var(--customContainer_note-color, var(--customContainer-color));
+    border-color: var(--customContainer_note-border, var(--customContainer-border));
+    background-color: var(--customContainer_note-bg, var(--customContainer-bg));
 
     .custom-container-title {
-      color: var(--customContainerTitle_note-color, --customContainerTitle-color);
+      color: var(--customContainerTitle_note-color, var(--customContainerTitle-color));
+      background-color: var(--customContainerTitle_note-bg, var(--customContainerTitle-bg));
     }
   }
 
   &.warning {
-    color: var(--customContainer_warning-color, --customContainer-color);
-    border-color: var(--customContainer_warning-border, --customContainer-border);
-    background-color: var(--customContainer_warning-bg, --customContainer-bg);
+    color: var(--customContainer_warning-color, var(--customContainer-color));
+    border-color: var(--customContainer_warning-border, var(--customContainer-border));
+    background-color: var(--customContainer_warning-bg, var(--customContainer-bg));
 
     .custom-container-title {
-      color: var(--customContainerTitle_warning-color, --customContainerTitle-color);
+      color: var(--customContainerTitle_warning-color, var(--customContainerTitle-color));
+      background-color: var(--customContainerTitle_warning-bg, var(--customContainerTitle-bg));
+    }
+  }
+
+  &.info {
+    color: var(--customContainer_info-color, var(--customContainer-color));
+    border-color: var(--customContainer_info-border, var(--customContainer-border));
+    background-color: var(--customContainer_info-bg, var(--customContainer-bg));
+
+    .custom-container-title {
+      color: var(--customContainerTitle_info-color, var(--customContainerTitle-color));
+      background-color: var(--customContainerTitle_info-bg, var(--customContainerTitle-bg));
+    }
+  }
+
+  &.tip {
+    color: var(--customContainer_tip-color, var(--customContainer-color));
+    border-color: var(--customContainer_tip-border, var(--customContainer-border));
+    background-color: var(--customContainer_tip-bg, var(--customContainer-bg));
+
+    .custom-container-title {
+      color: var(--customContainerTitle_tip-color, var(--customContainerTitle-color));
+      background-color: var(--customContainerTitle_tip-bg, var(--customContainerTitle-bg));
+    }
+  }
+
+  &.danger {
+    color: var(--customContainer_danger-color, var(--customContainer-color));
+    border-color: var(--customContainer_danger-border, var(--customContainer-border));
+    background-color: var(--customContainer_danger-bg, var(--customContainer-bg));
+
+    .custom-container-title {
+      color: var(--customContainerTitle_danger-color, var(--customContainerTitle-color));
+      background-color: var(--customContainerTitle_danger-bg, var(--customContainerTitle-bg));
     }
   }
 }

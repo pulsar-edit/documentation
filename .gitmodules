@@ -16,6 +16,6 @@
 [submodule "submodules/dot-github"]
 	path = submodules/dot-github
 	url = https://github.com/pulsar-edit/.github
-[submodule "submodules/node-patchwatcher"]
-	path = submodules/node-patchwatcher
+[submodule "submodules/node-pathwatcher"]
+	path = submodules/node-pathwatcher
 	url = https://github.com/pulsar-edit/node-pathwatcher

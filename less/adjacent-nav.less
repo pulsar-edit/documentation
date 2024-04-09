@@ -1,0 +1,37 @@
+
+nav.adjacent {
+  margin-top: 4rem;
+  padding-top: 4rem;
+  border-top: 2px solid var(--thematicBreak-color);
+
+  display: flex;
+  justify-content: space-between;
+
+  .adjacent__previous,
+  .adjacent__next {
+    display: flex;
+    justify-content: flex-start;
+    align-items: top;
+  }
+
+  .adjacent__previous {
+    padding-right: 3vw;
+
+    &::before {
+      content: '←';
+      display: block;
+      padding-right: 1ch;
+    }
+  }
+  .adjacent__next {
+    margin-left: auto;
+    text-align: right;
+    padding-left: 3vw;
+
+    &::after {
+      content: '→';
+      display: block;
+      padding-left: 1ch;
+    }
+  }
+}

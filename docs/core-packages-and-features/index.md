@@ -3,6 +3,6 @@ title: "Pulsar Core Packages & Features"
 layout: summary.ejs
 ---
 
-This section dives deep into the core packages included within Pulsar. These core packages largely comprise of the core feature set out of the box.
+Most of what Pulsar does out of the box is implemented as packages. These packages have the same privileges as any other non-builtin package.
 
-Any of these core package's can be disabled within the {settings-view} although cannot be uninstalled.
+Every builtin package can be disabled via {settings-view}, but cannot be uninstalled.

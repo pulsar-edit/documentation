@@ -20,10 +20,7 @@ about our active text editor. The final package can be viewed at
 
 ## Create the Package
 
-To begin, press
-**_LNX/WIN_**: <kbd>Ctrl+Shift+P</kbd> -
-**_MAC_**: <kbd>Cmd+Shift+P</kbd>
-to bring up the [Command Palette](https://github.com/pulsar-edit/command-palette).
+To begin, press <kbd class="platform-win platform-linux">Ctrl+Shift+P</kbd> <kbd class="platform-mac">Cmd+Shift+P</kbd> to bring up the [Command Palette](https://github.com/pulsar-edit/command-palette).
 Type "generate package" and select the `Package Generator: Generate Package`
 command, just as we did in [the section on package generation](#package-generator).
 Enter `active-editor-info` as the name of the package.

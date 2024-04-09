@@ -6,15 +6,7 @@ layout: doc.ejs
 In some cases, unexpected behavior might be caused by settings in Pulsar or in
 one of the packages.
 
-Open Pulsar's [Settings View](https://github.com/pulsar-edit/settings-view) with
-**_LNX/WIN_**: [[Ctrl+,]] -
-**_MAC_**: [[Cmd+,]],
-the
-**_LNX_**: _Edit > Preferences_ -
-**_MAC_**: _Pulsar > Preferences_ -
-**_WIN_**: _File > Preferences_
-menu option, or the `Settings View: Open` command from the
-[Command Palette](https://github.com/pulsar-edit/command-palette).
+Open Pulsar's [Settings View](https://github.com/pulsar-edit/settings-view) with <kbd class="platform-linux platform-win">Ctrl+,</kbd> <kbd class="platform-mac">Cmd+,</kbd>, the <span class="platform-linux">_Edit > Preferences_</span><span class="platform-mac">_Pulsar > Settings…_</span><span class="platform-win">_File > Preferences_</span> menu option, or the `Settings View: Open` command from the [Command Palette](https://github.com/pulsar-edit/command-palette).
 
 ![Settings View](/img/atom/settings-view.png)
 

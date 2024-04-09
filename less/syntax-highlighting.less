@@ -1,0 +1,53 @@
+
+.syntax-highlighting() {
+
+  .comment {
+    color: var(--syntax-comment);
+  }
+
+  .function {
+    color: var(--syntax-function);
+  }
+
+  .string,
+  .attr-value {
+    color: var(--syntax-string);
+    .attr-equals {
+      color: var(--syntax-keyword);
+    }
+  }
+
+  .variable {
+    color: var(--syntax-variable);
+  }
+
+  .parameter {
+    color: var(--syntax-variable);
+  }
+
+  .number,
+  .selector,
+  .property,
+  .attr-name,
+  .constant {
+    color: var(--syntax-constant);
+  }
+
+  .keyword,
+  .operator {
+    color: var(--syntax-keyword);
+  }
+
+  .tag,
+  .doctype-tag {
+    color: var(--syntax-variable);
+    .punctuation {
+      color: var(--font-color);
+    }
+  }
+
+}
+
+pre code {
+  .syntax-highlighting();
+}
