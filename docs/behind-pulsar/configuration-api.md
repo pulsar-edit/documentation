@@ -5,9 +5,7 @@ layout: doc.ejs
 
 ## Reading Config Settings
 
-If you are writing a package that you want to make configurable, you'll need to
-read config settings via the `atom.config` global. You can read the current
-value of a namespaced config key with `atom.config.get`:
+If you are writing a package that you want to make configurable, you'll need to read config settings via the `atom.config` global. You can read the current value of a namespaced config key with `atom.config.get`:
 
 ```js
 // read a value with `config.get`

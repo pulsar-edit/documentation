@@ -1,14 +1,13 @@
 ---
-title: Language Specific Configuration Settings
+title: Language-specific configuration settings
 layout: doc.ejs
 ---
 
-You can also set several configuration settings differently for different file
-types. For example, you may want Pulsar to soft wrap markdown files, have
-two-space tabs for ruby files, and four-space tabs for python files.
+Some settings can be specified differently for different file
+types. For example, you may want Pulsar to soft-wrap Markdown files, use
+two-space tabs for Ruby files, and use four-space tabs for Python files.
 
-There are several settings now scoped to an editor's language. Here is the
-current list:
+Many of the settings in the `editor` namespace, can be scoped to an editor’s language:
 
 ```
 editor.autoIndent
@@ -25,17 +24,17 @@ editor.softWrapHangingIndent
 editor.tabLength
 ```
 
-## Language-specific Settings in the Settings View
+## Language-specific settings in the settings view
 
-You can edit these config settings in the Settings View on a per-language basis.
-Click on "Packages" tab in the navigation bar on the left, search for the
-language of your choice, select it, and edit away!
+The editor settings listed above can be customized in the settings-view UI. Open your settings, select the **Packages** pane, search for the language of your choice, and click on its **Settings** button.
 
 ![Python-specific settings](/img/atom/python-settings.png "Python-specific settings")
 
-## Language-specific Settings in your Config File
+## Language-specific Settings in your config file
 
-You can also edit the `config.cson` directly. To open your configuration file via the Command Palette, press <kbd class="platform-linux platform-win">Ctrl+Shift+P</kbd> <kbd class="platform-mac">Cmd+Shift+P</kbd>, type `open config`, and press [[Enter]].
+Most other language-specific settings cannot be configured in the UI, but you can still attempt to apply such overrides by editing your `config.cson` directly.
+
+To open your `config.cson`, run the **Application: Open Your Config** setting or press <kbd class="platform-linux platform-win">Ctrl+Shift+P</kbd><kbd class="platform-mac">Cmd+Shift+P</kbd>.
 
 Global settings are under the `*` key, and each language can have its own top-level key. This key is the language's scope. Language-specific settings take precedence over anything set in the global section for that language only.
 
@@ -58,7 +57,11 @@ Global settings are under the `*` key, and each language can have its own top-le
     'tabLength': 4
 ```
 
-## Finding a Language's Scope Name
+:::tip
+When you save your `config.cson`, you might see its contents change slightly. For instance, the keys above will be “normalized” to `.gfm.source`, `.ruby.source`, and `.python.source` (with the segments of each scope arranged alphabetically). This is normal.
+:::
+
+## Finding a language’s scope name
 
 In order to write these overrides effectively, you'll need to know the scope name for the language. We've already done this for finding a scope for writing a snippet in [Snippet Format](/customize-pulsar/creating-your-own-snippets/#snippet-format), but we can quickly cover it again.
 
@@ -66,8 +69,26 @@ The scope name is shown in the settings view for each language. Click on "Packag
 
 ![Finding a language grammar](/img/atom/python-grammar.png "Finding a grammar's scope name")
 
-Another way to find the scope for a specific language is to open a file of its kind and <span class="platform-linux platform-win">choose "Editor: Log Cursor Scope" in the Command Palette</span><span class="platform-mac">press <kbd>Alt+Cmd+P</kbd></span> to show all scopes for the current position of the cursor. The first scope in the list is always the root language scope for this kind of file. Each subsequent scope in the list represents a progressively more specific region of the buffer.
+Another way to find the scope for a specific language is to open a file of its kind and <span class="platform-linux platform-win">choose **Editor: Log Cursor Scope** in the command palette</span><span class="platform-mac">press <kbd>Alt+Cmd+P</kbd></span> to show all scopes for the current position of the cursor. The first scope in the list is always the root language scope for this kind of file. Each subsequent scope in the list represents a progressively more specific region of the buffer.
 
 ![Finding a language grammar with cursor scope](/img/atom/cursor-scope.png "Finding a language grammar with cursor scope")
 
 These scopes can be especially useful to style the editor, since they can also be used as class names in your stylesheet.
+
+## Can everything be overridden?
+
+Technically, any setting can be specified to an arbitrary level of detail: not just by language, but using any scope selector of any complexity.
+
+In practice, though, the onus falls on whatever is _consuming_ the setting to read it at the same level of specificity.
+
+Suppose you set an override for a setting that is consumed by a package:
+
+```coffee
+'.source.python':
+  'some-package':
+    'some-setting': 4
+```
+
+For this override to be recognized, the `some-package` package would have to consider scope when reading `some-setting`. It may be written to read the setting only globally. It’s not easily possible for Pulsar to detect how the setting will be read in the future, so “can setting X be overridden?” isn’t a question that can be answered by Pulsar itself.
+
+If you’re unsure if it will work, give it a try. If it doesn’t work, open an issue with the package’s author and politely request this feature.

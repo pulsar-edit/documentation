@@ -1,16 +1,13 @@
 ---
-title: Diagnose Runtime Performance
+title: Diagnose runtime performance
 layout: doc.ejs
 ---
 
-If you're experiencing performance problems in a particular situation, your
-[Issue reports](https://github.com/pulsar-edit/.github/blob/main/CONTRIBUTING.md#reporting-bugs)
-will be more valuable if you include a saved profile from Chrome's CPU profiler
-that gives some insight into what is slow.
+If you're experiencing performance problems in a particular situation, your [issue reports](https://github.com/pulsar-edit/.github/blob/main/CONTRIBUTING.md#reporting-bugs) will be more valuable if you include a saved profile from Chrome’s CPU profiler that gives some insight into what is slow.
 
-To run a profile, open the Developer Tools with <kbd class="platform-linux platform-win">Ctrl+Shift+I</kbd> <kbd class="platform-mac">Alt+Cmd+I</kbd>. From there:
+To run a profile, open the Developer Tools with <kbd class="platform-linux platform-win">Ctrl+Shift+I</kbd><kbd class="platform-mac">Alt+Cmd+I</kbd>. From there:
 
-1. Click the Profiles tab
+1. Click the _Profiles_ tab
 2. Select "Collect JavaScript CPU Profile"
 3. Click "Start"
 

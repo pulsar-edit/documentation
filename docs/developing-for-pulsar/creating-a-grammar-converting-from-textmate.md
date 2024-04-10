@@ -1,5 +1,5 @@
 ---
-title: Creating a Grammar (Converting from TextMate)
+title: Creating a grammar (converting from TextMate)
 layout: doc.ejs
 ---
 

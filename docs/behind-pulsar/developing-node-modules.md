@@ -8,7 +8,7 @@ packages. If you want to make changes to the Node modules, for instance
 `atom-keymap`, you have to link them into the development environment
 differently than you would a normal Pulsar package.
 
-## Linking a Node Module Into Your Pulsar Dev Environment
+## Linking a Node module into your Pulsar dev environment
 
 Here are the steps to run a local version of a Node module within Pulsar. We're
 using `atom-keymap` as an example:

@@ -2,19 +2,19 @@
   "indexTitle": "Debugging Pulsar",
   "sidebar": [
     {
-      "text": "Update to the Latest Version",
+      "text": "Update to the latest version",
       "link": "/debugging-pulsar/update-to-the-latest-version"
     },
     {
-      "text": "Using Safe Mode",
+      "text": "Using safe mode",
       "link": "/debugging-pulsar/using-safe-mode"
     },
     {
-      "text": "Clearing Saved State",
+      "text": "Clearing saved state",
       "link": "/debugging-pulsar/clearing-saved-state"
     },
     {
-      "text": "Reset to Factory Defaults",
+      "text": "Reset to factory defaults",
       "link": "/debugging-pulsar/reset-to-factory-defaults"
     },
     {
@@ -26,7 +26,7 @@
       "link": "/debugging-pulsar/check-for-incompatible-packages"
     },
     {
-      "text": "Check Pulsar and Package Settings",
+      "text": "Check Pulsar and package settings",
       "link": "/debugging-pulsar/check-pulsar-and-package-settings"
     },
     {
@@ -42,7 +42,7 @@
       "link": "/debugging-pulsar/check-font-rendering-issues"
     },
     {
-      "text": "Check for errors in Developer tools",
+      "text": "Check for errors in developer tools",
       "link": "/debugging-pulsar/check-for-errors-in-developer-tools"
     },
     {
@@ -50,19 +50,19 @@
       "link": "/debugging-pulsar/find-crash-logs"
     },
     {
-      "text": "Diagnose Startup Performance",
+      "text": "Diagnose startup performance",
       "link": "/debugging-pulsar/diagnose-startup-performance"
     },
     {
-      "text": "Diagnose Runtime Performance",
+      "text": "Diagnose runtime performance",
       "link": "/debugging-pulsar/diagnose-runtime-performance"
     },
     {
-      "text": "Profiling Startup Performance",
+      "text": "Profiling startup performance",
       "link": "/debugging-pulsar/profiling-startup-performance"
     },
     {
-      "text": "Check your Build Tools",
+      "text": "Check your build tools",
       "link": "/debugging-pulsar/check-your-build-tools"
     },
     {

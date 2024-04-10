@@ -1,5 +1,5 @@
 ---
-title: Creating a Grammar (Modern Tree-sitter)
+title: Creating a grammar (modern Tree-sitter)
 layout: doc.ejs
 ---
 
@@ -12,17 +12,26 @@ Modeling the buffer as a syntax tree gives Pulsar a comprehensive understanding 
 3. Editor features can operate on the syntax tree. For instance, the **Select Larger Syntax Node** and **Select Smaller Syntax Node** commands allow you to select conceptually larger and smaller chunks of your code.
 4. Community packages can use the syntax tree to understand and manipulate code more intelligently.
 
-## Getting Started
+## Getting started
 
 There are three components required to use Tree-sitter in Pulsar: a parser, a grammar file, and a handful of query files.
 
-## The Parser
+## The parser
 
 Tree-sitter generates parsers based on [context-free grammars](https://en.wikipedia.org/wiki/Context-free_grammar) that are typically written in JavaScript. The generated parsers are C libraries that can be used in other applications as well as Pulsar.
 
 They can also be developed and tested on the command line, separately from Pulsar. Tree-sitter has [its own documentation page](http://tree-sitter.github.io/tree-sitter/creating-parsers) on how to create these parsers. The [Tree-sitter GitHub organization](https://github.com/tree-sitter) also contains a lot of example parsers that you can learn from, each in its own repository.
 
 Pulsar uses `web-tree-sitter` — the WebAssembly bindings to tree-sitter. That means that you’ll have to build a WASM file for your parser before it can be used.
+
+:::warning Tree-sitter versions are important
+Currently, Pulsar builds its own custom copy of `web-tree-sitter` for reasons explained [in this README](https://github.com/pulsar-edit/pulsar/tree/master/vendor/web-tree-sitter). In the future, to know which version of `web-tree-sitter` Pulsar is using, please visit that folder on GitHub and read the commit message of the commit that most recently touched `tree-sitter.js`.
+
+At time of writing this document, it was 0.20.9, which would mean you’d be able to use a version of Tree-sitter **no newer than** 0.20.9 when generating your WASM file. (Older versions are generally OK; Tree-sitter preserves backwards-compatibility of parsers generated with older versions.)
+
+Building WASM files from the `tree-sitter` CLI requires either a local installation of [Emscripten](https://emscripten.org/) or use of a Docker image. See [this reference](https://github.com/sogaiu/ts-questions/blob/master/questions/which-version-of-emscripten-should-be-used-for-the-playground/README.md) for details.
+
+:::
 
 If you want to use an existing parser, you’ll probably be able to find it on [NPM](https://npmjs.com/). If you’ve written your own parser, it’s a good idea to publish it to NPM yourself. Either way, you should install it as a `devDependency` for your `language-*` package.
 
@@ -33,10 +42,8 @@ cd node_modules/tree-sitter-foo
 tree-sitter build-wasm .
 ```
 
-Building WASM files from the tree-sitter CLI requires either a local installation of Emscripten or use of a Docker image. See [this reference](https://github.com/sogaiu/ts-questions/blob/master/questions/which-version-of-emscripten-should-be-used-for-the-playground/README.md) for details.
 
-
-## The Package
+## The package
 
 Once you have a WASM file, you can use it in your Pulsar package. Packages with grammars are, by convention, always named starting with `language-`. You'll need a folder with a `package.json`, a `grammars` subdirectory, and a single JSON or CSON file in the `grammars` directory, which can be named anything.
 
@@ -57,11 +64,11 @@ language-mylanguage
 └── package.json
 ```
 
-##  The Grammar File
+##  The grammar file
 
 The `mylanguage.cson` file specifies how Pulsar should use the parser you created.
 
-### Basic Fields
+### Basic fields
 
 It starts with some required fields:
 
@@ -74,10 +81,10 @@ parser: 'tree-sitter-mylanguage'
 
 * `scopeName` - A unique, stable identifier for the language. Pulsar users will use this identifier in configuration files if they want to specify custom configuration based on the language. Examples: `source.js`, `text.html.basic`.
 * `name` - A human readable name for the language.
-* `parser` - The name of the parser node module that will be used for parsing. This should point to the NPM package from which the WASM file was built. (This value is currently unused, but is required as a way of future-proofing in case Pulsar should migrate to a different tree-sitter binding in the future.)
+* `parser` - The name of the parser node module that will be used for parsing. This should point to the NPM package from which the WASM file was built. (This value is currently unused, but is required as a way of future-proofing in case Pulsar should migrate to a different Tree-sitter binding in the future.)
 * `type` - This should have the value `modern-tree-sitter` to indicate to Pulsar that this is a modern Tree-sitter grammar, as opposed to a legacy Tree-sitter grammar (soon to be removed from Pulsar) or a [TextMate grammar](https://pulsar-edit.dev/docs/launch-manual/sections/core-hacking/#creating-a-legacy-textmate-grammar).
 
-### Tree-sitter Fields
+### Tree-sitter fields
 
 The `treeSitter` configuration key holds the fields that specify the paths on disk to the grammar and its query files:
 
@@ -95,13 +102,13 @@ All values are paths that will be resolved relative to the grammar configuration
 * `highlightsQuery` — The path to a file (canonically called `highlights.scm`) that will tell Pulsar how to highlight the code in this language. (Most Tree-sitter repositories include a `highlights.scm` file that can be useful to consult, but _should not_ be used in Pulsar, because its naming conventions are different from Pulsar’s.)
 * `foldsQuery` — The path to a file (canonically called `folds.scm`) that will tell Pulsar which ranges of a buffer can be folded.
 * `indentsQuery` — The path to a file (canonically called `indents.scm`) that will tell Pulsar when it should indent or dedent lines of code in this language.
-* `tagsQuery` — The path to a file (canonically called `tags.scm`) that will identify the important symbols in the document (class names, function names, and so on) along with their locations. If present, Pulsar will use this query file for symbol navigation. (Most Tree-sitter repositories include a `tags.scm` file that can be understood as-is by Pulsar and is a good starting point.)
+* `tagsQuery` — The path to a file (canonically called `tags.scm`) that will identify the important symbols in the document (class names, function names, and so on) along with their locations. If present, Pulsar will use this query file for symbol navigation. (Most Tree-sitter repositories include a `tags.scm` file that _can be understood as-is_ by Pulsar and is a good starting point.)
 
 You can skip `indentsQuery` if your language doesn’t need indentation hinting, `foldsQuery` if it doesn’t need code folding, or even `highlightsQuery` in the unlikely event that your language does not need syntax highlighting.
 
 Any of the settings that end in `Query` can also accept an array of relative paths, instead of just a single path. At initialization time, the grammar will concatenate each file’s contents into a single query file. This isn’t a common need, but is explained further below.
 
-### Language Recognition
+### Language recognition
 
 Next, the file should contain some fields that indicate to Pulsar when this language should be chosen for a given file. These fields are all optional and are listed in the order that Pulsar consults them when making its decision.
 
@@ -130,18 +137,18 @@ comments:
   end: ' */'
 ```
 
-## Syntax Highlighting
+## Syntax highlighting
 
 The HTML classes that Pulsar uses for syntax highlighting do not correspond directly to nodes in the syntax tree. Instead, Pulsar queries the tree using a file called `highlights.scm` and written using Tree-sitter’s own [query language](https://tree-sitter.github.io/tree-sitter/using-parsers#pattern-matching-with-queries).
 
 Here is a simple example:
 
 ```scm
-(call_expression
+(call_expression;
   (identifier) @support.other.function)
 ```
 
-This entry means that, in the syntax tree, any `identifier` node whose parent is a `call_expression` should be given the scope name `support.other.function`. In the editor, such an identifier will be wrapped in a `span` tag with three classes applied to it: `syntax--support`, `syntax--other`, and `syntax--function`. Syntax themes can hook into these class names to [style source code](/sections/core-hacking/#creating-a-syntax-theme) via CSS or LESS files.
+This entry means that, in the syntax tree, any `identifier` node whose parent is a `call_expression` should be given the scope name `support.other.function`. In the editor, such an identifier will be wrapped in a `span` tag with three classes applied to it: `syntax--support`, `syntax--other`, and `syntax--function`. Syntax themes can hook into these class names to [style source code](../developing-a-theme) via CSS or LESS files.
 
 Some queries will be quite easy to express, but some others will be highly contextual. Consult some built-in grammars’ `highlights.scm` files for examples.
 
@@ -154,10 +161,10 @@ Tree-sitter supports additional matching criteria for queries called _predicates
   (#match? @comment.block.js "^/\\*"))
 
 ((comment) @comment.line.js
-  (#match? @comment.line.js) "^//")
+  (#match? @comment.line.js "^//"))
 ```
 
-We’re using the built-in `#match?` predicate, along with a regular expression, to search the text within the `comment` node. Our regexes are anchored to the beginning of the string and test whether the opening delimiter signifies a block comment (`/* like this */`) or a line comment (`// like this`). In the block comment’s case, we don’t have to attempt to match the ending (`*/`) delimiter — we _know_ it must be present, or else the tree-sitter parser wouldn’t have classified it as a `comment` node in the first place.
+We’re using the built-in `#match?` predicate, along with a regular expression, to search the text within the `comment` node. Our regexes are anchored to the beginning of the string and test whether the opening delimiter signifies a block comment (`/* like this */`) or a line comment (`// like this`). In the block comment’s case, we don’t have to attempt to match the ending (`*/`) delimiter — we _know_ it must be present, or else the Tree-sitter parser wouldn’t have classified it as a `comment` node in the first place.
 
 Unfortunately, there aren’t many built-in predicates in `web-tree-sitter` alongside `#match?` and `#eq?` (which tests for _exact_ equality). But the ones that are present — `#set!`, `#is?`, and `#is-not` — allow us to associate arbitrary key/value pairs with a specific capture. Pulsar uses these to define its own _custom_ predicates.
 
@@ -172,7 +179,7 @@ For instance, you may want to highlight things differently based on their positi
   (#is? test.last))
 ```
 
-In most tree-sitter languages, a `string` node’s first child will be its opening delimiter, and its last child will be its closing delimiter. To add two different scopes to these quotation marks, we can use the `test.first` and `test.last` custom predicates to distinguish these two nodes from one another.
+In most Tree-sitter languages, a `string` node’s first child will be its opening delimiter, and its last child will be its closing delimiter. To add two different scopes to these quotation marks, we can use the `test.first` and `test.last` custom predicates to distinguish these two nodes from one another.
 
 
 ### Prioritizing scopes
@@ -210,7 +217,7 @@ Another approach is to use Pulsar’s custom predicates called `final` and `shy`
 ; Scope this like a built-in function if we recognize the name…
 (call_expression (identifier) @support.function.builtin.js
   (#match? @support.function.builtin.js "^(isFinite|isNaN|parseFloat|parseInt)$")
-  (#set! capture.final true))
+  (#set! capture.final))
 
 ; …or as a user-defined function if we don't.
 (call_expression (identifier) @support.other.function.js)
@@ -227,7 +234,7 @@ Another option would be to use `shy` on the second capture:
 
 ; …or as a user-defined function if we don't.
 (call_expression (identifier) @support.other.function.js
-  (#set! capture.shy true))
+  (#set! capture.shy))
 ```
 
 The `shy` predicate creates a true fallback option; it only applies its scope if _no_ other scope — not just one that uses `capture.final` — has previously been applied for the same buffer range. But it doesn’t “lock down” its buffer range the way that `final` does, so a later capture could add another scope to the same range.
@@ -236,7 +243,7 @@ There’s one caveat to mention. Consider this query:
 
 ```scm
 (call_expression (identifier) @support.other.function.js @meta.something-else.js
-  (#set! capture.final true))
+  (#set! capture.final))
 ```
 
 This is a valid Tree-sitter query; you can assign up to three capture names at once. But the outcome might be surprising: `support.other.function.js` will be applied, and `meta.something-else.js` will not. This happens because these two capture names aren’t processed simultaneously; they’re processed in sequence. So the `capture.final` predicate will act after the first capture name and prevent the second from being applied.
@@ -292,7 +299,7 @@ There may be times when the range you want to highlight doesn’t correspond exa
 
 Some adjustments move the boundaries of the scope based on pattern matches inside a node’s text, like in the example above. Others may move the boundaries based on a _node position descriptor_ — a string like `lastChild.startPosition` that points to a specific position in a tree relative to another node — so they can wrap a single scope around two or three adjacent sibling nodes.
 
-There’s only one catch: adjustments can only _narrow_ the range of a capture, not expand it. That’s important because Pulsar depends on tree-sitter to tell it when certain regions of the buffer are affected by edits and need to be re-highlighted. That system won’t work correctly if a capture that starts and ends on row 1 can stretch itself to add a scope to something on row 100.
+There’s only one catch: **adjustments can only _narrow_ the range of a capture, not expand it**. That’s important because Pulsar depends on Tree-sitter to tell it when certain regions of the buffer are affected by edits and need to be re-highlighted. That system won’t work correctly if a capture that starts and ends on row 1 can stretch itself to add a scope to something on row 100.
 
 Consult the `ScopeResolver` API documentation for a full list.
 
@@ -326,7 +333,7 @@ You might also notice a new key: `languageSegment`. This optional property allow
 …while retaining the ability to add a grammar-specific scope segment at the end of a capture. At initialization time, all `_LANG_` segments in this SCM file would be dynamically replaced with `ts.tsx`, and the capture name above would become `@entity.name.type.class.ts.tsx`. In the ordinary TypeScript grammar, specifying a `languageSegment` of `ts` would allow that grammar to define a capture name of `@entity.name.type.class.ts`.
 
 
-## Language Injection
+## Language injection
 
 Often, a source file will contain code written in several different languages. An HTML file, for instance, may need to highlight JavaScript (if the file has an inline `script` element) or CSS (if the file has an inline `style` element).
 
@@ -432,6 +439,14 @@ It’s for this reason that, by default, injection points ignore the _descendant
 
 When the injection content is parsed, Tree-sitter will look at only the ranges Pulsar tells it to; anything outside those ranges will be invisible to the parser.
 
+So our example above would look like this to the HTML grammar:
+
+```html
+
+                         <div>Hello,        </div>
+```
+
+
 Ignoring child nodes is the correct decision for scenarios like tagged template literals and heredoc strings, but it might not be the correct decision for other injections, so this behavior is configurable.
 
 Here are some other things you can do with injections, if needed:
@@ -441,11 +456,11 @@ Here are some other things you can do with injections, if needed:
 * consolidate ranges that are separated only by whitespace
 * include newline characters when they appear between disjoint content ranges so that the injection’s parser doesn’t think those ranges are part of the same line
 
-For more information on these features, read the API documentation for `addInjectionPoint`.
+For more information on these features, read the API documentation for {GrammarRegistry::addInjectionPoint}.
 
-## Code Folding
+## Code folding
 
-[Code folding](/sections/using-pulsar/#folding) can only happen if the grammar helps Pulsar to understand which ranges of the buffer represent logical sections that can be collapsed. A tree-sitter grammar does this via `folds.scm` — a query file whose only purpose is to mark “foldable” sections of the buffer.
+[Code folding](/core-packages-and-features/folding/) can only happen if the grammar helps Pulsar to understand which ranges of the buffer represent logical sections that can be collapsed. A Tree-sitter grammar does this via `folds.scm` — a query file whose only purpose is to mark “foldable” sections of the buffer.
 
 ### Simple folds
 
@@ -475,7 +490,7 @@ There’s a different kind of fold, called a _divided fold_, that can be used wh
 
 Divided folds are needed when the region to be folded isn’t represented by a single node, or by some predictable path from one node to another. Examples include preprocessor definitions in C/C++ files and sections inside Markdown files.
 
-But the best example might be complex conditionals in shell scripts. In most other built-in tree-sitter grammars, these conditionals can be handled with simple folds. But shell scripts are a bit “messy,” and the parsed tree reflects that:
+But the best example might be complex conditionals in shell scripts. In most other built-in Tree-sitter grammars, these conditionals can be handled with simple folds. But shell scripts are a bit “messy,” and the parsed tree reflects that:
 
 ```scm
 (if_statement "then" @fold.start)
@@ -635,7 +650,7 @@ Markdown has two different styles of heading, so we’ve written two query expre
 
 The built-in package named `symbol-provider-tree-sitter` will use this file to query the tree whenever a user runs the **Symbols View: Toggle File Symbols** command, typically bound to <kbd class="platform-mac">Cmd+R</kbd> <kbd class="platform-win platform-linux">Ctrl+R</kbd>. For Markdown, we’ve just done all we need to do to ensure that headings show up in that symbols list.
 
-###s# Advanced features
+#### Advanced features
 
 If the exact text of the match isn’t quite what you want to show in the symbol list view, there are ways to alter that text before it’s displayed.
 

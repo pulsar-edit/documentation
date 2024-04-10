@@ -1,5 +1,5 @@
 ---
-title: Maintaining your Package
+title: Maintaining your package
 layout: doc.ejs
 ---
 

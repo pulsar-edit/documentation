@@ -1,11 +1,11 @@
 ---
-title: Developing a Package
+title: Developing a package
 layout: doc.ejs
 ---
 
 Lets get started by creating and looking at the general layout of a package, and how it should look.
 
-## Package Generator
+## Package generator
 
 The simplest way to start a package is to use the built-in package generator that ships with Pulsar.
 This generator is implemented as a separate package [package-generator](https://github.com/pulsar-edit/pulsar/tree/MAIN/packages/package-generator).
@@ -142,7 +142,7 @@ by design and will prevent you from publishing your package until updated.
 
 :::
 
-### Source Code
+### Source code
 
 If you want to extend Pulsar's behavior, your package should contain a single
 top-level module, which you export from whichever file is indicated by the
@@ -182,7 +182,7 @@ Your package's top-level module can implement the following basic methods:
   or holding external resources in any other way, release them here. You should
   also dispose of all subscriptions you're holding on to.
 
-### Style Sheets
+### Style sheets
 
 Style sheets for your package should be placed in the `styles` directory. Any style sheets in this directory will be loaded and attached to the DOM when your package is activated. Style sheets can be written as CSS or [Less](http://lesscss.org), but Less is recommended.
 
@@ -218,7 +218,7 @@ Menus are placed in the `menus` subdirectory. This defines menu elements like wh
 
 By default, all menus are loaded in alphabetical order. An optional `menus` array in your `package.json` can specify which menus to load and in what order.
 
-#### Application Menu
+#### Application menu
 
 It's recommended that you create an application menu item under the _Packages_ menu for common actions with your package that aren't tied to a specific element. If we look in the `menus/your-package-name.json` file that was generated for us, we'll see a section that looks like this:
 
@@ -251,7 +251,7 @@ When you select that menu item, it will run the `your-package-name:toggle` comma
 
 The menu templates you specify are merged with all other templates provided by other packages in the order which they were loaded.
 
-#### Context Menu
+#### Context menu
 
 It's recommended to specify a context menu item for commands that are linked to
 specific parts of the interface. In our `menus/your-package-name.json` file,
@@ -318,7 +318,7 @@ could do something like this:
 }
 ```
 
-## Basic Debugging
+## Basic debugging
 
 One of the cool things about Pulsar being built on Chromium is that you can use
 some of the same debugging tools available to your that you have when doing web development.
@@ -335,7 +335,7 @@ Your package should have tests, and if they're placed in the `spec` directory, t
 
 Under the hood, [Jasmine v1.3](https://jasmine.github.io/archives/1.3/introduction) executes your tests, so you can assume that any DSL available there is also available to your package.
 
-### Running Tests
+### Running tests
 
 Once you've got your test suite written, you can run it by pressing <kbd class="platform-linux platform-win">Ctrl+Alt+P</kbd> <kbd class="platform-mac">Alt+Cmd+Ctrl+P</kbd> or via the _View > Developer > Run Package Specs_ menu. Our generated package comes with an example test suite, so you can run this right away to see what happens.
 

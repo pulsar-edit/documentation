@@ -3,23 +3,17 @@ title: Creating a fork of a core package
 layout: doc.ejs
 ---
 
-Several of Pulsar's core packages are maintained in the
-[`packages` directory of the pulsar-edit/pulsar repository](https://github.com/pulsar-edit/pulsar/tree/master/packages).
-If you would like to use one of these packages as a starting point for your own
-package, please follow the steps below.
+Several of Pulsar's core packages are maintained in the [`packages` directory of the `pulsar-edit/pulsar` repository](https://github.com/pulsar-edit/pulsar/tree/master/packages). If you would like to use one of these packages as a starting point for your own package, please follow the steps below.
 
 ::: tip Tip
 
-In most cases, we recommend [generating a brand new package](#package-generator)
-or a [brand new theme](#creating-a-syntax-theme) as the starting point for your
-creation. The guide below applies only to situations where you want to create a
-package that closely resembles a core Pulsar package.
+In most cases, we recommend [generating a brand-new package](#package-generator) or a [brand-new theme](#creating-a-syntax-theme) as the starting point for your creation. The guide below applies only to situations where you want to create a package that closely resembles a core Pulsar package.
 
 :::
 
-## Creating Your New Package
+## Creating your new package
 
-<!--Could this be made better with GH CLI?-->
+<!-- Could this be made better with GH CLI? -->
 
 For the sake of this guide, let's assume that you want to start with the current
 code in the [one-light-ui](https://github.com/pulsar-edit/pulsar/tree/master/packages/one-light-ui)
@@ -86,9 +80,6 @@ $ git commit -am "Apply initial customizations"
 10. Follow the steps in the [Publishing guide](#publishing) to publish your new
     package
 
-## Merging Upstream Changes into Your Package
+## Merging upstream changes into your package
 
-The code in the original package will continue to evolve over time, either to
-fix bugs or to add new enhancements. You may want to incorporate some or all of
-those updates into your package. To do so, you can follow [these steps](#maintaining-a-fork-of-a-core-package)
-for merging upstream changes into your package.
+The code in the original package will continue to evolve over time, either to fix bugs or to add new enhancements. You may want to incorporate some or all of those updates into your package. To do so, you can follow [these steps](../maintaining-a-fork-of-a-core-package) for merging upstream changes into your package.

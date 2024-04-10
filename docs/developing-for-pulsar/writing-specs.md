@@ -1,28 +1,25 @@
 ---
-title: Writing Specs
+title: Writing specs
 layout: doc.ejs
 ---
-
-Let's go ahead and take a close look at Pulsar's package's test framework. How exactly do you
-write tests in Pulsar?
 
 Pulsar uses [Jasmine](https://jasmine.github.io/archives/1.3/introduction) as
 its spec framework. Any new functionality should have specs to guard against
 regressions.
 
-## Create a New Spec
+## Create a new spec
 
 [Pulsar specs](https://github.com/pulsar-edit/pulsar/tree/HEAD/spec) and
 [package specs](https://github.com/pulsar-edit/markdown-preview/tree/HEAD/spec)
-are added to their respective `spec` directory. The example below creates a spec
+are added to their respective `spec` directories. The example below creates a spec
 for Pulsar core.
 
-### Create a Spec File
+### Create a spec file
 
 Spec files **must** end with `-spec` so add `sample-spec.js` to the `spec`
 directory.
 
-### Add One or More `describe` Methods
+### Add one or more `describe` methods
 
 The `describe` method takes two arguments, a description and a function. If the
 description explains a behavior it typically begins with `when`; if it is more
@@ -37,12 +34,12 @@ describe("when a test is written", function () {
 or
 
 ```js
-describe("Editor::moveUp", function () {
+describe("TextEditor::moveUp", function () {
 	// contents
 });
 ```
 
-### Add One or More `it` Methods
+### Add one or more `it` methods
 
 The `it` method also takes two arguments, a description and a function. Try and
 make the description flow with the `it` method. For example, a description of
@@ -57,7 +54,7 @@ describe("when a test is written", function () {
 });
 ```
 
-### Add One or More Expectations
+### Add one or more expectations
 
 The best way to learn about expectations is to read the [Jasmine documentation](https://jasmine.github.io/archives/1.3/introduction#section-Expectations)
 about them. Below is a simple example.
@@ -71,9 +68,9 @@ describe("when a test is written", function () {
 });
 ```
 
-#### Custom Matchers
+#### Custom matchers
 
-In addition to the Jasmine's built-in matchers, Pulsar includes the following:
+In addition to Jasmine's built-in matchers, Pulsar includes the following:
 
 - [jasmine-jquery](https://github.com/velesin/jasmine-jquery)
 - The `toBeInstanceOf` matcher is for the `instanceof` operator
@@ -84,9 +81,11 @@ In addition to the Jasmine's built-in matchers, Pulsar includes the following:
 
 These are defined in [spec/spec-helper.js](https://github.com/pulsar-edit/pulsar/blob/HEAD/spec/spec-helper.js).
 
-## Asynchronous Specs
+## Asynchronous specs
 
-Writing Asynchronous specs can be tricky at first. Some examples.
+<!-- TODO: This is much easier now that we have async/await, and old-style async management should be converted when possible. -->
+
+Writing asynchronous specs can be tricky at first. Some examples.
 
 ### Promises
 
