@@ -1,5 +1,5 @@
 ---
-title: Having Trouble?
+title: Having trouble?
 layout: doc.ejs
 ---
 

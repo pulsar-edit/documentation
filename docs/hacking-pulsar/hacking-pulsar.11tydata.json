@@ -12,12 +12,12 @@
       "summary": "Learn the bundled tool PPM"
     },
     {
-      "text": "Hacking on the Core",
+      "text": "Hacking on the core",
       "link": "/hacking-pulsar/hacking-on-the-core",
       "summary": "The basics about preparing Pulsar to modify core functionality"
     },
     {
-      "text": "Tools of the Trade",
+      "text": "Tools of the trade",
       "link": "/hacking-pulsar/tools-of-the-trade",
       "summary": "The baseline knowledge and tools you should have to start hacking"
     }

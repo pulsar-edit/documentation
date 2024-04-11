@@ -20,20 +20,17 @@ with:
 This should demonstrate how to do basic text manipulation in the current text
 buffer and how to deal with selections.
 
-The final package can be viewed at https://github.com/pulsar-edit/ascii-art.
+The final package can be viewed at <a href="https://github.com/pulsar-edit/ascii-art">https://github.com/pulsar-edit/ascii-art</a>.
 
-## Basic Text Insertion
+## Basic text insertion
 
 To begin, press <kbd class="platform-linux platform-win">Ctrl+Shift+P</kbd> <kbd class="platform-mac">Cmd+Shift+P</kbd>
-to bring up the [Command Palette](https://github.com/pulsar-edit/command-palette).
-Type "generate package" and select the "Package Generator: Generate Package"
+to bring up the [command palette](https://github.com/pulsar-edit/command-palette).
+Type "generate package" and select the **Package Generator: Generate Package**
 command, just as we did in [the section on package generation](#package-generator).
 Enter `ascii-art` as the name of the package.
 
-Now let's edit the package files to make our ASCII Art package do something
-interesting. Since this package doesn't need any UI, we can remove all
-view-related code so go ahead and delete `lib/ascii-art-view.js`,
-`spec/ascii-art-view-spec.js`, and `styles/`.
+Now let's edit the package files to make our ASCII art package do something interesting. Since this package doesn't need any UI, we can remove all view-related code — so delete `lib/ascii-art-view.js`, `spec/ascii-art-view-spec.js`, and `styles/`.
 
 Next, open up `lib/ascii-art.js` and remove all view code, so it looks like this:
 
@@ -62,7 +59,7 @@ module.exports = {
 };
 ```
 
-### Create a Command
+## Create a command
 
 Now let's add a command. You should namespace your commands with the package
 name followed by a `:` and then the name of the command. As you can see in the
@@ -91,13 +88,13 @@ method. This will insert the text wherever the cursor currently is in the
 current editor. If there are selections, it will replace all selections with
 the "Hello, World!" text.
 
-### Reload the Package
+## Reload the package
 
 Before we can trigger `ascii-art:convert`, we need to load the latest code for
 our package by reloading the window. Run the command "Window: Reload" from the
 Command Palette or by pressing <kbd class="platform-linux platform-win">Ctrl+Shift+F5</kbd> <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd>.
 
-### Trigger the Command
+## Trigger the command
 
 Now open the Command Palette and search for the `Ascii Art: Convert` command.
 But it's not there! To fix this, open `package.json` and find the property
@@ -115,7 +112,7 @@ First, reload the window by running the command "Window: Reload" from the
 command palette. Now when you run the `Ascii Art: Convert` command it will
 insert "Hello, World!" into the active editor, if any.
 
-### Add a Key Binding
+## Add a key binding
 
 Now let's add a key binding to trigger the `ascii-art:convert` command. Open
 `keymaps/ascii-art.json` and add a key binding linking [[Alt+Ctrl+A]] to
@@ -135,7 +132,7 @@ When finished, the file should look like this:
 
 Now reload the window and verify that the key binding works.
 
-::: warning WARNING
+::: warning Warning
 
 The Pulsar keymap system is _case-sensitive_. This means that there is a
 distinction between `a` and `A` when creating keybindings. `a` means that you
@@ -149,11 +146,11 @@ when you want to include [[Shift]] in your keybindings.
 
 :::
 
-## Add the ASCII Art
+## Add the ASCII art
 
 Now we need to convert the selected text to ASCII art. To do this we will use
 the [figlet](https://npmjs.org/package/figlet) Node module from [npm](https://npmjs.org/).
-Open `package.json` and add the latest version of figlet to the dependencies:
+Open `package.json` and add the latest version of `figlet` to the dependencies:
 
 ```json
 "dependencies": {
@@ -161,17 +158,11 @@ Open `package.json` and add the latest version of figlet to the dependencies:
 }
 ```
 
-After saving the file, run the command `Update Package Dependencies: Update`
-from the Command Palette. This will install the package's node module
-dependencies, only figlet in this case. You will need to run `Update Package Dependencies: Update` whenever you update the dependencies field in your
-`package.json` file.
+After saving the file, run the command `Update Package Dependencies: Update` from the command palette. This will install the package's Node module dependencies, only figlet in this case. You will need to run `Update Package Dependencies: Update` whenever you update the dependencies field in your `package.json` file.
 
-If for some reason this doesn't work, you'll see a message saying "Failed to
-update package dependencies" and you will find a new `npm-debug.log` file in
-your directory. That file should give you some idea as to what went wrong.
+If for some reason this doesn't work, you'll see a message saying "Failed to update package dependencies" and you will find a new `npm-debug.log` file in your directory. That file should give you some idea as to what went wrong.
 
-Now require the figlet node module in `lib/ascii-art.js` and instead of
-inserting "Hello, World!", convert the selected text to ASCII art.
+Now require the figlet node module in `lib/ascii-art.js` and instead of inserting "Hello, World!", convert the selected text to ASCII art.
 
 ```js
 convert () {
@@ -196,13 +187,9 @@ Now reload the editor, select some text in an editor window and press
 [[Alt+Ctrl+A]]. It should be replaced with a ridiculous ASCII art version
 instead.
 
-There are a couple of new things in this example we should look at quickly. The
-first is the [`editor.getSelectedText()`](https://atom.io/docs/api/latest/TextEditor#instance-getSelectedText) <!--TODO: Replace with API link once documented)-->
-which, as you might guess, returns the text that is currently selected.
+There are a couple of new things in this example we should look at quickly. The first is the {TextEditor::getSelectedText} call — which, as you might guess, returns the text that is currently selected.
 
-We then call the Figlet code to convert that into something else and replace the
-current selection with it with the [`editor.insertText()`](https://atom.io/docs/api/latest/TextEditor#instance-insertText) <!--TODO: Replace with API link once documented)-->
-call.
+We then call the Figlet code to convert that into something else and replace the current selection with it with the {TextEditor::insertText} call.
 
 ## Summary
 

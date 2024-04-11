@@ -1,5 +1,5 @@
 ---
-title: "Example: Creating a TextMate Grammar"
+title: "Example: creating a TextMate grammar"
 layout: doc.ejs
 ---
 

@@ -3,13 +3,9 @@ title: Pulsar Selections
 layout: doc.ejs
 ---
 
-Text selections in Pulsar support a number of actions, such as scoping deletion,
-indentation and search actions, and marking text for actions such as quoting and
-bracketing.
+Text selections in Pulsar support a number of actions, such as scoping deletion, indentation and search actions, and marking text for actions such as quoting and bracketing.
 
-Selections mirror many of the movement commands. They're actually exactly the
-same keybindings as the movement commands, but with a [[Shift]] key added
-in.
+Selections mirror many of the movement commands. They’re actually exactly the same keybindings as the movement commands, but with a [[Shift]] key added in.
 
 ::: tabs#using-pulsar
 

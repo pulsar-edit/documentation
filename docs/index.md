@@ -3,8 +3,6 @@ layout: home.ejs
 title: Pulsar Documentation
 ---
 
-Here lies all of Pulsar's documentation.
+Pulsar is an editor that’s easy to use out of the box, but just as easy to shape to your needs.
 
-If there's anything you strive to know about Pulsar, we hope this is the one stop shop for you!
-
-Please let us know if there's anything you feel is missing, but otherwise select one of the **blocks** below or a **heading** above to get started.
+Here you’ll find everything you need to know about Pulsar: how to install it, how to use it, how to make it better, and how to make it your own.

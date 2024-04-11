@@ -67,13 +67,9 @@ in that line as well.
 
 ![Go directly to a line](/img/atom/goto.png "Go directly to a line")
 
-### Additional Movement and Selection Commands
+## Additional movement and selection commands
 
-Pulsar also has a few movement and selection commands that don't have
-keybindings by default. You can access these commands from the [Command Palette](/using-pulsar/pulsar-basics/#command-palette),
-but if you find yourself using commands that don't have a keybinding often, have
-no fear! You can easily add an entry to your `keymap.cson` to create a key
-combination. You can open `keymap.cson` file in an editor from the <span class="platform-linux">_Edit > Keymap_</span> <span class="platform-mac">_Pulsar > Keymap_</span> <span class="platform-win">_File > Keymap_</span> menu item.
+Pulsar also has a few movement and selection commands that don't have keybindings by default. You can access these commands from the [command palette](/using-pulsar/pulsar-basics/#command-palette), but if you find yourself using commands that don't have a keybinding often, have no fear! You can easily add an entry to your `keymap.cson` to create a key combination. You can open `keymap.cson` file in an editor from the <span class="platform-linux">_Edit > Keymap_</span> <span class="platform-mac">_Pulsar > Keymap_</span> <span class="platform-win">_File > Keymap_</span> menu item.
 
 For example, the command `editor:move-to-beginning-of-screen-line` is available in the command palette, but it's not bound to any key combination. To create a key combination you need to add an entry in your `keymap.cson` file. For `editor:select-to-previous-word-boundary`, you can add the following to your `keymap.cson`:
 
@@ -102,8 +98,7 @@ For example, the command `editor:move-to-beginning-of-screen-line` is available 
 
 :::
 
-This will bind the command `editor:select-to-previous-word-boundary` to <kbd class="platform-linux platform-win">Ctrl+Shift+E</kbd> <kbd class="platform-mac">Cmd+Shift+E</kbd>. For more information on
-customizing your keybindings, see [Customizing Keybindings](/customize-pulsar/customizing-keybindings/).
+This will bind the command `editor:select-to-previous-word-boundary` to <kbd class="platform-linux platform-win">Ctrl+Shift+E</kbd><kbd class="platform-mac">Cmd+Shift+E</kbd>. For more information on customizing your keybindings, see [Customizing Keybindings](/customize-pulsar/customizing-keybindings/).
 
 Here's a list of Movement and Selection Commands that do not have a keyboard
 shortcut by default:
@@ -172,65 +167,53 @@ editor:select-to-previous-word-boundary
 
 :::
 
-### Navigating by Symbols
+## Navigating by symbols
 
-You can also jump around a little more informatively with the Symbols View. To
-jump to a symbol such as a method definition, press <kbd class="platform-linux platform-win">Ctrl+R</kbd> <kbd class="platform-mac">Cmd+R</kbd>. This opens a list of all symbols in the current file, which
-you can fuzzy filter similarly to <kbd class="platform-linux platform-win">Ctrl+T</kbd> <kbd class="platform-mac">Cmd+T</kbd>.
+Pulsar also allows you to navigate files by jumping to their important parts. For instance, you might find it intuitive to navigate Markdown files by names of headings, or to navigate JavaScript files by names of functions. We call those things **symbols**.
 
+### File symbols
 
-You can also search for symbols across your project, though it requires a “provider” package that has such a capability. One such package, `symbol-provider-ctags`, is bundled with Pulsar, and requires you to generate a `tags` file.
+To navigate by symbol, run the **Symbols View: Toggle File Symbols** command or press <kbd class="platform-linux platform-win">Ctrl+R</kbd><kbd class="platform-mac">Cmd+R</kbd>. This opens a list of all the symbols in the current file. You can filter this list much like how you [filtered the fuzzy finder](/using-pulsar/pulsar-basics/#opening-a-file-in-a-project).
 
-![Search by symbol across your project](/img/atom/symbol.png)
+![Search by symbol within the open buffer](/img/atom/symbol.png)
 
-You can generate a `tags` file by using the [ctags utility](https://ctags.io/). Once it is installed, you can use it to generate a `tags` file by running a
-command to generate it. See the [ctags documentation](https://docs.ctags.io/en/latest/)
-for details.
+The navigate-by-symbols functionality is implemented in the {symbols-view} package and can be configured in its package settings.
 
-::: tabs#using-pulsar
+### Project symbols
 
-@tab Linux
+Pulsar also offers you the **Symbols View: Toggle Project Symbols** command (bound to <kbd class="platform-linux platform-win">Ctrl+Shift+R</kbd><kbd class="platform-mac">Cmd+Shift+R</kbd>) for navigating your entire project by symbol.
 
-Once you have your `tags` file generated, you can use it to search for symbols
-across your project by pressing [[Ctrl+Shift+R]]. This also enables you
-to use [[Alt+Ctrl+Down]] to go to and [[Alt+Ctrl+Up]] to return
-from the declaration of the symbol under the cursor.
+This also enables two other powerful commands — **Symbols View: Go To Declaration** and **Symbols View: Return From Declaration** – which are bound to <kbd class="platform-linux platform-win">Alt+Ctrl+Down</kbd><kbd class="platform-mac">Alt+Cmd+Down</kbd> and <kbd class="platform-linux platform-win">Alt+Ctrl+Up</kbd><kbd class="platform-mac">Alt+Cmd+Up</kbd>. Using these commands, you can jump to the declaration of the symbol under the cursor, then jump back to your original position.
 
-@tab macOS
+But to do this, **Pulsar needs help**. It’s easy for Pulsar to analyze a single open buffer for symbols, but harder for Pulsar to find symbols across your entire project, since most of those files won’t already be opened for editing. To do so, Pulsar relies on a package to act as a “provider” of project-wide symbol information.
 
-Once you have your `tags` file generated, you can use it to search for symbols
-across your project by pressing [[Cmd+Shift+R]]. This also enables you
-to use [[Alt+Cmd+Down]] to go to and [[Alt+Cmd+Up]] to return from
-the declaration of the symbol under the cursor.
+#### Generating a `tags` file for project-wide symbols
 
-@tab Windows
+One such package, `symbol-provider-ctags`, is bundled with Pulsar, and requires that you generate a `tags` file that holds your project’s symbol information.
 
-Once you have your `tags` file generated, you can use it to search for symbols
-across your project by pressing <kbd class>Ctrl+Shift+R]].
+You can generate a `tags` file by using the [ctags utility](https://ctags.io/). Once it is installed, you can use it to generate a `tags` file by running a command to generate it. See the [ctags documentation](https://docs.ctags.io/en/latest/) for details.
 
-:::
+Once you have your `tags` file generated, the three commands mentioned above will be enabled.
 
-You can customize how tags are generated by creating your own `.ctags` file in
-your home directory, <span class="platform-mac platform-linux">`~/.ctags`</span> <span class="platform-win">`%USERPROFILE%\.ctags`</span>. An example can be found [here](https://github.com/pulsar-edit/pulsar/blob/HEAD/packages/symbol-provider-ctags/lib/ctags-config).
+You can customize how tags are generated by creating your own `.ctags` file in your home directory, <span class="platform-mac platform-linux">`~/.ctags`</span> <span class="platform-win">`%USERPROFILE%\.ctags`</span>. An example can be found [here](https://github.com/pulsar-edit/pulsar/blob/HEAD/packages/symbol-provider-ctags/lib/ctags-config).
+
+#### Other sources of project-wide symbols
+
+If you don’t want to generate a `tags` file, you’ve got other options. Packages that wrap [language servers](https://en.wikipedia.org/wiki/Language_Server_Protocol) can also act as project-wide symbol providers. Here’s [a list of all packages](https://web.pulsar-edit.dev/packages?serviceType=provided&service=symbol.provider) in the registry that can act as symbol providers.
 
 There are also community packages that provide project-wide symbols by using a [Language Server](https://microsoft.github.io/language-server-protocol/). Check the Pulsar package registry to see if your favorite language has such a package.
 
-The symbols navigation functionality is implemented in the {symbols-view}
-package.
-
-### Bookmarks
+## Bookmarks
 
 Pulsar also has a great way to bookmark specific lines in your project so you can
 jump back to them quickly.
 
-If you press <kbd class="platform-linux platform-win">Alt+Ctrl+F2</kbd> <kbd class="platform-mac">Cmd+F2</kbd>, Pulsar will toggle a "bookmark" on the current line. You can set these throughout your project and use them to quickly find and jump to important lines of your project. A small bookmark symbol is added to the line gutter, like on line 22 of the image below.
-
-If you hit [[F2]], Pulsar will jump to the next bookmark in the file you currently have focused. If you use [[Shift+F2]] it will cycle backwards through them instead.
-
-You can also see a list of all your project's current bookmarks and quickly
-filter them and jump to any of them by hitting [[Ctrl+F2]].
+If you press <kbd class="platform-linux platform-win">Alt+Ctrl+F2</kbd><kbd class="platform-mac">Cmd+F2</kbd> or run the **Bookmarks: Toggle Bookmark** command, Pulsar will toggle a <cite>bookmark</cite> on the current line. (You can even bookmark a region of several lines by highlighting the text before you run the command.) When you add a bookmark, a small bookmark symbol becomes visible in the gutter, like on line 22 of the image below.
 
 ![View and filter bookmarks](/img/atom/bookmarks.png "View and filter bookmarks")
 
-The bookmarks functionality is implemented in the {bookmarks}
-package.
+You can set bookmarks throughout your project and use them to quickly find and jump to important lines. [[F2]] and [[Shift+F2]] (or **Bookmarks: Jump To Next/Previous Bookmark**) can be used to cycle forwards and backwards through all the bookmarks in the current file.
+
+You can also invoke **Bookmarks: View All** (bound to [[Ctrl+F2]]) to see a fuzzy-filterable list of all your project’s bookmarks.
+
+The bookmarks functionality is implemented in the {bookmarks} package.
