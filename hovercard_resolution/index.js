@@ -53,6 +53,9 @@ async function resolve() {
     if (doc.description) {
       doc.description = mdRender(doc.description, { skip_hovercard: true })
     }
+    if (typeof doc === "object") {
+      doc.value ??= simpleLabel;
+    }
     bundles.push(doc);
   }
 
