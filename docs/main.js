@@ -69,7 +69,7 @@ class AutoTOC {
     }
     return `
       <li>
-        <a data-level="${item.level - this.rootLevel}" href="#${item.id}">${item.name}</a>
+        <a data-level="${item.level - this.rootLevel}" title="${item.name}" href="#${item.id}">${item.name}</a>
         ${list}
       </li>
     `;
