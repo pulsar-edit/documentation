@@ -6,7 +6,7 @@ layout: doc.ejs
 ::: info
 The default init file for Pulsar has been changed from the previous CoffeeScript `init.coffee` file used by Atom to JavaScript. You are still able to use an old `init.coffee` file — and even create a new one for use instead of `init.js`.
 
-Should you wish to reference the specific version of this document for CoffeeScript, you can find it in the [Atom Archive](/atom-archive/hacking-atom/#the-init-file).
+Should you wish to reference the specific version of this document for CoffeeScript, you can find it in the [Atom Archive](TODO). 
 :::
 
 When Pulsar finishes loading, it will evaluate `init.js` in your <span class="platfom-linux platform-mac">`~/.pulsar`</span> <span class="platform-win">`%USERPROFILE%\.pulsar`</span> directory, giving you a chance to run JavaScript code to make customizations. Code in this file has full access to [Pulsar’s API](/api/pulsar/latest). If customizations become extensive, consider creating a package, which we will cover in [Package: Word Count](#package-word-count).
