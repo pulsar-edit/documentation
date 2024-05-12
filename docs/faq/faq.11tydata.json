@@ -2,11 +2,11 @@
   "indexTitle": "FAQ",
   "sidebar": [
     {
-      "text": "Having Trouble?",
+      "text": "Having trouble?",
       "link": "/faq/having-trouble"
     },
     {
-      "text": "Common Issues",
+      "text": "Common issues",
       "link": "/faq/common-issues"
     }
   ]

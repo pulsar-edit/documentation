@@ -1,5 +1,5 @@
 ---
-title: Creating a Grammar (Legacy Tree-sitter)
+title: Creating a grammar (legacy Tree-sitter)
 layout: doc.ejs
 ---
 

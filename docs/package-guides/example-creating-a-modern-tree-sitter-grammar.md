@@ -1,5 +1,5 @@
 ---
-title: "Example: Creating a Modern Tree-sitter Grammar"
+title: "Example: Creating a modern Tree-sitter grammar"
 layout: doc.ejs
 ---
 

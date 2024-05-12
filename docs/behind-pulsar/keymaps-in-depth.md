@@ -5,11 +5,7 @@ layout: doc.ejs
 
 ## Structure of a Keymap File
 
-Keymap files are encoded as JSON or CSON files containing nested hashes. They
-work much like style sheets, but instead of applying style properties to
-elements matching the selector, they specify the meaning of keystrokes on
-elements matching the selector. Here is an example of some bindings that apply
-when keystrokes pass through `atom-text-editor` elements:
+Keymap files are encoded as JSON or CSON files containing nested hashes. They work much like style sheets, but instead of applying style properties to elements matching the selector, they specify the meaning of keystrokes on elements matching the selector. Here is an example of some bindings that apply when keystrokes pass through `atom-text-editor` elements:
 
 ::: tabs#behind-pulsar
 

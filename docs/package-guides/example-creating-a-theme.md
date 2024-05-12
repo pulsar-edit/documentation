@@ -1,5 +1,5 @@
 ---
-title: "Example: Creating a Theme"
+title: "Example: Creating a theme"
 layout: doc.ejs
 ---
 

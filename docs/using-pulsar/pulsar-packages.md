@@ -3,82 +3,65 @@ title: Pulsar Packages
 layout: doc.ejs
 ---
 
-First we'll start with the Pulsar package system. As we mentioned previously,
-Pulsar itself is a very basic core of functionality that ships with a number of
-useful packages that add new features like the [Tree View](https://github.com/pulsar-edit/tree-view)
-and the [Settings View](https://github.com/pulsar-edit/settings-view).
+As we mentioned previously, Pulsar itself is a core of functionality that can be controlled and customized via JavaScript. Many of the built-in features of Pulsar are implemented as core packages — for example, {tree-view} and {settings-view}.
 
-In fact, there are more than 80 packages that comprise all of the functionality
-that is available in Pulsar by default. For example, the [Welcome screen](https://github.com/pulsar-edit/welcome)
-that you see when you first start Pulsar, the
-[spell checker](https://github.com/pulsar-edit/spell-check),
-the [themes](https://github.com/pulsar-edit/one-dark-ui) and the [Fuzzy Finder](https://github.com/pulsar-edit/fuzzy-finder)
-are all packages that are separately maintained and all use the same APIs that
-you have access to, as we'll see in great detail in [Hacking the Core](TODO).
+In fact, a stock installation of Pulsar includes more than 80 packages. To list just a few examples:
 
-This means that packages can be incredibly powerful and can change everything
-from the very look and feel of the entire interface to the basic operation of
-even core functionality.
+* The welcome screen you see when you start Pulsar is implemented in the {welcome} package.
+* Spell-checking is implemented in the {spell-check} package.
+* The default themes are the packages {one-dark-ui} and {one-dark-syntax}.
+* The palette for choosing a file to open in the current project is implemented by {fuzzy-finder}.
 
-In order to install a new package, you can use the Install tab in the now familiar Settings View. Open up the Settings View using <kbd class="platform-linux platform-win">Ctrl+,</kbd> <kbd class="platform-mac">Cmd+,</kbd> click on the "Install" tab, and type your search query into the box under Install Packages.
+All these packages live in the main Pulsar repository on GitHub, but otherwise there’s little to distinguish them from the packages that are written by community members. Core packages have no special privileges; they use the same APIs that you have access to, as we'll see in great detail in [Hacking the Core](TODO).
 
-The packages listed here have been published to [https://web.pulsar-edit.dev](https://web.pulsar-edit.dev) which is the official registry for Pulsar packages. Searching on the Settings View will go to the Pulsar package registry and pull in anything that matches your search terms.
+This means that packages can be incredibly powerful! They can change everything from the look and feel of the entire interface to the basic behavior of core functionality.
+
+In order to install a new package, you can use the **Install** tab in the now familiar settings view. Open up the settings view using <kbd class="platform-linux platform-win">Ctrl+,</kbd><kbd class="platform-mac">Cmd+,</kbd> click on the Install tab, and type your search query into the box labelled “Search packages.” Some suggestions are displayed even when the search field is empty.
+
+The packages listed here have been published to [https://web.pulsar-edit.dev](https://web.pulsar-edit.dev), which is the official registry for Pulsar packages. Searching on the settings view will run your search against the package registry and display any results that match your search terms.
 
 ![Package install screen](/img/atom/packages-install.png "Package install screen") <!--TODO: Replace with Pulsar branded pictures-->
 
-All of the packages will come up with an "Install" button. Clicking that will
-download the package and install it. Your editor will now have the functionality
-that the package provides.
+Each such package will have an **Install** button. Clicking it will download the package, install it, and activate it — all without a relaunch of Pulsar. Your editor will now have the functionality that the package provides.
 
-## Package Settings
+## Package settings
 
-Once a package is installed in Pulsar, it will show up in the Settings View
-under the "Packages" tab, along with all the pre-installed packages that come
-with Pulsar. To filter the list in order to find one, you can type into search
-box directly under the "Installed Packages" heading.
+Once a package is installed in Pulsar, it will show up in the settings view
+under the **Packages** tab, along with all the pre-installed packages that come
+with Pulsar. You can type into the text field at the top of this view to filter the list of packages.
 
 ![Package settings screen](/img/atom/package-specific-settings.png "Package settings screen")
 
-Clicking on the "Settings" button for a package will give you the settings
-screen for that package specifically. Here you have the option of changing some
-of the default variables for the package, seeing what all the command
-keybindings are, disabling the package temporarily, looking at the source code,
-seeing the current version of the package, reporting issues and uninstalling the
-package.
+Clicking on the **Settings** button for a package will give you the settings screen for that package specifically. This page has several functions:
 
-If a new version of any of your packages is released, Pulsar will automatically
-detect it and you can upgrade the package from either this screen or from the
-"Updates" tab. This helps you easily keep all your installed packages up to
-date.
+* You can use it to change a package’s settings (if it defines any).
+* You can use it to find the package’s GitHub repository if you want to read its source code or submit a bug report.
+* If the package includes a language grammar, you can use this page to control some language-specific settings (like Soft Wrap and Preferred Line Length).
+* You can view the package’s key bindings and enable/disable them.
+* You can view the package’s bundled snippets and enable/disable them.
+* You can view the package’s README file.
 
-## Pulsar Themes
+It’s easy to keep your packages up to date! If a new version of any of your packages is released, Pulsar will automatically detect it and notify you via the status bar. You’ll be able to update the package from this screen or from the settings view’s **Updates** tab.
 
-You can also find and install new themes for Pulsar from the Settings View.
-These can be either UI themes or syntax themes and you can search for them from
-the "Install" tab, just like searching for new packages. Make sure to press the
-"Themes" toggle next to the search box.
+## Pulsar themes
+
+You can also find and install new UI themes and syntax themes for Pulsar from the settings view. The **Install** pane of the settings view allows you to search much like you would for a non-theme package, but with a toggle that narrows your search to return only themes.
 
 ![Theme search screen](/img/atom/themes.png "Theme search screen")
 
-Clicking on the theme title will take you to a profile page for the theme on
-pulsar-edit.dev, which often has a screenshot of the theme. This way you can see
-what it looks like before installing it.
+Clicking on the theme title will take you to the theme’s page on the package registry, where the package’s README will be visible. Most themes have a sample screenshot of the theme in their README; this lets you preview the look of the theme before installing it.
 
-Clicking on "Install" will install the theme and make it available in the Theme
-dropdowns as we saw in [Changing the Theme](TODO).
+Clicking on **Install** will install the theme and make it available for activation in the **Themes** pane, as we saw in [Changing the theme](/using-pulsar/pulsar-basics/#changing-the-theme).
 
 ![Example of the Unity UI theme with Monokai syntax theme](/img/atom/unity-theme.png "Example of the Unity UI theme with Monokai syntax theme")
 
 ## Command Line
 
-You can also install packages or themes from the command line using ppm (Pulsar
-Package Manager).
-This is used by running `pulsar -p <commmand>` or `pulsar --package <command>`.
+You can also install packages or themes from the command line using `ppm` (Pulsar Package Manager). This is used by running `pulsar -p <commmand>` or `pulsar --package <command>`.
 
 ::: tip Tip
 
-Check that you have ppm available by running the following command in your
-terminal:
+Check that you have `ppm` available by running the following command in your terminal:
 
 ```sh
 $ pulsar -p help install
@@ -86,9 +69,7 @@ $ pulsar -p help install
 
 You should see a message print out with details about the `pulsar -p install` command.
 
-If you do not, see the [Installing Pulsar section](../../getting-started#installing-pulsar)
-for instructions on how to install the `pulsar` command for your
-system.
+If you do not, see the [Installing Pulsar section](../../getting-started#installing-pulsar) for instructions on how to install the `pulsar` command for your system.
 
 :::
 
@@ -97,10 +78,9 @@ You can install packages by using the `pulsar -p install` command:
 - `pulsar -p install <package_name>` to install the latest version.
 - `pulsar -p install <package_name>@<package_version>` to install a specific version.
 
-For example `pulsar -p install minimap@4.40.0 ` installs the `4.40.0` release of
-the [minimap](https://web.pulsar-edit.dev/packages/minimap) package.
+For example, `pulsar -p install minimap@4.40.0 ` installs the `4.40.0` release of the [minimap](https://web.pulsar-edit.dev/packages/minimap) package.
 
-You can also use ppm to find new packages to install. If you run
+You can also use `ppm` to find new packages to install. If you run
 `pulsar -p search`, you can search the package registry for a search term.
 
 ```sh
@@ -130,35 +110,39 @@ $ pulsar -p view linter
 > Run `pulsar -p install linter` to install this package.
 ```
 
-### Using ppm to install from other sources
+### Using `ppm` to install from other sources
 
-By default ppm will be using the [Pulsar Package Repository](https://web.pulsar-edit.dev/).
-However you can also use it to install from other locations which can be useful
-if you are trying to install a package not published to the Pulsar Package
-Repository.
+By default, `pulsar -p install foo` will search the [Pulsar Package Repository](https://web.pulsar-edit.dev/) for a package called `foo`. But you can also install from other locations.
 
 #### GitHub or Git Remotes
 
-Pulsar can install from a GitHub repository or any valid git remote url. The
-`-b` option can then be used to specify a particular tag or branch.
+Pulsar can install from a GitHub repository or any valid Git remote URL.
 
-**Git remote**  
-`pulsar -p install <git_remote> [-b <branch_or_tag>]`
+**Git remote**
+```sh
+pulsar -p install <git_remote> [-b <branch_or_tag>]
+```
 
 **GitHub**  
-`pulsar -p install <github_username>/<github_project> [-b <branch_or_tag>]`
+```sh
+pulsar -p install <github_username>/<github_project> [-b <branch_or_tag>]
+```
 
-For example to install the [Generic-LSP](https://github.com/mauricioszabo/generic-lsp/)
-package from GitHub you could use either:
+For example, to install the [Generic-LSP](https://github.com/mauricioszabo/generic-lsp/)
+package from GitHub, you could use either:
 
-`pulsar -p install https://github.com/mauricioszabo/generic-lsp/`
+```sh
+pulsar -p install https://github.com/mauricioszabo/generic-lsp/
+```
 
 or
 
-`pulsar -p install mauricioszabo/generic-lsp`
+```sh
+pulsar -p install mauricioszabo/generic-lsp
+```
 
-This will use the current HEAD commit of the default branch. If you want to
-install a specific version from a branch or tag then use the `-b` option:
+This will use the current HEAD commit of the default branch (typically `master` or `main`). If you want to install a specific version from a branch or tag, use the `-b` option:
 
-e.g.
-`pulsar -p install https://github.com/mauricioszabo/generic-lsp/ -b v1.0.3`
+```sh
+pulsar -p install https://github.com/mauricioszabo/generic-lsp/ -b v1.0.3
+```

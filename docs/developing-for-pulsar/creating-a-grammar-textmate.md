@@ -1,5 +1,5 @@
 ---
-title: Creating a Grammar (TextMate)
+title: Creating a grammar (TextMate)
 layout: doc.ejs
 ---
 

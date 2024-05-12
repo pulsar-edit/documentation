@@ -1,5 +1,5 @@
 ---
-title: Package Guides
+title: Package guides
 layout: summary.ejs
 ---
 

@@ -3,13 +3,6 @@ title: Developing for Pulsar
 layout: summary.ejs
 ---
 
-Part of what makes Pulsar great is the amazing community behind it, in this case
-the community of community package authors, that create and publish packages that
-extend, customize, and improve the behavior and features of Pulsar.
+Community packages extend, customize, and improve the features of Pulsar. The authors of community packages are part of the amazing community that makes Pulsar such a great editor.
 
-If you'd like to join the ranks of these honorable individuals, this section will
-teach you everything you need to know to do so.
-
-After giving the [Hacking Pulsar](/hacking-pulsar) section a read, you'll be ready
-to dive right in this section to cover things such as Developing a Theme, a Grammar,
-or how to publish your package.
+If you’ve already read the [Package guides](/package-guides) section, then you might be ready for a deeper understanding of some of the ideas that were covered in that section. If so, read on.

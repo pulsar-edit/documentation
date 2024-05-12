@@ -7,56 +7,69 @@
       "summary": ""
     },
     {
-      "text": "Developing a Package",
-      "link": "/developing-for-pulsar/developing-a-package"
+      "text": "Developing a package",
+      "link": "/developing-for-pulsar/developing-a-package",
+      "summary": "Reference documentation for how a package works, including the <code>package.json</code> file."
     },
     {
-      "text": "Developing a Theme",
-      "link": "/developing-for-pulsar/developing-a-theme"
+      "text": "Developing a theme",
+      "link": "/developing-for-pulsar/developing-a-theme",
+      "summary": "UI themes versus syntax themes and strategies for developing each kind."
     },
     {
-      "text": "Creating a Grammar Overview",
-      "link": "/developing-for-pulsar/creating-a-grammar"
+      "text": "Creating a grammar",
+      "link": "/developing-for-pulsar/creating-a-grammar",
+      "summary": "An overview of the grammar ecosystem."
     },
     {
-      "text": "Creating a Grammar (Modern Tree-sitter)",
-      "link": "/developing-for-pulsar/creating-a-grammar-modern-tree-sitter"
+      "text": "Creating a grammar (modern Tree-sitter)",
+      "link": "/developing-for-pulsar/creating-a-grammar-modern-tree-sitter",
+      "summary": "A reference for the brand-new Tree-sitter system."
     },
     {
-      "text": "Creating a Grammar (Legacy Tree-sitter)",
-      "link": "/developing-for-pulsar/creating-a-grammar-legacy-tree-sitter"
+      "text": "Creating a grammar (legacy Tree-sitter)",
+      "link": "/developing-for-pulsar/creating-a-grammar-legacy-tree-sitter",
+      "summary": "A reference for the original Tree-sitter system from the Atom days."
     },
     {
-      "text": "Creating a Grammar (TextMate)",
-      "link": "/developing-for-pulsar/creating-a-grammar-textmate"
+      "text": "Creating a grammar (TextMate)",
+      "link": "/developing-for-pulsar/creating-a-grammar-textmate",
+      "summary": "A reference for the classic TextMate-style grammars present in Atom since its beginning."
     },
     {
-      "text": "Creating a Grammar (Converting from TextMate)",
-      "link": "/developing-for-pulsar/creating-a-grammar-converting-from-textmate"
+      "text": "Creating a Grammar (converting from TextMate)",
+      "link": "/developing-for-pulsar/creating-a-grammar-converting-from-textmate",
+      "summary": "(this should not exist)"
     },
     {
       "text": "Publishing",
-      "link": "/developing-for-pulsar/publishing"
+      "link": "/developing-for-pulsar/publishing",
+      "summary": "Publishing your package to the repository."
     },
     {
-      "text": "Maintaining your Package",
-      "link": "/developing-for-pulsar/maintaining-your-package"
+      "text": "Maintaining your package",
+      "link": "/developing-for-pulsar/maintaining-your-package",
+      "summary": "Putting out new releases of your package."
     },
     {
       "text": "Iconography",
-      "link": "/developing-for-pulsar/iconography"
+      "link": "/developing-for-pulsar/iconography",
+      "summary": "Using the icons present in Pulsar."
     },
     {
-      "text": "Writing Specs",
-      "link": "/developing-for-pulsar/writing-specs"
+      "text": "Writing specs",
+      "link": "/developing-for-pulsar/writing-specs",
+      "summary": "Proving your code is correct."
     },
     {
       "text": "Handling URIs",
-      "link": "/developing-for-pulsar/handling-uris"
+      "link": "/developing-for-pulsar/handling-uris",
+      "summary": "Responding to the <code>atom://</code> URL scheme."
     },
     {
       "text": "Contributing to official Pulsar packages",
-      "link": "/developing-for-pulsar/contributing-to-official-pulsar-packages"
+      "link": "/developing-for-pulsar/contributing-to-official-pulsar-packages",
+      "summary": "Best practices for contributing fixes."
     },
     {
       "text": "Creating a fork of a core package",

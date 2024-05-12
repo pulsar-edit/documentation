@@ -3,19 +3,19 @@ title: Serialization in Pulsar
 layout: doc.ejs
 ---
 
-When a window is refreshed or restored from a previous session, the view and its
-associated objects are _deserialized_ from a JSON representation that was stored
-during the window's previous shutdown. For your own views and objects to be
-compatible with refreshing, you'll need to make them play nicely with the
-serializing and deserializing.
+If you ever need to quit Pulsar and relaunch, or to reload the current window, Pulsar will try to restore your workspace as you left it. To do so, it might need cooperation from the various packages that can place content into your workspace.
 
-## Package Serialization Hook
+When Pulsar needs to preserve state for later restoration, it will ask each package to _serialize_ its state. It will then store that aggregate state in JSON. When a window is restored, that state is divvied up among the packages that contributed to it, and each package will then _deserialize_ its slice of state so that it can recreate whatever content it had in the workspace.
 
-Your package's main module can optionally include a `serialize` method, which
-will be called before your package is deactivated. You should return a
-JSON-serializable object, which will be handed back to you as an object argument
-to `activate` next time it is called. In the following example, the package keeps
-an instance of `MyObject` in the same state across refreshes.
+For your own package to be able to persist content across window sessions, you’ll need to come up with a simple scheme for serializing and deserializing.
+
+## Package serialization hook
+
+Your package's main module can optionally include a `serialize` method. When a window unloads, each of its packages will be deactivated, but if `serialize` exists, it will be called before deactivation.
+
+Your `serialize` method should return a JSON-serializable object — _not_ a string. This object is of the same format that will later be given back to you.
+
+In the following example, the package keeps an instance of `MyObject` in the same state across refreshes.
 
 ```js
 module.exports = {
@@ -31,7 +31,7 @@ module.exports = {
 };
 ```
 
-## Serialization Methods
+## Serialization methods
 
 ```js
 class MyObject {
@@ -56,9 +56,9 @@ should return a serializable object, and it must contain a key named
 convert the rest of the data to an object. It's usually just the name of the
 class itself.
 
-### Registering Deserializers
+### Registering deserializers
 
-The other side of the coin is deserializers, whose job is to convert a state
+The other side of the coin is _deserializers_, whose job is to convert a state
 object returned from a previous call to `serialize` back into a genuine object.
 
 #### `deserializers` in `package.json`
@@ -154,7 +154,9 @@ class MyObject {
 MyObject.initClass();
 ```
 
-Your serializable class can optionally have a class-level `@version` property
+Your serializable class can optionally have a class-level `version` property
 and include a `version` key in its serialized state. When deserializing, Pulsar
-will only attempt to call deserialize if the two versions match, and otherwise
-return undefined.<!--TODO:Evaluate if the following is still true for us: We plan on implementing a migration system in the future, but this at least protects you from improperly deserializing old state.-->
+will only attempt to call `deserialize` if the two versions match — otherwise
+it will discard the state and pass `undefined`.
+
+<!--TODO: Evaluate if the following is still true for us: We plan on implementing a migration system in the future, but this at least protects you from improperly deserializing old state. -->

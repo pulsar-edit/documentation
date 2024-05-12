@@ -1,44 +1,12 @@
 ---
-title: Tools of the Trade
+title: Tools of the trade
 layout: doc.ejs
 ---
 
-To begin, there are a few things we'll assume you know, at least to some degree.
-Since all of Pulsar is implemented using web technologies, we have to assume you
-know web technologies such as JavaScript and CSS. Specifically, we'll be using
-Less, which is a preprocessor for CSS.
+Since all of Pulsar is implemented using web technologies, in this section we’ll assume you know web technologies such as JavaScript and CSS.
 
-While the majority of Pulsar is written in JavaScript, there may still be some
-sections of code still implemented in CoffeeScript. Any CoffeeScript that is found
-is intended to be converted to JavaScript through "decaffeination", which you can
-read more about [here](https://github.com/pulsar-edit/.github/blob/main/guides/how-to-decaf.md).
+While the majority of Pulsar is written in JavaScript, there are a few external modules that are still implemented in CoffeScript. All CoffeeScript that used to be present in the main Pulsar repository has been “decaffeinated” into JavaScript; you can [read more about that process here](https://github.com/pulsar-edit/.github/blob/main/guides/how-to-decaf.md).
 
-Additionally, Pulsar's default configuration language is CSON, which is based on
-CoffeeScript. If you don't know CoffeeScript, but you are familiar with
-JavaScript, you shouldn't have too much trouble. Here is an example of some
-simple CoffeeScript code:
+The only remnant of CoffeeScript that remains in Pulsar itself is CSON — a JSON-like notation based on CoffeeScript. We’ve kept CSON as the default file format for settings files (like your config file and keymap file) because it’s not as strict about delimiters and it allows comments.
 
-```coffee
-MyPackageView = require './my-package-view'
-
-module.exports =
-  myPackageView: null
-
-  activate: (state) ->
-    @myPackageView = new MyPackageView(state.myPackageViewState)
-
-  deactivate: ->
-    @myPackageView.destroy()
-
-  serialize: ->
-    myPackageViewState: @myPackageView.serialize()
-```
-
-We'll go over examples like this in a bit, but this is what the language looks
-like. Just about everything you can do with CoffeeScript in Pulsar is also
-doable in JavaScript. You can brush up on CoffeeScript at [coffeescript.org](http://coffeescript.org).
-
-Less is an even simpler transition from CSS. It adds a number of useful things
-like variables and functions to CSS. You can learn about Less at [lesscss.org](http://lesscss.org/).
-Our usage of Less won't get too complex in this book however, so as long as you
-know basic CSS you should be fine.
+Less is like CSS with enhancements. (If you’ve used Sass/SCSS, Less will be familiar to you.) You can learn more about Less at [lesscss.org](http://lesscss.org/). But Less is a superset of CSS, so if you’re not familiar with Less you can just write CSS and you’ll be fine.

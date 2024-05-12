@@ -18,15 +18,15 @@ Let's look at how to write a snippet. The basic snippet format looks like this:
     'body': 'console.log(${1:"crash"});$2'
 ```
 
-The leftmost keys are the scope selectors where these snippets should be active. The easiest way to determine what this should be is to go to the language package of the language you want to add a snippet for and look for the "Scope" string.
+The leftmost keys are the scope selectors where these snippets should be active. One way to determine the scope selector for a language is to go to the settings page for its package, then look for the "Scope" string.
 
-For example, if we wanted to add a snippet that would work for Java files, we would look up the `language-java` package in our Settings view and we can see the Scope is `source.java`. Then the top level snippet key would be that prepended by a period (like a CSS class selector would do).
+For example, if we wanted to add a snippet that would work for Java files, we would look up the `language-java` package in our settings view… which tells us the scope is `source.java`. For reasons not worth explaining right now, we’ll prepend a `.` to that value, leaving us with `.source.java`.
 
 ![Finding the selector scope for a snippet](/img/atom/snippet-scope.png "Finding the selector scope for a snippet")
 
 :::tip Tip
 
-Using a scope selector is the easiest way to enforce that a snippet is available in only certain languages, rather than globally. But scope selectors for snippets can be _incredibly_ specific! For instance, you can use scopes to express ideas like “in JavaScript files, but not inside comments” or “inside of HTML attribute values.”
+Using a scope selector is the easiest way to enforce that a snippet is available in only certain languages, rather than globally. But scope selectors for snippets can be _incredibly_ specific! For instance, you can use scopes to express ideas like “in JavaScript files, but not inside comments” or “only inside of HTML attribute values.”
 
 :::
 
@@ -34,9 +34,9 @@ The next level of keys are the snippet names. These are used for describing the 
 
 Under each snippet name is a `prefix` that should trigger the snippet and a `body` to insert when the snippet is triggered.
 
-Each `$` followed by a number is a tab stop. Tab stops are cycled through by pressing [[Tab]] once a snippet has been triggered.
+Each `$` followed by a number is a tab stop. Tab stops are cycled through by pressing [[Tab]] once a snippet has been triggered. In our example, the first tab stop has a slightly different syntax because it’s defining a placeholder value of `"crash"`; the second tab stop uses simpler syntax because it has no placeholder.
 
-Tab stops with the same number will create multiple cursors.
+A snippet can define multiple tab stops with the same number; they’ll all be visited at the same time, creating multiple cursors.
 
 The above example adds a `log` snippet to JavaScript files that would expand to:
 
@@ -44,7 +44,23 @@ The above example adds a `log` snippet to JavaScript files that would expand to:
 console.log("crash");
 ```
 
-The string `"crash"` would be initially selected and pressing tab again would place the cursor after the `;`
+The string `"crash"`, as the placeholder for tab stop 1, would start out selected, so that typing any text would immediately replace it. Pressing [[Tab]] while at the first tab stop would move the cursor to the second tab stop, just after the `;`.
+
+Tab stops are “one-indexed,” meaning the first tab stop should use `$1`. The “zeroth” tab stop, signified by `$0`, is special: it’s always the _last_ tab stop visited. When you reach the zeroth tab stop, the snippet exits its special “mode” and editor behavior reverts to normal. The zeroth tab stop cannot have a placeholder.
+
+The above example could’ve therefore been written as
+
+```coffee
+'.source.js':
+  'console.log':
+    'prefix': 'log'
+    'body': 'console.log(${1:"crash"});$0'
+```
+
+and would’ve behaved the same way.
+
+Tab stops don’t have to be ordered from left to right. No matter where they occur in a snippet body, tab stops will be visited starting with `$1`, ordered from lowest number to highest number, and `$0` will always be the final tab stop.
+
 
 ::: warning Warning
 
@@ -146,6 +162,8 @@ Hence we can type `elem`, press <kbd>Tab</kbd>, type `article class="primary"`, 
 <article class="primary"></article>
 ```
 
+A tab stop can have any number of corresponding “transformed” tab stops, but it must have at least one “ordinary” tab stop — or else there’d be no input to transform.
+
 ### Snippet variables
 
 Certain values can be injected into the content of any snippet via variables. For instance, here’s a snippet that includes the contents of the clipboard:
@@ -172,7 +190,11 @@ There are many other variables available, including…
 * `TM_CURRENT_WORD`: The entire word that the cursor is within or adjacent to.
 * `CURRENT_YEAR`, `CURRENT_MONTH`, et cetera: referneces to the current date and time in various formats.
 
-The full list of supported variables can be found in the README of the `snippets` package.
+:::info
+The `TM_` prefix on many of these variables is a leftover convention from TextMate, the editor that invented snippets.
+:::
+
+The full list of supported variables can be found in the README of the {snippets} package.
 
 ### Variable transformations
 
@@ -201,22 +223,20 @@ So let’s revisit our last snippet example. We could rewrite it as a snippet th
     'body': '<a href="${1:CLIPBOARD}">${2:TM_SELECTED_TEXT}</a>$0'
 ```
 
-This snippet definition has a `command` key instead of a `prefix` key (though it’s also possible for a snippet to have both). Since we’re defining this snippet in our own `snippets.cson` file, it’s available as `snippets:wrap-text-in-link-with-clipboard-url`, and would be formatted for display in the command palette as “Snippets: Wrap Text In Link With Clipboard Url”.
+This snippet definition has a `command` key instead of a `prefix` key (though it’s also possible for a snippet to have both). Since we’re defining this snippet in our own `snippets.cson` file, it’s available as `snippets:wrap-text-in-link-with-clipboard-url`, and would be formatted for display in the command palette as **Snippets: Wrap Text In Link With Clipboard Url**.
 
 :::note Note
-
 If, instead, this snippet were defined within a package, the package’s name would be used as its command prefix — for example, `some-package:wrap-text-in-link-with-clipboard-url`.
-
 :::
 
-We could stop here and invoke the snippet as a command whenever we wanted, but we can also go further and bind it to a key like we would with any other command: by editing our `keymap.cson`.
+We could stop here and invoke the snippet via the command palette whenever we wanted. But we can also go further and bind it to a key like we would with any other command: by editing our `keymap.cson`.
 
 ```coffee
 'atom-text-editor':
   'ctrl-alt-l': 'snippets:wrap-text-in-link-with-clipboard-url'
 ```
 
-## More Info
+## More info
 
 The snippets functionality is implemented in the {snippets} package.
 

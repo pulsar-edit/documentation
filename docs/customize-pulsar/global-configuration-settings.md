@@ -1,5 +1,5 @@
 ---
-title: Global Configuration Settings
+title: Global configuration settings
 layout: doc.ejs
 ---
 
@@ -17,10 +17,10 @@ The configuration is grouped into global settings under the `*` key and language
 
 You can open this file in an editor from the <span class="platform-linux">_Edit > Config_</span><span class="platform-mac">_Pulsar > Config…_</span><span class="platform-win">_File > Config_</span> menu item.
 
-## Configuration Key Reference
+## Configuration key reference
 
 - `core`
-  - `customFileTypes`: Associations of language scope to file extensions (see [Customizing Language Recognition](/customize-pulsar/customizing-language-recognition/))
+  - `customFileTypes`: Associations of language scope to file extensions (see [Customizing language recognition](/customize-pulsar/customizing-language-recognition/))
   - `disabledPackages`: An array of package names to disable
   - `excludeVcsIgnoredPaths`: Don't search within files specified by `.gitignore`
   - `ignoredNames`: File names to ignore across all of Pulsar

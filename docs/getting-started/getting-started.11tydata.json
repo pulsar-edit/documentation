@@ -5,13 +5,19 @@
       "text": "What is Pulsar?",
       "icon": "solid fa-rocket",
       "link": "/getting-started/what-is-pulsar",
-      "summary": "What is Pulsar made of and what's it's history?"
+      "summary": "What is Pulsar? Where did it come from?"
     },
     {
       "text": "Installing Pulsar",
       "icon": "solid fa-rocket",
       "link": "/getting-started/installing-pulsar",
-      "summary": "Get Pulsar installed on any platform"
+      "summary": "Read setup instructions for all supported platforms."
+    },
+    {
+      "text": "Dependencies for some community packages",
+      "icon": "solid fa-rocket",
+      "link": "/getting-started/dependencies-for-some-community-packages",
+      "summary": "Some packages might require additional setup to run on your system."
     }
   ]
 }

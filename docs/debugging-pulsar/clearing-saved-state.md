@@ -1,5 +1,5 @@
 ---
-title: Clearing Saved State
+title: Clearing saved state
 layout: doc.ejs
 ---
 

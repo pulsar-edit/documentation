@@ -3,30 +3,22 @@ title: What is Pulsar?
 layout: doc.ejs
 ---
 
-There are a lot of text editors out there; why should you spend your time
-learning about and using Pulsar? Editors like Sublime and TextMate offer
-convenience but only limited extensibility. On the other end of the spectrum,
-Emacs and Vim offer extreme flexibility, but they aren't very approachable and
-can only be customized with special-purpose scripting languages.
+There are a lot of text editors out there; why should you spend your time learning about and using Pulsar? Editors like Visual Studio Code offer convenience but are limited in their customizability. On the other end of the spectrum, Emacs and Vim offer extreme flexibility, but they aren't very approachable and can only be customized with special-purpose scripting languages.
 
-Pulsar tries to bridge this gap, by offering a zero-compromise combination of hackability and usability: an editor that will be welcoming to an elementary school student on their first day learning to code, but also a tool they won't outgrow as they develop into seasoned hackers.
+Pulsar tries to bridge this gap by offering a zero-compromise combination of hackability and usability: an editor that will be welcoming to an elementary school student on their first day learning to code, but also a tool they won’t outgrow as they develop into seasoned hackers.
 
-## The Neutron Star at the Center of Pulsar
+## The neutron star at the center of Pulsar
 
-Pulsar itself runs within Electron, which combines the modern technologies of the Chromium Web Engine, and NodeJS to create cross-platform Desktop Applications built out of HTML, CSS, and JavaScript. Where by taking advantage of the full feature set of NodeJS Pulsar can even interact with native C++ code, to be performant wherever possible.
+Pulsar itself runs within [Electron](https://www.electronjs.org/), a platform which combines the modern technologies of the Chromium browser rendering engine and Node.js to create cross-platform desktop applications built out of HTML, CSS, and JavaScript.
 
-By combining all of these wonderful technologies into a single application, means the packages that power Pulsar are able to be written with the same tools familiar to any NodeJS or Web Developer.
+As a result, the packages that power Pulsar are able to be written with the same tools familiar to any Node or web developer.
 
-## The History of Pulsar
+## The history of Pulsar
 
-Pulsar certainly has it's fair share of history, going as far as not even always having been named Pulsar.
+Back in 2014, GitHub launched a cross-platform, free, and open-source text editor called **Atom**. To accomplish the tall task of supporting several operating systems from a single codebase, the Atom developers created an application framework that joined the Chromium browser engine onto Node.js. At the time, they called it Atom Shell.
 
-Back in 2015 GitHub launched a cross-platform, free, and open-source text editor titled Atom. To accomplish the hackability that was wanted for the features of Atom, the team that was then working on the Text Editor created a framework to combine the Chromium engine, and NodeJS, then titled Atom Shell.
+Over time, the functionality of Atom Shell would expand, eventually becoming its own project called [Electron](https://www.electronjs.org/). Electron would surpass Atom itself in popularity, becoming the platform of choice for software like [GitHub Desktop](https://desktop.github.com/), [Visual Studio Code](https://code.visualstudio.com/), [Discord](https://discord.com/), and [Slack](https://slack.com/).
 
-Over time the functionality of Atom Shell would expand, eventually becoming it's own project named Electron. Which as a framework has given rise to a plethora of desktop applications, such as Bitwarden, Discord, and VS Code.
+Atom’s momentum slowed somewhat in 2018 when GitHub was purchased by Microsoft. Releases continued, but no new major features followed, and the editor entered a long twilight period before its official sunset at the end of 2022.
 
-Around the same time Atom saw it's official release, Facebook developed Nuclide, and a whole host of IDE packages, helping to turn Atom into a fully featured integrated development environment.
-
-Although, soon after Facebook's Nuclide was sunset in 2018, momentum on Atom began to slow. Eventually, resulting in Atom's sunset in 2022, following Microsoft's purchase of GitHub.
-
-The day Atom officially sunset, was the same day the first beta release of Pulsar went public. Pulsar, forked from the Atom Community maintained Atom, grew a community and maintainers to become the editor that it is today. Carrying on the goals of Atom, as "A Community-led, Hyper-Hackable Text Editor".
+Atom’s official sunset day was the same day as the first beta release of Pulsar. The Pulsar core team largely consisted of former contributors to the `atom-community` organization. The team grew a new community and attracted new maintainers in order to turn Pulsar into the editor it is today: a successor to Atom that shares its philosophy of being a community-led, hyper-hackable text editor.

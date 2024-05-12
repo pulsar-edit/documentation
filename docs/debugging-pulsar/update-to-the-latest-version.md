@@ -1,5 +1,5 @@
 ---
-title: Update to the Latest Version
+title: Update to the latest version
 layout: doc.ejs
 ---
 
@@ -16,14 +16,8 @@ $ pulsar --version
 > Node    : 14.16.0
 ```
 
-You can find the latest releases on the [Pulsar Website](https://pulsar-edit.dev/download.html),
-follow the links for either the latest regular release or if you prefer the latest rolling release. Make sure
-to mention which version when logging an issue.
+You can find the latest releases on the [Pulsar website](https://pulsar-edit.dev/download.html), follow the links for either the latest regular release or if you prefer the latest rolling release. If you submit an issue against Pulsar, be sure to note which version you’re using.
 
-The built in package `pulsar-updater` should notify you when a new version of Pulsar
-is available, you can always ask it to recheck this by running "Pulsar Updater: Check for Update"
-in the Command Palette.
+The built in package `pulsar-updater` should notify you when a new version of Pulsar is available. By default, it runs on Pulsar startup, but you can always ask it to recheck by running **Pulsar Updater: Check for Update** in the command palette.
 
-If you're building Pulsar from source, pull down the latest version of the repo
-and [re-build](#building-pulsar). Make sure that if logging an issue you include
-the latest commit hash you built from.
+If you're building Pulsar from source, pull down the latest version of the repo and [rebuild](/hacking-pulsar/building-pulsar). Make sure that if logging an issue you include the latest commit hash you built from.
