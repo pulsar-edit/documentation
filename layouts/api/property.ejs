@@ -1,10 +1,10 @@
 <% for (const item of content) { %>
   <div class="api-entry" id="<%= anchorize(item.name) %>">
-    <h5 class="api-entry__name">
+    <h4 class="api-entry__name">
       <a href="#<%= anchorize(item.name) %>">
-        <span>::<%= item.name %></span>
+        <span><%= locals.separator ?? '::' -%><%= item.name %></span>
       </a>
-    </h5>
+    </h4>
     <div class="api-entry-summary">
       <%- mdRender(item.summary) %>
     </div>
