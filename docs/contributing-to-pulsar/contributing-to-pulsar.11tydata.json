@@ -1,0 +1,31 @@
+{
+  "indexTitle": "Contributing to Pulsar",
+  "sidebar": [
+    {
+      "text": "Building Pulsar",
+      "link": "/contributing-to-pulsar/building-pulsar",
+      "summary": "Build Pulsar from source code"
+    },
+    {
+      "text": "Using PPM",
+      "link": "/contributing-to-pulsar/using-ppm",
+      "summary": "Learn the bundled tool PPM"
+    },
+    {
+      "text": "Hacking on the core",
+      "link": "/contributing-to-pulsar/hacking-on-the-core",
+      "summary": "The basics about preparing Pulsar to modify core functionality"
+    },
+    {
+      "text": "Tools of the trade",
+      "link": "/contributing-to-pulsar/tools-of-the-trade",
+      "summary": "The baseline knowledge and tools you should have to start hacking"
+    },
+    {
+      "text": "Contributing to official Pulsar packages",
+      "link": "/contributing-to-pulsar/contributing-to-official-pulsar-packages",
+      "summary": "Best practices for contributing fixes."
+    }
+  ]
+
+}

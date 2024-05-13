@@ -1,0 +1,82 @@
+{
+  "indexTitle": "Troubleshooting Pulsar",
+  "sidebar": [
+    {
+      "text": "Having trouble?",
+      "link": "/troubleshooting-pulsar/having-trouble"
+    },
+    {
+      "text": "Common issues",
+      "link": "/troubleshooting-pulsar/common-issues"
+    },
+    {
+      "text": "Updating to the latest version",
+      "link": "/troubleshooting-pulsar/updating-to-the-latest-version"
+    },
+    {
+      "text": "Using safe mode",
+      "link": "/troubleshooting-pulsar/using-safe-mode"
+    },
+    {
+      "text": "Clearing saved state",
+      "link": "/troubleshooting-pulsar/clearing-saved-state"
+    },
+    {
+      "text": "Resetting to factory defaults",
+      "link": "/troubleshooting-pulsar/resetting-to-factory-defaults"
+    },
+    {
+      "text": "Checking for linked packages",
+      "link": "/troubleshooting-pulsar/checking-for-linked-packages"
+    },
+    {
+      "text": "Checking for incompatible packages",
+      "link": "/troubleshooting-pulsar/checking-for-incompatible-packages"
+    },
+    {
+      "text": "Checking Pulsar and package settings",
+      "link": "/troubleshooting-pulsar/checking-pulsar-and-package-settings"
+    },
+    {
+      "text": "Checking your configuration",
+      "link": "/troubleshooting-pulsar/checking-your-configuration"
+    },
+    {
+      "text": "Checking your keybindings",
+      "link": "/troubleshooting-pulsar/checking-your-keybindings"
+    },
+    {
+      "text": "Diagnosing font rendering issues",
+      "link": "/troubleshooting-pulsar/diagnosing-font-rendering-issues"
+    },
+    {
+      "text": "Checking for errors in developer tools",
+      "link": "/troubleshooting-pulsar/checking-for-errors-in-developer-tools"
+    },
+    {
+      "text": "Locating crash logs",
+      "link": "/troubleshooting-pulsar/locating-crash-logs"
+    },
+    {
+      "text": "Diagnosing startup performance",
+      "link": "/troubleshooting-pulsar/diagnosing-startup-performance"
+    },
+    {
+      "text": "Diagnosing runtime performance",
+      "link": "/troubleshooting-pulsar/diagnosing-runtime-performance"
+    },
+    {
+      "text": "Profiling startup performance",
+      "link": "/troubleshooting-pulsar/profiling-startup-performance"
+    },
+    {
+      "text": "Checking your build tools",
+      "link": "/troubleshooting-pulsar/checking-your-build-tools"
+    },
+    {
+      "text": "Checking if your GPU is causing the problem",
+      "link": "/troubleshooting-pulsar/checking-if-your-gpu-is-causing-the-problem"
+    }
+  ]
+
+}

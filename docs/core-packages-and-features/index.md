@@ -1,5 +1,5 @@
 ---
-title: "Pulsar Core Packages & Features"
+title: "Core packages & features"
 layout: summary.ejs
 ---
 

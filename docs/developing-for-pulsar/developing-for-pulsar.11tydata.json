@@ -67,11 +67,6 @@
       "summary": "Responding to the <code>atom://</code> URL scheme."
     },
     {
-      "text": "Contributing to official Pulsar packages",
-      "link": "/developing-for-pulsar/contributing-to-official-pulsar-packages",
-      "summary": "Best practices for contributing fixes."
-    },
-    {
       "text": "Creating a fork of a core package",
       "link": "/developing-for-pulsar/creating-a-fork-of-a-core-package"
     },
