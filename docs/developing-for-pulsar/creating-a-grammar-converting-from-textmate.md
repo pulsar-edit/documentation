@@ -7,7 +7,7 @@ It's possible that you have themes or grammars from [TextMate](https://macromate
 that you like and use and would like to convert to Pulsar. If so, you're in luck
 because there are tools to help with the conversion.
 
-## Converting a TextMate Grammar Bundle
+## Converting a TextMate grammar bundle
 
 Converting a TextMate bundle will allow you to use its editor preferences,
 snippets, and colorization inside Pulsar.
@@ -26,7 +26,7 @@ you link your package with the `pulsar -p link` command, your new package is
 ready to use. Launch Pulsar and open a `.r` file in the editor to see it in
 action!
 
-## Converting a TextMate Syntax Theme
+## Converting a TextMate syntax theme
 
 This section will go over how to convert a [TextMate](https://macromates.com)
 theme to an Pulsar theme.
@@ -40,7 +40,7 @@ or [Less](http://lesscss.org) to style the UI and syntax in the editor.
 The utility that converts the theme first parses the theme's plist file and then
 creates comparable CSS rules and properties that will style Pulsar similarly.
 
-### Convert the Theme
+### Convert the theme
 
 Download the theme you wish to convert.
 
@@ -53,7 +53,7 @@ $ pulsar -p init --theme my-theme --convert ~/Downloads/MyTheme.tmTheme
 
 You can then change directory to `my-theme` to see the converted theme.
 
-### Activate the Theme
+### Activate the theme
 
 Once your theme is installed, you can enable it by launching Pulsar and opening the Settings View with the <span class="platform-linux">_Edit > Preferences_</span><span class="platform-mac">_Pulsar > Preferences_</span><span class="platform-win">_File > Preferences_</span> menu item. Then select the "Themes" tab on the left side navigation. Finally, choose "My Theme" from the "Syntax Theme" dropdown menu to enable your new theme.
 

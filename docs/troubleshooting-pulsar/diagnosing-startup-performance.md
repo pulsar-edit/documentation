@@ -3,7 +3,7 @@ title: Diagnosing startup performance
 layout: doc.ejs
 ---
 
-If Pulsar is taking a long time to start, you can use the [Timecop package](https://github.com/pulsar-edit/timecop) to get insight into where Pulsar spends time while loading.
+If Pulsar is taking a long time to start, you can use the {timecop} package to get insight into where Pulsar spends time while loading.
 
 ![Timecop](/img/atom/timecop.png)
 

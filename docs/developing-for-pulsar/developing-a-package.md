@@ -3,26 +3,24 @@ title: Developing a package
 layout: doc.ejs
 ---
 
-Lets get started by creating and looking at the general layout of a package, and how it should look.
+Let’s get started by creating and looking at the general layout of a package, and how it should look.
 
 ## Package generator
 
-The simplest way to start a package is to use the built-in package generator that ships with Pulsar.
-This generator is implemented as a separate package [package-generator](https://github.com/pulsar-edit/pulsar/tree/MAIN/packages/package-generator).
+The simplest way to start a package is to use the built-in package generator that ships with Pulsar. This generator is implemented as a separate package called {package-generator}.
 
 You can run the generator by invoking the command palette and searching for "Generate Package". A dialog will appear asking you to name your new project. Whatever name you choose Pulsar will then create that directory and fill it out with a skeleton project and link it into your <span class="platform-linux platform-mac">`~/.pulsar/packages`</span> <span class="platform-win">`%USERPROFILE%\.pulsar\packages`</span> directory so it's loaded when you launch your editor next time.
 
 ::: note Note
 
 You may encounter a situation where your package is not loaded.
-Make sure the package name you choose isn't already an existing bundled package name or one hosted on [pulsar-edit.dev](https://web.pulsar-edit.dev/packages).
+Make sure the package name you choose isn’t an existing bundled package name or one hosted on [pulsar-edit.dev](https://web.pulsar-edit.dev/packages).
 
 :::
 
 ![Basic generate Pulsar package](/img/atom/package.png)
 
-Once this command has run you'll see that Pulsar has created about a dozen files that make up the package.
-Let's take a look at each of them to get an idea of how a package is structured.
+Once this command has run you'll see that Pulsar has created about a dozen files that make up the package. Let's take a look at each of them to get an idea of how a package is structured.
 
 ```
 my-package/
@@ -41,14 +39,9 @@ Not every package will have (or need) all of these directories and the package g
 
 ### `package.json`
 
-Similar to [Node modules](https://en.wikipedia.org/wiki/Npm_(software)),
-Pulsar packages contain a `package.json` file in their top-level directory. This
-file contains metadata about the package, such as the path to its "main" module,
-library dependencies, and manifests specifying the order in which its resources
-should be loaded.
+Similar to [Node modules](https://en.wikipedia.org/wiki/Npm_(software)), Pulsar packages contain a `package.json` file in their top-level directory. This file contains metadata about the package, such as the path to its "main" module, library dependencies, and manifests specifying the order in which its resources should be loaded.
 
-In addition to some of the regular [Node `package.json` keys](https://docs.npmjs.com/files/package.json)
-available, Pulsar `package.json` files have their own additions.
+In addition to some of the regular [Node `package.json` keys](https://docs.npmjs.com/files/package.json) available, Pulsar `package.json` files have their own additions.
 
 - `main`: the path to the JavaScript file that's the entry point to your package.
   If this is missing, Pulsar will default to looking for an `index.js` or `index.coffee`.
@@ -110,7 +103,7 @@ The `package.json` made by the package generator looks like:
 }
 ```
 
-If we wanted activationHooks, we might add:
+If we wanted `activationHooks`, we might add:
 
 ```json
 {
@@ -131,31 +124,19 @@ If we wanted activationHooks, we might add:
 }
 ```
 
-One of the first things you should do is ensure that this information is filled
-out. The `name`, `description`, `repository` URL the project will be at, and the
-`license` can all be filled out immediately.
+One of the first things you should do is ensure that this information is filled out; `name`, `description`, `repository` URL, and `license` can all often be filled out immediately.
 
-::: warning WARNING
+::: warning Warning
 
-Do not forget to update the repository URL. The one generated for you is invalid
-by design and will prevent you from publishing your package until updated.
+Do not forget to update the repository URL! The one generated for you is invalid by design and will prevent you from publishing your package until updated.
 
 :::
 
 ### Source code
 
-If you want to extend Pulsar's behavior, your package should contain a single
-top-level module, which you export from whichever file is indicated by the
-`main` key in your `package.json` file. In the package we just generated, the
-main package file is `lib/your-package-name.js`. The remainder of your code
-should be placed in the `lib` directory, and required from your top-level file.
-If the `main` key is not in your `package.json` file, it will look for
-`index.js` or `index.coffee` as the main entry point.
+If you want to extend Pulsar's behavior, your package should contain a single top-level module which you export from whichever file is indicated by the `main` key in your `package.json` file. In the package we just generated, the main package file is `lib/your-package-name.js`. The remainder of your code should be placed in the `lib` directory, and required from your top-level file. If the `main` key is not in your `package.json` file, it will look for `index.js` or `index.coffee` as the main entry point.
 
-Your package's top-level module is a singleton object that manages the lifecycle
-of your extensions to Pulsar. Even if your package creates ten different views
-and appends them to different parts of the DOM, it's all managed from your
-top-level object.
+Your package's top-level module is a singleton object that manages the lifecycle of your extensions to Pulsar. Even if your package creates ten different views and appends them to different parts of the DOM, it's all managed from your top-level object.
 
 Your package's top-level module can implement the following basic methods:
 
@@ -210,7 +191,7 @@ Keymaps are placed in the `keymaps` subdirectory. By default, all keymaps are lo
 
 Keybindings are executed by determining which element the keypress occurred on. In the example above, the `your-package-name:toggle` command is executed when pressing <kbd>Alt+Ctrl+O</kbd> on the `atom-workspace` element. Because the `atom-workspace` element is the parent of the entire Pulsar UI, this means the key combination will work anywhere in the application.
 
-We'll cover more advanced keybinding stuff a bit later in [Keymaps in Depth](../../behind-pulsar#keymaps-in-depth).
+We'll cover more advanced keybinding stuff a bit later in [Keymaps in-depth](/infrastructure/keymaps-in-depth).
 
 ### Menus
 

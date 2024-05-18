@@ -1,15 +1,21 @@
 ---
-title: "Package: Word Count"
+title: "Package: Word count"
 layout: doc.ejs
 ---
 
 Let's get started by writing a very simple package that will tell you how many words are in the current buffer and display it in a small modal window.
 
-The simplest way to start a package is to use the built-in package generator that ships with Pulsar. As you might expect by now, this generator is itself a separate package implemented in [package-generator][].
+The simplest way to start a package is to use the built-in package generator that ships with Pulsar. As you might expect by now, this generator is itself a separate package implemented in {package-generator}.
 
 You can run the generator by invoking the command palette and searching for "Generate Package". A dialog will appear asking you to name your new project. Name it `your-name-word-count`. Atom will then create that directory and fill it out with a skeleton project and link it into your `~/.pulsar/packages` directory so it's loaded when you launch your editor next time.
 
-Your new project will also automatically be opened for editing. The boilerplate for the new package contains one command called “Your Name Word Count: Toggle”; if you were to invoke this command through the menu or command palette, you’d see a dialog that says "The YourNameWordCount package is Alive! It's Alive!"
+::: tip
+
+The examples will proceed as though you had typed `your-name` literally, but you should probably type your actual name instead.
+
+:::
+
+Your new project will also automatically be opened for editing. The boilerplate for the new package contains one command called **Your Name Word Count: Toggle**; if you were to invoke this command through the menu or command palette, you’d see a dialog that says "The YourNameWordCount package is Alive! It's Alive!"
 
 ![Wordcount Package is Alive Dialog](/img/atom/toggle.png)
 
@@ -223,7 +229,7 @@ Pretty simple! We take the count number that was passed in and place it into a s
 
 ::: note Note
 
-To see your changes, you'll need to reload the code. You can do this by reloading the window (The `window:reload` command in the Command Palette). A common practice is to have two Pulsar windows: one for developing your package, and one for testing and reloading.
+To see your changes, you'll need to reload the code. You can do this by reloading the window (the `window:reload` command in the Command Palette). A common practice is to have two Pulsar windows: one for developing your package, and one for testing and reloading.
 
 :::
 

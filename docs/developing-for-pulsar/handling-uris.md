@@ -85,7 +85,7 @@ Before doing this, make sure your package actually needs to be activated immedia
 
 ## Linux support
 
-Because URI handling is different across operating systems and distributions, there is no built-in URI handler support for Pulsar on Linux. If you want to configure URI handling on your system yourself, then you should configure `atom:` protocol URI's to trigger Pulsar with the `--uri-handler` flag; for example, the URI `atom://test/uri` should launch Atom via `atom --uri-handler atom://test/uri`.
+Because URI handling is different across operating systems and distributions, there is no built-in URI handler support for Pulsar on Linux. If you want to configure URI handling on your system yourself, then you should configure `atom:` protocol URIs to trigger Pulsar with the `--uri-handler` flag; for example, the URI `atom://test/uri` should launch Atom via `atom --uri-handler atom://test/uri`.
 
 ## Core URIs
 

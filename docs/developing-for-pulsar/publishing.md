@@ -9,9 +9,9 @@ with the `-p` or `--package` option. Optionally, you are still able to call PPM 
 via `ppm` in the command line. The `pulsar -p` command can also be used to
 publish Pulsar packages to the public registry and update them.
 
-See more in [Using PPM](#using-ppm).
+See more in [Using PPM](/contributing-to-pulsar/using-ppm/).
 
-## Prepare Your Package
+## Prepare your package
 
 There are a few things you should double check before publishing:
 
@@ -28,7 +28,7 @@ There are a few things you should double check before publishing:
   [GitHub](https://github.com). Follow [this guide](https://help.github.com/articles/importing-a-git-repository-using-the-command-line/)
   if your package isn't already on GitHub.
 
-## Publish Your Package
+## Publish your package
 
 Before you publish a package it is a good idea to check ahead of time if a
 package with the same name has already been published to

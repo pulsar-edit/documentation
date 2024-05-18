@@ -22,11 +22,6 @@
       "summary": "Learn about how to customize Pulsar’s keybindings, per-language settings, and styles."
     },
     {
-      "text": "Package guides",
-      "link": "/package-guides",
-      "summary": "Read specific tutorials for creating a community package or theme."
-    },
-    {
       "text": "Developing for Pulsar",
       "link": "/developing-for-pulsar",
       "summary": "Learn about advanced topics relating to package development."
@@ -52,9 +47,9 @@
       "summary": "Learn about the team that brings you Pulsar and the tools they use."
     },
     {
-      "text": "API",
+      "text": "APIs",
       "link": "/api",
-      "summary": "Read reference documentation for the API available to packages and to your init file."
+      "summary": "Read reference documentation for our APIs: Pulsar’s own API and that of the package repository."
     }
   ]
 

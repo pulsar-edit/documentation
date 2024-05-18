@@ -15,9 +15,11 @@ The scope system is one of the many systems that Pulsar (and Atom before it) inh
 * Regions of the source file might have their own scope names: for instance, `meta.class.js` or `entity.name.tag.body.html`.
 * Those regions might have _further_ scope names defined inside them: for instance, `entity.name.function.js` or `punctuation.definition.tag.begin.html`.
 
-As a result, a given position in a source code file may contain a cascade of scope names, moving from the general to the specific:
+As a result, a given position in a source code file may contain a cascade of scope names, moving from the general to the specific.
 
-<!-- TODO: Screenshot -->
+
+![Log cursor scope](TODO)
+
 
 You can see this yourself by placing a cursor in one of your own buffers and invoking the **Editor: Log Cursor Scope** command from the command palette.
 
@@ -31,20 +33,18 @@ function functionName() {
 }
 ```
 
-In the dev tools, the first line's markup looks like this.
+In the dev tools, the first line’s markup looks like this.
 
 <!-- TODO: This screenshot is out of date; we need one that shows the `syntax--`-style class names. -->
 ![Markup](/img/atom/markup.png)
 
 You can see that each segment of a scope name is prepended with `syntax--` to minimize the chances of naming collisions, but the effect is the same.
 
-All the class names on the spans are scope names. Any scope name can be used to
-target a setting's value.
+All the class names on the `span`s are scope names. Any scope name can be used to target a setting's value.
 
 ## Scope selectors
 
-Scope selectors allow you to target specific tokens just like a CSS selector
-targets specific nodes in the DOM. Some examples:
+Scope selectors allow you to target specific tokens just like a CSS selector targets specific nodes in the DOM. Some examples:
 
 ```coffee
 '.source.js' # selects all javascript tokens
@@ -56,7 +56,7 @@ targets specific nodes in the DOM. Some examples:
 
 ```js
 atom.config.set("my-package.mySetting", "special value", {
-	scopeSelector: ".source.js .function.name",
+	scopeSelector: ".source.js .function.name"
 });
 ```
 
@@ -72,8 +72,7 @@ But if you wanted to specify that setting more simply, you could open your `conf
 
 A _scope descriptor_ is an object that wraps an array of strings. The array describes a path from the root of the syntax tree to a token including _all_ scope names for the entire path. You can read the {ScopeDescriptor} API documentation to learn more.
 
-In our JavaScript example above, a scope descriptor for the function name token
-would be:
+In our JavaScript example above, a scope descriptor for the function name token would be:
 
 ```js
 ["source.js", "meta.function.js", "entity.name.function.js"];
@@ -85,15 +84,14 @@ would be:
 const scopeDescriptor = [
 	"source.js",
 	"meta.function.js",
-	"entity.name.function.js",
+	"entity.name.function.js"
 ];
 const value = atom.config.get("my-package.my-setting", {
-	scope: scopeDescriptor,
+	scope: scopeDescriptor
 });
 ```
 
-But, you do not need to generate scope descriptors by hand. There are a couple
-methods available to get the scope descriptor from the editor:
+But you do not need to generate scope descriptors by hand. There are a couple methods available to get the scope descriptor from the editor:
 
 - {TextEditor::getRootScopeDescriptor} to get the language’s descriptor; for example, `[".source.js"]`.
 - {TextEditor::scopeDescriptorForBufferPosition} to get the descriptor at a specific position in the buffer.
@@ -114,9 +112,9 @@ Let's revisit our example using these methods:
 const editor = atom.workspace.getActiveTextEditor();
 const cursor = editor.getLastCursor();
 const valueAtCursor = atom.config.get("my-package.my-setting", {
-	scope: cursor.getScopeDescriptor(),
+	scope: cursor.getScopeDescriptor()
 });
 const valueForLanguage = atom.config.get("my-package.my-setting", {
-	scope: editor.getRootScopeDescriptor(),
+	scope: editor.getRootScopeDescriptor()
 });
 ```

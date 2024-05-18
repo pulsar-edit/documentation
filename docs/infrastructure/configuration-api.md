@@ -3,7 +3,7 @@ title: Configuration API
 layout: doc.ejs
 ---
 
-## Reading Config Settings
+## Reading config settings
 
 If you are writing a package that you want to make configurable, you'll need to read config settings via the `atom.config` global. You can read the current value of a namespaced config key with `atom.config.get`:
 
@@ -35,9 +35,9 @@ class MyView extends View {
 
 The `atom.config.observe` method will call the given callback immediately with the current value for the specified key path, and it will also call it in the future whenever the value of that key path changes. If you only want to invoke the callback the next time the value changes, use `atom.config.onDidChange` instead.
 
-Subscription methods return [`Disposable`](/api/pulsar/latest/Disposable/) objects that can be used to unsubscribe. Note in the example above how we save the subscription to the `@fontSizeObserveSubscription` instance variable and dispose of it when the view is detached. To group multiple subscriptions together, you can add them all to a [`CompositeDisposable`](/api/pulsar/latest/CompositeDisposable/) that you dispose when the view is detached.
+Subscription methods return {Disposable} objects that can be used to unsubscribe. Note in the example above how we save the subscription to the `fontSizeObserveSubscription` property and dispose of it when the view is detached. To group multiple subscriptions together, you can add them all to a {CompositeDisposable} that you dispose when the view is detached.
 
-## Writing Config Settings
+## Writing config settings
 
 The `atom.config` database is populated on startup from <span class="platform-linux platform-mac">`~/.pulsar/config.cson`</span> <span class="platform-win">`%USERPROFILE%\.pulsar\config.cson`</span> but you can programmatically write to it with `atom.config.set`:
 

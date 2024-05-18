@@ -63,7 +63,9 @@ Similarly, to consume a service, specify one or more [version _ranges_](https://
 }
 ```
 
-These methods will be called any time a package is activated that _provides_ their corresponding service. They will receive the service object as an argument. You will usually need to perform some kind of cleanup in the event that the package providing the service is deactivated. To do this, return a {Disposable} from your service-consuming method:
+These methods will be called any time a package is activated that _provides_ their corresponding service. They will receive the service object as an argument.
+
+You will usually need to perform some kind of cleanup in the event that the package providing the service is deactivated. To do this, return a {Disposable} from your service-consuming method:
 
 ```js
 const { Disposable } = require("atom");

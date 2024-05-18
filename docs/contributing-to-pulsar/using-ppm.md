@@ -1,18 +1,13 @@
 ---
-title: Using PPM (Pulsar Package Manager)
+title: Using PPM (Pulsar Package Manager) (information may be out of date!)
 layout: doc.ejs
 ---
 
 <!-- TODO: Needs updating. Not really accurate anymore. -->
 
-`ppm` is used for installing and managing Pulsar's packages in much the same way
-that `apm` did on Atom. However at this point in the project there are a few
-hoops you have to jump through to get it to work correctly.
+`ppm` is used for installing and managing Pulsar's packages in much the same way that `apm` did on Atom. However at this point in the project there are a few hoops you have to jump through to get it to work correctly.
 
-After following the build instructions you will find the `ppm` binary at
-`pulsar/ppm/bin/apm` but by default Pulsar will be looking in the wrong place.
-There will also be issues relating to the Electron version which will prevent
-install from the package backend.
+After following the build instructions you will find the `ppm` binary at `pulsar/ppm/bin/apm` but by default Pulsar will be looking in the wrong place. There will also be issues relating to the Electron version which will prevent install from the package backend.
 
 To solve this a couple of environmental variables need to be exported.
 

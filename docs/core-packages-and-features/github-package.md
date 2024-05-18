@@ -1,5 +1,5 @@
 ---
-title: GitHub Package
+title: GitHub package
 layout: doc.ejs
 ---
 

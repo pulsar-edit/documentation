@@ -67,8 +67,8 @@ If you type `img` and hit [[Tab]] you get a Markdown-formatted image embed code 
 | Item One   | Item Two   |
 ```
 
-Although there are only a handful of Markdown snippets (`b` for bold, `i` for italic, `code` for a code block, etc), they save you from having to look up the more obscure syntaxes. Again, you can easily see a list of all available snippets for the type of file you're currently in by choosing `Snippets: Available` in the Command Palette.
+Although there are only a handful of Markdown snippets (`b` for bold, `i` for italic, `code` for a code block, etc), they save you from having to look up the more obscure syntaxes. Again, you can easily see a list of all available snippets for the type of file you're currently in by choosing **Snippets: Available** in the command palette.
 
-## Creating Your Own Snippets
+## Creating your own snippets
 
-So that's pretty cool, but what if there is something the language package didn't include or something that is custom to the code you write? Luckily it's [incredibly easy to add your own snippets](/customizing-pulsar/creating-your-own-snippets).
+So that's pretty cool, but what if there is something the language package didn't include or something that is specific to the code you write? Luckily it's [incredibly easy to add your own snippets](/customizing-pulsar/creating-your-own-snippets).

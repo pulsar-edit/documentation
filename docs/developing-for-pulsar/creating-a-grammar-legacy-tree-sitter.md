@@ -3,20 +3,18 @@ title: Creating a grammar (legacy Tree-sitter)
 layout: doc.ejs
 ---
 
-Pulsar's legacy syntax highlighting and code folding system is also powered by [Tree-sitter](http://tree-sitter.github.io/tree-sitter).
-While the legacy version is still supported (which won't be for long) this documentation can be used to
-aide in working with this older format.
+Pulsar also has a syntax highlighting and code folding system powered by an earlier version of [Tree-sitter](http://tree-sitter.github.io/tree-sitter).
 
 ::: warning
 Legacy Tree-sitter grammars are deprecated, and support for them **will be removed** in newer Pulsar versions. It is **not recommended** to develop any new packages in this format. As of version 1.114.0, legacy Tree-sitter grammars are not the default, and must be opted into.
 :::
 
-## Getting Started
+## Getting started
 
 There are two components required to use Tree-sitter in Pulsar: a _parser_ and
 a _grammar_ file.
 
-## The Parser
+## The parser
 
 Tree-sitter generates parsers based on [context-free grammars](https://en.wikipedia.org/wiki/Context-free_grammar)
 that are typically written in JavaScript. The generated parsers are C libraries
@@ -42,7 +40,7 @@ your parser's `package.json`:
 
 then run the command `npm publish`.
 
-## The Package
+## The package
 
 Once you have a Tree-sitter parser that is available on npm, you can use it in
 your Pulsar package. Packages with grammars are, by convention, always named
@@ -59,11 +57,11 @@ language-mylanguage
 └── package.json
 ```
 
-## The Grammar File
+## The grammar file
 
 The `mylanguage.cson` file specifies how Pulsar should use the parser you created.
 
-## Basic Fields
+## Basic fields
 
 It starts with some required fields:
 
@@ -83,7 +81,7 @@ parser: 'tree-sitter-mylanguage'
 - `type` - This should have the value `tree-sitter` to indicate to Pulsar that
   this is a Tree-sitter grammar and not a [TextMate grammar](#creating-a-legacy-textmate-grammar).
 
-## Language Recognition
+## Language recognition
 
 Next, the file should contain some fields that indicate to Pulsar _when_ this
 language should be used. These fields are all optional.
@@ -100,7 +98,7 @@ language should be used. These fields are all optional.
   `contentRegex` does _not_ match, a grammar with no `contentRegex` will be
   preferred over this one.
 
-## Syntax Highlighting
+## Syntax highlighting
 
 The HTML classes that Pulsar uses for syntax highlighting do not correspond
 directly to nodes in the syntax tree. Instead, Tree-sitter grammar files specify
@@ -125,7 +123,7 @@ Note that in this selector, we're using the [immediate child combinator](https:/
 `'call_expression identifier'`, which would match any `identifier` occurring
 anywhere within a `call_expression`) are currently not supported.
 
-### Advanced Selectors
+### Advanced selectors
 
 The keys of the `scopes` object can also contain _multiple_ CSS selectors,
 separated by commas, similar to CSS files. The triple-quote syntax in CSON makes
@@ -165,7 +163,7 @@ scopes:
   ''': 'keyword.operator'
 ```
 
-### Text-based Mappings
+### Text-based mappings
 
 You can also apply different classes to a syntax node based on its text. Here
 are some examples:
@@ -228,7 +226,7 @@ scopes:
   ]
 ```
 
-## Language Injection
+## Language injection
 
 Sometimes, a source file can contain code written in several different
 languages. Tree-sitter grammars support this situation using a two-part process
@@ -297,7 +295,7 @@ would need to specify an `injectionRegex`:
 injectionRegex: 'html|HTML'
 ```
 
-## Code Folding
+## Code folding
 
 The next field in the grammar file, `folds`, controls code folding. Its value is
 an array of _fold pattern_ objects. Fold patterns are used to decide whether or
@@ -351,7 +349,7 @@ Fold patterns can have one or more of the following fields:
 ## Comments
 
 The last field in the grammar file, `comments`, controls the behavior of
-Pulsar's `Editor: Toggle Line Comments` command. Its value is an object with a
+Pulsar's **Editor: Toggle Line Comments** command. Its value is an object with a
 `start` field and an optional `end` field. The start field is a string that
 should be prepended to or removed from lines in order to comment or uncomment
 them.

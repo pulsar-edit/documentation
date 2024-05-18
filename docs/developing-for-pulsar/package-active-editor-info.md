@@ -1,5 +1,5 @@
 ---
-title: "Package: Active Editor Info"
+title: "Package: Active editor info"
 layout: doc.ejs
 ---
 
@@ -14,7 +14,7 @@ For this package, we'll define a workspace item that tells us some information a
 
 ## Create the package
 
-To begin, press <kbd class="platform-win platform-linux">Ctrl+Shift+P</kbd> <kbd class="platform-mac">Cmd+Shift+P</kbd> to bring up the [command palette](https://github.com/pulsar-edit/command-palette). Type "generate package" and select the **Package Generator: Generate Package** command, just as we did in [the section on package generation](#package-generator). Enter `active-editor-info` as the name of the package.
+To begin, press <kbd class="platform-win platform-linux">Ctrl+Shift+P</kbd> <kbd class="platform-mac">Cmd+Shift+P</kbd> to bring up the [command palette](https://github.com/pulsar-edit/command-palette). ype "generate package" and select the **Package Generator: Generate Package** command, just [as we covered earlier](/developing-for-pulsar/developing-a-package/#package-generator). Enter `active-editor-info` as the name of the package.
 
 ## Add an opener
 

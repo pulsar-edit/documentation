@@ -118,24 +118,46 @@ Next, the file should contain some fields that indicate to Pulsar when this lang
 
 ### Comments
 
-The last field in the grammar file, `comments`, controls the behavior of Pulsar's **Editor: Toggle Line Comments** command. Its value is an object with a start field and an optional end field. The start field is a string that should be prepended to or removed from lines in order to comment or uncomment them.
+The last field in the grammar file, `comments`, controls the behavior of Pulsar's **Editor: Toggle Line Comments** command. Its value is an object with values as follows:
 
-In JavaScript, it looks like this:
+* `start`: The delimiter that should be added to the beginning of a line to mark a comment. If your language supports line comments, specify the line comment delimiter here and skip the `end` value. This value will be used by the **Editor: Toggle Line Comments** command.
+* `end`: The delimiter that should be added to the end of a line to mark a comment. Specify `end` _only_ if your language supports only block comments (for example, CSS). If present, this value will be used by the **Editor: Toggle Line Comments** command.
+* `line`: The delimiter that marks a line comment. Regardless of what is defined in `start` or `end`, `line` refers to the line comment delimiter. If your language doesn’t support line comments, omit this field. This value is used by snippets that want to insert comment delimiters in a language-agnostic fashion.
+* `block`: A two item array containing the starting and ending delimiters of a block comment. If your language doesn’t support block comments, omit this field. These values are used by snippets that one to insert comment delimiters in a language-agnostic fashion.
+
+JavaScript has both line and block comments, so the `comments` field might look like this:
 
 ```coffeescript
 comments:
   start: '// '
+  block: ['/*', '*/']
+  line: '//'
 ```
 
-The `end` field should be used for languages that only support block comments, not line comments. If present, it will be appended to or removed from the end of the last selected line in order to comment or un-comment the selection.
-
-In CSS, it would look like this:
+CSS has only block comments, so it’d look like this:
 
 ```coffeescript
 comments:
   start: '/* '
   end: ' */'
+  block: ['/*', '*/']
 ```
+
+And Python has only line comments, so it’d look like this:
+
+```coffeescript
+comments:
+  start: '# ',
+  line: '#'
+```
+
+:::tip
+
+When present, Pulsar prefers for these values to be specified in CSON files in the `settings` directory of your package. That approach has the advantage of allowing you to customize comment delimiters according to the surroundings of the file.
+
+If this isn’t something your language needs — and most don’t — then you can ignore this tip. But it’s occasionally crucial. For instance, comment syntax within JSX blocks (used in React and other framewokrs) is different from ordinary JavaScript comment syntax. [The settings file for `language-javascript`](https://github.com/pulsar-edit/pulsar/blob/master/packages/language-javascript/settings/language-javascript.cson) may help illustrate.
+
+:::
 
 ## Syntax highlighting
 
@@ -211,7 +233,7 @@ How can we get around this? One option is the `#not-match?` predicate — the ne
 
 This is a fine solution for our oversimplified example, but would get pretty complicated if there were more than one fallback.
 
-Another approach is to use Pulsar’s custom predicates called `final` and `shy`. For instance, we could use `final` on the first capture to “claim” it:
+Another approach is to use Pulsar’s custom predicates called `capture.final` and `capture.shy`. For instance, we could use `capture.final` on the first capture to “claim” it:
 
 ```scm
 ; Scope this like a built-in function if we recognize the name…
@@ -223,9 +245,9 @@ Another approach is to use Pulsar’s custom predicates called `final` and `shy`
 (call_expression (identifier) @support.other.function.js)
 ```
 
-The `final` predicate means that the first capture will apply its own scope name, then _prevent_ all further attempts to add a scope to the same buffer range. This works because two different captures for the same node will be processed in the order in which their queries are defined in the SCM file — so if a token were to match both of these captures, it’s guaranteed that the first capture would be processed before the second.
+The `capture.final` predicate means that the first capture will apply its own scope name, then _prevent_ all further attempts to add a scope to the same buffer range. This works because two different captures for the same node will be processed in the order in which their queries are defined in the SCM file — so if a token were to match both of these captures, it’s guaranteed that the first capture would be processed before the second.
 
-Another option would be to use `shy` on the second capture:
+Another option would be to use `capture.shy` on the second capture:
 
 ```scm
 ; Scope this like a built-in function if we recognize the name…
@@ -237,7 +259,7 @@ Another option would be to use `shy` on the second capture:
   (#set! capture.shy))
 ```
 
-The `shy` predicate creates a true fallback option; it only applies its scope if _no_ other scope — not just one that uses `capture.final` — has previously been applied for the same buffer range. But it doesn’t “lock down” its buffer range the way that `final` does, so a later capture could add another scope to the same range.
+The `capture.shy` predicate creates a true fallback option; it only applies its scope if _no_ other scope — not just one that uses `capture.final` — has previously been applied for the same buffer range. But it doesn’t “lock down” its buffer range the way that `capture.final` does, so a later capture could add another scope to the same range.
 
 There’s one caveat to mention. Consider this query:
 
@@ -264,11 +286,11 @@ Here’s one way to rewrite this to have the intended effect:
 
 Pulsar defines many custom predicates, otherwise known as **scope tests**, to help grammar authors define accurate syntax highlighting. All scope tests are prefaced with `test.` in `#is?` and `#is-not?` predicates.
 
-You’ve already seen an example with `first` and `last`. Other examples include:
+You’ve already seen an example with `test.first` and `test.last`. Other examples include:
 
-* `firstOfType` and `lastOfType`, for matching only the first or last node of a certain type among siblings
-* `ancestorOfType` and `descendantOfType`, for testing whether a node contains, or is contained by, a node of a certain type
-* `config`, for capturing certain nodes conditionally based on the user’s configuration
+* `test.firstOfType` and `test.lastOfType`, for matching only the first or last node of a certain type among siblings
+* `test.ancestorOfType` and `test.descendantOfType`, for testing whether a node contains, or is contained by, a node of a certain type
+* `test.config`, for capturing certain nodes conditionally based on the user’s configuration
 
 Some tests take a single argument…
 
@@ -284,7 +306,7 @@ Some tests take a single argument…
   (#is? test.lastOfType))
 ```
 
-Consult the `ScopeResolver` API documentation for a full list.
+Consult the [`ScopeResolver` API documentation](TODO) for a full list.
 
 ### Scope adjustments: tweaking buffer ranges
 
@@ -301,7 +323,7 @@ Some adjustments move the boundaries of the scope based on pattern matches insid
 
 There’s only one catch: **adjustments can only _narrow_ the range of a capture, not expand it**. That’s important because Pulsar depends on Tree-sitter to tell it when certain regions of the buffer are affected by edits and need to be re-highlighted. That system won’t work correctly if a capture that starts and ends on row 1 can stretch itself to add a scope to something on row 100.
 
-Consult the `ScopeResolver` API documentation for a full list.
+Consult the [`ScopeResolver` API documentation](TODO) for a full list.
 
 ### Sharing query files
 
@@ -337,7 +359,7 @@ You might also notice a new key: `languageSegment`. This optional property allow
 
 Often, a source file will contain code written in several different languages. An HTML file, for instance, may need to highlight JavaScript (if the file has an inline `script` element) or CSS (if the file has an inline `style` element).
 
-Tree-sitter grammars support this situation using a two-part process called _language injection_. First, an 'outer' language must define an injection point - a set of syntax nodes whose text can be parsed using a different language, along with some logic for guessing the name of the other language that should be used. Second, an 'inner' language must define an `injectionRegex` - a regex pattern that will be tested against the language name provided by the injection point.
+Tree-sitter grammars support this situation using a two-part process called _language injection_. First, an “outer” language must define an injection point - a set of syntax nodes whose text can be parsed using a different language, along with some logic for guessing the name of the other language that should be used. Second, an “inner” language must define an `injectionRegex` - a regex pattern that will be tested against the language name provided by the injection point.
 
 The inner language can, in turn, define any injection points _it_ may need, such that different grammars can be “nested” inside of a buffer to an arbitrary depth.
 
@@ -629,56 +651,14 @@ Read the full indent query documentation to learn the details.
 
 ## Tags
 
-The fourth sort of query file is typically called `tags.scm`, and its purpose is to identify “symbols” — nodes in the tree that contain the names of important things.
+The fourth sort of query file is typically called `tags.scm`, and its purpose is to identify “tags” or “symbols” — nodes in the tree that contain the names of important things.
+
+:::info
+Tree-sitter and other tools call these things “tags,” hence `tags.scm`; but Pulsar calls them “symbols” — hence the {symbols-view} package.
+:::
 
 Pulsar’s knowlege of symbols is what allows you to type <kbd class="platform-mac">Cmd+R</kbd> <kbd class="platform-win platform-linux">Ctrl+R</kbd> and navigate a source code file by function name, or a CSS file by selector, or a Markdown file by heading name.
 
-The `tags.scm` file present in most Tree-sitter repositories goes into a level of detail far greater than what Pulsar needs, but that file will nonetheless work pretty well as-is if used as your grammar’s tags query file.
+The `tags.scm` file present in most Tree-sitter repositories goes into a level of detail far greater than what Pulsar needs, but that file will nonetheless work very well as-is, and can almost always be copied directly.
 
-### Writing a `tags.scm`
-
-Let’s write our own `tags.scm` just to understand how they work.
-
-Suppose we’ve got a Markdown grammar and we want all Markdown headings to be recognized as symbols:
-
-```scm
-(atx_heading (heading_content) @name)
-(setext_heading (heading_content) @name)
-```
-
-Markdown has two different styles of heading, so we’ve written two query expressions. We assign the `@name` capture to the specific text that is meant to function as the symbol.
-
-The built-in package named `symbol-provider-tree-sitter` will use this file to query the tree whenever a user runs the **Symbols View: Toggle File Symbols** command, typically bound to <kbd class="platform-mac">Cmd+R</kbd> <kbd class="platform-win platform-linux">Ctrl+R</kbd>. For Markdown, we’ve just done all we need to do to ensure that headings show up in that symbols list.
-
-#### Advanced features
-
-If the exact text of the match isn’t quite what you want to show in the symbol list view, there are ways to alter that text before it’s displayed.
-
-For instance, if we wanted to indicate which kind of heading each symbol is, we could do something like this:
-
-```scm
-(atx_heading
-  (atx_h5_marker)
-  (heading_content) @name
-  (#set! symbol.prepend "Heading 5: "))
-```
-
-Any string present as `symbol.prepend` will be prepended to the symbol name before it appears in the symbol list.
-
-As you might expect, there’s also a `symbol.append`:
-
-```scm
-(atx_heading
-  (atx_h5_marker)
-  (heading_content) @name
-  (#set! symbol.append " (Heading 5)"))
-```
-
-And, for removing certain content altogether from a name before display, there’s `symbol.strip`:
-
-```scm
-; If our parser didn't separate the heading punctuation from the heading text
-; in the tree, we could do it ourselves.
-((atx_heading) @name
-  (#set! symbol.strip "^#{1,6}\\s"))
-```
+If your Tree-sitter parser does not include a `tags.scm`, or if you want to explore customization options, you can read the README for the built-in {symbol-provider-tree-sitter} package.

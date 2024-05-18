@@ -7,7 +7,7 @@ Some settings can be specified differently for different file
 types. For example, you may want Pulsar to soft-wrap Markdown files, use
 two-space tabs for Ruby files, and use four-space tabs for Python files.
 
-Many of the settings in the `editor` namespace, can be scoped to an editor’s language:
+Many of the settings in the `editor` namespace can be scoped to an editor’s language:
 
 ```
 editor.autoIndent
@@ -26,11 +26,11 @@ editor.tabLength
 
 ## Language-specific settings in the settings view
 
-The editor settings listed above can be customized in the settings-view UI. Open your settings, select the **Packages** pane, search for the language of your choice, and click on its **Settings** button.
+The editor settings listed above can be customized in the {settings-view} UI. Open your settings, select the **Packages** pane, search for the language of your choice, and click on its **Settings** button.
 
 ![Python-specific settings](/img/atom/python-settings.png "Python-specific settings")
 
-## Language-specific Settings in your config file
+## Language-specific settings in your config file
 
 Most other language-specific settings cannot be configured in the UI, but you can still attempt to apply such overrides by editing your `config.cson` directly.
 
@@ -63,9 +63,9 @@ When you save your `config.cson`, you might see its contents change slightly. Fo
 
 ## Finding a language’s scope name
 
-In order to write these overrides effectively, you'll need to know the scope name for the language. We've already done this for finding a scope for writing a snippet in [Snippet Format](/customizing-pulsar/creating-your-own-snippets/#snippet-format), but we can quickly cover it again.
+In order to write these overrides effectively, you'll need to know the scope name for the language.
 
-The scope name is shown in the settings view for each language. Click on "Packages" in the navigation on the left, search for the language of your choice, select it, and you should see the scope name under the language name heading:
+One way to look this up is [an approach we’ve mentioned before](/customizing-pulsar/creating-your-own-snippets/#snippet-format). The scope name is shown in the settings view for each language. Click on "Packages" in the navigation on the left, search for the language of your choice, select it, and you should see the scope name under the language name heading:
 
 ![Finding a language grammar](/img/atom/python-grammar.png "Finding a grammar's scope name")
 

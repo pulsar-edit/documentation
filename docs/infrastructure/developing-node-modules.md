@@ -1,5 +1,5 @@
 ---
-title: Developing node modules
+title: Developing Node modules
 layout: doc.ejs
 ---
 

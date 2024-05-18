@@ -47,9 +47,9 @@
       "summary": "Understand how items are arranged in the Pulsar workspace."
     },
     {
-      "text": "Grammars",
-      "link": "/core-packages-and-features/grammar",
-      "summary": "Learn how text receives syntax highlighting."
+      "text": "Choosing a grammar",
+      "link": "/core-packages-and-features/choosing-a-grammar",
+      "summary": "Learn how Pulsar decides how to syntax-highlight a file."
     }
   ]
 }

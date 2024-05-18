@@ -1,10 +1,10 @@
 ---
-title: Using Safe Mode
+title: Using safe mode
 layout: doc.ejs
 ---
 
 A large part of Pulsar's functionality comes from packages you can install.
-Pulsar will also execute the code in your [init script](#the-init-file) on
+Pulsar will also execute the code in your [init script](/customizing-pulsar/the-init-file) on
 startup. In some cases, these packages and the code in the init script might be
 causing unexpected behavior, problems, or performance issues.
 

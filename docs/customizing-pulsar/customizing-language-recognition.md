@@ -14,4 +14,4 @@ If you want Pulsar to always recognize certain file types as a specific grammar,
       ]
 ```
 
-In the example above, `source.coffee` is the language's scope name (see [Finding a language’s scope Name](/customizing-pulsar/language-specific-configuration-settings/#finding-a-language%E2%80%99s-scope-name) for more information) and `foo` is the file extension to match without the period. Adding a period to the beginning of either of these will not work.
+In the example above, `source.coffee` is the language's scope name (see [Finding a language’s scope name](/customizing-pulsar/language-specific-configuration-settings/#finding-a-language%E2%80%99s-scope-name) for more information) and `foo` is the file extension to match without the period. Adding a period to the beginning of either of these will not work.

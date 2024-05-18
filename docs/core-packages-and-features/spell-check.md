@@ -1,5 +1,5 @@
 ---
-title: Spell Check
+title: Spell check
 layout: doc.ejs
 ---
 

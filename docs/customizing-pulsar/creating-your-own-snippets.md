@@ -1,5 +1,5 @@
 ---
-title: Creating your own Snippets
+title: Creating your own snippets
 layout: doc.ejs
 ---
 
@@ -7,7 +7,7 @@ In our earlier [introduction to snippets](/core-packages-and-features/snippets/)
 
 There is a text file in your <span class="platform-linux platform-mac">`~/.pulsar`</span><span class="platform-win">`%USERPROFILE%\.pulsar`</span> directory called `snippets.cson` that contains all your custom snippets that are loaded when you launch Pulsar. You can also easily open up that file by selecting the <span class="platform-linux">_Edit > Snippets_</span><span class="platform-mac">_Pulsar > Snippets…_</span><span class="platform-win">_File > Snippets_</span> menu item.
 
-## Snippet Format
+## Snippet format
 
 Let's look at how to write a snippet. The basic snippet format looks like this:
 
@@ -68,7 +68,7 @@ Snippet keys, unlike CSS selectors, can only be repeated once per level. If ther
 
 :::
 
-### Multi-line Snippet Body
+### Multi-line snippet body
 
 You can also use [CoffeeScript multi-line syntax](http://coffeescript.org/#strings) using `"""` for larger templates:
 
@@ -98,7 +98,7 @@ As you might expect, there is a snippet to create snippets. If you open up a sni
 
 Just fill that bad boy out and you have yourself a snippet. As soon as you save the file, Pulsar should reload the snippets and you will immediately be able to try it out.
 
-### Multiple Snippets per Source
+### Multiple snippets per source
 
 You can see below the format for including multiple snippets for the same scope in your `snippets.cson` file. Just include the snippet name, prefix, and body keys for additional snippets inside the scope key:
 

@@ -1,5 +1,5 @@
 ---
-title: Customizing Keybindings
+title: Customizing keybindings
 layout: doc.ejs
 ---
 

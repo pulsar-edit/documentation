@@ -3,27 +3,21 @@ title: Writing specs
 layout: doc.ejs
 ---
 
-Pulsar uses [Jasmine](https://jasmine.github.io/archives/1.3/introduction) as
-its spec framework. Any new functionality should have specs to guard against
-regressions.
+Pulsar uses [Jasmine](https://jasmine.github.io/archives/1.3/introduction) as its spec framework. Pulsar’s core and builtin packages have specs to guard against regressions.
 
-## Create a new spec
+Likewise, your own package can (and should!) have specs to prove that it does what you claim, and to make sure that it keeps doing those things as you add features and fix bugs.
 
-[Pulsar specs](https://github.com/pulsar-edit/pulsar/tree/HEAD/spec) and
-[package specs](https://github.com/pulsar-edit/markdown-preview/tree/HEAD/spec)
-are added to their respective `spec` directories. The example below creates a spec
-for Pulsar core.
+## Create a new spec file
+
+[Pulsar specs](https://github.com/pulsar-edit/pulsar/tree/HEAD/spec) and [package specs](https://github.com/pulsar-edit/markdown-preview/tree/HEAD/spec) are added to their respective `spec` directories. The example below creates a spec for Pulsar core.
 
 ### Create a spec file
 
-Spec files **must** end with `-spec` so add `sample-spec.js` to the `spec`
-directory.
+Specs go into the `spec` directory at the root of a package. Files in the `spec` directory **must** end with `-spec`, so let’s add a file called `sample-spec.js` to your package’s `spec` directory.
 
 ### Add one or more `describe` methods
 
-The `describe` method takes two arguments, a description and a function. If the
-description explains a behavior it typically begins with `when`; if it is more
-like a unit test it begins with the method name.
+The `describe` method takes two arguments: a description and a function. If the description explains a behavior it typically begins with `when`; if it’s more like a unit test, it begins with the method name.
 
 ```js
 describe("when a test is written", function () {
@@ -41,10 +35,7 @@ describe("TextEditor::moveUp", function () {
 
 ### Add one or more `it` methods
 
-The `it` method also takes two arguments, a description and a function. Try and
-make the description flow with the `it` method. For example, a description of
-"this should work" doesn't read well as "it this should work". But a description
-of "should work" sounds great as "it should work".
+The `it` method also takes two arguments: a description and a function. Try and make the description continue the sentence that an enclosing `describe` method started. For example, a description of "this should work" doesn't read well as "it this should work". But a description of "should work" sounds great as "it should work".
 
 ```js
 describe("when a test is written", function () {
@@ -83,14 +74,24 @@ These are defined in [spec/spec-helper.js](https://github.com/pulsar-edit/pulsar
 
 ## Asynchronous specs
 
-<!-- TODO: This is much easier now that we have async/await, and old-style async management should be converted when possible. -->
+Managing asynchronicity used to be much harder in specs, but better async support in JavaScript has made life easier. In  Jasmine, both `describe` and `it` can accept `async` functions, as can the `beforeEach` and `afterEach` lifecycle methods.
 
-Writing asynchronous specs can be tricky at first. Some examples.
+### Preferred: `async`/`await`
 
-### Promises
+Specs can be written linearly by `await`ing wherever a method returns a promise:
 
-Working with promises is rather easy in Pulsar. You can use our `waitsForPromise`
-function.
+```js
+describe(`when we open a file`, () => {
+  it(`should be opened in an editor`, async () => {
+    await atom.workspace.open("c.coffee");
+		expect(editor.getPath()).toContain("c.coffee");
+  })
+})
+```
+
+You might encounter older specs written in a more awkward style, as was needed before `async`/`await`; this method is documented below.
+
+### Legacy: `waitsForPromise`
 
 ```js
 describe("when we open a file", function () {
@@ -120,8 +121,7 @@ describe("when we open a file", function () {
 });
 ```
 
-If you need to wait for multiple promises use a new `waitsForPromise` function
-for each promise. (Caution: Without `beforeEach` this example will fail!)
+If you need to wait for multiple promises use a new `waitsForPromise` function for each promise. (Caution: Without `beforeEach` this example will fail!)
 
 ```js
 describe("waiting for the packages to load", function () {
@@ -140,8 +140,7 @@ describe("waiting for the packages to load", function () {
 });
 ```
 
-`waitsForPromise` can take an additional object argument before the function.
-The object can have the following properties:
+`waitsForPromise` can take an additional object argument before the function. The object can have the following properties:
 
 - `shouldReject` Whether the promise should reject or resolve (default: `false`)
 - `timeout` The amount of time (in ms) to wait for the promise to be resolved or
@@ -166,10 +165,9 @@ describe("when we open a file", function () {
 });
 ```
 
-### Asynchronous Functions with Callbacks
+#### Asynchronous functions with callbacks
 
-Specs for asynchronous functions can be done using the `waitsFor` and `runs`
-functions. A simple example.
+Specs for asynchronous functions can be done using the `waitsFor` and `runs` functions. A simple example:
 
 ```js
 describe("fs.readdir(path, cb)", function () {
@@ -189,19 +187,13 @@ describe("fs.readdir(path, cb)", function () {
 });
 ```
 
-For a more detailed documentation on asynchronous tests please visit the
-[Jasmine documentation](https://jasmine.github.io/archives/1.3/introduction#section-Asynchronous_Support).
+For a more detailed documentation on asynchronous tests, please visit the [Jasmine documentation](https://jasmine.github.io/archives/1.3/introduction#section-Asynchronous_Support).
 
-## Running Specs
+## Running specs
 
-Most of the time you'll want to run specs by triggering the
-`window:run-package-specs` command. This command is not only to run package
-specs, it can also be used to run Pulsar core specs when working on Pulsar
-itself. This will run all the specs in the current project's `spec` directory.
+Most of the time you'll want to run specs by triggering the `window:run-package-specs` command. This command is not only to run package specs, it can also be used to run Pulsar core specs when working on Pulsar itself. This will run all the specs in the current project's `spec` directory.
 
-To run a limited subset of specs use the `fdescribe` or `fit` methods. You can
-use those to focus a single spec or several specs. Modified from the example
-above, focusing an individual spec looks like this:
+To run a limited subset of specs, use the `fdescribe` or `fit` methods. You can use those to “focus” a single spec or several specs. Modified from the example above, focusing an individual spec looks like this:
 
 ```js
 describe("when a test is written", function () {
@@ -214,17 +206,13 @@ describe("when a test is written", function () {
 
 ### Running on CI
 
-It is now easy to run the specs in a CI environment like Travis and AppVeyor.
-See the [Travis CI For Your Packages](https://blog.atom.io/2014/04/25/ci-for-your-packages.html) and
-[AppVeyor CI For Your Packages](http://blog.atom.io/2014/07/28/windows-ci-for-your-packages.html)
-posts for more details.
+<!-- TODO: What’s the current story about running on GitHub actions? The CIs listed below are not, uh, current. -->
 
-### Running via the Command Line
+It is now easy to run the specs in a CI environment like Travis and AppVeyor. See the [Travis CI For Your Packages](https://blog.atom.io/2014/04/25/ci-for-your-packages.html) and [AppVeyor CI For Your Packages](http://blog.atom.io/2014/07/28/windows-ci-for-your-packages.html) posts for more details.
 
-To run tests on the command line, run Pulsar with the `--test` flag followed by
-one or more paths to test files or directories. You can also specify a
-`--timeout` option, which will force-terminate your tests after a certain number
-of seconds have passed.
+### Running via the command line
+
+To run tests on the command line, run Pulsar with the `--test` flag followed by one or more paths to test files or directories. You can also specify a `--timeout` option, which will force-terminate your tests after a certain number of seconds have passed.
 
 ```sh
 pulsar --test --timeout 60 ./test/test-1.js ./test/test-2.js
@@ -232,15 +220,9 @@ pulsar --test --timeout 60 ./test/test-1.js ./test/test-2.js
 
 ## Customizing your test runner
 
-By default, package tests are run with Jasmine 1.3, which is outdated but can't
-be changed for compatibility reasons. You can specify your own custom test
-runner by including an `atomTestRunner` field in your `package.json`. Pulsar
-will require whatever module you specify in this field, so you can use a
-relative path or the name of a module in your package's dependencies.
+By default, package tests are run with Jasmine 1.3, which is outdated but can't be changed for compatibility reasons. You can specify your own custom test runner by including an `atomTestRunner` field in your `package.json`. Pulsar will require whatever module you specify in this field, so you can use a relative path or the name of a module in your package's dependencies.
 
-Your test runner module must export a single function, which Pulsar will call
-within a new window to run your package's tests. Your function will be called
-with the following parameters:
+Your test runner module must export a single function, which Pulsar will call within a new window to run your package's tests. Your function will be called with the following parameters:
 
 - `testPaths` An array of paths to tests to run. Could be paths to files or
   directories.
@@ -268,6 +250,4 @@ with the following parameters:
   runner, giving your package a chance to transition to a new test runner while
   maintaining a subset of its tests in the old environment.
 
-Your function should return a promise that resolves to an exit code when your
-tests are finished running. This exit code will be returned when running your
-tests via the command line.
+Your function should return a promise that resolves to an exit code when your tests are finished running. This exit code will be returned when running your tests via the command line.

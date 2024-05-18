@@ -79,14 +79,14 @@ To build the application so you can start hacking on the core you will need to d
 git clone https://github.com/pulsar-edit/pulsar.git && cd pulsar
 ```
 
-Install Node.js (using `nvm` - see above) and enable corepack (for `yarn`). This will install the version of Node.js specified in [pulsar/.nvmrc](https://github.com/pulsar-edit/pulsar/blob/master/.nvmrc):
+Install Node (we recommend using `nvm`; see above) and enable corepack (for `yarn`). This will install the version of Node specified in [pulsar/.nvmrc](https://github.com/pulsar-edit/pulsar/blob/master/.nvmrc):
 
 ```sh
 nvm install
 corepack enable
 ```
 
-If Node.js is already installed, run the following to make sure the correct version of Node.js is being used (see [requirements](#requirements-and-dependencies)):
+If Node is already installed, run the following to make sure the correct version of Node is being used (see [requirements](#requirements-and-dependencies)):
 
 ```sh
 nvm use
@@ -99,7 +99,7 @@ Run the following to initialize and update the submodules:
 git submodule init && git submodule update
 ```
 
-Now install and build Pulsar & ppm:
+Now install and build Pulsar & `ppm`:
 
 ```sh
 yarn install
@@ -113,7 +113,7 @@ Start Pulsar!
 yarn start
 ```
 
-These instructions will also build `ppm` (Pulsar Package Manager) but it will require some [additional configuration](#using-ppm-pulsar-package-manager) for use.
+These instructions will also build `ppm` (Pulsar Package Manager) but it will require some [additional configuration](/contributing-to-pulsar/using-ppm/) for use.
 
 ## Building binaries
 
@@ -121,13 +121,13 @@ The following will allow you to build Pulsar as a stand alone binary or installe
 
 The build script will automatically build for your system's CPU architecture, for example building on an `x86_64` CPU will produce binaries for `x86_64`, building on `arm64` will only produce binaries for `arm64`.
 
-It is not possible to "cross-build" for different OSs. For Linux binaries you must build from a Linux machine, macOS binaries must be built from macOS etc. Your OS is detected automatically and the script will build the correct binaries for it.
+It is not possible to “cross-build” for different OSs. For Linux binaries you must build from a Linux machine; macOS binaries must be built from macOS; and so on. Your OS is detected automatically and the script will build the correct binaries for it.
 
 ::: tabs#core-hacking
 
 @tab Linux
 
-By default running `yarn dist` will attempt to create `appimage` (for most Linux distributions), `deb` (for Debian or Ubuntu based distributions) and `rpm` (for Red Hat or Fedora based distributions) binaries but you can select the actual target you want to build by appending the above targets to the command. e.g.:
+By default, running `yarn dist` will attempt to create `appimage` (for most Linux distributions), `deb` (for Debian or Ubuntu based distributions) and `rpm` (for Red Hat or Fedora based distributions) binaries but you can select the actual target you want to build by appending the above targets to the command. e.g.:
 
 - `yarn dist appimage`
 - `yarn dist deb`
@@ -136,13 +136,13 @@ By default running `yarn dist` will attempt to create `appimage` (for most Linux
 
 @tab macOS
 
-`yarn dist` will create a `dmg` installer, there are currently no additional targets for macOS.
+`yarn dist` will create a `dmg` installer. There are currently no additional targets for macOS.
 
-As noted above this builds for your current CPU architecture. i.e. on an Intel Mac this will create Intel binaries, on Apple silicon (M1, M2 etc.) this will create Apple silicon binaries.
+As noted above this builds for your current CPU architecture. On an Intel Mac this will create Intel binaries; on Apple silicon (M1, M2, etc.) this will create Apple silicon binaries.
 
 @tab Windows
 
-By default running `yarn dist` will attempt to create an `NSIS` installer as well as a `Portable` executable which does not require installation. If you only wish to build one then you can specify it by appending the above targets to the command e.g.:
+By default, running `yarn dist` will attempt to create an `NSIS` installer as well as a `Portable` executable which does not require installation. If you only wish to build one then you can specify it by appending the above targets to the command e.g.:
 
 - `yarn dist nsis`
 - `yarn dist portable`

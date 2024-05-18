@@ -1,13 +1,14 @@
 ---
-title: Hacking on the Core
+title: Hacking on the core
 layout: doc.ejs
 ---
 
-You will first want to build and run Pulsar [from source](#building-pulsar).
+You will first want to build and run Pulsar [from source](../building-pulsar/).
 
 ## Running in development mode
 
-Once you have a local copy of Pulsar cloned and built, you can then run Pulsar in development mode. But first, if you cloned Pulsar to somewhere other than <span class="platform-linux platform-mac">`~/github/pulsar`</span><span class="platform-win">`%USERPROFILE%\github\pulsar`</span> you will need to set the `ATOM_DEV_RESOURCE_PATH` environment variable to point to the folder in which you cloned Pulsar.
+Once you have a local copy of Pulsar cloned and built, you can then run Pulsar in development mode. But first, if you cloned Pulsar to somewhere other than <span class="platform-linux platform-mac">`~/github/pulsar`</span><span class="platform-win">`%USERPROFILE%\github\pulsar`</span>, you will need to set the `ATOM_DEV_RESOURCE_PATH` environment variable to point to the folder in which you cloned Pulsar.
+
 To run Pulsar in dev mode, use the `--dev` parameter from the terminal:
 
 ```sh

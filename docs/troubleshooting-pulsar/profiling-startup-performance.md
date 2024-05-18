@@ -1,5 +1,5 @@
 ---
-title: Profiling Startup Performance
+title: Profiling startup performance
 layout: doc.ejs
 ---
 

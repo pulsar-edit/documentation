@@ -1,5 +1,5 @@
 ---
-title: Style Tweaks
+title: Style tweaks
 layout: doc.ejs
 ---
 

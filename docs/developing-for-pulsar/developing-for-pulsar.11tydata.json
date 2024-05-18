@@ -12,6 +12,21 @@
       "summary": "Reference documentation for how a package works, including the <code>package.json</code> file."
     },
     {
+      "text": "Package: Word count",
+      "link": "/developing-for-pulsar/package-word-count",
+      "summary": "Creating your first package."
+    },
+    {
+      "text": "Package: Modifying text",
+      "link": "/developing-for-pulsar/package-modifying-text",
+      "summary": "Creating a more advanced package that hooks into the text-editing process."
+    },
+    {
+      "text": "Package: Active editor info",
+      "link": "/developing-for-pulsar/package-active-editor-info",
+      "summary": "Creating a package that adds a view to the workspace."
+    },
+    {
       "text": "Developing a theme",
       "link": "/developing-for-pulsar/developing-a-theme",
       "summary": "UI themes versus syntax themes and strategies for developing each kind."

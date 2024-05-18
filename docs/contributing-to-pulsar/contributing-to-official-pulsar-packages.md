@@ -7,35 +7,36 @@ Nearly all packages that ship with Pulsar now live in the main Pulsar repository
 
 ## Hacking on packages
 
+If your goal is to contribute fixes to a built-in package, you typically won’t have to build Pulsar from scratch! You should be able to use `ppm` (or `pulsar -p`) to link to a folder in the Pulsar repository.
+
 ### Cloning
 
-The first step is creating your own clone. For some packages, you may also need to install the [requirements necessary for building Pulsar](#building-pulsar) in order to run `pulsar -p install`.
+The first step is creating your own clone. For some packages, you may also need to install the [requirements necessary for building Pulsar](../building-pulsar/) in order to run `pulsar -p install`.
 
-For example, if you want to make changes to the `tree-view` package, fork the repo on your GitHub account, then clone it:
+For example, if you want to make changes to the {tree-view} package, fork the Pulsar repo on your GitHub account, then clone it:
 
-<!-- TODO: These instructions need to be updated to reflect the fact that most core packages are hosted in the Pulsar repo. Luckily, `ppm link` still works (last I tried) without forcing you to run the whole editor from source. -->
 
 ```sh
-$ git clone https://github.com/pulsar-edit/tree-view.git
+$ git clone https://github.com/[your-github-username]/pulsar.git
 ```
 
-Next install all the dependencies:
+From the root of where you cloned the repo on your disk, navigate to the `tree-view` package’s directory and install its dependencies:
 
 ```sh
-$ cd tree-view
+$ cd packages/tree-view
 $ pulsar -p install
 > Installing modules ✓
 ```
 
-Now you can link it to development mode so when you run an Pulsar window with `pulsar -p --dev`, you will use your fork instead of the built in package:
+Now you can link it to development mode so when you run an Pulsar window with `pulsar -p --dev`, it’ll load your fork instead of the built in package:
 
 ```sh
-$ pulsar -p link -d
+$ pulsar -p link --dev
 ```
 
 ### Running in development mode
 
-Editing a package in Pulsar is a bit of a circular experience: you're using Pulsar to modify itself. What happens if you temporarily break something? You don't want the version of Pulsar you're using to edit to become useless in the process. For this reason, you'll only want to load packages in **development mode** while you are working on them. You'll perform your editing in **stable mode**, only switching to development mode to test your changes.
+Editing a package in Pulsar is a bit of a circular experience: you're using Pulsar to modify itself. What happens if you temporarily break something? You don't want the version of Pulsar you're using to edit to become useless in the process. For this reason, it’s a good idea to load packages in **development mode** while you are working on them. You’ll perform your editing in **stable mode**, only switching to development mode to test your changes.
 
 To open a development mode window, use the **Application: Open Dev** command. You can also run dev mode from the command line with `pulsar --dev`.
 

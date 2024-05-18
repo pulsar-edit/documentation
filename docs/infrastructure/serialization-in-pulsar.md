@@ -94,7 +94,7 @@ Now you can call the global `deserialize` method with state returned from
 `serialize`, and your class's `deserialize` method will be selected
 automatically.
 
-#### atom.deserializers.add(klass)
+#### `atom.deserializers.add(klass)`
 
 An alternative is to use the `atom.deserializers.add` method with your class in
 order to make it available to the deserialization system. Usually this is used

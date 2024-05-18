@@ -9,7 +9,7 @@ some cases the state that gets saved can be something undesirable that prevents
 Pulsar from working properly. In these cases, you may want to clear the state
 that Pulsar has saved.
 
-::: danger DANGER
+::: danger Danger
 
 Clearing the saved state permanently destroys any state that Pulsar has saved
 _across all projects_. This includes unsaved changes to files you may have been
