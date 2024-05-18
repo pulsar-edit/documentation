@@ -8,7 +8,7 @@
 // the fixed header. Otherwise the headings we link to will be covered up by
 // the header.
 html {
-  scroll-padding-top: calc(var(--pageHeader_height) + 1rem);
+  scroll-padding-top: calc(var(--pageHeader_height) + 3rem);
 }
 
 .border-hover-effect() {
@@ -49,6 +49,7 @@ html {
   font-size: 1.7rem;
   line-height: 1.2;
   border-bottom: 1px solid var(--pageHeader-border);
+  // transition: all 0.3s ease-out-in;
 
   // Use the SVG to size the area properly, but hide it…
   .page_header__img {
