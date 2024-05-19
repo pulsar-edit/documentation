@@ -85,7 +85,8 @@ class AutoTOC {
   }
 
   bundleForTag (node, index) {
-    return { node, name: node.innerText, id: node.id, index, level: this.levelForTag(node), children: [] };
+    let name = node.dataset.name || node.innerText
+    return { node, name, id: node.id, index, level: this.levelForTag(node), children: [] };
   }
 
   levelForTag (node) {

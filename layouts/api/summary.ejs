@@ -1,10 +1,20 @@
 <!-- Pulsar API Documentation Summary Page -->
-<%-include("header")%>
+<%- include("header") %>
 
   <body>
     <%- include("page_header", { platform_switcher: false }) %>
     <div class="content">
-      <%-include("sidebar", { bar: sidebar, include_summary: true, indexTitle: locals.indexTitle, include_toc: true })%>
+      <%-
+        include(
+          "sidebar",
+          {
+            bar: sidebar,
+            indexTitle: locals.indexTitle,
+            include_summary: true,
+            include_toc: true
+          }
+        )
+      %>
       <main class="container">
         <section class="header">
           <h1 class="title" id="title"><%=title%></h1>

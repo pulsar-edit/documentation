@@ -1,6 +1,5 @@
 <!-- Pulsar API Documentation Page -->
-<%-include("header")%>
-
+<%- include("header") %>
   <body>
     <%- include("page_header", { platform_switcher: false }) %>
     <div class="content">
@@ -18,7 +17,8 @@
       -%>
       <main class="container">
         <section class="header">
-          <h1 class="title" id="title"><%= title %></h1>
+          <% let pageTitle = (content.customData?.name ?? title) %>
+          <h1 class="title" id="title"><%= pageTitle %></h1>
         </section>
 
         <section class="description">
