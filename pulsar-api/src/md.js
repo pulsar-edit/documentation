@@ -6,6 +6,7 @@ const md = MarkdownIT({
   html: true
 })
 .use(require("../../markdown-it-plugins/hovercard.js"))
+.use(require("markdown-it-anchor"))
 .use(prism, {
   init (Prism) {
     Prism.languages.scm = PRISM_LANGUAGE_SCM;
