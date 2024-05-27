@@ -1,0 +1,51 @@
+{
+  "indexTitle": "Customize Pulsar",
+  "sidebar": [
+    {
+      "text": "Creating your own snippets",
+      "link": "/customizing-pulsar/creating-your-own-snippets",
+      "summary": "Make repetitive text entry less of a chore."
+    },
+    {
+      "text": "Configuring with CSON",
+      "link": "/customizing-pulsar/configuring-with-cson",
+      "summary": "CSON: like JSON, but more laid-back."
+    },
+    {
+      "text": "Style tweaks",
+      "link": "/customizing-pulsar/style-tweaks",
+      "summary": "How to modify the look of Pulsar."
+    },
+    {
+      "text": "Customizing keybindings",
+      "link": "/customizing-pulsar/customizing-keybindings",
+      "summary": "How to change what keyboard shortcuts do in Pulsar."
+    },
+    {
+      "text": "Global configuration settings",
+      "link": "/customizing-pulsar/global-configuration-settings",
+      "summary": "An introduction to Pulsar’s settings."
+    },
+    {
+      "text": "Language-specific configuration settings",
+      "link": "/customizing-pulsar/language-specific-configuration-settings",
+      "summary": "Define custom settings on a per-language basis."
+    },
+    {
+      "text": "Customizing language recognition",
+      "link": "/customizing-pulsar/customizing-language-recognition",
+      "summary": "Change the grammar chosen for a file."
+    },
+    {
+      "text": "Controlling where customization is stored",
+      "link": "/customizing-pulsar/controlling-where-customization-is-stored",
+      "summary": "Modify where your configuration data lives."
+    },
+    {
+      "text": "The init file",
+      "link": "/customizing-pulsar/the-init-file",
+      "summary": "Learn the power of the init file."
+    }
+  ]
+
+}

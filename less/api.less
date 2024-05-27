@@ -8,7 +8,7 @@
 }
 
 .section-name {
-  border-bottom: 1px solid var(--table-border);
+  border-bottom: 2px solid var(--table-border);
 }
 
 .description__header {
@@ -27,16 +27,24 @@
     }
   }
 
+  & + .section-name {
+    padding-top: 3rem;
+    margin-top: 3rem;
+  }
+
   &__source-link {
     padding-left: 0.5ch;
     .octicon(file-code);
   }
 
   &__name {
+    padding-top: 0;
+
     a {
       .monospace();
+      font-style: normal;
       letter-spacing: initial;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       color: var(--entry-name-color);
       text-decoration: none;
 
@@ -97,9 +105,6 @@ table.arguments {
     span.optional {
       float: left;
       margin-top: 2px;
-      // position: absolute;
-      // top: 0;
-      // right: 0;
     }
   }
 

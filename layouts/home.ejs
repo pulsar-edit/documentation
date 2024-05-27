@@ -1,15 +1,18 @@
 <!-- Home page for the website -->
 <%-include("header")%>
 
-  <body>
+  <body class="layout--home">
     <%- include("page_header", { platform_switcher: true }) %>
     <div class="content">
       <main class="container">
         <section class="header">
           <h1 class="title" id="title"><%=title%></h1>
+
+          <section class="header__description">
+            <%- content %>
+          </section>
         </section>
 
-        <%- content %>
 
         <%-include("blocks", { blocks: root_sidebar })%>
 

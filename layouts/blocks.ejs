@@ -2,20 +2,15 @@
 <div class="blocks">
 
   <% for (const node of blocks) { %>
-
-  <a class="block" href="<%=node.link%>">
-    <div class="block_inner">
-      <div class="block_icon">
-
-      </div>
-      <h2 class="block_title">
-        <%=node.text%>
-      </h2>
-      <span class="block_summary">
-        <%=node.summary%>
-      </span>
+  <section class="block">
+    <header class="block__header">
+      <a href="<%= node.link -%>"><%= node.text -%></a>
+    </header>
+    <div class="block__summary">
+      <%= node.summary -%>
     </div>
-  </a>
+  </section>
   <% } %>
+
 
 </div>

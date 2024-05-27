@@ -2,27 +2,27 @@
   "indexTitle": "Using Pulsar",
   "sidebar": [
     {
-      "text": "Pulsar basics",
-      "link": "/using-pulsar/pulsar-basics",
+      "text": "Basics",
+      "link": "/using-pulsar/basics",
       "summary": "Get acquainted with Pulsar: its terminology, its settings, and its themes."
     },
     {
-      "text": "Moving in Pulsar",
-      "link": "/using-pulsar/moving-in-pulsar",
+      "text": "Movement",
+      "link": "/using-pulsar/movement",
       "summary": "Advanced buffer navigation techniques."
     },
     {
-      "text": "Pulsar packages",
-      "link": "/using-pulsar/pulsar-packages",
+      "text": "Packages",
+      "link": "/using-pulsar/packages",
       "summary": "How to use packages in Pulsar."
     },
     {
-      "text": "Pulsar selections",
-      "link": "/using-pulsar/pulsar-selections",
+      "text": "Selections",
+      "link": "/using-pulsar/selections",
       "summary": "Advanced ways of selecting text in Pulsar."
     },
     {
-      "text": "Editing & deleting text",
+      "text": "Editing and deleting text",
       "link": "/using-pulsar/editing-and-deleting-text",
       "summary": "Fancy manipulation strategies."
     }

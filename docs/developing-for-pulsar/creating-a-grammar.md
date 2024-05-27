@@ -11,7 +11,7 @@ Pulsar grammars come in a few flavors:
 * Modern Tree-sitter
 * Legacy Tree-sitter (deprecated; see note below)
 
-[Tree-sitter](https://tree-sitter.github.io/tree-sitter/) grammars are relatively new. Many languages in Pulsar are still supported by [TextMate grammars](TODO) and TextMate grammars are easier to write from scratch, so they may still be the best option for more obscure languages. Tree-sitter grammars assume the existence of a [Tree-sitter parser](https://tree-sitter.github.io/tree-sitter/#parsers) having been written for a particular language. But if such a parser exists, a Tree-sitter grammar will be more performant and easier to author.
+[Tree-sitter grammars](../creating-a-grammar-modern-tree-sitter/) are relatively new. Many languages in Pulsar are still supported by [TextMate grammars](../creating-a-grammar-textmate/) and TextMate grammars are easier to write from scratch, so they may still be the best option for more obscure languages. Tree-sitter grammars assume the existence of a [Tree-sitter parser](https://tree-sitter.github.io/tree-sitter/#parsers) having been written for a particular language. But if such a parser exists, a Tree-sitter grammar will be more performant and easier to author.
 
 ::: note Why two Tree-sitter systems?
 Atom (now Pulsar) was the first editor to support Tree-sitter grammars, but the legacy implementation predated many of Tree-sitter's current features. The need for Pulsar to switch to the `web-tree-sitter` bindings for compatibility reasons was an opportunity to update the architecture and the original Tree-sitter grammars.

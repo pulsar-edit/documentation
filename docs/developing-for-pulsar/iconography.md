@@ -28,7 +28,7 @@ As an example, to add a monitor icon (`device-desktop`), use the `icon icon-devi
 
 ## Size
 
-Octicons look best with a `font-size` of `16px`. It's already used as the default, so you don't need to worry about it. In case you prefer a different icon size, try to use multiples of 16 (`32px`, `48px` etc.) for the sharpest result. Sizes in between are ok too, but might look a bit blurry for icons with straight lines.
+Octicons look best with a `font-size` of `16px` — their default size. If you want a different size, try to use multiples of 16 (`32px`, `48px`, etc.) for the sharpest result. Sizes in between are OK, too, but might not look quite as sharp.
 
 ## Usability
 

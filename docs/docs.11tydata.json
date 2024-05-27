@@ -12,19 +12,14 @@
       "summary": "Get acquainted with the editor and its text-editing features."
     },
     {
-      "text": "Pulsar core packages & features",
+      "text": "Core packages & features",
       "link": "/core-packages-and-features",
       "summary": "Learn about Pulsar’s built-in packages and features like code-folding, syntax highlighting, snippets, and GitHub integration."
     },
     {
-      "text": "Customize Pulsar",
-      "link": "/customize-pulsar",
+      "text": "Customizing Pulsar",
+      "link": "/customizing-pulsar",
       "summary": "Learn about how to customize Pulsar’s keybindings, per-language settings, and styles."
-    },
-    {
-      "text": "Package guides",
-      "link": "/package-guides",
-      "summary": "Read specific tutorials for creating a community package or theme."
     },
     {
       "text": "Developing for Pulsar",
@@ -32,34 +27,29 @@
       "summary": "Learn about advanced topics relating to package development."
     },
     {
-      "text": "Hacking Pulsar",
-      "link": "/hacking-pulsar",
-      "summary": "Learn how to contribute to Pulsar — to build the application from source and contribute feature additions and bug fixes."
+      "text": "The infrastructure of Pulsar",
+      "link": "/infrastructure",
+      "summary": "Learn about the systems that power Pulsar — useful if you want to write a community package or apply advanced customizations in your init file."
     },
     {
-      "text": "Behind Pulsar",
-      "link": "/behind-pulsar",
-      "summary": "I have no idea what to write about this section; I think it should be combined with a different section."
-    },
-    {
-      "text": "Debugging Pulsar",
-      "link": "/debugging-pulsar",
+      "text": "Troubleshooting Pulsar",
+      "link": "/troubleshooting-pulsar",
       "summary": "Learn how to troubleshoot Pulsar if things go sideways."
     },
     {
-      "text": "FAQ",
-      "link": "/faq",
-      "summary": "Read the frequently asked questions."
+      "text": "Contributing to Pulsar",
+      "link": "/contributing-to-pulsar",
+      "summary": "Learn how to contribute to Pulsar — to build the application from source and contribute feature additions and bug fixes."
     },
     {
-      "text": "Maintaining Pulsar",
+      "text": "The Pulsar organization",
       "link": "/maintaining-pulsar",
-      "summary": "Learn about the tools used by the Pulsar team to deliver your favorite editor to you."
+      "summary": "Learn about the team that brings you Pulsar and the tools they use."
     },
     {
-      "text": "API",
+      "text": "APIs",
       "link": "/api",
-      "summary": "Read reference documentation for the API available to packages and to your init file."
+      "summary": "Read reference documentation for our APIs: Pulsar’s own API and that of the package repository."
     }
   ]
 

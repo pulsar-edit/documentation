@@ -60,9 +60,10 @@ async function main() {
     let summaryHTML = ejs.render(
       getLayout("summary"),
       {
+        version,
         title: version,
         sidebar: sidebarDocsData.root_sidebar,
-        blocks: content2sidebar(VERSION_CACHE.get(version).classes)
+        blocks: content2sidebar(VERSION_CACHE.get(version).classes, version)
       },
       {
         views: [ROOT_LAYOUT_DIR]
@@ -95,7 +96,7 @@ function writeContentForNameAndVersion (content, name, version, isLatestVer) {
   }
 }
 
-function content2sidebar(content) {
+function content2sidebar(content, version) {
   // Ensure items are sorted alphabetically.
   let map = new Map();
   for (let item of Object.values(content)) {
@@ -109,7 +110,7 @@ function content2sidebar(content) {
     let item = map.get(key);
     sidebar.push({
       text: item.name,
-      summary: mdRender(item.summary, { type: 'api', name: item.name }),
+      summary: mdRender(item.summary, { type: 'api', name: item.name, version }),
       link: item.name
     });
   }

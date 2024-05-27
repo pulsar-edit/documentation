@@ -19,6 +19,13 @@ ul, li {
   padding-left: 0;
 }
 
+cite {
+  font-style: italic;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+
 
 a {
   text-decoration: none;
@@ -52,9 +59,15 @@ h5 {
   .h5();
 }
 
-// @media (min-width: 550px) {
-// }
+* {
+  & > :is(h1, h2, h3, h4, h6, h6) {
+    padding-top: 0.25rem;
+  }
+}
 
+* + :is(h1, h2, h3, h4, h5, h6) {
+  margin-top: 2.25rem;
+}
 
 ul {
   list-style: disc;
@@ -89,4 +102,13 @@ kbd {
 // heading's font size.
 *:is(h1, h2, h3, h4, h5, h6) code {
   font-size: 0.9em;
+}
+
+
+a[href="TODO"] {
+  color: red !important;
+}
+
+img[src="TODO"] {
+  outline: 2px solid red !important;
 }

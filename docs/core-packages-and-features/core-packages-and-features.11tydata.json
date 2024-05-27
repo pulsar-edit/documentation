@@ -1,8 +1,8 @@
 {
-  "indexTitle": "Core Packages & Features",
+  "indexTitle": "Core packages & features",
   "sidebar": [
     {
-      "text": "Find and Replace",
+      "text": "Find and replace",
       "link": "/core-packages-and-features/find-and-replace",
       "summary": "Find and replace within buffers and across the project."
     },
@@ -17,17 +17,17 @@
       "summary": "Work with suggested autocompletions as you type."
     },
     {
-      "text": "Version Control in Pulsar",
+      "text": "Version control",
       "link": "/core-packages-and-features/version-control-in-pulsar",
       "summary": "Keep a history of your files’ changes."
     },
     {
-      "text": "GitHub Package",
+      "text": "GitHub package",
       "link": "/core-packages-and-features/github-package",
       "summary": "Integrate with GitHub from within Pulsar."
     },
     {
-      "text": "Spell Check",
+      "text": "Spell check",
       "link": "/core-packages-and-features/spell-check",
       "summary": "Fix misspellings in your text."
     },
@@ -47,9 +47,9 @@
       "summary": "Understand how items are arranged in the Pulsar workspace."
     },
     {
-      "text": "Grammars",
-      "link": "/core-packages-and-features/grammar",
-      "summary": "Learn how text receives syntax highlighting."
+      "text": "Choosing a grammar",
+      "link": "/core-packages-and-features/choosing-a-grammar",
+      "summary": "Learn how Pulsar decides how to syntax-highlight a file."
     }
   ]
 }

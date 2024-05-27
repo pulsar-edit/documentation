@@ -4,7 +4,17 @@
   <body data-layout="summary">
     <%- include("page_header", { platform_switcher: true }) %>
     <div class="content">
-      <%-include("sidebar", { bar: root_sidebar, include_summary: false, indexTitle: "Summary", include_toc: false })%>
+      <%-
+        include(
+          "sidebar",
+          {
+            bar: root_sidebar,
+            include_summary: false,
+            indexTitle: "Summary",
+            include_toc: false
+          }
+        )
+      %>
       <main class="container">
         <section class="header">
           <h1 class="title" id="title"><%=title%></h1>
@@ -12,11 +22,11 @@
 
         <%- content %>
 
-        <%-include("list", { blocks: sidebar })%>
+        <%- include("list", { blocks: sidebar }) %>
 
       </main>
     </div>
-    <%-include("hovercard")%>
+    <%- include("hovercard") %>
   </body>
 
-<%-include("footer")%>
+<%- include("footer") %>

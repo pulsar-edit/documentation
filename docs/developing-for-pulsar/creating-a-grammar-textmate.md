@@ -3,44 +3,46 @@ title: Creating a grammar (TextMate)
 layout: doc.ejs
 ---
 
-Pulsar's syntax highlighting can be powered by two types of grammars. If you're
-adding support for a new language, the preferred way is to
-[create a Modern Tree-sitter grammar](#creating-a-grammar). Tree-sitter grammars have
-better performance and provide support for more editor features, such as the
-`Select Larger Syntax Node` command.
+This section describes Pulsar’s legacy support for TextMate grammars.
 
-This section describes the Pulsar's legacy support for TextMate grammars.
+:::warning
+
+If you’re adding support for a new language, the preferred way is to [create a modern Tree-sitter grammar](../creating-a-grammar-modern-tree-sitter/). Tree-sitter grammars have better performance and provide support for more editor features, such as the **Editor: Select Larger Syntax Node** command.
+
+But don’t worry; TextMate grammars aren’t going anywhere. They’re probably the right choice for simpler languages.
+
+:::
 
 TextMate grammars are supported by several popular text editors. They provide a
 set of _regex_ (regular expression) patterns which are assigned _scopes_. These
 scopes are then turned into the CSS classes that you can target in syntax themes.
 
-## Getting Started
+## Getting started
 
 TextMate Grammars depend heavily on regexes, and you should be comfortable with
 interpreting and writing regexes before continuing. Note that Pulsar uses the
 Oniguruma engine, which is very similar to the PCRE or Perl regex engines. Here
 are some resources to help you out:
 
-- https://www.regular-expressions.info/tutorial.html provides a comprehensive
+- [https://www.regular-expressions.info/tutorial.html](https://www.regular-expressions.info/tutorial.html) provides a comprehensive
   regex tutorial
-- https://www.rexegg.com/regex-quickstart.html contains a cheat sheet for
+- [https://www.rexegg.com/regex-quickstart.html](https://www.rexegg.com/regex-quickstart.html) contains a cheat sheet for
   various regex expressions
-- https://regex101.com/ or https://regexr.com/ allows live prototyping
-- https://github.com/kkos/oniguruma/blob/master/doc/RE the docs for the
+- [https://regex101.com/](https://regex101.com/) or [https://regexr.com/](https://regexr.com/) allows live prototyping
+- [https://github.com/kkos/oniguruma/blob/master/doc/RE](https://github.com/kkos/oniguruma/blob/master/doc/RE) are the docs for the
   Oniguruma regex engine
 
 Grammar files are written in the [CSON](https://github.com/bevry/cson#what-is-cson)
 or [JSON](https://www.json.org/) format. Whichever one you decide to use is up
 to you, but this tutorial will be written in CSON.
 
-## Create the Package
+## Create the package
 
 To get started, press <kbd class="platform-linux platform-win">Ctrl+Shift+P</kbd> <kbd class="platform-mac">Cmd+Shift+P</kbd> and start typing "Generate Package" to generate a new grammar package. Select "Package Generator: Generate Package," and you'll be asked for the path where your package will be created. Let's call ours `language-flight-manual`.
 
 ::: tip Tip
 
-Grammar packages should start with _language-_.
+Grammar packages should start with `language-`.
 
 :::
 
@@ -69,7 +71,7 @@ so add the `md` extension to the list and remove the others.
 `patterns` contains the array of regex patterns that will determine how the file
 is tokenized.
 
-## Adding Patterns
+## Adding patterns
 
 To start, let's add a basic pattern to tokenize the words `Flight Manual`
 whenever they show up. Your regex should look like `\bFlight Manual\b`. Here's
@@ -121,7 +123,7 @@ This will assign the scope `keyword.other.flight.flight-manual` to `Flight`,
 `keyword.other.manual.flight-manual` to `Manual`, and
 `entity.other.flight-manual` to the overarching `Flight Manual`.
 
-## Begin/End Patterns
+## Begin/end patterns
 
 Now let's say we want to tokenize the `{{#note}}` blocks that occur in Flight
 Manual files. Our previous two examples used `match`, but one limit of `match`
@@ -208,7 +210,7 @@ a note block. Let's fix that!
 There. With the patterns block, `Flight Manual` should now receive the proper
 scopes.
 
-## Repositories and the Include keyword, or how to avoid duplication
+## Repositories and the `include` keyword (or: how to avoid duplication)
 
 At this point, note blocks are looking pretty nice, as is the `Flight Manual`
 keyword, but the rest of the file is noticeably lacking any form of Markdown
@@ -254,7 +256,7 @@ grammar. The `note` block can then be simplified to the following:
 ]
 ```
 
-## Where to Go from Here
+## Where to go from here
 
 There are several good resources out there that help when writing a grammar. The
 following is a list of some particularly useful ones (some have been linked to

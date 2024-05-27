@@ -1,0 +1,30 @@
+{
+  "indexTitle": "The infrastructure of Pulsar",
+  "sidebar": [
+    {
+      "text": "Configuration API",
+      "link": "/infrastructure/configuration-api"
+    },
+    {
+      "text": "Keymaps in depth",
+      "link": "/infrastructure/keymaps-in-depth"
+    },
+    {
+      "text": "Scoped settings, scopes, and scope descriptors",
+      "link": "/infrastructure/scoped-settings"
+    },
+    {
+      "text": "Serialization in Pulsar",
+      "link": "/infrastructure/serialization-in-pulsar"
+    },
+    {
+      "text": "Developing Node modules",
+      "link": "/infrastructure/developing-node-modules"
+    },
+    {
+      "text": "Interacting with other packages via services",
+      "link": "/infrastructure/interacting-with-other-packages-via-services"
+    }
+  ]
+
+}

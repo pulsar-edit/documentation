@@ -3,7 +3,13 @@
   "sidebar": [
     {
       "text": "Pulsar API",
-      "link": "pulsar"
+      "link": "/api/pulsar",
+      "summary": "The API for the Pulsar editor. Can be consumed by packages and by a user’s own init file."
+    },
+    {
+      "text": "Package Registry API",
+      "link": "https://api.pulsar-edit.dev/swagger-ui/",
+      "summary": "The API for the Pulsar Package Registry. Used by the Pulsar editor to check for package updates, and can be used by other tools as they please."
     }
   ]
 }

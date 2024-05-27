@@ -11,10 +11,17 @@
         </section>
 
         <p>
-          This section details the Pulsar Application API for version <code><%=title%></code>.
+          This is the API for Pulsar version <code><%=title%></code>.
         </p>
 
-        <%- include("list", { blocks: blocks }) %>
+        <%#
+          Hovercards used within the API docs often generate URLs that go up
+          one directory — usually the right choice for cross-referencing one
+          class from another class's page. This will do the wrong thing on a
+          summary page, though! The quickest, dirtiest fix is to rewrite the
+          HTML on the fly, so that's what we'll do for now.
+        %>
+        <%- include("list", { blocks: blocks }).replaceAll('href="..', 'href=".') %>
       </main>
     </div>
     <%- include("hovercard") %>
