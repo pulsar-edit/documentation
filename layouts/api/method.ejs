@@ -5,7 +5,7 @@
     let customName = item.customData?.name
   %>
   <section class="api-entry">
-    <h4 class="api-entry__name" data-name="<%= customName ?? "" %>" id="<%= anchorize(item.name) %>">
+    <h4 class="api-entry__name" data-name="<%= customName ?? item.name %>" id="<%= anchorize(item.name) %>">
       <% if (item.customData?.signature) { %>
         <a href="#<%= fragment %>"><%= item.customData.signature %></a>
       <% } else { %>

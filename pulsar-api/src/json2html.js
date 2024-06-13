@@ -6,6 +6,8 @@ const mdRender = require("./md.js");
 const LAYOUT_DIR = path.resolve(__dirname, "../../layouts/api");
 const ROOT_LAYOUT_DIR = path.resolve(__dirname, "../../layouts");
 
+const hasNoSection = (ele) => ele.sectionName === null;
+
 function convert(name, content, version) {
 
   let file = "";
@@ -63,14 +65,16 @@ function lookupSection(sectionName, prop, content, env) {
 }
 
 function lookupNullSections(content, env, hasOtherSections) {
-  // Originally this directive in the Atom docs would only grab uncategorized methods
-  // but we will look for everything
-  let nullClassMethods = content.classMethods.filter((ele) => ele.sectionName === null);
-  let nullInstanceMethods = content.instanceMethods.filter((ele) => ele.sectionName === null);
-  let nullClassProperties = content.classProperties.filter((ele) => ele.sectionName === null);
-  let nullInstanceProperties = content.instanceProperties.filter((ele) => ele.sectionName === null);
+  // Originally this directive in the Atom docs would only grab uncategorized
+  // methods — but we will look for everything.
+  let nullClassMethods = content.classMethods.filter(hasNoSection);
+  let nullInstanceMethods = content.instanceMethods.filter(hasNoSection);
+  let nullClassProperties = content.classProperties.filter(hasNoSection);
+  let nullInstanceProperties = content.instanceProperties.filter(hasNoSection);
 
-  let totalCount = nullClassProperties.length + nullInstanceMethods.length + nullClassProperties.length + nullInstanceProperties.length;
+
+  // Skip rendering anything unless we have at least one uncategorized thing.
+  let totalCount = nullClassMethods.length + nullInstanceMethods.length + nullClassProperties.length + nullInstanceProperties.length;
   if (totalCount === 0) return "";
 
   let file = "";
