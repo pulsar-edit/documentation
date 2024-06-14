@@ -6,6 +6,8 @@ const mdRender = require("./md.js");
 const LAYOUT_DIR = path.resolve(__dirname, "../../layouts/api");
 const ROOT_LAYOUT_DIR = path.resolve(__dirname, "../../layouts");
 
+const hasNoSection = (ele) => ele.sectionName === null;
+
 function convert(name, content, version) {
 
   let file = "";
@@ -20,7 +22,7 @@ function convert(name, content, version) {
     file += lookupSection(section.name, "instanceMethods", content, env);
   }
 
-  file += lookupNullSections(content, env);
+  file += lookupNullSections(content, env, content.sections.length > 0);
 
   file = `
     <h2 id="api-documentation">API documentation</h2>
@@ -62,15 +64,22 @@ function lookupSection(sectionName, prop, content, env) {
   return renderSection(prop, foundItems, env);
 }
 
-function lookupNullSections(content, env) {
-  // Originally this directive in the Atom docs would only grab uncategorized methods
-  // but we will look for everything
-  let nullClassMethods = content.classMethods.filter((ele) => ele.sectionName === null);
-  let nullInstanceMethods = content.instanceMethods.filter((ele) => ele.sectionName === null);
-  let nullClassProperties = content.classProperties.filter((ele) => ele.sectionName === null);
-  let nullInstanceProperties = content.instanceProperties.filter((ele) => ele.sectionName === null);
+function lookupNullSections(content, env, hasOtherSections) {
+  // Originally this directive in the Atom docs would only grab uncategorized
+  // methods — but we will look for everything.
+  let nullClassMethods = content.classMethods.filter(hasNoSection);
+  let nullInstanceMethods = content.instanceMethods.filter(hasNoSection);
+  let nullClassProperties = content.classProperties.filter(hasNoSection);
+  let nullInstanceProperties = content.instanceProperties.filter(hasNoSection);
+
+
+  // Skip rendering anything unless we have at least one uncategorized thing.
+  let totalCount = nullClassMethods.length + nullInstanceMethods.length + nullClassProperties.length + nullInstanceProperties.length;
+  if (totalCount === 0) return "";
 
   let file = "";
+  let sectionName = hasOtherSections ? 'Other methods' : 'All methods'
+  file += `<h3 data-count="${totalCount}" class="section-name" id="${anchorize(sectionName)}">${sectionName}</h3>`;
   file += renderSection("classMethods", nullClassMethods, env);
   file += renderSection("instanceMethods", nullInstanceMethods, env);
   file += renderSection("classProperties", nullClassProperties, env);

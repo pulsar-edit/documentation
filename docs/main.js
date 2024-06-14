@@ -85,7 +85,8 @@ class AutoTOC {
   }
 
   bundleForTag (node, index) {
-    return { node, name: node.innerText, id: node.id, index, level: this.levelForTag(node), children: [] };
+    let name = node.dataset.name || node.innerText
+    return { node, name, id: node.id, index, level: this.levelForTag(node), children: [] };
   }
 
   levelForTag (node) {
@@ -215,15 +216,19 @@ class HeadingObserver {
 
     let sidebarRect = sidebar.getBoundingClientRect();
     let elementRect = element.getBoundingClientRect();
-    let yDistanceTop = elementRect.top - sidebarRect.top;
-    if (yDistanceTop < 0) {
+
+    // The highest and lowest visible Y positions within the viewport.
+    let topEdge = sidebarRect.top;
+    let bottomEdge = sidebarRect.top + sidebarRect.height;
+    if (elementRect.top < topEdge) {
       // The active link is above the scroll position. Nudge it in the negative
       // direction just enough to bring the link on screen.
-      sidebar.scrollTop += yDistanceTop;
-    } else if (elementRect.bottom > window.innerHeight) {
+      let diff = topEdge - elementRect.top;
+      sidebar.scrollTop -= diff;
+    } else if (elementRect.top + elementRect.height > bottomEdge) {
       // The active link is below the scroll position. Nudge it in the positive
-      // direction jsut enough to bring the link on screen.
-      let diff = elementRect.bottom - window.innerHeight;
+      // direction just enough to bring the link on screen.
+      let diff = elementRect.bottom - bottomEdge;
       sidebar.scrollTop += diff;
     }
   }

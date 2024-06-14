@@ -108,9 +108,10 @@ function content2sidebar(content, version) {
 
   for (let key of keys) {
     let item = map.get(key);
+    let name = item.customData?.name ?? item.name
     sidebar.push({
-      text: item.name,
-      summary: mdRender(item.summary, { type: 'api', name: item.name, version }),
+      text: name,
+      summary: mdRender(item.summary, { type: 'api', name, version }),
       link: item.name
     });
   }

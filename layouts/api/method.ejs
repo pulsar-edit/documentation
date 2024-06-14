@@ -1,8 +1,16 @@
 <% for (const item of content) { %>
-  <section class="api-entry" id="<%= anchorize(item.name) %>">
-    <h4 class="api-entry__name">
-      <a href="#<%= anchorize(item.name) %>">
-        <%= locals.separator ?? '::' %><%= item.name -%><%- include("argument_list", { item: item }).trim() -%></a>
+  <%
+    let fragment = anchorize(item.customData?.slug ?? item.name)
+    let customSignature = item.customData?.signature
+    let customName = item.customData?.name
+  %>
+  <section class="api-entry">
+    <h4 class="api-entry__name" data-name="<%= customName ?? item.name %>" id="<%= anchorize(item.name) %>">
+      <% if (item.customData?.signature) { %>
+        <a href="#<%= fragment %>"><%= item.customData.signature %></a>
+      <% } else { %>
+        <a href="#<%= fragment %>"><%= locals.separator ?? '::' %><%= item.name -%><%- include("argument_list", { item: item }).trim() -%></a>
+      <% } %>
       <a class="icon api-entry__source-link" href="<%=  item.srcUrl %>" aria-label="Source link"></a>
     </h4>
     <div class="api-entry__summary">

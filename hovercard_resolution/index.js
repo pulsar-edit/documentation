@@ -67,13 +67,12 @@ async function resolve() {
       throw new Error(`Invalid hovercard title: ${JSON.stringify(title)}`);
     }
     let targetPath = Path.join(OUT, `${value}.json`);
-    let relativePath = Path.relative(CWD, targetPath);
-    console.log(`[hovercard] Writing ${relativePath}`);
+    // let relativePath = Path.relative(CWD, targetPath);
     FS.writeFileSync(targetPath, JSON.stringify(doc));
   }
 
   if (emptyHovercards.size > 0) {
-    console.log(`There are ${emptyHovercards.size} unresolved hovercard values!`);
+    console.warn(`There are ${emptyHovercards.size} unresolved hovercard values!`);
     for (let emptyValue of Array.from(emptyHovercards).sort()) {
       console.log(emptyValue);
     }
@@ -136,7 +135,7 @@ function buildCacheForClass (label, klass, cacheByLabel) {
     let value = `${klass.name}::${instanceMethod.name}`;
     cacheByLabel.set(value, {
       value: simplifyLabel(value),
-      title: value,
+      title: instanceMethod.customData?.name ?? value,
       description: instanceMethod.summary || (instanceMethod.returnValues?.[0]?.description ?? ""),
       link: `${baseLink}${instanceMethodAnchor(instanceMethod.name)}`
     });
@@ -146,7 +145,7 @@ function buildCacheForClass (label, klass, cacheByLabel) {
     let value = `${klass.name}::${instanceProperty.name}`;
     cacheByLabel.set(value, {
       value: simplifyLabel(value),
-      title: value,
+      title: instanceProperty.customData?.name ?? value,
       description: instanceProperty.summary ?? "",
       link: `${baseLink}${instanceMethodAnchor(instanceProperty.name)}`
     });
@@ -154,19 +153,22 @@ function buildCacheForClass (label, klass, cacheByLabel) {
 
   for (let classMethod of (klass.classMethods ?? [])) {
     let value = `${klass.name}.${classMethod.name}`;
-    cacheByLabel.set(value, {
+
+    let bundle = {
       value: simplifyLabel(value),
-      title: value,
+      title: classMethod.customData?.name ?? value,
       description: classMethod.summary || (classMethod.returnValues?.[0]?.description ?? ""),
       link: `${baseLink}${classMethodAnchor(classMethod.name)}`
-    });
+    };
+
+    cacheByLabel.set(value, bundle);
   }
 
   for (let classProperty of (klass.classProperties ?? [])) {
     let value = `${klass.name}::${classProperty.name}`;
     cacheByLabel.set(value, {
       value: simplifyLabel(value),
-      title: value,
+      title: classProperty.customData?.name ?? value,
       description: classProperty.summary  ?? "",
       link: `${baseLink}${classMethodAnchor(classProperty.name)}`
     });
@@ -174,7 +176,9 @@ function buildCacheForClass (label, klass, cacheByLabel) {
 }
 
 async function resolveApiHovercard(_simpleLabel, label, cache) {
-  return cache.get(label) ?? false;
+  let cached = cache.get(label)
+  if (!cached) return false;
+  return { ...cached };
 }
 
 let bundledPackages;
