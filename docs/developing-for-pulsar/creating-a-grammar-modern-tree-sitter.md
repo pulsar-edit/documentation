@@ -166,7 +166,7 @@ The HTML classes that Pulsar uses for syntax highlighting do not correspond dire
 Here is a simple example:
 
 ```scm
-(call_expression;
+(call_expression
   (identifier) @support.other.function)
 ```
 
