@@ -19,7 +19,7 @@ Themes are pretty straightforward, but it’s still helpful to be familiar with 
   variables. If you aren't familiar with its syntax, take a few minutes to
   [familiarize yourself](https://speakerdeck.com/danmatthews/less-css).
 - You may also want to review the concept of a `package.json` (as covered in
-  [Pulsar `package.json`](#package-json)). This file is used to help distribute your theme to Pulsar users.
+  [Pulsar `package.json`](../developing-a-package/#package.json)). This file is used to help distribute your theme to Pulsar users.
 - Your theme's `package.json` must contain a `theme` key with a value of `ui`
   or `syntax` for Pulsar to recognize and load it as a theme.
 - You can find existing themes to install or fork in

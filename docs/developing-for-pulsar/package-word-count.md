@@ -210,9 +210,9 @@ toggle() {
 }
 ```
 
-Let's look at the three lines we've added. First we get an instance of the current `TextEditor` object by calling [`atom.workspace.getActiveTextEditor()`](/api/pulsar/latest/Workspace/#instance-getactivetexteditor).
+Let's look at the three lines we've added. First we get an instance of the current `TextEditor` object by calling {Workspace::getActiveTextEditor "atom.workspace.getActiveTextEditor()"}.
 
-Next we get the number of words by calling [`getText()`](/api/pulsar/latest/TextEditor#instance-gettext) on our new editor object, splitting that text on whitespace with a regular expression, and getting the length of that array.
+Next we get the number of words by calling {TextEditor::getText "getText()"} on our new editor object, splitting that text on whitespace with a regular expression, and getting the length of that array.
 
 Finally, we’ll tell our view to update the word count it displays by calling the `setCount()` method on our view and then showing the modal again. Since that method doesn't yet exist, let's create it now.
 

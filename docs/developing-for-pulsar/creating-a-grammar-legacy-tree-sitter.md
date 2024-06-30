@@ -79,7 +79,7 @@ parser: 'tree-sitter-mylanguage'
   This string will be passed directly to [`require()`](https://nodejs.org/api/modules.html#modules_require)
   in order to load the parser.
 - `type` - This should have the value `tree-sitter` to indicate to Pulsar that
-  this is a Tree-sitter grammar and not a [TextMate grammar](#creating-a-legacy-textmate-grammar).
+  this is a Tree-sitter grammar and not a [TextMate grammar](../creating-a-grammar-textmate/).
 
 ## Language recognition
 

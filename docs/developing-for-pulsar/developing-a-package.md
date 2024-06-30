@@ -148,7 +148,7 @@ Your package's top-level module can implement the following basic methods:
   considered loading until the promise resolves (or rejects).
 - `initialize(state)`: This **optional** method is similar to `activate()` but
   is called earlier. Whereas activation occurs after the workspace has been
-  deserialized (and can therefore happen after [your package's deserializers](../../behind-pulsar#serialization-methods)
+  deserialized (and can therefore happen after [your package's deserializers](/infrastructure/serialization-in-pulsar/#serialization-methods)
   have been called), `initialize()` is guaranteed to be called before everything.
   Use `activate()` if you want to be sure that the workspace is ready; use
   `initialize()` if you need to do some setup prior to your deserializers or

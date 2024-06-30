@@ -7,7 +7,7 @@ Several of Pulsar's core packages are maintained in the [`packages` directory of
 
 ::: tip Tip
 
-In most cases, we recommend [generating a brand-new package](#package-generator) or a [brand-new theme](#creating-a-syntax-theme) as the starting point for your creation. The guide below applies only to situations where you want to create a package that closely resembles a core Pulsar package.
+In most cases, we recommend [generating a brand-new package](../developing-a-package/#package-generator) or a [brand-new theme](../developing-a-theme/#creating-a-syntax-theme) as the starting point for your creation. The guide below applies only to situations where you want to create a package that closely resembles a core Pulsar package.
 
 :::
 
@@ -70,7 +70,7 @@ $ git commit -am "Apply initial customizations"
 
 9. Follow the instructions in the github.com UI to push your code to your new online repository.
 
-10. Follow the steps in the [Publishing guide](#publishing) to publish your new package.
+10. Follow the steps in the [Publishing guide](../publishing/) to publish your new package.
 
 ## Merging upstream changes into your package
 

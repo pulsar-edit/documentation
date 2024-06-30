@@ -43,7 +43,7 @@ That’s because there’s no way to undo the side effects of the _previous_ exe
 You can reload pulsar with the **Window: Reload** command.
 :::
 
-Once you’ve saved your init file and reloaded Pulsar, use the [command palette](../../getting-started#command-palette) to execute the new command, **Markdown: Paste as Link**, by name. And if you'd like to trigger the command via a keyboard shortcut, you can define a [keybinding for the command](../customizing-keybindings).
+Once you’ve saved your init file and reloaded Pulsar, use the [command palette](../../using-pulsar/basics/#command-palette) to execute the new command, **Markdown: Paste as Link**, by name. And if you'd like to trigger the command via a keyboard shortcut, you can define a [keybinding for the command](../customizing-keybindings).
 
 :::tip
 Since a command name takes the format `foo:bar`, where `foo` is typically the package name, you might wonder what value to use before the colon if you define commands in your init file.

@@ -21,11 +21,11 @@ A buffer is the text content of a file in Pulsar. It's basically the same as a f
 
 ### Command
 
-A command is a bit of functionality in Pulsar that can be triggered by the user either through a [keybinding](/using-pulsar/pulsar-basics/#keybinding) or a menu item.
+A command is a bit of functionality in Pulsar that can be triggered by the user either through a [keybinding](#keybinding) or a menu item.
 
 ### Dock
 
-Docks are collapsible [pane containers](/using-pulsar/pulsar-basics/#pane-container) that attach to the left, right, and bottom sides of the Pulsar window.
+Docks are collapsible [pane containers](#pane-container) that attach to the left, right, and bottom sides of the Pulsar window.
 
 Examples:
 
@@ -49,11 +49,11 @@ A key sequence is a special case of a key combination. It is a key combination t
 
 ### Keybinding
 
-A keybinding is a mapping of a [key combination](/using-pulsar/pulsar-basics/#key-combination), such as [[Ctrl+Enter]] to a Pulsar command.
+A keybinding is a mapping of a [key combination](#key-combination), such as [[Ctrl+Enter]], to a Pulsar command.
 
 ### Keymap
 
-A keymap is a collection of [keybindings](/using-pulsar/pulsar-basics/#keybinding). It can also refer to a file or files containing keybindings for a Pulsar package or Pulsar itself.
+A keymap is a collection of [keybindings](#keybinding). It can also refer to a file or files containing keybindings for a Pulsar package or Pulsar itself.
 
 ### Package
 
@@ -61,15 +61,15 @@ A Pulsar plugin. There is a bunch more information in the section on [Pulsar Pac
 
 ### Pane
 
-A pane is a visual section of the editor space. Each pane can hold multiple [pane items](/using-pulsar/pulsar-basics/#pane-item). There is always at least one pane in each Pulsar window.
+A pane is a visual section of the editor space. Each pane can hold multiple [pane items](#pane-item). There is always at least one pane in each Pulsar window.
 
 ### Pane container
 
-A section of the Pulsar UI that can contain multiple [panes](/using-pulsar/pulsar-basics/#pane).
+A section of the Pulsar UI that can contain multiple [panes](#pane).
 
 ### Pane item
 
-Some item, often an editor, that is displayed within a [pane](/using-pulsar/pulsar-basics/#pane-item). In the default configuration of Pulsar, pane items are represented by tags at the top of each pane.
+Some item, often an editor, that is displayed within a [pane](#pane). In the default configuration of Pulsar, pane items are represented by tags at the top of each pane.
 
 ::: info
 **Note:** The reason why we don't call them "tabs" is because you can disable the {tabs} package and then there aren't any tabs. For a similar reason, we don't call them files because some things can be shown in a pane that aren't files, like the Settings View.
@@ -107,7 +107,7 @@ This includes things like changing the theme, specifying how to handle wrapping,
 To open the settings view, you can
 
 - use the <span class="platform-linux">_Edit > Preferences_</span> <span class="platform-mac">_Pulsar > Preferences_</span> <span class="platform-win">_File > Settings_</span> menu item in the menu bar,
-- search for `settings-view:open` in the [Command Palette](/using-pulsar/pulsar-basics/#command-palette), or
+- search for `settings-view:open` in the [Command Palette](#command-palette), or
 - use the <kbd class="platform-linux platform-win">Ctrl+,</kbd><kbd class="platform-mac">Cmd+,</kbd> keybinding.
 
 ### Finding settings
