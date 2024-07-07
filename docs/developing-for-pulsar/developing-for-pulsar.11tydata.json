@@ -2,11 +2,6 @@
   "indexTitle": "Developing for Pulsar",
   "sidebar": [
     {
-      "text": "Summary",
-      "link": "/developing-for-pulsar/summary",
-      "summary": ""
-    },
-    {
       "text": "Developing a package",
       "link": "/developing-for-pulsar/developing-a-package",
       "summary": "Reference documentation for how a package works, including the <code>package.json</code> file."
@@ -52,9 +47,9 @@
       "summary": "A reference for the classic TextMate-style grammars present in Atom since its beginning."
     },
     {
-      "text": "Creating a Grammar (converting from TextMate)",
+      "text": "Creating a grammar (converting from TextMate)",
       "link": "/developing-for-pulsar/creating-a-grammar-converting-from-textmate",
-      "summary": "(this should not exist)"
+      "summary": "Creating a TextMate grammar by converting a grammar written for TextMate itself."
     },
     {
       "text": "Publishing",

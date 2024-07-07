@@ -114,7 +114,7 @@ To open the settings view, you can
 
 If you ever have any difficulty in finding the relevant setting for any part of Pulsar, try the **Search** pane in the settings view. It allows you to search the names and descriptions of search of all settings, whether in Pulsar core or in an installed package.
 
-![Searching for a Setting in Settings View](TODO "Searching for a Setting in Settings View")
+![Searching for a setting in settings view](/img/atom/settings-search.png "Searching for a setting in settings view")
 
 
 ### Changing the theme
@@ -146,7 +146,7 @@ The **Soft Wrap** option (`editor.softWrap`) will wrap lines that are too long t
 
 If **Soft Wrap At Preferred Line Length** (`editor.softWrapAtPreferredLineLength`) is enabled, lines will soft-wrap at the preferred line length — 80 characters by default — instead of using the full width of the editor pane. And, of course, that 80-character default can be configured with the **Preferred Line Length** setting (`editor.preferredLineLength`).
 
-What if you want something more complicated? For instance, maybe you prefer soft tabs in most languages, but hard tabs in Python. Luckily, any editor-related setting can also be applied on a per-language basis. You’ll learn how to do this in the [Basic Customization](TODO) section.
+What if you want something more complicated? For instance, maybe you prefer soft tabs in most languages, but hard tabs in Python. Luckily, any editor-related setting can also be [applied on a per-language basis](/customizing-pulsar/language-specific-configuration-settings/).
 
 ## Opening, modifying, and saving files
 
@@ -278,7 +278,7 @@ You can also press <kbd class="platform-linux platform-win">Ctrl+B</kbd><kbd cla
 
 The fuzzy finder uses the `core.ignoredNames`, `fuzzy-finder.ignoredNames` and `core.excludeVCSIgnoredPaths` configuration settings to filter out files and folders that will not be shown. If you have a project with tons of files you don't want it to search through, you can add patterns or paths to either of these config settings. If your project is also a repository, the `core.excludeVCSIgnoredPaths` setting controls whether Pulsar will ignore files that are specified in [`.gitignore` files](https://git-scm.com/docs/gitignore) and their equivalents in other common VCS systems.
 
-We'll learn more about config settings in [Global Configuration Settings](TODO), but for now you can easily set these in the Settings View under Core Settings.
+We'll learn more about config settings in [Global configuration settings](/customizing-pulsar/global-configuration-settings/), but for now you can easily set these in the Settings View under Core Settings.
 
 Both `core.ignoredNames` and `fuzzy-finder.ignoredNames` are interpreted as glob
 patterns as implemented by the

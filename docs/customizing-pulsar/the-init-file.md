@@ -6,7 +6,7 @@ layout: doc.ejs
 ::: info
 The default init file for Pulsar has been changed from the previous CoffeeScript `init.coffee` file used by Atom to JavaScript. You are still able to use an old `init.coffee` file — and even create a new one for use instead of `init.js`.
 
-Should you wish to reference the specific version of this document for CoffeeScript, you can find it in the [Atom Archive](TODO).
+Should you wish to reference the specific version of this document for CoffeeScript, you can find it in [the Wayback Machine’s archived version of the Atom Flight Manual](https://web.archive.org/web/20200812183209/https://flight-manual.atom.io/hacking-atom/sections/the-init-file/).
 :::
 
 When Pulsar finishes loading, it will evaluate `init.js` in your <span class="platfom-linux platform-mac">`~/.pulsar`</span> <span class="platform-win">`%USERPROFILE%\.pulsar`</span> directory, giving you a chance to run JavaScript code to make customizations. Code in this file has full access to [Pulsar’s API](/api/pulsar/latest). If customizations become extensive, consider creating a package, which we will cover in [Package: Word count](/developing-for-pulsar/package-word-count/).
@@ -43,7 +43,7 @@ That’s because there’s no way to undo the side effects of the _previous_ exe
 You can reload pulsar with the **Window: Reload** command.
 :::
 
-Once you’ve saved your init file and reloaded Pulsar, use the [command palette](../../using-pulsar/basics/#command-palette) to execute the new command, **Markdown: Paste as Link**, by name. And if you'd like to trigger the command via a keyboard shortcut, you can define a [keybinding for the command](../customizing-keybindings).
+Once you’ve saved your init file and reloaded Pulsar, use the [command palette](../../using-pulsar/basics/#command-palette) to execute the new command, **Markdown: Paste As Link**, by name. And if you'd like to trigger the command via a keyboard shortcut, you can define a [keybinding for the command](../customizing-keybindings).
 
 :::tip
 Since a command name takes the format `foo:bar`, where `foo` is typically the package name, you might wonder what value to use before the colon if you define commands in your init file.

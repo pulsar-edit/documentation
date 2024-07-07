@@ -5,15 +5,7 @@ layout: doc.ejs
 
 If you want to apply quick-and-dirty personal styling changes without creating an entire theme that you intend to publish, you can add styles to the `styles.less` file in your <span class="platform-linux platform-mac">`~/.pulsar`</span><span class="platform-win">`%USERPROFILE%\.pulsar`</span> directory. You can open this file in an editor from the <span class="platform-linux">_Edit > Stylesheet_</span><span class="platform-mac">_Pulsar > Stylesheet…_</span><span class="platform-win">_File > Stylesheet_</span> menu.
 
-
-::: tip Tip
-[Less](https://lesscss.org) is a basic CSS preprocessor that offers some useful features like variables, functions, and mixins. You can read more about its features in [this in-depth guide](https://lesscss.org/features/).
-
-If you prefer to use CSS instead, you’re in luck: all CSS syntax is valid in a Less stylesheet. Write it as you ordinarily would.
-:::
-
-
-For example, to change the colors of the Status Bar, you could add the following rule to your `styles.less` file:
+For example, to change the colors of the status bar, you could add the following rule to your `styles.less` file:
 
 ```css
 .status-bar {
@@ -21,6 +13,12 @@ For example, to change the colors of the Status Bar, you could add the following
 	background-color: black;
 }
 ```
+
+::: tip Tip
+[Less](https://lesscss.org) is a basic CSS preprocessor that offers some useful features like variables, functions, and mixins. You can read more about its features in [this in-depth guide](https://lesscss.org/features/).
+
+If you prefer to use CSS instead, you’re in luck: all CSS syntax is valid in a Less stylesheet. Write it as you ordinarily would.
+:::
 
 ## Using developer tools to discover class names
 

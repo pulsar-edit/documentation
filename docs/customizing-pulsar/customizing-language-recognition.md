@@ -3,7 +3,7 @@ title: Customizing language recognition
 layout: doc.ejs
 ---
 
-If you want Pulsar to always recognize certain file types as a specific grammar, you'll need to manually edit your `config.cson` file. You can open it using the _Application: Open Your Config_ command from the Command Palette. For example, if you wanted to add the `foo` extension to the CoffeeScript language, you could add this to your configuration file under the `*.core` section:
+If you want Pulsar to always recognize certain file types as a specific grammar, you'll need to manually edit your `config.cson` file. You can open it using the **Application: Open Your Config** command from the Command Palette. For example, if you wanted to add the `foo` extension to the CoffeeScript language, you could add this to your configuration file under the `*.core` section:
 
 ```coffee
 '*':
