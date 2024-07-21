@@ -3,7 +3,7 @@
 // the fixed header. Otherwise the headings we link to will be covered up by
 // the header.
 html {
-  scroll-padding-top: calc(var(--page-header_height) + 3rem);
+  scroll-padding-top: calc(var(--page-header__height) + 3rem);
 }
 
 .border-hover-effect() {
@@ -24,7 +24,7 @@ html {
     right: 50%;
     left: 50%;
 
-    background: var(--link-color);
+    background: var(--link__color);
   }
 
   &:hover {
@@ -42,13 +42,13 @@ html {
   z-index: 1;
 
   top: 0;
-  height: var(--page-header-height);
-  box-shadow: 0 2px 8px var(--page-header_box-shadow-color);
+  height: var(--page-header__height);
+  box-shadow: 0 2px 8px var(--page-header__box-shadow__color);
   margin-bottom: 3rem;
-  border-bottom: 1px solid var(--page-header-border);
+  border-bottom: 1px solid var(--page-header__border);
 
   backdrop-filter: blur(12px);
-  background-color: var(--page-header-bg);
+  background-color: var(--page-header__bg);
 
   font-size: 1.7rem;
   line-height: 1.2;
@@ -109,7 +109,7 @@ html {
     padding: 0 0.5rem;
     min-height: 3.2rem;
 
-    color: var(--page-header_link-color);
+    color: var(--page-header__color--link);
     font-size: 1.4rem;
     font-weight: 500;
     text-decoration: none;
@@ -126,14 +126,14 @@ html {
 
   button {
     .plain-button();
-    width:  var(--theme-switcher-height) !important;
-    height: var(--theme-switcher-height) !important;
+    width:  var(--theme-switcher__height) !important;
+    height: var(--theme-switcher__height) !important;
     margin: 0;
 
     svg.icon {
       display: none;
-      width: var(--theme-switcher-height);
-      height: var(--theme-switcher-height);
+      width: var(--theme-switcher__height);
+      height: var(--theme-switcher__height);
     }
   }
 }

@@ -1,28 +1,6 @@
-// Variables from Skeleton
-/*
-  - light-grey
-  - dark-grey
-  - primary-color
-  - secondary-color
-  - border-color
-  - link-color
-  - font-color
-*/
-
 // Variable Naming Guide
 /*
-  Each field below is optional and can stack:
-  <element name>_<variant>-<property>__<status>
-
-  Examples:
-    Tab Header Background
-      --tab-header-bg:
-    Tab Header Background With "Hover" Status
-      --tab-header-bg__hover:
-    Tab Header Background that's Primary Classed
-      --tab-header_primary-bg:
-    Tab Header Background that's Primary Classed with "Hover" Status
-      --tab-header_primary-bg__hover:
+  The variable naming here follows [BEM](https://getbem.com/naming/)
 
   Recognized Properties:
     * bg = background-color
@@ -34,112 +12,114 @@
   --svg-logo: url(/static/logo-name-navbar-light.svg);
 
   // Global Page Elements
-  --body-color: white;
-  --font-color: hsl(211, 29%, 32%);
-  --font-color-subtle: hsl(211, 0%, 56%);
+  --body__color: white;
+  --font__color: hsl(211, 29%, 32%);
+  --font__color--subtle: hsl(211, 0%, 56%);
 
   // Generic Page Elements
 
   // - links
-  --link-color: hsl(153, 48%, 46%);
-  --link-color__hover: hsl(153, 48%, 36%);
+  --link__color: hsl(153, 48%, 46%);
+  --link__color--hover: hsl(153, 48%, 36%);
 
-  --link-color-subtle: hsl(153, 0%, 46%);
+  --link__color--subtle: hsl(153, 0%, 46%);
 
   // - code blocks
-  --code-bg: hsl(0, 0%, 100%);
-  --code-border: hsl(130, 1%, 86%);
+  --code__bg: hsl(0, 0%, 100%);
+  --code__border: hsl(130, 1%, 86%);
 
   // - thematic break
-  --thematic-break-color: hsl(230, 1%, 92%);
+  --thematic-break__color: hsl(230, 1%, 92%);
 
   // - tables
-  --table-border: hsl(230, 1%, 92%);
+  --table__border: hsl(230, 1%, 92%);
 
   // `kbd` elements
-  --kbd-border: hsl(230, 1%, 66%);
+  --kbd__border: hsl(230, 1%, 66%);
 
   // Buttons
-  --btn-color: hsl(130, 1%, 26%);
-  --btn-border: hsl(230, 1%, 86%);
-  --btn-bg: hsl(0, 0%, 100%);
+  --btn__color: hsl(130, 1%, 26%);
+  --btn__border: hsl(230, 1%, 86%);
+  --btn__bg: hsl(0, 0%, 100%);
 
-  --btn-color__hover: hsl(230, 1%, 14%);
-  --btn-border__hover: hsl(230, 1%, 866%);
-  --btn-bg__hover: hsl(0, 0%, 96%);
+  --btn__color--hover: hsl(230, 1%, 14%);
+  --btn__border--hover: hsl(230, 1%, 866%);
+  --btn__bg--hover: hsl(0, 0%, 96%);
 
-  --btn-color__focus: hsl(230, 1%, 26%);
-  --btn-border__focus: #556de8;
-  --btn-bg__focus: hsl(0, 0%, 96%);
+  --btn__color--focus: hsl(230, 1%, 26%);
+  --btn__border--focus: #556de8;
+  --btn__bg--focus: hsl(0, 0%, 96%);
 
-  --btn_primary-color: white;
-  --btn_primary-bg: #5871ef;
-  --btn_primary-border: hsl(230, 1%, 86%);
+  --btn__color--primary: white;
+  --btn__bg--primary: #5871ef;
+  --btn__border--primary: hsl(230, 1%, 86%);
 
-  --btn_primary-color__hover: white;
-  --btn_primary-bg__hover: #5871ef;
-  --btn_primary-border__hover: hsl(230, 1%, 86%);
+  --btn__color--primary--hover: white;
+  --btn__bg--primary--hover: #5871ef;
+  --btn__border--primary--hover: hsl(230, 1%, 86%);
 
-  --btn_primary-color__focus: white;
-  --btn_primary-bg__focus: #5871ef;
-  --btn_primary-border__focus: transparent;
+  --btn__color--primary--focus: white;
+  --btn__bg--primary--focus: #5871ef;
+  --btn__border--primary--focus: transparent;
 
   // Inputs
 
   // - input buttons
-  --input_btn-color: var(--btn-color);
-  --input_btn-border: var(--btn-border);
-  --input_btn-bg: var(--btn-bg);
+  --input-btn__color: var(--btn__color);
+  --input-btn__border: var(--btn__border);
+  --input-btn__bg: var(--btn__bg);
 
-  --input_btn-color__hover: var(--btn-color__hover);
-  --input_btn-border__hover: var(--btn-border__hover);
-  --input_btn-bg__hover: var(--btn-bg__hover);
+  --input-btn__color--hover: var(--btn__color--hover);
+  --input-btn__border--hover: var(--btn__border--hover);
+  --input-btn__bg--hover: var(--btn__bg--hover);
 
-  --input_btn-color__focus: var(--btn-color__focus);
-  --input_btn-border__focus: var(--btn-border__focus);
-  --input_btn-bg__focus: var(--btn-bg__focus);
+  --input-btn__color--focus: var(--btn__color--focus);
+  --input-btn__border--focus: var(--btn__border--focus);
+  --input-btn__bg--focus: var(--btn__bg--focus);
 
-  --input_btn_primary-color: var(--btn_primary-color);
-  --input_btn_primary-bg: var(--btn_primary-bg);
-  --input_btn_primary-border: var(--btn_primary-border);
+  --input-btn__color--primary: var(--btn__color--primary);
+  --input-btn__bg--primary: var(--btn__bg--primary);
+  --input-btn__border--primary: var(--btn__border--primary);
 
-  --input_btn_primary-color__hover: var(--btn_primary-color__hover);
-  --input_btn_primary-bg__hover: var(--btn_primary-bg__hover);
-  --input_btn_primary-border__hover: var(--btn_primary-border__hover);
+  --input-btn__color--primary--hover: var(--btn__color--primary--hover);
+  --input-btn__bg--primary--hover: var(--btn__bg--primary--hover);
+  --input-btn__border--primary--hover: var(--btn__border--primary--hover);
 
-  --input_btn_primary-color__focus: var(--btn_primary-color__focus);
-  --input_btn_primary-bg__focus: var(--btn_primary-bg__focus);
-  --input_btn_primary-border__focus: var(--btn_primary-border__focus);
+  --input-btn__color--primary--focus: var(--btn__color--primary--focus);
+  --input-btn__bg--primary--focus: var(--btn__bg--primary--focus);
+  --input-btn__border--primary--focus: var(--btn__border--primary--focus);
 
   // - input fields
-  --input_field-bg: hsl(0, 0%, 100%);
-  --input_field-border: hsl(230, 1%, 86%);
+  --input-field__bg: hsl(0, 0%, 100%);
+  --input-field__border: hsl(230, 1%, 86%);
 
-  --input_field-border__focus: #556de8;
+  --input_field__border--focus: #556de8;
 
   // - textareas
-  --textarea-bg: var(--input_field-bg);
-  --textarea-border: var(--input_field-border);
+  --textarea__bg: var(--input-field__bg);
+  --textarea__border: var(--input-field__border);
 
-  --textarea-border__focus: var(--input_field-border__focus);
+  --textarea__border--focus: var(--input_field__border--focus);
 
   // Tab Headers
-  --tab-header-bg: transparent; //hsl(230, 1%, 92%);
-  --tab-header-box-shadow: hsl(230deg 1% 86%);
-  --tab-btn-color: hsl(230, 1%, 14%);
-  --tab-btn-border: hsl(230, 1%, 86%);
-  --tab-btn-bg_active: hsl(230, 1%, 96%);
+  --tab-header__bg: transparent; //hsl(230, 1%, 92%);
+  --tab-header__box-shadow: hsl(230deg 1% 86%);
 
-  --tab-wrapper-border: hsl(230deg, 1%, 66%);
-  --tab-container-bg: hsl(230, 1%, 96%);
+  --tab-btn__color: hsl(230, 1%, 14%);
+  --tab-btn__border: hsl(230, 1%, 86%);
+  --tab-btn__bg--active: hsl(230, 1%, 96%);
+
+  --tab-wrapper__border: hsl(230deg, 1%, 66%);
+  --tab-container__bg: hsl(230, 1%, 96%);
 
   // Page Header
-  --page-header-bg: hsla(0, 100%, 100%, 0.9);
-  --page-header-border: hsl(230, 1%, 86%);
-  --page-header_link-color: hsl(0, 0%, 40%);
-  --page-header_box-shadow-color: rgba(0, 0, 0, .15);
-  --page-header_height: 55px;
-  --theme-switcher-height: 20px;
+  --page-header__bg: hsla(0, 100%, 100%, 0.9);
+  --page-header__border: hsl(230, 1%, 86%);
+  --page-header__color--link: hsl(0, 0%, 40%);
+  --page-header__box-shadow__color: rgba(0, 0, 0, .15);
+  --page-header__height: 55px;
+
+  --theme-switcher__height: 20px;
 
   // Alerts
 
@@ -147,7 +127,7 @@
   --custom-containerTitle-color: hsl(240, 1%, 28%);
   --custom-container-border: hsl(230deg, 1%, 66%);
   --custom-container-bg: hsl(230, 1%, 99%);
-  --custom-container-color: var(--font-color);
+  --custom-container-color: var(--font__color);
 
   // - note
   --custom-containerTitle_note-color: hsl(230, 1%, 26%);
@@ -180,144 +160,148 @@
   --custom-container_danger-bg: hsl(357, 100%, 96%);
 
   // Hovercards
-  --hovercard-bg: var(--body-color);
-  --hovercard-box-shadow: hsla(0deg, 0%, 0%, 0.4);
-  --hovercard-color: hsl(230, 1%, 26%);
+  --hovercard__bg: var(--body__color);
+  --hovercard__box-shadow: hsla(0deg, 0%, 0%, 0.4);
+  --hovercard__color: hsl(230, 1%, 26%);
 
   // Sidebar
-  --sidebar-border: hsl(230, 1%, 86%);
+  --sidebar__border: hsl(230, 1%, 86%);
 
   // Blocks
-  --block-color: var(--btn-color);
-  --block-border: var(--btn-border);
-  --block-bg: var(--btn-bg);
+  --block__color: var(--btn__color);
+  --block__border: var(--btn__border);
+  --block__bg: var(--btn__bg);
 
-  --block-color__hover: var(--btn-color__hover);
-  --block-border__hover: var(--btn-border__hover);
-  --block-bg__hover: var(--btn-bg__hover);
+  --block__color--hover: var(--btn__color--hover);
+  --block__border--hover: var(--btn__border--hover);
+  --block__bg--hover: var(--btn__bg--hover);
 
   // Syntax highlighting
-  --syntax-string:   hsl(119, 34%, 47%);
-  --syntax-comment:  hsl(230, 4%, 64%);
-  --syntax-variable: hsl(  5, 74%, 59%);
-  --syntax-function: hsl(221, 87%, 60%);
-  --syntax-keyword:  hsl(301, 63%, 40%);
-  --syntax-constant: hsl( 35, 99%, 36%);
+  --syntax__string:   hsl(119, 34%, 47%);
+  --syntax__comment:  hsl(230, 4%, 64%);
+  --syntax__variable: hsl(  5, 74%, 59%);
+  --syntax__function: hsl(221, 87%, 60%);
+  --syntax__keyword:  hsl(301, 63%, 40%);
+  --syntax__constant: hsl( 35, 99%, 36%);
 
   // Code Documentation
-  --code-doc__entry-name-color: var(--link-color);
-  --code-doc__argument-color: var(--font-color-subtle);
+  --code-doc__entry-name-color: var(--link__color);
+  --code-doc__argument-color: var(--font__color--subtle);
 }
 
 .dark-mode() {
   --svg-logo: url(/static/logo-name-navbar-dark.svg);
 
   // Global Page Elements
-  --body-color: hsl(220, 13%, 15%);
-  --font-color: hsl(220, 13%, 66%);
-  --font-color-subtle: hsl(220, 0%, 66%);
+  --body__color: hsl(220, 13%, 15%);
+  --font__color: hsl(220, 13%, 66%);
+  --font__color--subtle: hsl(220, 0%, 66%);
 
   // Generic Page Elements
 
   // - links
-  --link-color: hsl(153, 48%, 46%);
-  --link-color__hover: hsl(153, 48%, 36%);
+  --link__color: hsl(153, 48%, 46%);
+  --link__color--hover: hsl(153, 48%, 36%);
+
+  --link__color--subtle: hsl(153, 0%, 46%);
 
   // - code blocks
-  --code-bg: #2c313c;
-  --code-border: hsl(220deg 13% 11%);
+  --code__bg: #2c313c;
+  --code__border: hsl(220deg 13% 11%);
 
   // - thematic break
-  --thematic-break-color: hsl(220, 13%, 10.8%);
+  --thematic-break__color: hsl(220, 13%, 10.8%);
 
   // - tables
-  --table-border: hsl(220, 13%, 10.8%);
+  --table__border: hsl(220, 13%, 10.8%);
 
   // `kbd` elements
-  --kbd-border: hsl(220, 13%, 36%);
+  --kbd__border: hsl(220, 13%, 36%);
 
   // Buttons
-  --btn-color: hsl(220, 13%, 66%);
-  --btn-border: hsl(220, 13%, 10.8%);
-  --btn-bg: hsl(220, 13%, 24%);
+  --btn__color: hsl(220, 13%, 66%);
+  --btn__border: hsl(220, 13%, 10.8%);
+  --btn__bg: hsl(220, 13%, 24%);
 
-  --btn-color__hover: hsl(220, 13%, 86%);
-  --btn-border__hover: hsl(220, 13%, 10.8%);
-  --btn-bg__hover: hsl(220, 13%, 26%);
+  --btn__color--hover: hsl(220, 13%, 86%);
+  --btn__border--hover: hsl(220, 13%, 10.8%);
+  --btn__bg--hover: hsl(220, 13%, 26%);
 
-  --btn-color__focus: hsl(220, 13%, 86%);
-  --btn-border__focus: #568af2;
-  --btn-bg__focus: hsl(220, 13%, 26%);
+  --btn__color--focus: hsl(220, 13%, 86%);
+  --btn__border--focus: #568af2;
+  --btn__bg--focus: hsl(220, 13%, 26%);
 
-  --btn_primary-color: white;
-  --btn_primary-bg: #4d78cc;
-  --btn_primary-border: hsl(220, 13%, 10.8%);
+  --btn__color--primary: white;
+  --btn__bg--primary: #4d78cc;
+  --btn__border--primary: hsl(220, 13%, 10.8%);
 
-  --btn_primary-color__hover: white;
-  --btn_primary-bg__hover: #6187d2;
-  --btn_primary-border__hover: hsl(220, 13%, 10.8%);
+  --btn__color--primary--hover: white;
+  --btn__bg--primary--hover: #6187d2;
+  --btn__border--primary--hover: hsl(220, 13%, 10.8%);
 
-  --btn_primary-color__focus: white;
-  --btn_primary-bg__focus: #6187d2;
-  --btn_primary-border__focus: transparent;
+  --btn__color--primary--focus: white;
+  --btn__bg--primary--focus: #6187d2;
+  --btn__border--primary--focus: transparent;
 
   // Inputs
 
   // - input buttons
-  --input_btn-color: var(--btn-color);
-  --input_btn-border: var(--btn-border);
-  --input_btn-bg: var(--btn-bg);
+  --input-btn__color: var(--btn__color);
+  --input-btn__border: var(--btn__border);
+  --input-btn__bg: var(--btn__bg);
 
-  --input_btn-color__hover: var(--btn-color__hover);
-  --input_btn-border__hover: var(--btn-border__hover);
-  --input_btn-bg__hover: var(--btn-bg__hover);
+  --input-btn__color--hover: var(--btn__color--hover);
+  --input-btn__border--hover: var(--btn__border--hover);
+  --input-btn__bg--hover: var(--btn__bg--hover);
 
-  --input_btn-color__focus: var(--btn-color__focus);
-  --input_btn-border__focus: var(--btn-border__focus);
-  --input_btn-bg__focus: var(--btn-bg__focus);
+  --input-btn__color--focus: var(--btn__color--focus);
+  --input-btn__border--focus: var(--btn__border--focus);
+  --input-btn__bg--focus: var(--btn__bg--focus);
 
-  --input_btn_primary-color: var(--btn_primary-color);
-  --input_btn_primary-bg: var(--btn_primary-bg);
-  --input_btn_primary-border: var(--btn_primary-border);
+  --input-btn__color--primary: var(--btn__color--primary);
+  --input-btn__bg--primary: var(--btn__bg--primary);
+  --input-btn__border--primary: var(--btn__border--primary);
 
-  --input_btn_primary-color__hover: var(--btn_primary-color__hover);
-  --input_btn_primary-bg__hover: var(--btn_primary-bg__hover);
-  --input_btn_primary-border__hover: var(--btn_primary-border__hover);
+  --input-btn__color--primary--hover: var(--btn__color--primary--hover);
+  --input-btn__bg--primary--hover: var(--btn__bg--primary--hover);
+  --input-btn__border--primary--hover: var(--btn__border--primary--hover);
 
-  --input_btn_primary-color__focus: var(--btn_primary-color__focus);
-  --input_btn_primary-bg__focus: var(--btn_primary-bg__focus);
-  --input_btn_primary-border__focus: var(--btn_primary-border__focus);
+  --input-btn__color--primary--focus: var(--btn__color--primary--focus);
+  --input-btn__bg--primary--focus: var(--btn__bg--primary--focus);
+  --input-btn__border--primary--focus: var(--btn__border--primary--focus);
 
   // - input fields
-  --input_field-bg: hsl(220, 13%, 12%);
-  --input_field-border: hsl(220, 13%, 10.8%);
+  --input-field__bg: hsl(220, 13%, 12%);
+  --input-field__border: hsl(220, 13%, 10.8%);
 
-  --input_field-border__focus: #568af2;
+  --input_field__border--focus: #568af2;
 
   // - textareas
-  --textarea-bg: var(--input_field-bg);
-  --textarea-border: var(--input_field-border);
+  --textarea__bg: var(--input-field__bg);
+  --textarea__border: var(--input-field__border);
 
-  --textarea-border__focus: var(--input_field-border__focus);
+  --textarea__border--focus: var(--input_field__border--focus);
 
   // Tab Headers
-  --tab-header-bg: hsl(220, 13%, 15%);
-  --tab-header-box-shadow: hsl(220deg 13% 11%);
-  --tab-btn-color: hsl(220, 13%, 86%);
-  --tab-btn-border: hsl(220, 13%, 40.8%);
-  --tab-btn-bg_active: hsl(220, 13%, 18%);
+  --tab-header__bg: hsl(220, 13%, 15%);
+  --tab-header__box-shadow: hsl(220deg 13% 11%);
 
-  --tab-wrapper-border: hsl(220, 13%, 40.8%);
-  --tab-container-bg: hsl(220, 13%, 18%);
+  --tab-btn__color: hsl(220, 13%, 86%);
+  --tab-btn__border: hsl(220, 13%, 40.8%);
+  --tab-btn__bg--active: hsl(220, 13%, 18%);
+
+  --tab-wrapper__border: hsl(220, 13%, 40.8%);
+  --tab-container__bg: hsl(220, 13%, 18%);
 
 
   // Page Header
-  --page-header-bg: hsla(218, 12%, 13%, 90%);
-  --page-header-border: hsl(220, 13%, 10.8%);
-  --page-header_link-color: hsl(0, 0%, 60%);
-  --page-header_box-shadow-color: rgba(0, 0, 0, .15);
-  --page-header_height: 55px;
-  --theme-switcher-height: 20px;
+  --page-header__bg: hsla(218, 12%, 13%, 90%);
+  --page-header__border: hsl(220, 13%, 10.8%);
+  --page-header__color--link: hsl(0, 0%, 60%);
+  --page-header__box-shadow__color: rgba(0, 0, 0, .15);
+  --page-header__height: 55px;
+
+  --theme-switcher__height: 20px;
 
   // Alerts
 
@@ -325,7 +309,7 @@
   --custom-containerTitle-color: white;
   --custom-container-border: hsl(220, 13%, 40.8%);
   --custom-container-bg: hsl(220, 13%, 18%);
-  --custom-container-color: var(--font-color);
+  --custom-container-color: var(--font__color);
 
   // - note
   --custom-containerTitle_note-color: hsl(48, 33%, 77%);
@@ -358,33 +342,33 @@
   --custom-container_danger-bg: hsl(359, 63%, 18%);
 
   // Hovercards
-  --hovercard-bg: #252830;
-  --hovercard-box-shadow: hsl(0deg, 0%, 0%, 0.4);
-  --hovercard-color: hsl(220, 13%, 66%);
+  --hovercard__bg: #252830;
+  --hovercard__box-shadow: hsl(0deg, 0%, 0%, 0.4);
+  --hovercard__color: hsl(220, 13%, 66%);
 
   // Sidebar
-  --sidebar-border: black;
+  --sidebar__border: black;
 
   // Blocks
-  --block-color: hsl(220, 13%, 66%);
-  --block-border: hsl(220, 13%, 10.8%);
-  --block-bg: hsl(220, 13%, 24%);
+  --block__color: hsl(220, 13%, 66%);
+  --block__border: hsl(220, 13%, 10.8%);
+  --block__bg: hsl(220, 13%, 24%);
 
-  --block-color__hover: hsl(220, 13%, 86%);
-  --block-border__hover: hsl(220, 13%, 10.8%);
-  --block-bg__hover: hsl(220, 13%, 26%);
+  --block__color--hover: hsl(220, 13%, 86%);
+  --block__border--hover: hsl(220, 13%, 10.8%);
+  --block__bg--hover: hsl(220, 13%, 26%);
 
   // Syntax highlighting
-  --syntax-string:   hsl( 95, 38%, 62%);
-  --syntax-comment:  hsl(220, 10%, 52%);
-  --syntax-variable: hsl(355, 65%, 65%);
-  --syntax-function: hsl(207, 82%, 66%);
-  --syntax-keyword:  hsl(286, 60%, 67%);
-  --syntax-constant: hsl( 29, 54%, 61%);
+  --syntax__string:   hsl( 95, 38%, 62%);
+  --syntax__comment:  hsl(220, 10%, 52%);
+  --syntax__variable: hsl(355, 65%, 65%);
+  --syntax__function: hsl(207, 82%, 66%);
+  --syntax__keyword:  hsl(286, 60%, 67%);
+  --syntax__constant: hsl( 29, 54%, 61%);
 
   // Code Documentation
-  --code-doc__entry-name-color: var(--link-color);
-  --code-doc__argument-color: var(--font-color-subtle);
+  --code-doc__entry-name-color: var(--link__color);
+  --code-doc__argument-color: var(--font__color--subtle);
 }
 
 :root {
