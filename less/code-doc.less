@@ -1,27 +1,27 @@
 
-.code-doc__section-name {
+.api__section-name {
   margin-bottom: 3rem;
   border-bottom: 5px solid var(--thematic-break__color);
   padding-bottom: 0.25rem;
 }
 
-.code-doc__description__header {
+.api__description__header {
   .h2();
 }
 
-.code-doc__entry {
+.api__entry {
 
-  & + .code-doc__entry {
+  & + .api__entry {
     margin-top: 3rem;
     border-top: 5px solid var(--thematic-break__color);
     padding-top: 3rem;
 
-    .code-doc__entry__name {
+    .api__entry__name {
       margin-top: 0;
     }
   }
 
-  & + .code-doc__section-name {
+  & + .api__section-name {
     margin-top:  3rem;
     padding-top: 3rem;
   }
@@ -77,7 +77,7 @@ span.optional {
   line-height: 100%;
 }
 
-table.code-doc__arguments {
+table.api__arguments {
   border-collapse: collapse;
   font-size: 1.5rem;
 
@@ -116,26 +116,26 @@ table.code-doc__arguments {
     padding-right: 0;
   }
 
-  tr.code-doc__argument--depth-1 {
+  tr.api__argument--depth-1 {
     td:first-of-type {
       padding-left: 1.5rem;
     }
   }
 
-  tr.code-doc__argument--depth-2 {
+  tr.api__argument--depth-2 {
     td:first-of-type {
       padding-left: 3.0rem;
     }
   }
 
-  tr.code-doc__argument--depth-3 {
+  tr.api__argument--depth-3 {
     td:first-of-type {
       padding-left: 4.5rem;
     }
   }
 }
 
-.code-doc__return-values {
+.api__return-values {
   h6 {
     margin-bottom: 1.25rem;
     border-bottom: 1px solid var(--table__border);

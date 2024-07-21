@@ -4,16 +4,16 @@
     let customSignature = item.customData?.signature
     let customName = item.customData?.name
   %>
-  <section class="code-doc__entry">
-    <h4 class="code-doc__entry__name" data-name="<%= customName ?? item.name %>" id="<%= anchorize(item.name) %>">
+  <section class="api__entry">
+    <h4 class="api__entry__name" data-name="<%= customName ?? item.name %>" id="<%= anchorize(item.name) %>">
       <% if (item.customData?.signature) { %>
         <a href="#<%= fragment %>"><%= item.customData.signature %></a>
       <% } else { %>
         <a href="#<%= fragment %>"><%= locals.separator ?? '::' %><%= item.name -%><%- include("argument_list", { item: item }).trim() -%></a>
       <% } %>
-      <a class="icon code-doc__entry__source-link" href="<%=  item.srcUrl %>" aria-label="Source link"></a>
+      <a class="icon api__entry__source-link" href="<%=  item.srcUrl %>" aria-label="Source link"></a>
     </h4>
-    <div class="code-doc__entry__summary">
+    <div class="api__entry__summary">
       <%- mdRender(item.description) %>
     </div>
 
