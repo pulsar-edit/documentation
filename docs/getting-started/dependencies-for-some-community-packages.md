@@ -16,11 +16,14 @@ However, some popular packages will involve the use of native modules. Please re
 
 Because Pulsar runs on Electron, it is able to use Node modules to complete tasks. Node modules, though written in JavaScript, sometimes also use code written in a lower-level language and bridged to JavaScript. We’ll refer to these as **native modules**.
 
-This isn’t something that a user needs to concern themselves with when downloading Pulsar, since the modules that we use have been pre-compiled for your operating system. But it may become important when installing community packages. Since any community package can use any Node module, some of them will use native modules, and those modules will need to be compiled for the operating system they’re being run on.
+Pulsar itself uses some native modules, but those modules have been pre-built for your own architecture. But if a _community package_ uses a native module, then it’ll typically need to be built on your system when the package is installed. If an update to Pulsar carries an update to the underlying Electron framework, then those same packages will need to _rebuild_ their native modules to match the new Electron version.
 
-Further: newer releases of Pulsar might carry updates to the underlying Electron framework — which, in turn, involves updating the version of Node that is available to Pulsar. For this reason, packages that use native modules will often need to rebuild whenever Pulsar’s version of Electron changes. The easiest way to deal with this is to have a local toolchain for building native modules in Node.
+For these reason, if you want to install any packages that use native modules, you’ll need local toolchain for building native modules in Node:
 
-The good news is that lots of developers will have this toolchain already. If you’ve already got `npm` installed on your machine and use it occasionally, it is extremely likely that you’ve already got the tools you need.
+* A C++ compiler like `gcc` or `clang`
+* A recent version of [Python](https://www.python.org/)
+
+The good news is that lots of developers will have this toolchain already. For instance, if you’ve already got `npm` installed on your machine and use it occasionally, it is extremely likely that you’ve already got the tools you need.
 
 If not, your computer may require additional setup. Choose the section below that corresponds to your operating system.
 
@@ -32,7 +35,7 @@ On Debian/Ubuntu systems, this could be as simple as running `apt install build-
 
 It’s extremely likely that your system already has a working version of Python; if not, you can install Python 3 from your distro’s package manager.
 
-You can verify that your system has all the needed tools by running `ppm install --check`.
+You can verify that your system has all the needed tools by running `ppm install --check`. (Depending on how you installed Pulsar, you might need to install shell commands first, as described in the [Adding terminal commands](/getting-started/adding-terminal-commands/#macos) article.)
 
 ## macOS
 
@@ -43,6 +46,10 @@ macOS users will be prompted by the system to install Xcode command-line tools t
 You can verify that your system has all the needed tools by running `ppm install --check`. (Be sure to install shell commands first, as described in the [Adding terminal commands](/getting-started/adding-terminal-commands/#macos) article.)
 
 ## Windows
+
+:::danger
+**TODO:** Certain parts of these instructions won’t work right until [#1054](https://github.com/pulsar-edit/pulsar/pull/1054) is landed.
+:::
 
 To be able to build native modules on Windows, you'll need to install the following applications:
 
@@ -61,17 +68,21 @@ The instructions below have _nothing to do with_ **Visual Studio Code**. If you 
 
 You **do not** need a full installation of Visual Studio to be able to compile native Node modules. But you do need some components that must be installed via the Visual Studio installer, so [visit this page](https://visualstudio.microsoft.com/downloads/) and search for **Build Tools for Visual Studio 2022**. You will download an installer pre-configured to install these components.
 
-:::tip
+:::info
+
 If you want to install the Visual Studio IDE — or already have it installed — then you can use that _instead of_ Build Tools for Visual Studio, as long as you still install the **Desktop development with C++** component as described below.
 
-If you have a pre-existing installation of Visual Studio 2019, or its build tools, then those will also work just fine.
+If you have a pre-existing installation of Visual Studio 2019, or its build tools, that’ll work fine — though you might have to re-run the Visual Studio installer in order to add the **Desktop development with C++** component.
+
 :::
 
-You must also select the **Desktop development with C++** component when customizing your installation. These are the components that will allow Node to compile native modules with the `node-gyp` tool.
+You _must_ also select the **Desktop development with C++** component when customizing your installation. These are the components that will allow Node to compile native modules with the `node-gyp` tool.
 
 ![selecting the C++ component](/img/atom/vs-cpp-selected-inset.png)
 
-You will not need anything else.
+:::tip
+If you think you might ever want to contribute to Pulsar itself, then this might be a good time to add the **Windows SDK** component, as this is a prerequisite for building Pulsar from source. Most people won’t need this, though!
+:::
 
 If you didn’t install the right things the first time around, you can re-run the Visual Studio installer and modify your installation.
 
@@ -79,14 +90,34 @@ If you didn’t install the right things the first time around, you can re-run t
 
 Python can be downloaded from [the Python website](https://www.python.org/downloads/windows/). The latest version of Python 3 is a good choice.
 
-When you run the Python installer, ask to customize the installation, then check the box that says “Add python.exe to PATH.” This will make things a bit easier later on.
+When you run the Python installer, first **enable the “Add python.exe to PATH” option**. This will make things a bit easier later on.
 
+![Python installation, step 1](/img/atom/python-setup-windows-step-1.png)
+
+Next, choose “Customize installation” and look at the list of options.
+
+![Python installation, step 2](/img/atom/python-setup-windows-step-2.png)
+
+You may deselect most things on this list, but **be sure that
+“pip” is selected**, since we’ll need it later on.
+
+On the next screen, you’ll see some more options.
+
+![Python installation, step 3](/img/atom/python-setup-windows-step-3.png)
+
+It’s a good idea to select the “Add Python to environment variables” option, since it will make it easier for `ppm` to find your Python installation.
+
+Please also note where the installer plans to install Python. You might want to select and copy this value so that you can use it later if you need to help `ppm` find Python.
 
 ### Checking your path
 
+:::warning
+
 At this point, it is assumed that you can invoke `pulsar` and `ppm` from a terminal. If you haven’t done so yet, you should follow the steps in the [Adding terminal commands](/getting-started/adding-terminal-commands/#windows) article.
 
-You should also make sure that you have `python` in your path. If you were able to check the aforementioned box during Python installation, then that should be taken care of, but this is still a good opportunity to note the location of your Python installation, since we’ll need to specify it soon.
+:::
+
+You should also make sure that you have `python` in your path. If you were able to check the “Add python.exe to PATH” box during Python installation, then that should be taken care of, but it’s worth making sure.
 
 Open your terminal application and run the following command:
 
@@ -97,6 +128,20 @@ Get-Command python
 ![Get-Command python](/img/atom/powershell-get-command-python.png)
 
 You may have to make your window wider just to fit the information. In my case, it’s just barely wide enough for me to discern that the Python executable is located at the path `C:\Users\Andrew\AppData\Local\Programs\Python\Python312\python.exe`.
+
+:::note
+
+If it doesn’t find Python, you’ll have to add some directories to your `PATH`. Follow the directions in the [Adding terminal commands](/getting-started/adding-terminal-commands/#windows) article, but add the following locations to your `PATH` instead:
+
+* _(the path to your Python installation)_
+* _(the path to your Python installation)_`\Scripts`
+
+In my case, these would translate to:
+
+* `C:\Users\Andrew\AppData\Local\Programs\Python\Python312\`
+* `C:\Users\Andrew\AppData\Local\Programs\Python\Python312\Scripts`
+
+:::
 
 ### Running `ppm` to check native module installation
 
@@ -118,7 +163,7 @@ Otherwise, here are some things to try:
 
 Run this command in your terminal:
 
-```
+```powershell
 pip install setuptools
 ```
 
@@ -126,15 +171,17 @@ If it doesn’t know what `pip` is, then your Python path is not set up properly
 
 #### Tell `ppm` about the path to your version of Python
 
-If `ppm` still complains about missing `distutils` after the step above, or if it thinks you don’t have any build tools installed, it might not be finding your version of Python. Run `ppm --version` again and look at the version of Python it reports: if it’s not the version you just installed, then it doesn’t know how to find your Python installation.
+If `ppm` still complains about missing `distutils` after the step above, or if it thinks you don’t have any build tools installed, it might be using a different version of Python than the one we just installed.
+
+Run `ppm --version` again and look at the version of Python it reports: if it’s not the version you just installed, then we’ll need to tell it how to find your Python installation.
 
 You can tell it about your Python executable two different ways, but let’s first try this one:
 
-```
+```powershell
 ppm config set python "C:\Users\(my-user)\AppData\Local\Programs\Python\Python312\python.exe"
 ```
 
-Again, this is where Python was installed for me; you should make sure this matches the location of your own Python installation.
+As always, you should make sure this matches the location of your own Python installation.
 
 After you run this command, try `ppm --version` again. If it picks up on your new Python version, you’ve succeeded:
 
@@ -142,7 +189,7 @@ After you run this command, try `ppm --version` again. If it picks up on your ne
 
 Otherwise, you can try the other way of telling `ppm` about your Python location: the `PYTHON` environment variable. Run this in your terminal, again confirming you’re using the correct path to your own installation of Python:
 
-```
+```powershell
 $env:Python = "C:\Users\(my-user)\AppData\Local\Programs\Python\Python312\python.exe"
 ```
 
@@ -154,13 +201,13 @@ If this second technique succeeded, then you’ll want to make sure that `PYTHON
 
 #### Ensure you installed your Visual Studio tools correctly
 
-If `ppm` still thinks you don’t have the right build tools installed, then it’s worth re-checking whether you’ve installed your Visual Studio tools correctly.
+If `ppm` _still_ thinks you don’t have the right build tools installed, then it’s worth re-checking whether you’ve installed your Visual Studio tools correctly.
 
 Re-run the Visual Studio installer and confirm:
 
 * You _must_ have **Visual Studio 2022 Build Tools** or **Visual Studio 2019 Build Tools** installed — or the full Visual Studio IDE of either version.
 * Select whichever one you have installed and click on [[Modify]].
-* You _must_ have “Desktop development with C++” checked. If it is not checked, check it, then click on the [[Modify]] button at the bottom right corner of the window. It will install new components.
+* You _must_ have “Desktop development with C++” checked. If it is not selected, select it, then click on the [[Modify]] button at the bottom right corner of the window. It will install new components.
 
 If you had to make any changes here, wait for the installer to finish, then run `ppm install --check` again.
 
@@ -177,5 +224,3 @@ ppm install x-terminal-reloaded
 It’s unlikely, but still possible, that you might run into failures here that you didn’t encounter earlier while running `pulsar install --check`. If so, some of the steps above may still be useful.
 
 If you’ve followed the instructions on this page and still can’t get your package to install, join us [on Discord](https://discord.gg/7aEbB9dGRT) or [in GitHub Discussions](https://github.com/orgs/pulsar-edit/discussions) and we’ll try to get you back on track.
-
-!!!include(_partial_docs/native-module-versions.md)!!!
