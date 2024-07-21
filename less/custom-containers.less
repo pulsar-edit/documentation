@@ -1,6 +1,6 @@
 
 // Custom containers from markdown-it
-.custom-container {
+.alert {
   // Position & Layout
   position: relative;
   overflow: clip;
@@ -14,7 +14,7 @@
   // Typography
   color: var(--custom-container-color);
 
-  .custom-container-content {
+  .alert__content {
     // (when there's no title)
     &:first-child {
       // Box Model
@@ -27,7 +27,7 @@
     }
   }
 
-  .custom-container-title {
+  .alert__title {
     // Box Model
     margin: 0rem -1rem 0.25rem;
     padding-top: 0.75rem;
@@ -49,7 +49,7 @@
     // Typography
     color: var(--custom-container_note-color, var(--custom-container-color));
 
-    .custom-container-title {
+    .alert__title {
       // Background
       background-color: var(--custom-containerTitle_note-bg, var(--custom-containerTitle-bg));
       // Typography
@@ -65,7 +65,7 @@
     // Typography
     color: var(--custom-container_warning-color, var(--custom-container-color));
 
-    .custom-container-title {
+    .alert__title {
       // Background
       background-color: var(--custom-containerTitle_warning-bg, var(--custom-containerTitle-bg));
       // Typography
@@ -81,7 +81,7 @@
     // Typography
     color: var(--custom-container_info-color, var(--custom-container-color));
 
-    .custom-container-title {
+    .alert__title {
       // Background
       background-color: var(--custom-containerTitle_info-bg, var(--custom-containerTitle-bg));
       // Typography
@@ -97,7 +97,7 @@
     // Typography
     color: var(--custom-container_tip-color, var(--custom-container-color));
 
-    .custom-container-title {
+    .alert__title {
       // Background
       background-color: var(--custom-containerTitle_tip-bg, var(--custom-containerTitle-bg));
       // Typography
@@ -113,7 +113,7 @@
     // Typography
     color: var(--custom-container_danger-color, var(--custom-container-color));
 
-    .custom-container-title {
+    .alert__title {
       // Background
       background-color: var(--custom-containerTitle_danger-bg, var(--custom-containerTitle-bg));
       // Typography
