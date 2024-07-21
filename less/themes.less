@@ -124,40 +124,46 @@
   // Alerts
 
   // - generic
-  --custom-containerTitle-color: hsl(240, 1%, 28%);
-  --custom-container-border: hsl(230deg, 1%, 66%);
-  --custom-container-bg: hsl(230, 1%, 99%);
-  --custom-container-color: var(--font__color);
+  --alert__color--title: hsl(240, 1%, 28%);
+  --alert__border: hsl(230deg, 1%, 66%);
+  --alert__bg: hsl(230, 1%, 99%);
+  --alert__bg--title: var(--alert_bg);
+  --alert__color: var(--font__color);
 
   // - note
-  --custom-containerTitle_note-color: hsl(230, 1%, 26%);
-  --custom-container_note-color: var(--custom-container-color);
-  --custom-container_note-border: hsl(48, 64%, 24%);
-  --custom-container_note-bg: hsl(48, 84%, 93%);
+  --alert__color--title--note: hsl(230, 1%, 26%);
+  --alert__color--note: var(--alert__color);
+  --alert__border--note: hsl(48, 64%, 24%);
+  --alert__bg--note: hsl(48, 84%, 93%);
+  --alert__bg--title--note: var(--alert__bg--note);
 
   // - warning
-  --custom-containerTitle_warning-color: hsl(44, 100%, 15%);
-  --custom-container_warning-color: var(--custom-container-color);
-  --custom-container_warning-border: hsl(37, 90%, 44%);
-  --custom-container_warning-bg: hsl(37, 90%, 94%);
+  --alert__color--title--warning: hsl(44, 100%, 15%);
+  --alert__color--warning: var(--alert__color);
+  --alert__border--warning: hsl(37, 90%, 44%);
+  --alert__bg--warning: hsl(37, 90%, 94%);
+  --alert__bg--title--warning: var(--alert__bg--warning);
 
   // - info
-  --custom-containerTitle_info-color: hsl(194, 48%, 19%);
-  --custom-container_info-color: var(--custom-container-color);
-  --custom-container_info-border: hsl(195, 61%, 56%);
-  --custom-container_info-bg: hsl(196, 79%, 96%);
+  --alert__color--title--info: hsl(194, 48%, 19%);
+  --alert__color--info: var(--alert__color);
+  --alert__border--info: hsl(195, 61%, 56%);
+  --alert__bg--info: hsl(196, 79%, 96%);
+  --alert__bg--title--info: var(--alert__bg--info);
 
   // - tip
-  --custom-containerTitle_tip-color: hsl(120, 100%, 10%);
-  --custom-container_tip-color: var(--custom-container-color);
-  --custom-container_tip-border: hsl(120, 100%, 29%);
-  --custom-container_tip-bg: hsl(120, 47%, 93%);
+  --alert__color--title--tip: hsl(120, 100%, 10%);
+  --alert__color--tip: var(--alert__color);
+  --alert__border--tip: hsl(120, 100%, 29%);
+  --alert__bg--tip: hsl(120, 47%, 93%);
+  --alert__bg--title--tip: var(--alert__bg--tip);
 
   // - danger
-  --custom-containerTitle_danger-color: hsl(358, 63%, 18%);
-  --custom-container_danger-color: var(--custom-container-color);
-  --custom-container_danger-border: hsl(358, 74%, 54%);
-  --custom-container_danger-bg: hsl(357, 100%, 96%);
+  --alert__color--title--danger: hsl(358, 63%, 18%);
+  --alert__color--danger: var(--alert__color);
+  --alert__border--danger: hsl(358, 74%, 54%);
+  --alert__bg--danger: hsl(357, 100%, 96%);
+  --alert__bg--title--danger: var(--alert__bg--danger);
 
   // Hovercards
   --hovercard__bg: var(--body__color);
@@ -306,40 +312,40 @@
   // Alerts
 
   // - generic
-  --custom-containerTitle-color: white;
-  --custom-container-border: hsl(220, 13%, 40.8%);
-  --custom-container-bg: hsl(220, 13%, 18%);
-  --custom-container-color: var(--font__color);
+  --alert__color--title: white;
+  --alert__border: hsl(220, 13%, 40.8%);
+  --alert__bg: hsl(220, 13%, 18%);
+  --alert__color: var(--font__color);
 
   // - note
-  --custom-containerTitle_note-color: hsl(48, 33%, 77%);
-  --custom-container_note-color: var(--custom-container-color);
-  --custom-container_note-border: hsl(48, 64%, 24%);
-  --custom-container_note-bg: var(--custom-container-bg);
+  --alert__color--title--note: hsl(48, 33%, 77%);
+  --alert__color--note: var(--alert__color);
+  --alert__border--note: hsl(48, 64%, 24%);
+  --alert_bg--note: var(--alert__bg);
 
   // - warning
-  --custom-containerTitle_warning-color: hsl(43, 100%, 95%);
-  --custom-container_warning-color: var(--custom-container-color);
-  --custom-container_warning-border: hsl(44, 100%, 45%);
-  --custom-container_warning-bg: hsl(44, 100%, 15%);
+  --alert__color--title--warning: hsl(43, 100%, 95%);
+  --alert__color--warning: var(--alert__color);
+  --alert__border--warning: hsl(44, 100%, 45%);
+  --alert__bg--warning: hsl(44, 100%, 15%);
 
   // - info
-  --custom-containerTitle_info-color: hsl(196, 79%, 96%);
-  --custom-container_info-color: var(--custom-container-color);
-  --custom-container_info-border: hsl(195, 61%, 56%);
-  --custom-container_info-bg: hsl(194, 48%, 19%);
+  --alert__color--title--info: hsl(196, 79%, 96%);
+  --alert__color--info: var(--alert__color);
+  --alert__border--info: hsl(195, 61%, 56%);
+  --alert__bg--info: hsl(194, 48%, 19%);
 
   // - tip
-  --custom-containerTitle_tip-color: hsl(120, 47%, 93%);
-  --custom-container_tip-color: var(--custom-container-color);
-  --custom-container_tip-border: hsl(140, 44%, 62%);
-  --custom-container_tip-bg: hsl(140, 24%, 17%);
+  --alert__color--title--tip: hsl(120, 47%, 93%);
+  --alert__color--tip: var(--alert__color);
+  --alert__border--tip: hsl(140, 44%, 62%);
+  --alert__bg--tip: hsl(140, 24%, 17%);
 
   // - danger
-  --custom-containerTitle_danger-color: hsl(357, 100%, 96%);
-  --custom-container_danger-color: var(--custom-container-color);
-  --custom-container_danger-border: hsl(358, 74%, 54%);
-  --custom-container_danger-bg: hsl(359, 63%, 18%);
+  --alert__color--title--danger: hsl(357, 100%, 96%);
+  --alert__color--danger: var(--alert__color);
+  --alert__border--danger: hsl(358, 74%, 54%);
+  --alert__bg--danger: hsl(359, 63%, 18%);
 
   // Hovercards
   --hovercard__bg: #252830;
