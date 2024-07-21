@@ -1,122 +1,93 @@
 
 // Custom containers from markdown-it
 .alert {
-  // Position & Layout
   position: relative;
   overflow: clip;
-  // Box Model
+
   margin: 1rem 3rem 2rem 0;
   padding: 0rem 1rem 0.25rem;
   border-radius: 0.8rem;
   border-left: 0.45rem solid var(--custom-container-border);
-  // Background
+
   background-color: var(--custom-container-bg);
-  // Typography
+
   color: var(--custom-container-color);
 
   .alert__content {
     // (when there's no title)
     &:first-child {
-      // Box Model
       padding-top: 0.75rem;
     }
 
     & > :last-child {
-      // Box Model
       margin-bottom: 0.75rem;
     }
   }
 
   .alert__title {
-    // Box Model
     margin: 0rem -1rem 0.25rem;
     padding-top: 0.75rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    // Background
+
     background-color: var(--custom-containerTitle-bg);
-    // Typography
+    
     color: var(--custom-containerTitle-color);
     font-weight: 700;
     text-transform: uppercase;
   }
 
   &.note {
-    // Box Model
     border-color: var(--custom-container_note-border, var(--custom-container-border));
-    // Background
     background-color: var(--custom-container_note-bg, var(--custom-container-bg));
-    // Typography
     color: var(--custom-container_note-color, var(--custom-container-color));
 
     .alert__title {
-      // Background
       background-color: var(--custom-containerTitle_note-bg, var(--custom-containerTitle-bg));
-      // Typography
       color: var(--custom-containerTitle_note-color, var(--custom-containerTitle-color));
     }
   }
 
   &.warning {
-    // Box Model
     border-color: var(--custom-container_warning-border, var(--custom-container-border));
-    // Background
     background-color: var(--custom-container_warning-bg, var(--custom-container-bg));
-    // Typography
     color: var(--custom-container_warning-color, var(--custom-container-color));
 
     .alert__title {
-      // Background
       background-color: var(--custom-containerTitle_warning-bg, var(--custom-containerTitle-bg));
-      // Typography
       color: var(--custom-containerTitle_warning-color, var(--custom-containerTitle-color));
     }
   }
 
   &.info {
-    // Box Model
     border-color: var(--custom-container_info-border, var(--custom-container-border));
-    // Background
     background-color: var(--custom-container_info-bg, var(--custom-container-bg));
-    // Typography
     color: var(--custom-container_info-color, var(--custom-container-color));
 
     .alert__title {
-      // Background
       background-color: var(--custom-containerTitle_info-bg, var(--custom-containerTitle-bg));
-      // Typography
       color: var(--custom-containerTitle_info-color, var(--custom-containerTitle-color));
     }
   }
 
   &.tip {
-    // Box Model
     border-color: var(--custom-container_tip-border, var(--custom-container-border));
-    // Background
     background-color: var(--custom-container_tip-bg, var(--custom-container-bg));
-    // Typography
     color: var(--custom-container_tip-color, var(--custom-container-color));
 
     .alert__title {
-      // Background
       background-color: var(--custom-containerTitle_tip-bg, var(--custom-containerTitle-bg));
-      // Typography
       color: var(--custom-containerTitle_tip-color, var(--custom-containerTitle-color));
     }
   }
 
   &.danger {
-    // Box Model
     border-color: var(--custom-container_danger-border, var(--custom-container-border));
-    // Background
     background-color: var(--custom-container_danger-bg, var(--custom-container-bg));
-    // Typography
     color: var(--custom-container_danger-color, var(--custom-container-color));
 
     .alert__title {
-      // Background
       background-color: var(--custom-containerTitle_danger-bg, var(--custom-containerTitle-bg));
-      // Typography
       color: var(--custom-containerTitle_danger-color, var(--custom-containerTitle-color));
     }
   }

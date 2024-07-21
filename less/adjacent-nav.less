@@ -1,49 +1,37 @@
 
 nav.adjacent {
-  // Display & Visibility
   display: flex;
-  // Box Model
+
   margin-top: 4rem;
   border-top: 2px solid var(--thematic-break-color);
   padding-top: 4rem;
-  // Typography
+  
   justify-content: space-between;
 
   .adjacent__previous,
   .adjacent__next {
-    // Position & Layout
     justify-content: flex-start;
     align-items: top;
-    // Display & Visibility
     display: flex;
   }
 
   .adjacent__previous {
-    // Box Model
     padding-right: 3vw;
 
     &::before {
-      // Generated Content
       content: '←';
-      // Display & Visibility
       display: block;
-      // Box Model
       padding-right: 1ch;
     }
   }
   .adjacent__next {
-    // Box Model
     margin-left: auto;
     padding-left: 3vw;
-    // Typography
     text-align: right;
 
     &::after {
-      // Generated Content
       content: '→';
-      // Display & Visibility
       display: block;
-      // Box Model
       padding-left: 1ch;
     }
   }

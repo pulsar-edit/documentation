@@ -1,18 +1,16 @@
 
 html {
-  // Typography
   font-size: 62.5%;
 }
 
 body {
-  // Box Model
   margin-top: 0px;
   margin-right: 0px;
   margin-left: 0px;
   min-width: 400px;
-  // Background
+
   background-color: var(--body-color);
-  // Typography
+
   font-size: 1.6rem;
   line-height: 1.6;
   font-weight: 400;
@@ -21,7 +19,6 @@ body {
 }
 
 p {
-  // Box Model
   margin-top: 0;
 }
 
@@ -29,17 +26,14 @@ input,
 textarea,
 select,
 fieldset {
-  // Box Model
   margin-bottom: 1.5rem;
 }
 
 blockquote, dl, figure, form, ol, p, pre, table, ul {
-  // Box Model
   margin-bottom: 2rem;
 }
 
 ul, li {
-  // Box Model
   margin-left: 0;
   padding-left: 0;
 }
@@ -49,7 +43,6 @@ li {
 }
 
 cite {
-  // Typography
   font-style: italic;
   font-weight: 500;
   text-decoration: underline;
@@ -58,12 +51,10 @@ cite {
 
 
 a {
-  // Typography
   text-decoration: none;
   color: var(--link-color);
 
   &:hover {
-    // Typography
     text-decoration: underline;
     color: var(--link-color__hover);
   }
@@ -71,22 +62,19 @@ a {
 
 th,
 td {
-  // Box Model
   padding: 12px 15px;
   border-bottom: 1px solid var(--table-border);
-  // Typography
+
   text-align: left;
 }
 
 th:first-child,
 td:first-child {
-  // Box Model
   padding-left: 0;
 }
 
 th:last-child,
 td:last-child {
-  // Box Model
   padding-right: 0;
 }
 
@@ -100,7 +88,6 @@ td:last-child {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  // Box Model
   margin-top: 0;
   margin-bottom: 2rem;
 }
@@ -114,28 +101,23 @@ h6 { .h6(); }
 
 * {
   & > :is(h1, h2, h3, h4, h5, h6) {
-    // Box Model
     padding-top: 0.25rem;
   }
 }
 
 * + :is(h1, h2, h3, h4, h5, h6) {
-  // Box Model
   margin-top: 2.25rem;
 }
 
 ul {
-  // Position & Layout
   list-style: disc;
 }
 
 ol {
-  // Position & Layout
   list-style-position: outside;
 }
 
 ul, ol {
-  // Box Model
   margin-left: 2rem;
   padding-left: 0;
   margin-top: 0;
@@ -143,70 +125,62 @@ ul, ol {
 
 ul {
   ul, ol {
-    // Box Model
     margin: 1.5rem 0 1.5rem 3rem;
-    // Typography
+
     font-size: 90%;
   }
 }
 
 ol {
   ol, ul {
-    // Box Model
     margin: 1.5rem 0 1.5rem 3rem;
-    // Typography
+
     font-size: 90%;
   }
 }
 
 code {
-  // Box Model
   padding: .2rem .5rem;
   margin: 0 .2rem;
   border: 1px solid var(--code-border);
   border-color: var(--code-border);
   border-radius: @global-radius;
-  // Background
+
   background: var(--code-bg);
-  // Typography
+
   font-size: initial;
   white-space: initial;
 }
 
 pre {
-  // Typography
   tab-size: 2;
 }
 
 pre > code {
-  // Display & Visibility
   display: block;
-  // Box Model
+
   padding: 1rem 1.5rem;
-  // Typography
+
   overflow: auto;
   white-space: pre-wrap;
 }
 
 kbd {
-  // Box Model
   padding: 0.125rem 0.5rem;
   border: 2px solid var(--kbd-border, var(--btn-border));
   border-radius: 5px;
   box-shadow: 0px 2px 0px var(--kbd-border, var(--btn-border));
-  // Typography
+
   font-size: 0.8em;
 }
 
 // Inline code blocks within headings should be scaled relative to the
 // heading's font size.
 *:is(h1, h2, h3, h4, h5, h6) code {
-  // Typography
   font-size: 0.9em;
 }
 
 hr {
-  // Box Model
   margin-top: 3rem;
   margin-bottom: 3.5rem;
   border-width: 0;
@@ -215,9 +189,8 @@ hr {
 
 .button,
 button {
-  // Display & Visibility
   display: inline-block;
-  // Box Model
+
   height: 38px;
   padding: 0 30px;
   border-radius: @global-radius;
@@ -225,10 +198,10 @@ button {
   box-sizing: border-box;
   border-color: var(--btn-border);
   margin-bottom: 1rem;
-  // Background
+
   background-color: var(--btn-bg);
   cursor: pointer;
-  // Typography
+
   color: var(--btn-color);
   text-align: center;
   font-size: 11px;
@@ -244,19 +217,18 @@ input {
   &[type="submit"],
   &[type="reset"],
   &[type="button"] {
-    // Display & Visibility
     display: inline-block;
-    // Box Model
+
     height: 38px;
     padding: 0 30px;
     border-radius: @global-radius;
     border: 1px solid var(--input_btn-border);
     box-sizing: border-box;
     border-color: var(--input_btn-border);
-    // Background
+
     background-color: var(--input_btn-bg);
     cursor: pointer;
-    // Typography
+
     color: var(--input_btn-color);
     text-align: center;
     font-size: 11px;
@@ -271,12 +243,9 @@ input {
 
 .button:hover,
 button:hover {
-  // Box Model
   border-color: var(--btn-border__hover);
   outline: 0;
-  // Background
   background-color: var(--btn-bg__hover);
-  // Typography
   color: var(--btn-color__hover);
 }
 
@@ -284,24 +253,18 @@ input {
   &[type="submit"]:hover,
   &[type="reset"]:hover,
   &[type="button"]:hover {
-    // Box Model
     border-color: var(--input_btn-border__hover);
     outline: 0;
-    // Background
     background-color: var(--input_btn-bg__hover);
-    // Typography
     color: var(--input_btn-color__hover);
   }
 }
 
 .button:focus,
 button:focus {
-  // Box Model
   border-color: var(--btn-border__focus);
   outline: 0;
-  // Background
   background-color: var(--btn-bg__focus);
-  // Typography
   color: var(--btn-color__focus);
 }
 
@@ -309,23 +272,17 @@ input {
   &[type="submit"]:focus,
   &[type="reset"]:focus,
   &[type="button"]:focus {
-    // Box Model
     border-color: var(--input_btn-border__focus);
     outline: 0;
-    // Background
     background-color: var(--input_btn-bg__focus);
-    // Typography
     color: var(--input_btn-color__focus);
   }
 }
 
 .button.button-primary,
 button:button-primary {
-  // Box Model
   border-color: var(--btn_primary-border);
-  // Background
   background-color: var(--btn_primary-bg);
-  // Typography
   color: var(--btn_primary-color);
 }
 
@@ -333,22 +290,16 @@ input {
   &[type="submit"].button-primary,
   &[type="reset"].button-primary,
   &[type="button"].button-primary {
-    // Box Model
     border-color: var(--input_btn_primary-border);
-    // Background
     background-color: var(--input_btn_primary-bg);
-    // Typography
     color: var(--input_btn_primary-color);
   }
 }
 
 .button.button-primary:hover,
 button.button-primary:hover {
-  // Box Model
   border-color: var(--btn_primary-border__hover);
-  // Background
   background-color: var(--btn_primary-bg__hover);
-  // Typography
   color: var(--btn_primary-color__hover);
 }
 
@@ -356,22 +307,16 @@ input {
   &[type="submit"].button-primary:hover,
   &[type="reset"].button-primary:hover,
   &[type="button"].button-primary:hover {
-    // Box Model
     border-color: var(--input_btn_primary-border__hover);
-    // Background
     background-color: var(--input_btn_primary-bg__hover);
-    // Typography
     color: var(--input_btn_primary-color__hover);
   }
 }
 
 .button.button-primary:focus,
 button.button-primary:focus {
-  // Box Model
   border-color: var(--btn_primary-border__focus);
-  // Background
   background-color: var(--btn_primary-bg__focus);
-  // Typography
   color: var(--btn_primary-color__focus);
 }
 
@@ -379,11 +324,8 @@ input {
   &[type="submit"].button-primary:focus,
   &[type="reset"].button-primary:focus,
   &[type="button"].button-primary:focus {
-    // Box Model
     border-color: var(--input_btn_primary-border__focus);
-    // Background
     background-color: var(--input_btn_primary-bg__focus);
-    // Typography
     color: var(--input_btn_primary-color__focus);
   }
   &[type="email"],
@@ -393,7 +335,6 @@ input {
   &[type="tel"],
   &[type="url"],
   &[type="password"] {
-    // Box Model
     border: 1px solid var(--input_field-border);
     height: 38px;
     padding: 6px 10px; // The 6px vertically centers text on FF, ignored by Webkit
@@ -401,14 +342,13 @@ input {
     box-shadow: none;
     box-sizing: border-box;
     border-color: var(--input_field-border);
-    // Background
+
     background-color: var(--input_field-bg);
   }
 }
 
 textarea,
 select {
-  // Box Model
   height: 38px;
   padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
   border: 1px solid var(--textarea-border);
@@ -416,7 +356,7 @@ select {
   box-shadow: none;
   box-sizing: border-box;
   border-color: var(--textarea-border);
-  // Background
+
   background-color: var(--textarea-bg);
 }
 
@@ -452,7 +392,6 @@ input {
   &[type="tel"]:focus,
   &[type="url"]:focus,
   &[type="password"]:focus {
-    // Box Model
     border: 1px solid var(--input_field-border__focus);
     outline: 0;
     border-color: var(--input_field-border__focus);
@@ -461,7 +400,6 @@ input {
 
 textarea:focus,
 select:focus {
-  // Box Model
   border: 1px solid var(--textarea-border__focus);
   outline: 0;
   border-color: var(--textarea-border__focus);
@@ -469,16 +407,12 @@ select:focus {
 
 label,
 legend {
-  // Display & Visibility
   display: block;
-  // Box Model
   margin-bottom: .5rem;
-  // Typography
   font-weight: 600;
 }
 
 fieldset {
-  // Box Model
   padding: 0;
   border-width: 0;
 }
@@ -486,16 +420,12 @@ fieldset {
 input {
   &[type="checkbox"],
   &[type="radio"] {
-    // Display & Visibility
     display: inline;
   }
 }
 
 label > .label-body {
-  // Display & Visibility
   display: inline-block;
-  // Box Model
   margin-left: .5rem;
-  // Typography
   font-weight: normal;
 }

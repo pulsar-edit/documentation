@@ -3,38 +3,33 @@
 // the fixed header. Otherwise the headings we link to will be covered up by
 // the header.
 html {
-  // Position & Layout
   scroll-padding-top: calc(var(--page-header_height) + 3rem);
 }
 
 .border-hover-effect() {
-  // Position & Layout
   // Gives the element a position context, much like `position: relative`.
   contain: paint;
 
   &:after {
-    // Generated Content
     content: ' ';
-    // Position & Layout
+
     position: absolute;
-    // Display & Visibility
+
     visibility: hidden;
-    // Animation
+
     transition: left .2s ease-in-out, right .2s ease-in-out;
-    // Box Model
+
     bottom: 0;
     height: 2px;
     right: 50%;
     left: 50%;
-    // Background
+
     background: var(--link-color);
   }
 
   &:hover {
     &:after {
-      // Display & Visibility
       visibility: visible;
-      // Box Model
       right: 0;
       left: 0;
     }
@@ -43,52 +38,48 @@ html {
 
 
 .page-header {
-  // Position & Layout
   position: sticky;
   z-index: 1;
-  // Box Model
+
   top: 0;
   height: var(--page-header-height);
   box-shadow: 0 2px 8px var(--page-header_box-shadow-color);
   margin-bottom: 3rem;
   border-bottom: 1px solid var(--page-header-border);
-  // Background
+
   backdrop-filter: blur(12px);
   background-color: var(--page-header-bg);
-  // Typography
+
   font-size: 1.7rem;
   line-height: 1.2;
 
   // Use the SVG to size the area properly, but hide it…
   .page-header__img {
-    // Display & Visibility
     display: block;
     visibility: hidden;
-    // Box Model
+
     height: 4.5rem;
     max-width: 100%;
   }
 
   // …so that we can show the correct SVG as a background image.
   .page-header__logo {
-    // Display & Visibility
     display: block;
-    // Box Model
+
     height: 4.5rem;
     max-width: 100%;
     width: auto;
-    // Background
+
     background: var(--svg-logo) no-repeat center;
     background-size: contain;
   }
 
   .page-header__content {
-    // Position & Layout
     align-items: center;
     gap: 1.5rem;
-    // Display & Visibility
+
     display: flex;
-    // Box Model
+
     padding: 0.5rem;
     padding-left: var(--margin-x);
     padding-right: var(--margin-x);
@@ -98,35 +89,32 @@ html {
   }
 
   .page-header__items {
-    // Position & Layout
     flex-direction: row;
     justify-content: center;
     gap: 0.5rem;
-    // Display & Visibility
+
     display: flex;
-    // Box Model
+
     padding: 0;
     width: 100%;
   }
 
   .page-header__link {
     .border-hover-effect();
-    // Position & Layout
     flex-direction: row;
     align-items: center;
-    // Display & Visibility
+
     display: flex;
-    // Box Model
+
     padding: 0 0.5rem;
     min-height: 3.2rem;
-    // Typography
+
     color: var(--page-header_link-color);
     font-size: 1.4rem;
     font-weight: 500;
     text-decoration: none;
 
     span {
-      // Typography
       line-height: 1.5rem;
       text-align: center;
     }
@@ -134,20 +122,16 @@ html {
 }
 
 .theme-switcher-menu {
-  // Typography
   line-height: 0;
 
   button {
     .plain-button();
-    // Box Model
     width:  var(--theme-switcher-height) !important;
     height: var(--theme-switcher-height) !important;
     margin: 0;
 
     svg.icon {
-      // Display & Visibility
       display: none;
-      // Box Model
       width: var(--theme-switcher-height);
       height: var(--theme-switcher-height);
     }
@@ -156,14 +140,12 @@ html {
 
 [data-theme-setting="auto"] {
   .auto-icon {
-    // Display & Visibility
     display: block !important;
   }
 }
 
 [data-theme-setting="dark"] {
   .dark-icon {
-    // Display & Visibility
     display: block !important;
   }
 }
@@ -171,7 +153,6 @@ html {
 [data-theme-setting="light"] {
   .theme-switcher-menu {
     .light-icon {
-      // Display & Visibility
       display: block !important;
     }
   }

@@ -2,28 +2,25 @@
 // Hovercard
 
 [data-hovercard] {
-  // Background
   cursor: pointer;
 }
 
 .hovercard {
-  // Position & Layout
   position: absolute;
   z-index: 15;
-  // Display & Visibility
+
   display: none;
-  // Box Model
+
   padding-top: 1rem;
-  // Background
+
   background-color: var(--hovercard-bg);
-  // Typography
+
   text-decoration: none;
   color: var(--hovercard-color);
 
   .hovercard__content {
-    // Clipping
     overflow: hidden;
-    // Box Model
+
     width: 330px;
     padding: 15px 20px;
     border-radius: 5px;
@@ -31,18 +28,15 @@
     box-shadow: 0px 5px 10px 0 var(--hovercard-box-shadow);
 
     h3 {
-      // Box Model
       padding-top: 0;
       margin-top: 0;
     }
     p:last-child {
-      // Box Model
       margin-bottom: 0;
     }
   }
 
   &.visible {
-    // Display & Visibility
     display: block;
   }
 }

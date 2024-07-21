@@ -1,12 +1,11 @@
 
 .content {
-  // Position & Layout
   flex-direction: column;
   justify-content: flex-start;
   gap: 1rem;
-  // Display & Visibility
+
   display: flex;
-  // Box Model
+
   padding-left: var(--content-margin);
   padding-right: var(--content-margin);
   max-width: var(--content-max-width);
@@ -15,9 +14,8 @@
 }
 
 .container {
-  // Position & Layout
   position: relative;
-  // Box Model
+
   width: 100%;
   max-width: @container-width;
   margin: 0 auto;
@@ -27,7 +25,6 @@
 
 @media (min-width: @bp-larger-than-mobile) {
   .container {
-    // Box Model
     width: @container-width-larger-than-mobile;
     padding: 0;
   }
@@ -35,7 +32,6 @@
 
 @media (min-width: @bp-larger-than-phablet) {
   .container {
-    // Box Model
     width: @container-width-larger-than-phablet;
   }
 }
@@ -43,46 +39,37 @@
 .container:after,
 .row:after,
 .u-cf {
-  // Generated Content
   content: "";
-  // Display & Visibility
   display: table;
   clear: both;
 }
 
 .content .container {
-  // Box Model
   margin: 0 0 10rem;
   width: 100% !important;
 }
 
 // Ensure images scale down to fit the content area.
 .content img {
-  // Box Model
   max-width: 100%;
 }
 
 @media (min-width: @bp-larger-than-tablet) {
   .content {
-    // Position & Layout
     flex-direction: row;
     gap: 2rem;
 
     .container {
-      // Box Model
       max-width: calc(100vw);
     }
 
     .sidebar + .container {
-      // Box Model
       max-width: calc(100vw - 250px);
     }
   }
 
   .content .container {
-    // Position & Layout
     flex-shrink: 1;
-    // Box Model
     min-width: 0;
   }
 }
