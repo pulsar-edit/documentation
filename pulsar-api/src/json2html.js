@@ -15,7 +15,7 @@ function convert(name, content, version) {
   let env = { type: 'api', name, content };
 
   for (const section of content.sections) {
-    file += `<h3 class="section-name" id="${anchorize(section.name)}">${section.name}</h3>`;
+    file += `<h3 class="code-doc__section-name" id="${anchorize(section.name)}">${section.name}</h3>`;
     file += lookupSection(section.name, "classProperties", content, env);
     file += lookupSection(section.name, "classMethods", content, env);
     file += lookupSection(section.name, "instanceProperties", content, env);
@@ -79,7 +79,7 @@ function lookupNullSections(content, env, hasOtherSections) {
 
   let file = "";
   let sectionName = hasOtherSections ? 'Other methods' : 'All methods'
-  file += `<h3 data-count="${totalCount}" class="section-name" id="${anchorize(sectionName)}">${sectionName}</h3>`;
+  file += `<h3 data-count="${totalCount}" class="code-doc__section-name" id="${anchorize(sectionName)}">${sectionName}</h3>`;
   file += renderSection("classMethods", nullClassMethods, env);
   file += renderSection("instanceMethods", nullInstanceMethods, env);
   file += renderSection("classProperties", nullClassProperties, env);

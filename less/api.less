@@ -1,30 +1,30 @@
 
-.section-name {
+.code-doc__section-name {
   // Box Model
   margin-bottom: 3rem;
   border-bottom: 5px solid var(--thematic-break-color);
   padding-bottom: 0.25rem;
 }
 
-.description__header {
+.code-doc__description__header {
   .h2();
 }
 
-.api-entry {
+.code-doc__entry {
 
-  & + .api-entry {
+  & + .code-doc__entry {
     // Box Model
     margin-top: 3rem;
     border-top: 5px solid var(--thematic-break-color);
     padding-top: 3rem;
 
-    .api-entry__name {
+    .code-doc__entry__name {
       // Box Model
       margin-top: 0;
     }
   }
 
-  & + .section-name {
+  & + .code-doc__section-name {
     // Box Model
     margin-top:  3rem;
     padding-top: 3rem;
@@ -88,7 +88,7 @@ span.optional {
   line-height: 100%;
 }
 
-table.arguments {
+table.code-doc__arguments {
   // Box Model
   border-collapse: collapse;
   // Typography
@@ -137,21 +137,21 @@ table.arguments {
     padding-right: 0;
   }
 
-  tr.argument--depth-1 {
+  tr.code-doc__argument--depth-1 {
     td:first-of-type {
       // Box Model
       padding-left: 1.5rem;
     }
   }
 
-  tr.argument--depth-2 {
+  tr.code-doc__argument--depth-2 {
     td:first-of-type {
       // Box Model
       padding-left: 3.0rem;
     }
   }
 
-  tr.argument--depth-3 {
+  tr.code-doc__argument--depth-3 {
     td:first-of-type {
       // Box Model
       padding-left: 4.5rem;
@@ -159,7 +159,7 @@ table.arguments {
   }
 }
 
-.return-values {
+.code-doc__return-values {
   h6 {
     // Box Model
     margin-bottom: 1.25rem;

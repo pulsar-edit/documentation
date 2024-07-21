@@ -21,16 +21,16 @@
           <h1 class="title" id="title"><%= pageTitle %></h1>
         </section>
 
-        <section class="description">
-          <header class="description__header">
+        <section class="code-doc__description">
+          <header class="code-doc__description__header">
             <h2 id="description">Description</h2>
           </header>
           <%- mdRender(content.description) %>
         </section>
 
         <% if (typeof content.examples !== "undefined") { %>
-          <div class="api-entry" id="examples">
-            <h5 class="api-entry__name">
+          <div class="code-doc__entry" id="examples">
+            <h5 class="code-doc__entry__name">
               <a href="#examples">
                 Examples
               </a>
