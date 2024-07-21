@@ -1,6 +1,6 @@
 
 :root {
-  --pageHeader_height: 55px;
+  --page-header_height: 55px;
   --theme-switcher-height: 20px;
 }
 
@@ -9,7 +9,7 @@
 // the header.
 html {
   // Position & Layout
-  scroll-padding-top: calc(var(--pageHeader_height) + 3rem);
+  scroll-padding-top: calc(var(--page-header_height) + 3rem);
 }
 
 .border-hover-effect() {
@@ -53,13 +53,13 @@ html {
   z-index: 1;
   // Box Model
   top: 0;
-  height: var(--pageHeader-height);
-  box-shadow: 0 2px 8px var(--pageHeader_box-shadow-color);
+  height: var(--page-header-height);
+  box-shadow: 0 2px 8px var(--page-header_box-shadow-color);
   margin-bottom: 3rem;
-  border-bottom: 1px solid var(--pageHeader-border);
+  border-bottom: 1px solid var(--page-header-border);
   // Background
   backdrop-filter: blur(12px);
-  background-color: var(--pageHeader-bg);
+  background-color: var(--page-header-bg);
   // Typography
   font-size: 1.7rem;
   line-height: 1.2;
@@ -125,7 +125,7 @@ html {
     padding: 0 0.5rem;
     min-height: 3.2rem;
     // Typography
-    color: var(--pageHeader_link-color);
+    color: var(--page-header_link-color);
     font-size: 1.4rem;
     font-weight: 500;
     text-decoration: none;
