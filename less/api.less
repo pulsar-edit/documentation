@@ -1,12 +1,3 @@
-.monospace {
-  // Typography
-  font-family: Menlo, Consolas, 'Bitstream Vera Sans Mono', monospace;
-}
-
-:root {
-  --entry-name-color: var(--link-color);
-  --argument-color: var(--font-color-subtle);
-}
 
 .section-name {
   // Box Model
@@ -50,13 +41,13 @@
     padding-top: 0;
 
     a {
-      .monospace();
       // Typography
+      font-family: Menlo, Consolas, 'Bitstream Vera Sans Mono', monospace;
       font-size: 1.5rem;
       font-style: normal;
       letter-spacing: initial;
       text-decoration: none;
-      color: var(--entry-name-color);
+      color: var(--code-doc__entry-name-color);
 
       &:hover {
         // Typography
@@ -67,7 +58,7 @@
 
   &__argument {
     // Typograph
-    color: var(--argument-color);
+    color: var(--code-doc__argument-color);
   }
 
   &__summary {

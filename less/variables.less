@@ -1,0 +1,14 @@
+
+:root {
+  --content-max-width: 1200px;
+  // Margin on each side of the content should be 5% of the width of the window.
+  --content-margin: 5vw;
+}
+
+@media (min-width: 800px) {
+  :root {
+    // Once we reach 800px window width, that 5vw is equal to 4rem, or 40px. We
+    // should keep it there.
+    --content-margin: 4rem;
+  }
+}
