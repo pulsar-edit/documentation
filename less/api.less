@@ -1,4 +1,5 @@
 .monospace {
+  // Typography
   font-family: Menlo, Consolas, 'Bitstream Vera Sans Mono', monospace;
 }
 
@@ -8,9 +9,10 @@
 }
 
 .section-name {
+  // Box Model
+  margin-bottom: 3rem;
   border-bottom: 5px solid var(--thematicBreak-color);
   padding-bottom: 0.25rem;
-  margin-bottom: 3rem;
 }
 
 .description__header {
@@ -20,43 +22,51 @@
 .api-entry {
 
   & + .api-entry {
-    padding-top: 3rem;
-    border-top: 5px solid var(--thematicBreak-color);
+    // Box Model
     margin-top: 3rem;
+    border-top: 5px solid var(--thematicBreak-color);
+    padding-top: 3rem;
 
     .api-entry__name {
+      // Box Model
       margin-top: 0;
     }
   }
 
   & + .section-name {
-    padding-top: 3rem;
+    // Box Model
     margin-top:  3rem;
+    padding-top: 3rem;
   }
 
   &__source-link {
-    padding-left: 0.5ch;
     .octicon(file-code);
+    // Box Model
+    padding-left: 0.5ch;
   }
 
   &__name {
+    // Box Model
     padding-top: 0;
 
     a {
       .monospace();
+      // Typography
+      font-size: 1.5rem;
       font-style: normal;
       letter-spacing: initial;
-      font-size: 1.5rem;
-      color: var(--entry-name-color);
       text-decoration: none;
+      color: var(--entry-name-color);
 
       &:hover {
+        // Typography
         text-decoration: underline;
       }
     }
   }
 
   &__argument {
+    // Typograph
     color: var(--argument-color);
   }
 
@@ -64,6 +74,7 @@
     &:last-child {
       &,
       & > :last-child {
+        // Box Model
         margin-bottom: 0;
       }
     }
@@ -72,71 +83,86 @@
 
 
 span.optional {
+  // Display & Visibility
+  display: inline-block;
+  // Box Model
+  margin-right: 4px;
+  border: 1px solid var(--code-border);
+  border-radius: 4px;
+  padding: 2px;
+  // Typography
   text-transform: uppercase;
   font-weight: 600;
   font-size: 90%;
   line-height: 100%;
-  display: inline-block;
-  // padding: 4px 6px;
-  border: 1px solid var(--code-border);
-  border-radius: 4px;
-  padding: 2px;
-  margin-right: 4px;
 }
 
 table.arguments {
-  font-size: 1.5rem;
+  // Box Model
   border-collapse: collapse;
+  // Typography
+  font-size: 1.5rem;
 
   th, td {
+    // Box Model
     padding: 0.5rem 1.5rem;
   }
 
   td {
+    // Position & Layout
     vertical-align: baseline;
     contain: paint;
     code {
+      // Box Model
       margin: 0;
-      // background-color: #eee;
     }
 
     p {
+      // Box Model
       margin: 0;
     }
 
     span.optional {
+      // Position & Layout
       float: left;
+      // Box Model
       margin-top: 2px;
     }
   }
 
   th:first-of-type,
   td:first-of-type {
+    // Box Model
     padding-left: 0;
 
     code {
+      // Typography
       font-size: 85%;
     }
   }
 
   td:last-of-type {
+    // Box Model
     padding-right: 0;
   }
 
   tr.argument--depth-1 {
     td:first-of-type {
+      // Box Model
       padding-left: 1.5rem;
     }
   }
 
   tr.argument--depth-2 {
     td:first-of-type {
+      // Box Model
       padding-left: 3.0rem;
     }
   }
 
   tr.argument--depth-3 {
     td:first-of-type {
+      // Box Model
       padding-left: 4.5rem;
     }
   }
@@ -144,25 +170,26 @@ table.arguments {
 
 .return-values {
   h6 {
-    font-weight: 700;
-    font-size: 1.5rem;
+    // Box Model
     margin-bottom: 1.25rem;
     border-bottom: 1px solid var(--table-border);
     padding: 0.5rem 0;
+    // Typography
+    font-weight: 700;
+    font-size: 1.5rem;
   }
 
   &__content {
+    // Position & Layout
     list-style: none;
+    // Box Model
     margin-left: 0;
     margin-bottom: 0;
 
     & > li,
     & > li > :last-child {
+      // Box Model
       margin-bottom: 0;
     }
   }
 }
-
-// .return-values__content {
-//   list-style: circle;
-// }

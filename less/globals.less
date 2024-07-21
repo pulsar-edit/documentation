@@ -1,25 +1,32 @@
 html {
+  // Typography
   font-size: 62.5%;
 }
+
 body {
+  // Box Model
   margin-top: 0px;
   margin-right: 0px;
   margin-left: 0px;
-  font-size: 1.6rem;
   min-width: 400px;
+  // Typography
+  font-size: 1.6rem;
   line-height: 1.6;
 }
 
 blockquote, dl, figure, form, ol, p, pre, table, ul {
+  // Box Model
   margin-bottom: 2rem;
 }
 
 ul, li {
+  // Box Model
   margin-left: 0;
   padding-left: 0;
 }
 
 cite {
+  // Typography
   font-style: italic;
   font-weight: 500;
   text-decoration: underline;
@@ -28,13 +35,16 @@ cite {
 
 
 a {
+  // Typography
   text-decoration: none;
   &:hover {
+    // Typography
     text-decoration: underline;
   }
 }
 
 code {
+  // Typography
   font-size: initial;
   white-space: initial;
 }
@@ -61,54 +71,66 @@ h5 {
 
 * {
   & > :is(h1, h2, h3, h4, h6, h6) {
+    // Box Model
     padding-top: 0.25rem;
   }
 }
 
 * + :is(h1, h2, h3, h4, h5, h6) {
+  // Box Model
   margin-top: 2.25rem;
 }
 
 ul {
+  // Position & Layout
   list-style: disc;
 }
 
 ol {
+  // Position & Layout
   list-style-position: outside;
 }
 
 ul, ol {
+  // Box Model
   margin-left: 2rem;
 }
 
 pre {
+  // Typography
   tab-size: 2;
 }
 
 pre > code {
+  // Typography
   overflow: auto;
   white-space: pre-wrap;
 }
 
 kbd {
-  font-size: 0.8em;
+  // Box Model
   padding: 0.125rem 0.5rem;
   border: 2px solid var(--kbd-border, var(--btn-border));
   border-radius: 5px;
   box-shadow: 0px 2px 0px var(--kbd-border, var(--btn-border));
+  // Typography
+  font-size: 0.8em;
 }
 
 // Inline code blocks within headings should be scaled relative to the
 // heading's font size.
 *:is(h1, h2, h3, h4, h5, h6) code {
+  // Typography
   font-size: 0.9em;
 }
 
 
 a[href="TODO"] {
+  // Typography
   color: red !important;
 }
 
 img[src="TODO"] {
+  // Box Model
   outline: 2px solid red !important;
 }

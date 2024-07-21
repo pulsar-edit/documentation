@@ -1,8 +1,10 @@
 
 .blocks {
+  // Display & Visibility
   display: block;
 }
 
+// TODO: Does a top level media query generate any valid code? Does this do anything?
 @media (min-width: @bp-larger-than-phablet) {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -11,17 +13,21 @@
 }
 
 .block {
+  // Box Model
   margin-top: 0.5rem;
   margin-bottom: 0.75rem;
+  // Typography
   color: var(--block-color);
 
   &__header {
+    // Typography
     font-weight: 600;
     font-size: 2rem;
     line-height: 1.5rem;
   }
 
   &__summary {
+    // Box Model
     padding: 1rem 0 1.25rem;
   }
 }
@@ -29,12 +35,14 @@
 
 .layout--home {
   .blocks {
+    // Box Model
     margin-top: 4rem;
     padding-top: 4rem;
     border-top: 0.5rem solid var(--thematicBreak-color);
   }
 
   .block {
+    // Typography
     font-size: 2rem;
   }
 }
@@ -42,11 +50,13 @@
 @media (min-width: @bp-larger-than-tablet) {
   .layout--home {
     .blocks {
+      // Position & Layout
       columns: 2;
       column-gap: 4rem;
     }
 
     .block {
+      // Typography
       break-inside: avoid-column;
     }
   }

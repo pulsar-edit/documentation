@@ -1,11 +1,15 @@
 
 // In narrow presentations, the “sidebar” goes above the content.
 .sidebar {
-  display: flex;
+  // Position & Layout
   flex-direction: column;
+  // Display & Visibility
+  display: flex;
+  // Typography
   font-size: 14px;
 
   h6 {
+    // Box Model
     margin: 0;
   }
 }
@@ -14,7 +18,11 @@
   // Once we've got enough window width for it, we can put the sidebar on the
   // side, and keep it on screen as the user scrolls.
   .sidebar {
+    // Position & Layout
     position: sticky;
+    // Clipping
+    overflow: auto;
+    // Box Model
     top: calc(var(--pageHeader_height, 0) + 1.5rem);
     bottom: 0;
     min-height: 50vh;
@@ -24,7 +32,6 @@
     // Margin-top matches the height of the heading plus its padding — so that
     // the sidebar and the main content area are aligned.
     margin-top: 6rem;
-    overflow: auto;
   }
 }
 
@@ -40,26 +47,35 @@
 // Attempt to replicate the TOC style that we've got on the main Pulsar site.
 .sidebar__contents,
 .sidebar__toc {
+  // Box Model
   padding: 0 0 1.5rem;
 
   ul li {
+    // Box Model
     margin: 0;
   }
 
   // Hierarchical lists should decrease in size very gradually.
   ul ul {
+    // Typography
     font-size: 95%;
     line-height: 110%;
   }
 
   ul {
+    // Position & Layout
     list-style: none;
+    // Box Model
     margin: 0;
   }
 
   li {
+    // Box Model
     margin: 0;
+
     a {
+      // Typography
+
       // Setting a fixed line-height here is how we can ensure each list item
       // takes up the same amount of vertical space even if the font size
       // decreases. The trade-off is that it'll look weird if it wraps to a
@@ -70,12 +86,17 @@
   }
 
   a {
+    // Display & Visibility
     display: block;
+    // Box Model
     border-left: 2px solid var(--sidebar-border);
+    // Typography
     color: var(--link-color-subtle);
 
     &.active {
+      /// Box Model
       border-color: var(--link-color);
+      // Typography
       color: var(--link-color);
       font-weight: 600;
     }
@@ -85,7 +106,9 @@
 .sidebar__contents {
   li {
     a {
+      // Box Model
       padding-left: 1.5rem;
+      // Typography
       text-indent: -0.5rem;
       line-height: 24px;
     }
@@ -93,6 +116,7 @@
 }
 
 ul.sidebar__pages {
+  // Box Model
   margin-top: 1rem;
 }
 
@@ -100,8 +124,11 @@ ul.sidebar__pages {
 // part of the breadcrumbs, it could be confusing to show this on page load. I
 // don't know if I've figured out the right presentation here.
 .sidebar__item-toggle {
+  // Typography
   font-style: italic;
+
   a {
+    // Display & Visibility
     opacity: 0.6;
   }
 }
@@ -110,34 +137,43 @@ ul.sidebar__pages {
 // root, which in turn controls the visibility of the sibling page links.
 .sidebar--compact {
   .sidebar__item-optional {
+    // Display & Visibility
     display: none;
   }
 }
 
 .sidebar__toc {
   a {
+    // Clipping
+    overflow: clip;
+    // Typography
     white-space: nowrap;
     text-overflow: ellipsis;
-    overflow: clip;
     text-indent: -0.5rem;
   }
 
   a[data-level="0"] {
+    // Box Model
     padding-left: 1.5rem;
   }
   a[data-level="1"] {
+    // Box Model
     padding-left: 2.0rem;
   }
   a[data-level="2"] {
+    // Box Model
     padding-left: 2.5rem;
   }
   a[data-level="3"] {
+    // Box Model
     padding-left: 3.0rem;
   }
   a[data-level="4"] {
+    // Box Model
     padding-left: 3.5rem;
   }
   a[data-level="5"] {
+    // Box Model
     padding-left: 4.0rem;
   }
 }
