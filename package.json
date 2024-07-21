@@ -27,7 +27,6 @@
     "markdown-it-kbd": "^2.2.2",
     "pulsardoc": "github:confused-Techie/pulsardoc",
     "semver": "^7.6.0",
-    "skeleton-less": "github:WhatsNewSaes/Skeleton-Less",
     "terser": "^5.28.1"
   },
   "peerDependencies": {

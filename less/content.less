@@ -14,6 +14,38 @@
   margin: 0 auto;
 }
 
+.container {
+  // Position & Layout
+  position: relative;
+  // Box Model
+  width: 100%;
+  max-width: @container-width;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+@media (min-width: @bp-larger-than-mobile) {
+  .container {
+    // Box Model
+    width: @container-width-larger-than-mobile;
+    padding: 0;
+  }
+}
+
+@media (min-width: @bp-larger-than-phablet) {
+  .container {
+    width: @container-width-larger-than-phablet;
+  }
+}
+
+.container:after,
+.row:after,
+.u-cf {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 .content .container {
   // Box Model
