@@ -389,13 +389,13 @@ const Hovercards = {
     }
 
     let html = `
-      <div class="hovercard-card">
-        <div class="hovercard-title">
+      <div class="hovercard__content">
+        <div class="hovercard__title">
           <a href="${card.link}" target="_blank">
             ${card.title}
           </a>
         </div>
-        <div class="hovercard-summary">
+        <div class="hovercard__summary">
           ${card.description}
         </div>
       </div>
