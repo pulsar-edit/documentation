@@ -123,7 +123,7 @@ ul.sidebar__pages {
 // This item controls the visibility of the sibling page list. Since it's not
 // part of the breadcrumbs, it could be confusing to show this on page load. I
 // don't know if I've figured out the right presentation here.
-.sidebar__item-toggle {
+.sidebar__item--toggle {
   // Typography
   font-style: italic;
 
@@ -136,7 +136,7 @@ ul.sidebar__pages {
 // Clicking on that item toggles the `.sidebar--compact` class name on the
 // root, which in turn controls the visibility of the sibling page links.
 .sidebar--compact {
-  .sidebar__item-optional {
+  .sidebar__item--optional {
     // Display & Visibility
     display: none;
   }
