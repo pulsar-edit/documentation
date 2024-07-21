@@ -35,6 +35,7 @@
 
 @media (min-width: @bp-larger-than-phablet) {
   .container {
+    // Box Model
     width: @container-width-larger-than-phablet;
   }
 }
@@ -42,7 +43,9 @@
 .container:after,
 .row:after,
 .u-cf {
+  // Generated Content
   content: "";
+  // Display & Visibility
   display: table;
   clear: both;
 }
