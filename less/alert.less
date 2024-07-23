@@ -1,0 +1,94 @@
+
+// Custom containers from markdown-it
+.alert {
+  position: relative;
+  overflow: clip;
+
+  margin: 1rem 3rem 2rem 0;
+  padding: 0rem 1rem 0.25rem;
+  border-radius: 0.8rem;
+  border-left: 0.45rem solid var(--alert__border);
+
+  background-color: var(--alert__bg);
+
+  color: var(--alert__color);
+
+  .alert__content {
+    // (when there's no title)
+    &:first-child {
+      padding-top: 0.75rem;
+    }
+
+    & > :last-child {
+      margin-bottom: 0.75rem;
+    }
+  }
+
+  .alert__title {
+    margin: 0rem -1rem 0.25rem;
+    padding-top: 0.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    background-color: var(--alert__bg--title);
+
+    color: var(--alert__color--title);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  &.note {
+    border-color: var(--alert__border--note, var(--alert__border));
+    background-color: var(--alert__bg--note, var(--alert__bg));
+    color: var(--alert__color--note, var(--alert__color));
+
+    .alert__title {
+      background-color: var(--alert__bg--title--note, var(--alert__bg--title));
+      color: var(--alert__color--title--note, var(--alert__color--title));
+    }
+  }
+
+  &.warning {
+    border-color: var(--alert__border--warning, var(--alert__border));
+    background-color: var(--alert__bg--warning, var(--alert__bg));
+    color: var(--alert__color--warning, var(--alert__color));
+
+    .alert__title {
+      background-color: var(--alert__bg--title--warning, var(--alert__bg--title));
+      color: var(--alert__color--title--warning, var(--alert__color--title));
+    }
+  }
+
+  &.info {
+    border-color: var(--alert__border--info, var(--alert__border));
+    background-color: var(--alert__bg--info, var(--alert__bg));
+    color: var(--alert__color--info, var(--alert__color));
+
+    .alert__title {
+      background-color: var(--alert__bg--title--info, var(--alert__bg--title));
+      color: var(--alert__color--title--info, var(--alert__color--title));
+    }
+  }
+
+  &.tip {
+    border-color: var(--alert__border--tip, var(--alert__border));
+    background-color: var(--alert__bg--tip, var(--alert__bg));
+    color: var(--alert__color--tip, var(--alert__color));
+
+    .alert__title {
+      background-color: var(--alert__bg--title--tip, var(--alert__bg--title));
+      color: var(--alert__color--title--tip, var(--alert__color--title));
+    }
+  }
+
+  &.danger {
+    border-color: var(--alert__border--danger, var(--alert__border));
+    background-color: var(--alert__bg--danger, var(--alert__bg));
+    color: var(--alert__color--danger, var(--alert__color));
+
+    .alert__title {
+      background-color: var(--alert__bg--title--danger, var(--alert__bg--title));
+      color: var(--alert__color--title--danger, var(--alert__color--title));
+    }
+  }
+}
