@@ -69,7 +69,7 @@ in that line as well.
 
 ## Additional movement and selection commands
 
-Pulsar also has a few movement and selection commands that don't have keybindings by default. You can access these commands from the [command palette](/using-pulsar/pulsar-basics/#command-palette), but if you find yourself using commands that don't have a keybinding often, have no fear! You can easily add an entry to your `keymap.cson` to create a key combination. You can open `keymap.cson` file in an editor from the <span class="platform-linux">_Edit > Keymap_</span> <span class="platform-mac">_Pulsar > Keymap_</span> <span class="platform-win">_File > Keymap_</span> menu item.
+Pulsar also has a few movement and selection commands that don't have keybindings by default. You can access these commands from the [command palette](../basics/#command-palette), but if you find yourself using commands that don't have a keybinding often, have no fear! You can easily add an entry to your `keymap.cson` to create a key combination. You can open `keymap.cson` file in an editor from the <span class="platform-linux">_Edit > Keymap_</span> <span class="platform-mac">_Pulsar > Keymap_</span> <span class="platform-win">_File > Keymap_</span> menu item.
 
 For example, the command `editor:move-to-beginning-of-screen-line` is available in the command palette, but it's not bound to any key combination. To create a key combination you need to add an entry in your `keymap.cson` file. For `editor:select-to-previous-word-boundary`, you can add the following to your `keymap.cson`:
 

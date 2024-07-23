@@ -69,7 +69,7 @@ $ pulsar -p help install
 
 You should see a message print out with details about the `pulsar -p install` command.
 
-If you do not, see the [Installing Pulsar section](../../getting-started#installing-pulsar) for instructions on how to install the `pulsar` command for your system.
+If you do not, see the [Installing Pulsar section](../../getting-started/installing-pulsar) for instructions on how to install the `pulsar` command for your system.
 
 :::
 

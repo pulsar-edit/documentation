@@ -3,9 +3,7 @@ title: Language-specific configuration settings
 layout: doc.ejs
 ---
 
-Some settings can be specified differently for different file
-types. For example, you may want Pulsar to soft-wrap Markdown files, use
-two-space tabs for Ruby files, and use four-space tabs for Python files.
+Some settings can be specified differently for different file types. For example, you may want Pulsar to soft-wrap Markdown files, use two-space tabs for Ruby files, and use four-space tabs for Python files.
 
 Many of the settings in the `editor` namespace can be scoped to an editor’s language:
 
@@ -36,7 +34,7 @@ Most other language-specific settings cannot be configured in the UI, but you ca
 
 To open your `config.cson`, run the **Application: Open Your Config** setting or press <kbd class="platform-linux platform-win">Ctrl+Shift+P</kbd><kbd class="platform-mac">Cmd+Shift+P</kbd>.
 
-Global settings are under the `*` key, and each language can have its own top-level key. This key is the language's scope. Language-specific settings take precedence over anything set in the global section for that language only.
+Global settings are under the `*` key, and each language can have its own top-level key. This key is the language’s _scope_. Language-specific settings take precedence over anything set in the global section for that language only.
 
 ```coffee
 '*': # all languages unless overridden
@@ -58,7 +56,7 @@ Global settings are under the `*` key, and each language can have its own top-le
 ```
 
 :::tip
-When you save your `config.cson`, you might see its contents change slightly. For instance, the keys above will be “normalized” to `.gfm.source`, `.ruby.source`, and `.python.source` (with the segments of each scope arranged alphabetically). This is normal.
+When you save your `config.cson`, you might see its contents change slightly. For instance, the keys above will be “normalized” to `.gfm.source`, `.ruby.source`, and `.python.source` (with the segments of each scope ordered alphabetically). This is normal.
 :::
 
 ## Finding a language’s scope name

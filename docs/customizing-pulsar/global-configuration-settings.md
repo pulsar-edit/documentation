@@ -3,7 +3,7 @@ title: Global configuration settings
 layout: doc.ejs
 ---
 
-Pulsar loads configuration settings from the `config.cson` file in your <span class="platform-linux platform-mac">`~/.pulsar`</span><span class="platform-win">`%USERPROFILE%\.pulsar`</span>.
+Pulsar loads configuration settings from the `config.cson` file in your <span class="platform-linux platform-mac">`~/.pulsar`</span><span class="platform-win">`%USERPROFILE%\.pulsar`</span> folder.
 
 ```coffee
 '*':
@@ -13,9 +13,11 @@ Pulsar loads configuration settings from the `config.cson` file in your <span cl
     'fontSize': 18
 ```
 
-The configuration is grouped into global settings under the `*` key and language-specific settings under scope named keys like `.python.source` or `.html.text`. Underneath that, you'll find configuration settings grouped by package name or one of the two core namespaces: `core` or `editor`.
+The configuration is grouped into global settings under the `*` key and language-specific settings [under scope-named keys](../language-specific-configuration-settings/) like `.python.source` or `.html.text`. Underneath that, you'll find configuration settings grouped by package name or one of the two core namespaces: `core` or `editor`.
 
 You can open this file in an editor from the <span class="platform-linux">_Edit > Config_</span><span class="platform-mac">_Pulsar > Config…_</span><span class="platform-win">_File > Config_</span> menu item.
+
+For global configuration settings, you may either edit this file directly or use the UI provided by the `settings-view` package (available via the <span class="platform-linux">_Edit > Preferences_</span> <span class="platform-mac">_Pulsar > Preferences_</span> <span class="platform-win">_File > Preferences_</span> menu). If you make changes to your settings via the `settings-view` UI, they will propagate to your `config.cson` file immediately.
 
 ## Configuration key reference
 

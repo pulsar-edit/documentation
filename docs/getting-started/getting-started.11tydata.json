@@ -1,5 +1,5 @@
 {
-  "indexTitle": "Getting Started",
+  "indexTitle": "Getting started",
   "sidebar": [
     {
       "text": "What is Pulsar?",
@@ -14,7 +14,12 @@
       "summary": "Read setup instructions for all supported platforms."
     },
     {
-      "text": "Dependencies for some community packages",
+      "text": "Adding terminal commands",
+      "link": "/getting-started/adding-terminal-commands",
+      "summary": "Launching Pulsar from the command line."
+    },
+    {
+      "text": "Installing dependencies for some community packages",
       "icon": "solid fa-rocket",
       "link": "/getting-started/dependencies-for-some-community-packages",
       "summary": "Some packages might require additional setup to run on your system."

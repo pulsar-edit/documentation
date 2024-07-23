@@ -47,8 +47,7 @@ describe("when a test is written", function () {
 
 ### Add one or more expectations
 
-The best way to learn about expectations is to read the [Jasmine documentation](https://jasmine.github.io/archives/1.3/introduction#section-Expectations)
-about them. Below is a simple example.
+The best way to learn about expectations is to read the [Jasmine documentation](https://jasmine.github.io/archives/1.3/introduction#section-Expectations) about them. Below is a simple example.
 
 ```js
 describe("when a test is written", function () {
@@ -206,9 +205,8 @@ describe("when a test is written", function () {
 
 ### Running on CI
 
-<!-- TODO: What’s the current story about running on GitHub actions? The CIs listed below are not, uh, current. -->
+It is possible to run the specs in a CI environment like GitHub Actions. The [action-pulsar-dependency page](https://github.com/marketplace/actions/action-pulsar-dependency-tester) has details. 
 
-It is now easy to run the specs in a CI environment like Travis and AppVeyor. See the [Travis CI For Your Packages](https://blog.atom.io/2014/04/25/ci-for-your-packages.html) and [AppVeyor CI For Your Packages](http://blog.atom.io/2014/07/28/windows-ci-for-your-packages.html) posts for more details.
 
 ### Running via the command line
 

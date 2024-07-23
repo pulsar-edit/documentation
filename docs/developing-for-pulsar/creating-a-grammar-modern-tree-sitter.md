@@ -166,7 +166,7 @@ The HTML classes that Pulsar uses for syntax highlighting do not correspond dire
 Here is a simple example:
 
 ```scm
-(call_expression;
+(call_expression
   (identifier) @support.other.function)
 ```
 
@@ -188,7 +188,7 @@ Tree-sitter supports additional matching criteria for queries called _predicates
 
 We’re using the built-in `#match?` predicate, along with a regular expression, to search the text within the `comment` node. Our regexes are anchored to the beginning of the string and test whether the opening delimiter signifies a block comment (`/* like this */`) or a line comment (`// like this`). In the block comment’s case, we don’t have to attempt to match the ending (`*/`) delimiter — we _know_ it must be present, or else the Tree-sitter parser wouldn’t have classified it as a `comment` node in the first place.
 
-Unfortunately, there aren’t many built-in predicates in `web-tree-sitter` alongside `#match?` and `#eq?` (which tests for _exact_ equality). But the ones that are present — `#set!`, `#is?`, and `#is-not` — allow us to associate arbitrary key/value pairs with a specific capture. Pulsar uses these to define its own _custom_ predicates.
+Unfortunately, there aren’t many built-in predicates in `web-tree-sitter` alongside `#match?` and `#eq?` (which tests for _exact_ equality). But the ones that are present — `#set!`, `#is?`, and `#is-not?` — allow us to associate arbitrary key/value pairs with a specific capture. Pulsar uses these to define its own _custom_ predicates.
 
 For instance, you may want to highlight things differently based on their position among siblings:
 

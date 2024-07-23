@@ -5,14 +5,14 @@ layout: doc.ejs
 
 You might want your package to interact with another package. It’s tempting to target the other package by name and call some of its internal methods, but a much safer and more powerful way for two packages to communiate is via a versioned API called a _service_.
 
-Ultimately, packages can see and inspect one another via the {PackageManager} defined at `atom.packages`. But services have some major upsides:
+Ultimately, packages can see and inspect one another via the {PackageManager "PackageManager instance"} defined at `atom.packages`. But services have some major upsides:
 
 * They don’t make assumptions about package names, so a package is free to rename itself as long as its service name does not change.
 * They don’t make assumptions about a package’s implementation details; a service defines a contract and is therefore safer to rely upon.
 * Services define “middleware” that can be fulfilled by any number of packages. (For example: any package that wants to improve upon `autocomplete-plus` can implement the `autocomplete.provider` service and instantly talk to all the packages built to provide data to `autocomplete-plus`.)
 * Services can evolve their contracts over time via versioning, and any package can fulfill any number of different versions of a given service at once.
 
-During the package activation phase, Pulsar acts as a matchmaker to providers and consumers of services — “introducing” them to one another whenever two packages match on service name and version.
+During the package activation phase, Pulsar acts as a matchmaker to providers and consumers of services — “introducing” them to one another whenever two packages match on service name and version. This introduction doesn’t happen until _both_ packages are activated.
 
 To provide a service, specify a `providedServices` field in your `package.json`. You should include one or more version numbers, each paired with the name of a method on your package's main module:
 

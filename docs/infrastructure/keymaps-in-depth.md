@@ -195,7 +195,7 @@ But it won’t abort the binding when focus isn’t inside an `atom-text-editor`
 
 If you want to force the native browser behavior for a given keystroke, use the `native!` directive as the command of a binding. This can be useful to enable the correct behavior in native input elements.
 
-Or, if you’re building an interface in a community package, you  apply the `native-key-bindings` class name to an element; while focus is inside that element, all the keystrokes typically handled by the browser will be assigned the `native!` directive.
+Or, if you’re building an interface in a community package, you can apply the `native-key-bindings` class name to an element; while focus is inside that element, all the keystrokes typically handled by the browser will be assigned the `native!` directive.
 
 ::: tip
 

@@ -21,11 +21,11 @@ A buffer is the text content of a file in Pulsar. It's basically the same as a f
 
 ### Command
 
-A command is a bit of functionality in Pulsar that can be triggered by the user either through a [keybinding](/using-pulsar/pulsar-basics/#keybinding) or a menu item.
+A command is a bit of functionality in Pulsar that can be triggered by the user either through a [keybinding](#keybinding) or a menu item.
 
 ### Dock
 
-Docks are collapsible [pane containers](/using-pulsar/pulsar-basics/#pane-container) that attach to the left, right, and bottom sides of the Pulsar window.
+Docks are collapsible [pane containers](#pane-container) that attach to the left, right, and bottom sides of the Pulsar window.
 
 Examples:
 
@@ -49,11 +49,11 @@ A key sequence is a special case of a key combination. It is a key combination t
 
 ### Keybinding
 
-A keybinding is a mapping of a [key combination](/using-pulsar/pulsar-basics/#key-combination), such as [[Ctrl+Enter]] to a Pulsar command.
+A keybinding is a mapping of a [key combination](#key-combination), such as [[Ctrl+Enter]], to a Pulsar command.
 
 ### Keymap
 
-A keymap is a collection of [keybindings](/using-pulsar/pulsar-basics/#keybinding). It can also refer to a file or files containing keybindings for a Pulsar package or Pulsar itself.
+A keymap is a collection of [keybindings](#keybinding). It can also refer to a file or files containing keybindings for a Pulsar package or Pulsar itself.
 
 ### Package
 
@@ -61,15 +61,15 @@ A Pulsar plugin. There is a bunch more information in the section on [Pulsar Pac
 
 ### Pane
 
-A pane is a visual section of the editor space. Each pane can hold multiple [pane items](/using-pulsar/pulsar-basics/#pane-item). There is always at least one pane in each Pulsar window.
+A pane is a visual section of the editor space. Each pane can hold multiple [pane items](#pane-item). There is always at least one pane in each Pulsar window.
 
 ### Pane container
 
-A section of the Pulsar UI that can contain multiple [panes](/using-pulsar/pulsar-basics/#pane).
+A section of the Pulsar UI that can contain multiple [panes](#pane).
 
 ### Pane item
 
-Some item, often an editor, that is displayed within a [pane](/using-pulsar/pulsar-basics/#pane-item). In the default configuration of Pulsar, pane items are represented by tags at the top of each pane.
+Some item, often an editor, that is displayed within a [pane](#pane). In the default configuration of Pulsar, pane items are represented by tags at the top of each pane.
 
 ::: info
 **Note:** The reason why we don't call them "tabs" is because you can disable the {tabs} package and then there aren't any tabs. For a similar reason, we don't call them files because some things can be shown in a pane that aren't files, like the Settings View.
@@ -107,14 +107,14 @@ This includes things like changing the theme, specifying how to handle wrapping,
 To open the settings view, you can
 
 - use the <span class="platform-linux">_Edit > Preferences_</span> <span class="platform-mac">_Pulsar > Preferences_</span> <span class="platform-win">_File > Settings_</span> menu item in the menu bar,
-- search for `settings-view:open` in the [Command Palette](/using-pulsar/pulsar-basics/#command-palette), or
+- search for `settings-view:open` in the [Command Palette](#command-palette), or
 - use the <kbd class="platform-linux platform-win">Ctrl+,</kbd><kbd class="platform-mac">Cmd+,</kbd> keybinding.
 
 ### Finding settings
 
 If you ever have any difficulty in finding the relevant setting for any part of Pulsar, try the **Search** pane in the settings view. It allows you to search the names and descriptions of search of all settings, whether in Pulsar core or in an installed package.
 
-![Searching for a Setting in Settings View](TODO "Searching for a Setting in Settings View")
+![Searching for a setting in settings view](/img/atom/settings-search.png "Searching for a setting in settings view")
 
 
 ### Changing the theme
@@ -146,7 +146,7 @@ The **Soft Wrap** option (`editor.softWrap`) will wrap lines that are too long t
 
 If **Soft Wrap At Preferred Line Length** (`editor.softWrapAtPreferredLineLength`) is enabled, lines will soft-wrap at the preferred line length — 80 characters by default — instead of using the full width of the editor pane. And, of course, that 80-character default can be configured with the **Preferred Line Length** setting (`editor.preferredLineLength`).
 
-What if you want something more complicated? For instance, maybe you prefer soft tabs in most languages, but hard tabs in Python. Luckily, any editor-related setting can also be applied on a per-language basis. You’ll learn how to do this in the [Basic Customization](TODO) section.
+What if you want something more complicated? For instance, maybe you prefer soft tabs in most languages, but hard tabs in Python. Luckily, any editor-related setting can also be [applied on a per-language basis](/customizing-pulsar/language-specific-configuration-settings/).
 
 ## Opening, modifying, and saving files
 
@@ -278,7 +278,7 @@ You can also press <kbd class="platform-linux platform-win">Ctrl+B</kbd><kbd cla
 
 The fuzzy finder uses the `core.ignoredNames`, `fuzzy-finder.ignoredNames` and `core.excludeVCSIgnoredPaths` configuration settings to filter out files and folders that will not be shown. If you have a project with tons of files you don't want it to search through, you can add patterns or paths to either of these config settings. If your project is also a repository, the `core.excludeVCSIgnoredPaths` setting controls whether Pulsar will ignore files that are specified in [`.gitignore` files](https://git-scm.com/docs/gitignore) and their equivalents in other common VCS systems.
 
-We'll learn more about config settings in [Global Configuration Settings](TODO), but for now you can easily set these in the Settings View under Core Settings.
+We'll learn more about config settings in [Global configuration settings](/customizing-pulsar/global-configuration-settings/), but for now you can easily set these in the Settings View under Core Settings.
 
 Both `core.ignoredNames` and `fuzzy-finder.ignoredNames` are interpreted as glob
 patterns as implemented by the

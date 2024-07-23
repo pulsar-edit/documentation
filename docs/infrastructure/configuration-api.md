@@ -22,7 +22,7 @@ const {View} = require('space-pen')
 class MyView extends View {
   function attached() {
     this.fontSizeObserveSubscription =
-      atom.config.observe('editor.fontSize', (newValue, {previous}) => {
+      atom.config.observe('editor.fontSize', (newValue) => {
         this.adjustFontSize(newValue)
       })
   }
@@ -33,13 +33,13 @@ class MyView extends View {
 }
 ```
 
-The `atom.config.observe` method will call the given callback immediately with the current value for the specified key path, and it will also call it in the future whenever the value of that key path changes. If you only want to invoke the callback the next time the value changes, use `atom.config.onDidChange` instead.
+The {Config::observe "atom.config.observe"} method will call the given callback immediately with the current value for the specified key path, and it will also call it in the future whenever the value of that key path changes. If you only want to invoke the callback the next time the value changes, use {Config::onDidChange "atom.config.onDidChange"} instead.
 
 Subscription methods return {Disposable} objects that can be used to unsubscribe. Note in the example above how we save the subscription to the `fontSizeObserveSubscription` property and dispose of it when the view is detached. To group multiple subscriptions together, you can add them all to a {CompositeDisposable} that you dispose when the view is detached.
 
 ## Writing config settings
 
-The `atom.config` database is populated on startup from <span class="platform-linux platform-mac">`~/.pulsar/config.cson`</span> <span class="platform-win">`%USERPROFILE%\.pulsar\config.cson`</span> but you can programmatically write to it with `atom.config.set`:
+The `atom.config` database is populated on startup from <span class="platform-linux platform-mac">`~/.pulsar/config.cson`</span> <span class="platform-win">`%USERPROFILE%\.pulsar\config.cson`</span> but you can programmatically write to it with {Config::set "atom.config.set"}:
 
 ```js
 // basic key update
