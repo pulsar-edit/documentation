@@ -9,8 +9,8 @@ For example, to change the colors of the status bar, you could add the following
 
 ```css
 .status-bar {
-	color: white;
-	background-color: black;
+  color: white;
+  background-color: black;
 }
 ```
 
@@ -39,16 +39,16 @@ Suppose you want to customize the color of a variable in Python. You can use the
 
 .syntax--source.syntax--python {
   .syntax--variable {
-		// You could make it plain…
-	  color: @syntax-text-color !important;
-		// …or color it like a string…
-		color: @syntax-color-string !important;
-		// …or like a keyword…
-		color: @syntax-color-keyword !important;
-		// …or something else.
-		// (`!important` may or may not be necessary here, depending on how your
-		// syntax theme defines its rules.)
-	}
+    // You could make it plain…
+    color: @syntax-text-color !important;
+    // …or color it like a string…
+    color: @syntax-color-string !important;
+    // …or like a keyword…
+    color: @syntax-color-keyword !important;
+    // …or something else.
+    // (`!important` may or may not be necessary here, depending on how your
+    // syntax theme defines its rules.)
+  }
 }
 ```
 

@@ -120,9 +120,9 @@ If these commands are identified and point to paths within your Pulsar installat
 ### Manually modifying your path
 
 :::tip
-Before you attempt this, you should remind yourself where you installed Pulsar. If you installed it system-wide, for instance, its installation directory would’ve defaulted to `C:\Program Files\Pulsar`; but if you installed it for just the current user, then it’ll live somewhere deep within that user’s home folder.
+Before you attempt this, you should remind yourself where you installed Pulsar. If you installed it system-wide, for instance, its installation directory would’ve defaulted to `C:\Program Files\Pulsar`; but if you installed it for just the current user, it would’ve defaulted to `C:\Users\(my-user)\AppData\Local\Programs\pulsar`.
 
-If you can’t remember, one way to find out is to search for `Pulsar.exe` in Windows Explorer. (Be sure it’s searching your whole system and not just the current folder.)
+If you can’t remember where you installed it, check these two locations first.
 :::
 
 Right-click on your Windows start menu and choose _Settings_. In the window that opens, focus the search field, type `environment`, and choose “Edit the system environment variables.”

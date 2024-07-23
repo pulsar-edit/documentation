@@ -18,7 +18,7 @@ Because Pulsar runs on Electron, it is able to use Node modules to complete task
 
 Pulsar itself uses some native modules, but those modules have been pre-built for your own architecture. But if a _community package_ uses a native module, then it’ll typically need to be built on your system when the package is installed. If an update to Pulsar carries an update to the underlying Electron framework, then those same packages will need to _rebuild_ their native modules to match the new Electron version.
 
-For these reason, if you want to install any packages that use native modules, you’ll need local toolchain for building native modules in Node:
+For this reason, if you want to install any packages that use native modules, you’ll need local toolchain for building native modules in Node:
 
 * A C++ compiler like `gcc` or `clang`
 * A recent version of [Python](https://www.python.org/)
