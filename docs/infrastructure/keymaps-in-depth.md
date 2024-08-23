@@ -120,7 +120,7 @@ Currently, there's no way to specify selector ordering within a single keymap, b
 
 For instance, the {snippets} package defines two keymap files: `snippets-1.cson` and `snippets-2.cson`. It does this because it binds two different commands to the [[Tab]] key, and it’s critical that one of those bindings is processed before the other.
 
-### Selectors and custom packages
+### Targeting specific grammars
 
 If a keybinding should only apply to a specific grammar, you can limit bindings to that grammar using the `data-grammar` attribute on the `atom-text-editor` element:
 
