@@ -124,7 +124,7 @@ Your suggestions should be returned from `getSuggestions` as an array of objects
 * `iconHTML` (optional): If you want complete control over the icon shown against the suggestion. e.g. `iconHTML: '<i class="icon-move-right"></i>'`. THe background color of the icon will still be determined (by default) from the `type`.
 * `description` (optional): A doc-string summary or short description of the suggestion. WHen specified, it will be displayed at the bottom of the suggestions list.
 * `descriptionMoreURL` (optional): A url to the documentation or more information about this suggestion. WHen specified, a `More..` link will be displayed in the description area.
-![autocomplete-description](./autocomplete-description.jpg)
+![autocomplete-description](/img/wiki/autocomplete-plus/autocomplete-description.jpg)
 * `characterMatchIndices` (optional): A list of indexes where the characters in the prefix appear in this suggestion's text. e.g. "foo" in "foo_bar" would be `[0, 1, 2]`.
 
 ### Registering your provider with `autocomplete+`
@@ -203,7 +203,7 @@ provider =
 
 The builtin `SymbolProvider` allows showing the types of symbols in the suggestion list.
 
-![symbol-provider-notes](./symbol-provider-notes.jpg)
+![symbol-provider-notes](/img/wiki/autocomplete-plus/symbol-provider-notes.jpg)
 
 The icon colors are intended to match the syntax color of the symbol type. e.g. functions are blue in this theme, so the function icon is also blue.
 
@@ -283,7 +283,7 @@ Coming up with the selectors for a given Typename object might be the hardest pa
 
 Open the {Command Palette}, then search for `log cursor scope`. You will be presented with a blue box like the following:
 
-![scopenames](./scopename.png)
+![scopenames](/img/wiki/autocomplete-plus/scopename.png)
 
 Each bullet in the box is a node. The last bullet is the symbol itself, and each preceding line is a parent of the symbol &mdash; just like CSS. With this information, you can see that the symbol can be matched with several selectors: `'.variable'`, `'.variable.assignment'`, `'.source.coffee .variable'`, etc.
 

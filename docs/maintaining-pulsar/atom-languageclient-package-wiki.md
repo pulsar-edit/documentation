@@ -4,7 +4,7 @@ layout: doc.ejs
 ---
 
 The following wiki article is a small piece of Pulsar/Atom's history.
-It may also prove to be useful when dealing with this particular package.
+It may also prove to be useful when dealing with this particular package in the future.
 This wiki entry was taken directly from the [`atom/atom-languagelcient` package wiki](https://github.com/atom/atom-languageclient/wiki) and is mirrored here in case that ever becomes inaccessible.
 
 ::: warning Warning
