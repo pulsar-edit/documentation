@@ -11,6 +11,6 @@ Most of the ways you can customize Pulsar can be bundled and distributed as a pa
 
 * add a new user interface to Pulsar
 * support another package by providing data to it (via a [service](/infrastructure/interacting-with-other-packages-via-services/))
-* add a [syntax theme](../developing-a-theme/)
-* add a [UI theme](../developing-a-theme/)
-* add one or more [language grammars](../creating-a-grammar/)
+* add a [syntax theme](developing-a-theme/)
+* add a [UI theme](developing-a-theme/)
+* add one or more [language grammars](creating-a-grammar/)
