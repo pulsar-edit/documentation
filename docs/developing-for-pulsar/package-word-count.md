@@ -19,6 +19,8 @@ Your new project will also automatically be opened for editing. The boilerplate 
 
 ![Wordcount Package is Alive Dialog](/img/atom/toggle.png)
 
+You can dismiss the dialog by executing the command again.
+
 ## Understanding the generated code
 
 Let's take a look at the code in our `lib` directory and see what is happening.
