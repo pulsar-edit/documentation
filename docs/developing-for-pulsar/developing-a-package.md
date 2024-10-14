@@ -65,7 +65,7 @@ In addition to some of the regular [Node `package.json` keys](https://docs.npmjs
   will be called when your package is loaded.
 - `activationHooks`: an Array of Strings identifying hooks that trigger your
   package's activation. The loading of your package is delayed until one of
-  these hooks are triggered. Currently, there are three activation hooks:
+  these hooks are triggered. Activation hooks include:
   - `core:loaded-shell-environment` for when Pulsar has finished loading the
     shell environment variables
   - `scope.name:root-scope-used` for when a file is opened from the specified
@@ -282,14 +282,14 @@ could do something like this:
             "type": "separator"
           },
           {
-            "label": "Selector All",
+            "label": "Select All",
             "command": "core:select-all"
           },
           {
             "type": "separator"
           },
           {
-            "label": "Deleted Selected Text",
+            "label": "Delete Selected Text",
             "command": "core:delete"
           }
         ]
@@ -318,7 +318,7 @@ Under the hood, [Jasmine v1.3](https://jasmine.github.io/archives/1.3/introducti
 
 ### Running tests
 
-Once you've got your test suite written, you can run it by pressing <kbd class="platform-linux platform-win">Ctrl+Alt+P</kbd> <kbd class="platform-mac">Alt+Cmd+Ctrl+P</kbd> or via the _View > Developer > Run Package Specs_ menu. Our generated package comes with an example test suite, so you can run this right away to see what happens.
+Once you've got your test suite written, you can run it by pressing <kbd class="platform-linux platform-win">Ctrl+Shift+Y</kbd> <kbd class="platform-mac">Alt+Cmd+Ctrl+P</kbd> or via the _View > Developer > Run Package Specs_ menu. Our generated package comes with an example test suite, so you can run this right away to see what happens.
 
 ![Spec Suite Results](/img/atom/spec-suite.png)
 
