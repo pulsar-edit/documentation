@@ -9,7 +9,7 @@ Pulsar supports two types of themes: _UI_ and _Syntax_. UI themes style elements
 
 ![Theme boundary](/img/atom/theme-boundary.png)
 
-Themes can be installed and changed from the Settings View which you can open by selecting the <span class="platform-linux">_Edit > Preferences_</span> <span class="platform-mac">_Pulsar > Preferences_</span> <span class="platform-win">_File > Preferences_</span> menu, and clicking the "Install" or "Themes" tab on the left-hand navigation.
+Themes can be installed and changed from the settings view — which you can open by selecting the <span class="platform-linux">_Edit > Preferences_</span> <span class="platform-mac">_Pulsar > Preferences_</span> <span class="platform-win">_File > Preferences_</span> menu, and clicking the "Install" or "Themes" tab on the left-hand navigation.
 
 ## Getting started
 
