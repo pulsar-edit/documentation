@@ -37,6 +37,8 @@ It’s extremely likely that your system already has a working version of Python
 
 You can verify that your system has all the needed tools by running `ppm install --check`. (Depending on how you installed Pulsar, you might need to install shell commands first, as described in the [Adding terminal commands](/getting-started/terminal-commands/#macos) article.)
 
+If `ppm install --check` produces errors, [visit the section below](#troubleshooting-with-ppm-install---check) to troubleshoot.
+
 ## macOS
 
 Building native modules for Node on macOS will require `clang` and `python`.
@@ -44,6 +46,8 @@ Building native modules for Node on macOS will require `clang` and `python`.
 macOS users will be prompted by the system to install Xcode command-line tools the first time they run `git`, `gcc`, or `clang`. You can also run `xcode-select --install` to trigger the prompt. macOS will download and install the tools automatically. **A full installation of Xcode is not necessary.**
 
 You can verify that your system has all the needed tools by running `ppm install --check`. (Be sure to install shell commands first, as described in the [Adding terminal commands](/getting-started/terminal-commands/#macos) article.)
+
+If `ppm install --check` produces errors, [visit the section below](#troubleshooting-with-ppm-install---check) to troubleshoot.
 
 ## Windows
 
@@ -77,7 +81,7 @@ If you have a pre-existing installation of any of these tools…
 
 …you do not need to download a new installer. But you may still need to re-run your original installer in order to add the **Desktop development with C++** component.
 
-If you’re unsure whether the right components are already installed, try `ppm install --check` [as documented below](#running-ppm-to-check-native-module-installation).
+If you’re unsure whether the right components are already installed, try `ppm install --check` [as documented below](#troubleshooting-with-ppm-install---check).
 
 :::
 
@@ -140,43 +144,93 @@ In my case, these would translate to:
 
 :::
 
-### Running `ppm` to check native module installation
+## Troubleshooting with `ppm install --check`
 
-Since you followed the instructions in [Launching Pulsar from the terminal](/getting-started/terminal-commands/#windows), you should be able to run `ppm` from your terminal. Try `ppm --version`; it should produce something like this:
+No matter which platform you’re on, you might run into some minor speed bumps when you try to install a package that uses a native module.
 
-![ppm --version](/img/atom/ppm-version-windows.png)
-
-At this point, we can use `ppm` itself to help us set up our native module build environment. Run `ppm install --check` to trigger a special behavior from `ppm`: it’ll try to compile a dummy native module, then report any obstacles it encountered.
+Luckily, we can use `ppm` itself to help us set up our native module build environment. Run `ppm install --check` to trigger a special behavior from `ppm`: it’ll try to compile a dummy native module, then report any obstacles it encountered.
 
 ![ppm install --check](/img/atom/ppm-install-check-windows-success.png)
 
-If `ppm install --check` works and doesn’t raise any errors, you’re done!
+If `ppm install --check` works and doesn’t raise any errors, you should be able to install packages with native modules!
 
 Otherwise, here are some things to try:
 
-#### Install `setuptools` for Python
+### Install `setuptools` for Python
 
-`ppm install --check` may complain about a lack of `distutils`. That’s something we can fix by installing Python’s `setuptools` package.
+`ppm install --check` may complain about a lack of `distutils`. That’s because Python recently stopped including that library by default — but we can fix that by installing Python’s `setuptools` package.
 
-Run this command in your terminal:
+Installation will vary based on your platform and how you installed Python.
+
+:::tabs#setuptools
+
+@tab Windows
+
+If you’re a Windows user who installed Python via the instructions above, you can run this command in your terminal:
 
 ```powershell
 pip install setuptools
 ```
 
-If it doesn’t know what `pip` is, then your Python path is not set up properly. Hopefully, it’ll succeed at installing `setuptools`, at which point you should run `ppm install --check` again. If it still fails, keep reading.
+(If it doesn’t know what `pip` is, then your Python path is not set up properly.)
 
-#### Tell `ppm` about the path to your version of Python
+@tab macOS
 
-If `ppm` still complains about missing `distutils` after the step above, or if it thinks you don’t have any build tools installed, it might be using a different version of Python than the one we just installed.
+If you’re a macOS user with Python installed, either `pip` or `pip3` will probably exist in your `PATH`, so you can try `pip install setuptools` (or `pip3 install setuptools`).
 
-Run `ppm --version` again and look at the version of Python it reports: if it’s not the version you just installed, then we’ll need to tell it how to find your Python installation.
+In some cases, though, it might balk at installing packages directly. For instance, if you installed a recent version of Python on macOS via [Homebrew](https://brew.sh/), `pip` might prefer that you run `brew install python-setuptools`.
 
-You can tell it about your Python executable two different ways, but let’s first try this one:
+@tab Linux
+
+If you’re a Linux user with Python installed, either `pip` or `pip3` will probably exist in your `PATH`, so you can try `pip install setuptools` (or `pip3 install setuptools`).
+
+In some cases, though, it might balk at installing packages directly. For instance, if you’re on Debian or Ubuntu and using a system default installation of Python,  `pip` will likely tell you that you should install `setuptools` through `apt`. There are packages called `python3-setuptools` and `python3-distutils`, either of which ought to give you what you need:
+
+```shell
+apt install python3-setuptools # or…
+apt install python3-distutils
+```
+
+You may have to add `sudo` to the beginning of either command.
+
+Other distributions will have [their own package systems](https://wiki.python.org/moin/BeginnersGuide/Download). In general, those distributions will want you to install Python libraries through their own package managers, if possible. Search for a package with `setuptools` or `distutils` in the name; that’s likely to be the one you want.
+
+:::
+
+Hopefully, you’ll succeed at installing `setuptools`, at which point you should run `ppm install --check` again. If it still fails, keep reading.
+
+### Tell `ppm` about the path to your version of Python
+
+If `ppm` still complains about missing `distutils` after the step above, or if it thinks you don’t have any build tools installed, it might be using a different version of Python than the one you think it’s using.
+
+Run `ppm --version` again and look at the version of Python it reports: if it’s not the version you had in mind, then we’ll need to tell it how to find your Python installation.
+
+First, you should find out the path to the `python` executable you want to use. Windows users might have it saved from an earlier step; macOS and Linux users might be able to use `which python` to locate it.
+
+You can tell `ppm` about your Python executable two different ways, but let’s first try this one:
+
+:::tabs#locating-python-step-1
+
+@tab Windows
 
 ```powershell
 ppm config set python "C:\Users\(my-user)\AppData\Local\Programs\Python\Python312\python.exe"
 ```
+
+@tab Linux
+
+```sh
+ppm config set python "/usr/local/bin/python3" # or whatever your path is
+```
+
+@tab macOS
+
+```sh
+ppm config set python "/usr/local/bin/python3" # or whatever your path is
+```
+
+:::
+
 
 As always, you should make sure this matches the location of your own Python installation.
 
@@ -186,29 +240,64 @@ After you run this command, try `ppm --version` again. If it picks up on your ne
 
 If not, you can try the other way of telling `ppm` about your Python location: the `PYTHON` environment variable. Run this in your terminal, again confirming you’re using the correct path to your own installation of Python:
 
+:::tabs#locating-python
+
+@tab Windows
+
 ```powershell
 $env:Python = "C:\Users\(my-user)\AppData\Local\Programs\Python\Python312\python.exe"
 ```
 
+@tab Linux
+
+```sh
+export PYTHON="/usr/local/bin/python3" # or whatever your path is
+```
+
+@tab macOS
+
+```sh
+export PYTHON="/usr/local/bin/python3" # or whatever your path is
+```
+
+:::
+
 If `ppm` recognizes your Python version when you run `ppm --version`, you should try running `ppm install --check` again. If it passes, you’ve succeeded!
 
 :::tip
-If this second technique succeeded, then you’ll want to make sure that `PYTHON` is defined automatically in future shells as well. You can define it using the same process we documented in the earlier [Adding terminal commands](/getting-started/terminal-commands/#windows) article.
+If this second technique succeeded, then you’ll want to make sure that `PYTHON` is defined automatically in future shells as well:
+
+* On macOS or Linux, you can add the line above to a shell startup file like `.bash_profile` or `.zshrc`.
+* On Windows, you can define it using the same process we documented in the earlier [Adding terminal commands](/getting-started/terminal-commands/#windows) article.
 :::
 
-#### Ensure you installed your Visual Studio tools correctly
+### Ensure you installed your tools correctly
 
-If `ppm` _still_ thinks you don’t have the right build tools installed, then it’s worth re-checking whether you’ve installed your Visual Studio tools correctly.
+If `ppm` _still_ thinks you don’t have the right build tools installed, then it’s worth re-checking whether the rest of your compilation toolchain is installed properly.
+
+:::tabs#double-checking-toolchain
+
+@tab Windows
 
 Re-run the Visual Studio installer and confirm:
 
 * You _must_ have **Visual Studio 2022 Build Tools** or **Visual Studio 2019 Build Tools** installed — or the full Visual Studio IDE of either version.
 * Select whichever one you have installed and click on [[Modify]].
-* You _must_ have “Desktop development with C++” checked. If it is not selected, select it, then click on the [[Modify]] button at the bottom right corner of the window. It will install new components.
+* You _must_ have “Desktop development with C++” checked. If it is not selected, select it, then click on the [[Modify]] button at the bottom right corner of the window. It will install new components; wait for the installer to finish before proceeding.
 
-If you had to make any changes here, wait for the installer to finish, then run `ppm install --check` again.
+@tab macOS
 
-### Installing a package with a native module
+All the tools you need should be provided with Xcode command-line tools, so [revisit the section above](#macos) and double-check that those tools are installed. For instance, `which clang` should resolve to `/usr/bin/clang`, and `clang --version` should output version information. (If it instead prompts you to install something, you didn’t have everything set up yet!)
+
+@tab Linux
+
+[Revisit the section above](#linux) and double-check that those tools are installed. You should be able to run `which gcc` (or perhaps `which clang`) and have it locate this tool.
+
+:::
+
+If you had to make any changes here, run `ppm install --check` again once new tools have been installed.
+
+## Installing a package with a native module
 
 Once `ppm` thinks it can build native modules correctly, put it to the test! You can now try to install a package that depends on native modules.
 
