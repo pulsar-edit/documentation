@@ -542,7 +542,7 @@ To oversimplify, here’s how indentation typically works in Pulsar, regardless 
 
 * When the user starts typing on row 10, we might decide that row 10 shouldn’t be indented after all. For instance, if the first character the user typed is a closing curly brace (`}`), then Pulsar will immediately decrease the indent level of that line by one level. Therefore: **to decide whether to _dedent_ a row, we usually examine the content of the row itself.**
 
-In TextMate grammars, the decisions to indent and dedent are made by comparing the contents of lines to regular expressions. In Tree-sitter grammars, the decisions are made by through query captures — typically captures named `@indent` and `@dedent`.
+In TextMate grammars, the decisions to indent and dedent are made by comparing the contents of lines to regular expressions. In Tree-sitter grammars, the decisions are made by through query captures — typically captures named `@indent` and `@dedent`. Indentation hinting is a two-phase process that corresponds to the bullet points above.
 
 This is a good starting point for an `indents.scm` for a C-like language:
 
@@ -555,9 +555,10 @@ The fact that Tree-sitter grammars expose their delimiters in the tree as [anony
 
 Here’s how we’d use these queries to make indentation decisions:
 
-* Starting with an empty JavaScript file, a user types `if (foo) {` and presses <kbd>Enter</kbd>. Pulsar runs an indent query on row 1, gets a match for `@indent`, and responds by increasing the indent level on the next line.
-* The user types a placeholder comment like `// TODO implement later` and presses <kbd>Enter</kbd> again. A query runs against row 2, finds no matches, and therefore decides that row 3 should maintain row 2’s indentation level.
-* Finally, the user types `}`. After that keystroke, Pulsar runs an indent query on row 3, finds that the row now starts with a `@dedent` capture, and responds by dedenting row 3 by one level immediately.
+* Starting with an empty JavaScript file, a user types `if (foo) {` and presses <kbd>Enter</kbd>. Pulsar runs an indent query on row 1, gets a match for `@indent`, and responds by increasing the indent level on row 2. Phase one has increased the indent by one level; since the line has no content, phase two does not alter the indentation level further.
+* The user types a placeholder comment like `// TODO implement later`. While the user types, Pulsar checks to see if any of the new content on row 2 should affect its indentation level, but it doesn’t.
+* The user presses <kbd>Enter</kbd> again. A query runs against row 2, finds no matches, and therefore decides that row 3 should maintain row 2’s indentation level of `1`.
+* Finally, the user types `}`. After that keystroke, Pulsar runs an indent query on row 3, finds that the row now starts with a `@dedent` capture, and responds by dedenting row 3 by one level immediately. Phase one produced an indent delta of `0`, but phase two produced a delta of `-1`.
 
 Thus you can see that `@indent` means “indent the next line,” while `@dedent` typically means “dedent the current line.” But keep this in mind as well:
 
@@ -610,6 +611,8 @@ For instance, we can handle “hanging” indents like this one…
   (#is? test.lastTextOnRow))
 ```
 
+(They can also use some specialized tests that apply only to indentation queries: `indent.matchesComparisonRow` an `indent.matchesCurrentRow`. You’ll see an example of this below.)
+
 `@indent` and `@dedent` are often the only captures you need. But for unusual situations, Pulsar allows for other sorts of captures:
 
 * `@dedent.next` can be used for the situation where something in row `X` hints that row `X + 1` should be dedented _no matter what_ its content is.
@@ -640,12 +643,47 @@ For instance, we can handle “hanging” indents like this one…
 
   ```scm
   ((switch_body "}" @match
-    (#set! indent.matchIndentOf parent.startPosition)))
+    (#set! indent.match parent.startPosition)))
   ```
 
   …because this capture tells Pulsar to set the closing brace’s row to match the indent level of the row where the `switch_body` itself starts. Pulsar therefore sets row 8’s level to match row 1’s.
 
   `@match` captures can also define an offset — for scenarios where they want to indent themselves some number of levels _more_ or _less_ than a reference row.
+
+  `@match` captures apply to the current row, so they are considered in phase two of indentation hinting. But they end up overriding anything that has happened in phase 1.
+
+* `@match.next` is the counterpart to `@match`, but it acts in phase one. But it also works like `@dedent.next` in that it allows you to set a “baseline” indentation level for a row without even knowing what its content will be.
+
+  We’ve seen that Pulsar’s default behavior is to maintain the previous row’s indentation level on the next row. But what if you wanted to ignore the previous row’s indentation level in “hanging indent” scenarios?
+
+  ```js
+  let result = createNewObject("foo", "bar", "baz", "thud",
+    { save: true, notifyObservers: false });
+  ```
+
+  In this example, the indentation on row 2 is meant to be one-off rather than to set a new level for future lines. When the cursor is at the end of row 2 and we press [[Enter]], we know we should move the indentation level back to `0` on row 3 without even waiting to see what the user types.
+
+  A `@match.next` capture can handle this as follows:
+
+  ```scm
+  (
+    [
+      (lexical_declaration)
+      ; (and other types, but this is a simplified example)
+    ] @match.next
+    ; This test means “if the lexical_declaration ends on the comparison row.”
+    (#if? indent.matchesComparisonRow endPosition)
+    ; The new row’s indent level should match that of the lexical_declaration’s
+    ; starting row.
+    (#set! indent.match startPosition)
+  )
+  ```
+
+  The logic for resolving a `@match.next` capture is identical to that of resolving a `@match` capture. The differences between them are that
+
+  * a `@match.next` capture works in phase one, not phase two — hence it supersedes other captures that are considered in phase one, like `@indent` and `@dedent.next`;
+  * unlike `@match`, `@match.next` does not immediately return a result — it instead proceeds to phase two and can still have its suggestion altered by a `@dedent` (or overridden entirely by `@match`).
+
 
 Read the full indent query documentation to learn the details.
 
@@ -657,7 +695,8 @@ The fourth sort of query file is typically called `tags.scm`, and its purpose is
 Tree-sitter and other tools call these things “tags,” hence `tags.scm`; but Pulsar calls them “symbols” — hence the {symbols-view} package.
 :::
 
-Pulsar’s knowlege of symbols is what allows you to type <kbd class="platform-mac">Cmd+R</kbd> <kbd class="platform-win platform-linux">Ctrl+R</kbd> and navigate a source code file by function name, or a CSS file by selector, or a Markdown file by heading name.
+
+Pulsar’s knowlege of symbols is what allows you to type <kbd class="platform-mac">Cmd+R</kbd><kbd class="platform-win platform-linux">Ctrl+R</kbd> and navigate a source code file by function name, or a CSS file by selector, or a Markdown file by heading name.
 
 The `tags.scm` file present in most Tree-sitter repositories goes into a level of detail far greater than what Pulsar needs, but that file will nonetheless work very well as-is, and can almost always be copied directly.
 
