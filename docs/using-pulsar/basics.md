@@ -295,7 +295,7 @@ When viewed in the GUI with `settings-view`, however, names of settings are made
 
 ## Proxy and Firewall Settings
 
-#### Behind a Firewall?
+### Behind a Firewall?
 
 If you are behind a firewall and seeing SSL errors when installing packages, you can disable strict SSL by running:
 
@@ -303,7 +303,7 @@ If you are behind a firewall and seeing SSL errors when installing packages, you
 $ pulsar -p config set strict-ssl false
 ```
 
-#### Using a Proxy?
+### Using a Proxy?
 
 If you are using a HTTP(S) proxy, you can configure `ppm` to use it by running:
 
