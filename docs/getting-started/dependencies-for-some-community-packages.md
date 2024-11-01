@@ -16,18 +16,33 @@ However, some popular packages will involve the use of native modules. Please re
 
 Because Pulsar runs on Electron, it is able to use Node modules to complete tasks. Node modules, though written in JavaScript, sometimes also use code written in a lower-level language and bridged to JavaScript. We’ll refer to these as **native modules**.
 
-Pulsar itself uses some native modules, but those modules have been pre-built for your own architecture. But if a _community package_ uses a native module, then it’ll typically need to be built on your system when the package is installed. If an update to Pulsar carries an update to the underlying Electron framework, then those same packages will need to _rebuild_ their native modules to match the new Electron version.
+Because native modules are compiled in a language like C++ or Rust, they need to be tailored to your processor architecture, operating system, and version of Node and/or Electron.
 
-For this reason, if you want to install any packages that use native modules, you’ll need a local toolchain for building native modules in Node:
+If you want to install a _community package_ that uses native modules, this usually requires that you have a local toolchain for building native modules in Node:
 
 * A C++ compiler like `gcc` or `clang`
 * A recent version of [Python](https://www.python.org/)
 
-The good news is that lots of developers will have this toolchain already. For instance, if you’ve already got `npm` installed on your machine and use it occasionally, it is extremely likely that you’ve already got the tools you need.
+If not, your computer may require additional setup.
 
-If not, your computer may require additional setup. Choose the section below that corresponds to your operating system.
+:::note Why is this necessary?
 
-## Linux
+Most of the software you run doesn’t have to be compiled on your machine because some other machine has already compiled it for your architecture. For instance, Pulsar itself uses some native modules, but it “prebuilds” those modules so that they don’t need to be compiled on your machine. So why are community packages different? Shouldn’t those be pre-compiled as well?
+
+Sometimes they are! Pulsar packages use NPM’s infrastructure. Any dependency that a community package relies on will usually be published to NPM; and NPM allows authors to set up their packages such that, on installation, they’ll try to download a pre-compiled version for the current Node version and architecture instead of compiling the native module locally.
+
+But there are any number of reasons why this might not happen:
+
+* Prebuilding requires time and effort on the part of the author and adds complexity to the module; it also requires infrastructure (like GitHub Actions) that, until recently, wasn’t always available for free — even for open source projects.
+* When prebuilds are available, they tend to be targeted to the most popular platforms, architectures, and Node versions. For instance, it’s extremely common for a module not to have a prebuild available for _any_ versions of Electron. It’s also common for older modules not to have prebuilds for `arm64` (like Apple Silicon), since it only recently became a popular processor architecture.
+
+:::
+
+## Setting up a build toolchain on your platform
+
+Different operating systems have different toolchains, so choose the section below that corresponds to your operating system.
+
+### Linux
 
 Building native modules for Node on Linux will require `gcc` and `python`.
 
@@ -39,7 +54,7 @@ You can verify that your system has all the needed tools by running `ppm install
 
 If `ppm install --check` produces errors, [visit the section below](#troubleshooting-with-ppm-install---check) to troubleshoot.
 
-## macOS
+### macOS
 
 Building native modules for Node on macOS will require `clang` and `python`.
 
@@ -49,14 +64,14 @@ You can verify that your system has all the needed tools by running `ppm install
 
 If `ppm install --check` produces errors, [visit the section below](#troubleshooting-with-ppm-install---check) to troubleshoot.
 
-## Windows
+### Windows
 
 To be able to build native modules on Windows, you'll need to install the following applications:
 
 * **Build Tools for Visual Studio** (or the Visual Studio IDE) with the **Desktop development with C++** component
 * **Python 3** (preferably the most recent version)
 
-### Installing Visual Studio Tools
+#### Installing Visual Studio Tools
 
 :::warning
 
@@ -87,7 +102,7 @@ If you’re unsure whether the right components are already installed, try `ppm 
 
 If you didn’t install the right things the first time around, you can re-run the Visual Studio installer and modify your installation.
 
-### Installing Python
+#### Installing Python
 
 Python can be downloaded from [the Python website](https://www.python.org/downloads/windows/). The latest version of Python 3 is a good choice.
 
@@ -110,7 +125,7 @@ It’s a good idea to select the “Add Python to environment variables” optio
 
 Please also note where the installer plans to install Python. You might want to select and copy this value so that you can use it later if you need to help `ppm` find Python.
 
-### Checking your path
+#### Checking your path
 
 :::warning
 
@@ -144,7 +159,7 @@ In my case, these would translate to:
 
 :::
 
-## Troubleshooting with `ppm install --check`
+### Troubleshooting with `ppm install --check`
 
 No matter which platform you’re on, you might run into some minor speed bumps when you try to install a package that uses a native module.
 
@@ -156,7 +171,7 @@ If `ppm install --check` works and doesn’t raise any errors, you should be abl
 
 Otherwise, here are some things to try:
 
-### Install `setuptools` for Python
+#### Install `setuptools` for Python
 
 `ppm install --check` may complain about a lack of `distutils`. That’s because Python recently stopped including that library by default — but we can fix that by installing Python’s `setuptools` package.
 
@@ -199,7 +214,7 @@ Other distributions will have [their own package systems](https://wiki.python.or
 
 Hopefully, you’ll succeed at installing `setuptools`, at which point you should run `ppm install --check` again. If it still fails, keep reading.
 
-### Tell `ppm` about the path to your version of Python
+#### Tell `ppm` about the path to your version of Python
 
 If `ppm` still complains about missing `distutils` after the step above, or if it thinks you don’t have any build tools installed, it might be using a different version of Python than the one you think it’s using.
 
@@ -271,7 +286,7 @@ If this second technique succeeded, then you’ll want to make sure that `PYTHON
 * On Windows, you can define it using the same process we documented in the earlier [Adding terminal commands](/getting-started/terminal-commands/#windows) article.
 :::
 
-### Ensure you installed your tools correctly
+#### Ensure you installed your tools correctly
 
 If `ppm` _still_ thinks you don’t have the right build tools installed, then it’s worth re-checking whether the rest of your compilation toolchain is installed properly.
 
@@ -297,7 +312,7 @@ All the tools you need should be provided with Xcode command-line tools, so [rev
 
 If you had to make any changes here, run `ppm install --check` again once new tools have been installed.
 
-## Installing a package with a native module
+### Installing a package with a native module
 
 Once `ppm` thinks it can build native modules correctly, put it to the test! You can now try to install a package that depends on native modules.
 
@@ -310,3 +325,19 @@ ppm install x-terminal-reloaded
 It’s unlikely, but still possible, that you might run into failures here that you didn’t encounter earlier while running `ppm install --check`. If so, some of the steps above may still be useful.
 
 If you’ve followed the instructions on this page and still can’t get your package to install, join us [on Discord](https://discord.gg/7aEbB9dGRT) or [in GitHub Discussions](https://github.com/orgs/pulsar-edit/discussions) and we’ll try to get you back on track.
+
+
+## Rebuilding packages with native modules
+
+Since native modules have to be built against a specific version of Node or Electron, they have to be _rebuilt_ whenever that version changes.
+
+When you upgrade Pulsar, you might occasionaly see an item in your status bar that suggests that some of your packages are incompatible. Pulsar detects this via the built-in {incompatible-packages} package. Clicking on that status item will show you a list of community packages that need addressing.
+
+![incompatible packages indicator](/img/atom/incompatible-packages-indicator.png)
+
+When an update results in some of your packages being incompatible, it’s probably because Pulsar updated the version of Electron it uses. There are two common ways of fixing this:
+
+* The author might already have updated the package, in which case the fix could be as simple as installing the update.
+* Otherwise, the way to fix this is to rebuild the native module for the current version of Electron — something that Pulsar should be able to do on its own! To rebuild your packages, click the <kbd>Rebuild Packages</kbd> button.
+
+![incompatible packages UI](/img/atom/incompatible-packages-ui.png)
