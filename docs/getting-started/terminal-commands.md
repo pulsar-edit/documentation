@@ -205,10 +205,6 @@ But we can go further and use aliases to eliminate the difference altogether:
 
 ### Windows
 
-:::danger
-**TODO:** Certain parts of these instructions won’t work right until [#1054](https://github.com/pulsar-edit/pulsar/pull/1054) and [#1071](https://github.com/pulsar-edit/pulsar/pull/1071) are landed.
-:::
-
 #### Standard installation
 
 The standard Windows installation of Pulsar allows the user to add `pulsar` and `ppm` to their `PATH`; both options are enabled by default during the setup wizard.
