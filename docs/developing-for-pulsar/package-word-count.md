@@ -7,7 +7,7 @@ Let's get started by writing a very simple package that will tell you how many w
 
 The simplest way to start a package is to use the built-in package generator that ships with Pulsar. As you might expect by now, this generator is itself a separate package implemented in {package-generator}.
 
-You can run the generator by invoking the command palette and searching for "Generate Package". A dialog will appear asking you to name your new project. Name it `your-name-word-count`. Atom will then create that directory and fill it out with a skeleton project and link it into your `~/.pulsar/packages` directory so it's loaded when you launch your editor next time.
+You can run the generator by invoking the command palette and searching for "Generate Package". A dialog will appear asking you to name your new project. Name it `your-name-word-count`. Pulsar will then create that directory and fill it out with a skeleton project and link it into your `~/.pulsar/packages` directory so it's loaded when you launch your editor next time.
 
 ::: tip
 
@@ -18,6 +18,8 @@ The examples will proceed as though you had typed `your-name` literally, but you
 Your new project will also automatically be opened for editing. The boilerplate for the new package contains one command called **Your Name Word Count: Toggle**; if you were to invoke this command through the menu or command palette, you’d see a dialog that says "The YourNameWordCount package is Alive! It's Alive!"
 
 ![Wordcount Package is Alive Dialog](/img/atom/toggle.png)
+
+You can dismiss the dialog by executing the command again.
 
 ## Understanding the generated code
 
@@ -115,7 +117,7 @@ There is a bit more going on here. We’re defining four methods here, but the o
 
 The `deactivate` and `serialize` methods are expected by Pulsar but optional: if present, they’ll be called when the package is deactivated and when the window is closed, respectively.
 
-The `toggle` method isn’t a method that Pulsar itself knows or cares about; for it to be called, we’ll have to invoke it ourselves. We could hook it up to a menu option, or define a command that calls that method, or wire up an event handlers to call that method when some sort of editor event happens.
+The `toggle` method isn’t a method that Pulsar itself knows or cares about; for it to be called, we’ll have to invoke it ourselves. We could hook it up to a menu option, or define a command that calls that method, or wire up an event handler to call that method when some sort of editor event happens.
 
 ### The `activate` method
 
