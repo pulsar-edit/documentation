@@ -1,29 +1,48 @@
-:root {
-  --content-max-width: 1200px;
-  // Margin on each side should be 5% of the width of the window.
-  --margin-x: 5vw;
-}
-
-@media (min-width: 800px) {
-  :root {
-    // Once we reach 800px window width, that 5vw is equal to 4rem, or 40px. We
-    // should keep it there.
-    --margin-x: 4rem;
-  }
-}
 
 .content {
-  display: flex;
   flex-direction: column;
   justify-content: flex-start;
   gap: 1rem;
-  padding-left: var(--margin-x);
-  padding-right: var(--margin-x);
+
+  display: flex;
+
+  padding-left: var(--content-margin);
+  padding-right: var(--content-margin);
   max-width: var(--content-max-width);
   box-sizing: border-box;
   margin: 0 auto;
 }
 
+.container {
+  position: relative;
+
+  width: 100%;
+  max-width: @container-width;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+@media (min-width: @bp-larger-than-mobile) {
+  .container {
+    width: @container-width-larger-than-mobile;
+    padding: 0;
+  }
+}
+
+@media (min-width: @bp-larger-than-phablet) {
+  .container {
+    width: @container-width-larger-than-phablet;
+  }
+}
+
+.container:after,
+.row:after,
+.u-cf {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 .content .container {
   margin: 0 0 10rem;
