@@ -102,10 +102,6 @@ The `deb` and `rpm` distributions of Pulsar will automatically place `pulsar` an
 
 #### `.tar.gz` installation
 
-:::danger
-**TODO:** Certain parts of these instructions won’t work right until [#1066](https://github.com/pulsar-edit/pulsar/pull/1066) is landed.
-:::
-
 If you downloaded the `.tar.gz` version of Pulsar, you’ll find that it decompresses into a folder with a `pulsar` binary at its root. Launching this binary from the terminal will launch Pulsar.
 
 :::info Updating the tar.gz distribution
