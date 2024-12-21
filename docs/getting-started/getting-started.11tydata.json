@@ -14,8 +14,8 @@
       "summary": "Read setup instructions for all supported platforms."
     },
     {
-      "text": "Adding terminal commands",
-      "link": "/getting-started/adding-terminal-commands",
+      "text": "Launching Pulsar from the terminal",
+      "link": "/getting-started/terminal-commands",
       "summary": "Launching Pulsar from the command line."
     },
     {
