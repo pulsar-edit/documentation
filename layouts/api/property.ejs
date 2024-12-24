@@ -1,6 +1,6 @@
 <% for (const item of content) { %>
-  <div class="api__entry" id="<%= anchorize(item.name) %>">
-    <h4 class="api__entry__name">
+  <div class="api-entry" id="<%= anchorize(item.name) %>">
+    <h4 class="api-entry__name">
       <a href="#<%= anchorize(item.name) %>">
         <span><%= locals.separator ?? '::' -%><%= item.name %></span>
       </a>
