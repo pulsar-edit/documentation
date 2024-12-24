@@ -1,380 +1,383 @@
-// Variable Naming Guide
 /*
-  The variable naming here follows [BEM](https://getbem.com/naming/)
+  The variable naming roughly follows the order of [BEM](https://getbem.com/naming/).
+  But not the syntax. Each element is only delimited by a `-`.
+  Keep in mind a multi-word block/element/modifier is also delimited by a `-`.
+  Leaving our naming convention to be:
+  `--<block>-<element>-<modifier>`
 
-  Recognized Properties:
+  Recognized shorthand:
     * bg = background-color
-    * color = color
     * border = border-color
+    * btn = button
 */
 
 .light-mode() {
   --svg-logo: url(/static/logo-name-navbar-light.svg);
 
   // Global Page Elements
-  --body__color: white;
-  --font__color: hsl(211, 29%, 32%);
-  --font__color--subtle: hsl(211, 0%, 56%);
+  --body-color: white;
+  --font-color: hsl(211, 29%, 32%);
+  --font-color-subtle: hsl(211, 0%, 56%);
 
   // Generic Page Elements
 
   // - links
-  --link__color: hsl(153, 48%, 46%);
-  --link__color--hover: hsl(153, 48%, 36%);
+  --link-color: hsl(153, 48%, 46%);
+  --link-color-hover: hsl(153, 48%, 36%);
 
-  --link__color--subtle: hsl(153, 0%, 46%);
+  --link-color-subtle: hsl(153, 0%, 46%);
 
   // - code blocks
-  --code__bg: hsl(0, 0%, 100%);
-  --code__border: hsl(130, 1%, 86%);
+  --code-bg: hsl(0, 0%, 100%);
+  --code-border: hsl(130, 1%, 86%);
 
   // - thematic break
-  --thematic-break__color: hsl(230, 1%, 92%);
+  --thematic-break-color: hsl(230, 1%, 92%);
 
   // - tables
-  --table__border: hsl(230, 1%, 92%);
+  --table-border: hsl(230, 1%, 92%);
 
   // `kbd` elements
-  --kbd__border: hsl(230, 1%, 66%);
+  --kbd-border: hsl(230, 1%, 66%);
 
   // Buttons
-  --btn__color: hsl(130, 1%, 26%);
-  --btn__border: hsl(230, 1%, 86%);
-  --btn__bg: hsl(0, 0%, 100%);
+  --btn-color: hsl(130, 1%, 26%);
+  --btn-border: hsl(230, 1%, 86%);
+  --btn-bg: hsl(0, 0%, 100%);
 
-  --btn__color--hover: hsl(230, 1%, 14%);
-  --btn__border--hover: hsl(230, 1%, 866%);
-  --btn__bg--hover: hsl(0, 0%, 96%);
+  --btn-color-hover: hsl(230, 1%, 14%);
+  --btn-border-hover: hsl(230, 1%, 866%);
+  --btn-bg-hover: hsl(0, 0%, 96%);
 
-  --btn__color--focus: hsl(230, 1%, 26%);
-  --btn__border--focus: #556de8;
-  --btn__bg--focus: hsl(0, 0%, 96%);
+  --btn-color-focus: hsl(230, 1%, 26%);
+  --btn-border-focus: #556de8;
+  --btn-bg-focus: hsl(0, 0%, 96%);
 
-  --btn__color--primary: white;
-  --btn__bg--primary: #5871ef;
-  --btn__border--primary: hsl(230, 1%, 86%);
+  --btn-color-primary: white;
+  --btn-bg-primary: #5871ef;
+  --btn-border-primary: hsl(230, 1%, 86%);
 
-  --btn__color--primary--hover: white;
-  --btn__bg--primary--hover: #5871ef;
-  --btn__border--primary--hover: hsl(230, 1%, 86%);
+  --btn-color-primary-hover: white;
+  --btn-bg-primary-hover: #5871ef;
+  --btn-border-primary-hover: hsl(230, 1%, 86%);
 
-  --btn__color--primary--focus: white;
-  --btn__bg--primary--focus: #5871ef;
-  --btn__border--primary--focus: transparent;
+  --btn-color-primary-focus: white;
+  --btn-bg-primary-focus: #5871ef;
+  --btn-border-primary-focus: transparent;
 
   // Inputs
 
   // - input buttons
-  --input-btn__color: var(--btn__color);
-  --input-btn__border: var(--btn__border);
-  --input-btn__bg: var(--btn__bg);
+  --input-btn-color: var(--btn-color);
+  --input-btn-border: var(--btn-border);
+  --input-btn-bg: var(--btn-bg);
 
-  --input-btn__color--hover: var(--btn__color--hover);
-  --input-btn__border--hover: var(--btn__border--hover);
-  --input-btn__bg--hover: var(--btn__bg--hover);
+  --input-btn-color-hover: var(--btn-color-hover);
+  --input-btn-border-hover: var(--btn-border-hover);
+  --input-btn-bg-hover: var(--btn-bg-hover);
 
-  --input-btn__color--focus: var(--btn__color--focus);
-  --input-btn__border--focus: var(--btn__border--focus);
-  --input-btn__bg--focus: var(--btn__bg--focus);
+  --input-btn-color-focus: var(--btn-color-focus);
+  --input-btn-border-focus: var(--btn-border-focus);
+  --input-btn-bg-focus: var(--btn-bg-focus);
 
-  --input-btn__color--primary: var(--btn__color--primary);
-  --input-btn__bg--primary: var(--btn__bg--primary);
-  --input-btn__border--primary: var(--btn__border--primary);
+  --input-btn-color-primary: var(--btn-color-primary);
+  --input-btn-bg-primary: var(--btn-bg-primary);
+  --input-btn-border-primary: var(--btn-border-primary);
 
-  --input-btn__color--primary--hover: var(--btn__color--primary--hover);
-  --input-btn__bg--primary--hover: var(--btn__bg--primary--hover);
-  --input-btn__border--primary--hover: var(--btn__border--primary--hover);
+  --input-btn-color-primary-hover: var(--btn-color-primary-hover);
+  --input-btn-bg-primary-hover: var(--btn-bg-primary-hover);
+  --input-btn-border-primary-hover: var(--btn-border-primary-hover);
 
-  --input-btn__color--primary--focus: var(--btn__color--primary--focus);
-  --input-btn__bg--primary--focus: var(--btn__bg--primary--focus);
-  --input-btn__border--primary--focus: var(--btn__border--primary--focus);
+  --input-btn-color-primary-focus: var(--btn-color-primary-focus);
+  --input-btn-bg-primary-focus: var(--btn-bg-primary-focus);
+  --input-btn-border-primary-focus: var(--btn-border-primary-focus);
 
   // - input fields
-  --input-field__bg: hsl(0, 0%, 100%);
-  --input-field__border: hsl(230, 1%, 86%);
+  --input-field-bg: hsl(0, 0%, 100%);
+  --input-field-border: hsl(230, 1%, 86%);
 
-  --input_field__border--focus: #556de8;
+  --input-field-border-focus: #556de8;
 
   // - textareas
-  --textarea__bg: var(--input-field__bg);
-  --textarea__border: var(--input-field__border);
+  --textarea-bg: var(--input-field-bg);
+  --textarea-border: var(--input-field-border);
 
-  --textarea__border--focus: var(--input_field__border--focus);
+  --textarea-border-focus: var(--input-field-border-focus);
 
   // Tab Headers
-  --tab-header__bg: transparent; //hsl(230, 1%, 92%);
-  --tab-header__box-shadow: hsl(230deg 1% 86%);
+  --tab-header-bg: transparent; //hsl(230, 1%, 92%);
+  --tab-header-box-shadow: hsl(230deg 1% 86%);
 
-  --tab-btn__color: hsl(230, 1%, 14%);
-  --tab-btn__border: hsl(230, 1%, 86%);
-  --tab-btn__bg--active: hsl(230, 1%, 96%);
+  --tab-btn-color: hsl(230, 1%, 14%);
+  --tab-btn-border: hsl(230, 1%, 86%);
+  --tab-btn-bg-active: hsl(230, 1%, 96%);
 
-  --tab-wrapper__border: hsl(230deg, 1%, 66%);
-  --tab-container__bg: hsl(230, 1%, 96%);
+  --tab-wrapper-border: hsl(230deg, 1%, 66%);
+  --tab-container-bg: hsl(230, 1%, 96%);
 
   // Page Header
-  --page-header__bg: hsla(0, 100%, 100%, 0.9);
-  --page-header__border: hsl(230, 1%, 86%);
-  --page-header__color--link: hsl(0, 0%, 40%);
-  --page-header__box-shadow__color: rgba(0, 0, 0, .15);
-  --page-header__height: 55px;
+  --page-header-bg: hsla(0, 100%, 100%, 0.9);
+  --page-header-border: hsl(230, 1%, 86%);
+  --page-header-color-link: hsl(0, 0%, 40%);
+  --page-header-box-shadow-color: rgba(0, 0, 0, .15);
+  --page-header-height: 55px;
 
-  --theme-switcher__height: 20px;
+  --theme-switcher-height: 20px;
 
   // Alerts
 
   // - generic
-  --alert__color--title: hsl(240, 1%, 28%);
-  --alert__border: hsl(230deg, 1%, 66%);
-  --alert__bg: hsl(230, 1%, 99%);
-  --alert__bg--title: var(--alert_bg);
-  --alert__color: var(--font__color);
+  --alert-color-title: hsl(240, 1%, 28%);
+  --alert-border: hsl(230deg, 1%, 66%);
+  --alert-bg: hsl(230, 1%, 99%);
+  --alert-bg-title: var(--alert-bg);
+  --alert-color: var(--font-color);
 
   // - note
-  --alert__color--title--note: hsl(230, 1%, 26%);
-  --alert__color--note: var(--alert__color);
-  --alert__border--note: hsl(48, 64%, 24%);
-  --alert__bg--note: hsl(48, 84%, 93%);
-  --alert__bg--title--note: var(--alert__bg--note);
+  --alert-color-title-note: hsl(230, 1%, 26%);
+  --alert-color-note: var(--alert-color);
+  --alert-border-note: hsl(48, 64%, 24%);
+  --alert-bg-note: hsl(48, 84%, 93%);
+  --alert-bg-title-note: var(--alert-bg-note);
 
   // - warning
-  --alert__color--title--warning: hsl(44, 100%, 15%);
-  --alert__color--warning: var(--alert__color);
-  --alert__border--warning: hsl(37, 90%, 44%);
-  --alert__bg--warning: hsl(37, 90%, 94%);
-  --alert__bg--title--warning: var(--alert__bg--warning);
+  --alert-color-title-warning: hsl(44, 100%, 15%);
+  --alert-color-warning: var(--alert-color);
+  --alert-border-warning: hsl(37, 90%, 44%);
+  --alert-bg-warning: hsl(37, 90%, 94%);
+  --alert-bg-title-warning: var(--alert-bg-warning);
 
   // - info
-  --alert__color--title--info: hsl(194, 48%, 19%);
-  --alert__color--info: var(--alert__color);
-  --alert__border--info: hsl(195, 61%, 56%);
-  --alert__bg--info: hsl(196, 79%, 96%);
-  --alert__bg--title--info: var(--alert__bg--info);
+  --alert-color-title-info: hsl(194, 48%, 19%);
+  --alert-color-info: var(--alert-color);
+  --alert-border-info: hsl(195, 61%, 56%);
+  --alert-bg-info: hsl(196, 79%, 96%);
+  --alert-bg-title-info: var(--alert-bg-info);
 
   // - tip
-  --alert__color--title--tip: hsl(120, 100%, 10%);
-  --alert__color--tip: var(--alert__color);
-  --alert__border--tip: hsl(120, 100%, 29%);
-  --alert__bg--tip: hsl(120, 47%, 93%);
-  --alert__bg--title--tip: var(--alert__bg--tip);
+  --alert-color-title-tip: hsl(120, 100%, 10%);
+  --alert-color-tip: var(--alert-color);
+  --alert-border-tip: hsl(120, 100%, 29%);
+  --alert-bg-tip: hsl(120, 47%, 93%);
+  --alert-bg-title-tip: var(--alert-bg-tip);
 
   // - danger
-  --alert__color--title--danger: hsl(358, 63%, 18%);
-  --alert__color--danger: var(--alert__color);
-  --alert__border--danger: hsl(358, 74%, 54%);
-  --alert__bg--danger: hsl(357, 100%, 96%);
-  --alert__bg--title--danger: var(--alert__bg--danger);
+  --alert-color-title-danger: hsl(358, 63%, 18%);
+  --alert-color-danger: var(--alert-color);
+  --alert-border-danger: hsl(358, 74%, 54%);
+  --alert-bg-danger: hsl(357, 100%, 96%);
+  --alert-bg-title-danger: var(--alert-bg-danger);
 
   // Hovercards
-  --hovercard__bg: var(--body__color);
-  --hovercard__box-shadow: hsla(0deg, 0%, 0%, 0.4);
-  --hovercard__color: hsl(230, 1%, 26%);
+  --hovercard-bg: var(--body-color);
+  --hovercard-box-shadow: hsla(0deg, 0%, 0%, 0.4);
+  --hovercard-color: hsl(230, 1%, 26%);
 
   // Sidebar
-  --sidebar__border: hsl(230, 1%, 86%);
+  --sidebar-border: hsl(230, 1%, 86%);
 
   // Blocks
-  --block__color: var(--btn__color);
-  --block__border: var(--btn__border);
-  --block__bg: var(--btn__bg);
+  --block-color: var(--btn-color);
+  --block-border: var(--btn-border);
+  --block-bg: var(--btn-bg);
 
-  --block__color--hover: var(--btn__color--hover);
-  --block__border--hover: var(--btn__border--hover);
-  --block__bg--hover: var(--btn__bg--hover);
+  --block-color-hover: var(--btn-color-hover);
+  --block-border-hover: var(--btn-border-hover);
+  --block-bg-hover: var(--btn-bg-hover);
 
   // Syntax highlighting
-  --syntax__string:   hsl(119, 34%, 47%);
-  --syntax__comment:  hsl(230, 4%, 64%);
-  --syntax__variable: hsl(  5, 74%, 59%);
-  --syntax__function: hsl(221, 87%, 60%);
-  --syntax__keyword:  hsl(301, 63%, 40%);
-  --syntax__constant: hsl( 35, 99%, 36%);
+  --syntax-string:   hsl(119, 34%, 47%);
+  --syntax-comment:  hsl(230, 4%, 64%);
+  --syntax-variable: hsl(  5, 74%, 59%);
+  --syntax-function: hsl(221, 87%, 60%);
+  --syntax-keyword:  hsl(301, 63%, 40%);
+  --syntax-constant: hsl( 35, 99%, 36%);
 
   // Code Documentation
-  --api-entry-name__color: var(--link__color);
-  --api-argument__color: var(--font__color--subtle);
+  --api-entry-name-color: var(--link-color);
+  --api-argument-color: var(--font-color-subtle);
 }
 
 .dark-mode() {
   --svg-logo: url(/static/logo-name-navbar-dark.svg);
 
   // Global Page Elements
-  --body__color: hsl(220, 13%, 15%);
-  --font__color: hsl(220, 13%, 66%);
-  --font__color--subtle: hsl(220, 0%, 66%);
+  --body-color: hsl(220, 13%, 15%);
+  --font-color: hsl(220, 13%, 66%);
+  --font-color-subtle: hsl(220, 0%, 66%);
 
   // Generic Page Elements
 
   // - links
-  --link__color: hsl(153, 48%, 46%);
-  --link__color--hover: hsl(153, 48%, 36%);
+  --link-color: hsl(153, 48%, 46%);
+  --link-color-hover: hsl(153, 48%, 36%);
 
-  --link__color--subtle: hsl(153, 0%, 46%);
+  --link-color-subtle: hsl(153, 0%, 46%);
 
   // - code blocks
-  --code__bg: #2c313c;
-  --code__border: hsl(220deg 13% 11%);
+  --code-bg: #2c313c;
+  --code-border: hsl(220deg 13% 11%);
 
   // - thematic break
-  --thematic-break__color: hsl(220, 13%, 10.8%);
+  --thematic-break-color: hsl(220, 13%, 10.8%);
 
   // - tables
-  --table__border: hsl(220, 13%, 10.8%);
+  --table-border: hsl(220, 13%, 10.8%);
 
   // `kbd` elements
-  --kbd__border: hsl(220, 13%, 36%);
+  --kbd-border: hsl(220, 13%, 36%);
 
   // Buttons
-  --btn__color: hsl(220, 13%, 66%);
-  --btn__border: hsl(220, 13%, 10.8%);
-  --btn__bg: hsl(220, 13%, 24%);
+  --btn-color: hsl(220, 13%, 66%);
+  --btn-border: hsl(220, 13%, 10.8%);
+  --btn-bg: hsl(220, 13%, 24%);
 
-  --btn__color--hover: hsl(220, 13%, 86%);
-  --btn__border--hover: hsl(220, 13%, 10.8%);
-  --btn__bg--hover: hsl(220, 13%, 26%);
+  --btn-color-hover: hsl(220, 13%, 86%);
+  --btn-border-hover: hsl(220, 13%, 10.8%);
+  --btn-bg-hover: hsl(220, 13%, 26%);
 
-  --btn__color--focus: hsl(220, 13%, 86%);
-  --btn__border--focus: #568af2;
-  --btn__bg--focus: hsl(220, 13%, 26%);
+  --btn-color-focus: hsl(220, 13%, 86%);
+  --btn-border-focus: #568af2;
+  --btn-bg-focus: hsl(220, 13%, 26%);
 
-  --btn__color--primary: white;
-  --btn__bg--primary: #4d78cc;
-  --btn__border--primary: hsl(220, 13%, 10.8%);
+  --btn-color-primary: white;
+  --btn-bg-primary: #4d78cc;
+  --btn-border-primary: hsl(220, 13%, 10.8%);
 
-  --btn__color--primary--hover: white;
-  --btn__bg--primary--hover: #6187d2;
-  --btn__border--primary--hover: hsl(220, 13%, 10.8%);
+  --btn-color-primary-hover: white;
+  --btn-bg-primary-hover: #6187d2;
+  --btn-border-primary-hover: hsl(220, 13%, 10.8%);
 
-  --btn__color--primary--focus: white;
-  --btn__bg--primary--focus: #6187d2;
-  --btn__border--primary--focus: transparent;
+  --btn-color-primary-focus: white;
+  --btn-bg-primary-focus: #6187d2;
+  --btn-border-primary-focus: transparent;
 
   // Inputs
 
   // - input buttons
-  --input-btn__color: var(--btn__color);
-  --input-btn__border: var(--btn__border);
-  --input-btn__bg: var(--btn__bg);
+  --input-btn-color: var(--btn-color);
+  --input-btn-border: var(--btn-border);
+  --input-btn-bg: var(--btn-bg);
 
-  --input-btn__color--hover: var(--btn__color--hover);
-  --input-btn__border--hover: var(--btn__border--hover);
-  --input-btn__bg--hover: var(--btn__bg--hover);
+  --input-btn-color-hover: var(--btn-color-hover);
+  --input-btn-border-hover: var(--btn-border-hover);
+  --input-btn-bg-hover: var(--btn-bg-hover);
 
-  --input-btn__color--focus: var(--btn__color--focus);
-  --input-btn__border--focus: var(--btn__border--focus);
-  --input-btn__bg--focus: var(--btn__bg--focus);
+  --input-btn-color-focus: var(--btn-color-focus);
+  --input-btn-border-focus: var(--btn-border-focus);
+  --input-btn-bg-focus: var(--btn-bg-focus);
 
-  --input-btn__color--primary: var(--btn__color--primary);
-  --input-btn__bg--primary: var(--btn__bg--primary);
-  --input-btn__border--primary: var(--btn__border--primary);
+  --input-btn-color-primary: var(--btn-color-primary);
+  --input-btn-bg-primary: var(--btn-bg-primary);
+  --input-btn-border-primary: var(--btn-border-primary);
 
-  --input-btn__color--primary--hover: var(--btn__color--primary--hover);
-  --input-btn__bg--primary--hover: var(--btn__bg--primary--hover);
-  --input-btn__border--primary--hover: var(--btn__border--primary--hover);
+  --input-btn-color-primary-hover: var(--btn-color-primary-hover);
+  --input-btn-bg-primary-hover: var(--btn-bg-primary-hover);
+  --input-btn-border-primary-hover: var(--btn-border-primary-hover);
 
-  --input-btn__color--primary--focus: var(--btn__color--primary--focus);
-  --input-btn__bg--primary--focus: var(--btn__bg--primary--focus);
-  --input-btn__border--primary--focus: var(--btn__border--primary--focus);
+  --input-btn-color-primary-focus: var(--btn-color-primary-focus);
+  --input-btn-bg-primary-focus: var(--btn-bg-primary-focus);
+  --input-btn-border-primary-focus: var(--btn-border-primary-focus);
 
   // - input fields
-  --input-field__bg: hsl(220, 13%, 12%);
-  --input-field__border: hsl(220, 13%, 10.8%);
+  --input-field-bg: hsl(220, 13%, 12%);
+  --input-field-border: hsl(220, 13%, 10.8%);
 
-  --input_field__border--focus: #568af2;
+  --input-field-border-focus: #568af2;
 
   // - textareas
-  --textarea__bg: var(--input-field__bg);
-  --textarea__border: var(--input-field__border);
+  --textarea-bg: var(--input-field-bg);
+  --textarea-border: var(--input-field-border);
 
-  --textarea__border--focus: var(--input_field__border--focus);
+  --textarea-border-focus: var(--input-field-border-focus);
 
   // Tab Headers
-  --tab-header__bg: hsl(220, 13%, 15%);
-  --tab-header__box-shadow: hsl(220deg 13% 11%);
+  --tab-header-bg: hsl(220, 13%, 15%);
+  --tab-header-box-shadow: hsl(220deg 13% 11%);
 
-  --tab-btn__color: hsl(220, 13%, 86%);
-  --tab-btn__border: hsl(220, 13%, 40.8%);
-  --tab-btn__bg--active: hsl(220, 13%, 18%);
+  --tab-btn-color: hsl(220, 13%, 86%);
+  --tab-btn-border: hsl(220, 13%, 40.8%);
+  --tab-btn-bg-active: hsl(220, 13%, 18%);
 
-  --tab-wrapper__border: hsl(220, 13%, 40.8%);
-  --tab-container__bg: hsl(220, 13%, 18%);
+  --tab-wrapper-border: hsl(220, 13%, 40.8%);
+  --tab-container-bg: hsl(220, 13%, 18%);
 
 
   // Page Header
-  --page-header__bg: hsla(218, 12%, 13%, 90%);
-  --page-header__border: hsl(220, 13%, 10.8%);
-  --page-header__color--link: hsl(0, 0%, 60%);
-  --page-header__box-shadow__color: rgba(0, 0, 0, .15);
-  --page-header__height: 55px;
+  --page-header-bg: hsla(218, 12%, 13%, 90%);
+  --page-header-border: hsl(220, 13%, 10.8%);
+  --page-header-color-link: hsl(0, 0%, 60%);
+  --page-header-box-shadow-color: rgba(0, 0, 0, .15);
+  --page-header-height: 55px;
 
-  --theme-switcher__height: 20px;
+  --theme-switcher-height: 20px;
 
   // Alerts
 
   // - generic
-  --alert__color--title: white;
-  --alert__border: hsl(220, 13%, 40.8%);
-  --alert__bg: hsl(220, 13%, 18%);
-  --alert__color: var(--font__color);
+  --alert-color-title: white;
+  --alert-border: hsl(220, 13%, 40.8%);
+  --alert-bg: hsl(220, 13%, 18%);
+  --alert-color: var(--font-color);
 
   // - note
-  --alert__color--title--note: hsl(48, 33%, 77%);
-  --alert__color--note: var(--alert__color);
-  --alert__border--note: hsl(48, 64%, 24%);
-  --alert_bg--note: var(--alert__bg);
+  --alert-color-title-note: hsl(48, 33%, 77%);
+  --alert-color-note: var(--alert-color);
+  --alert-border-note: hsl(48, 64%, 24%);
+  --alert_bg--note: var(--alert-bg);
 
   // - warning
-  --alert__color--title--warning: hsl(43, 100%, 95%);
-  --alert__color--warning: var(--alert__color);
-  --alert__border--warning: hsl(44, 100%, 45%);
-  --alert__bg--warning: hsl(44, 100%, 15%);
+  --alert-color-title-warning: hsl(43, 100%, 95%);
+  --alert-color-warning: var(--alert-color);
+  --alert-border-warning: hsl(44, 100%, 45%);
+  --alert-bg-warning: hsl(44, 100%, 15%);
 
   // - info
-  --alert__color--title--info: hsl(196, 79%, 96%);
-  --alert__color--info: var(--alert__color);
-  --alert__border--info: hsl(195, 61%, 56%);
-  --alert__bg--info: hsl(194, 48%, 19%);
+  --alert-color-title-info: hsl(196, 79%, 96%);
+  --alert-color-info: var(--alert-color);
+  --alert-border-info: hsl(195, 61%, 56%);
+  --alert-bg-info: hsl(194, 48%, 19%);
 
   // - tip
-  --alert__color--title--tip: hsl(120, 47%, 93%);
-  --alert__color--tip: var(--alert__color);
-  --alert__border--tip: hsl(140, 44%, 62%);
-  --alert__bg--tip: hsl(140, 24%, 17%);
+  --alert-color-title-tip: hsl(120, 47%, 93%);
+  --alert-color-tip: var(--alert-color);
+  --alert-border-tip: hsl(140, 44%, 62%);
+  --alert-bg-tip: hsl(140, 24%, 17%);
 
   // - danger
-  --alert__color--title--danger: hsl(357, 100%, 96%);
-  --alert__color--danger: var(--alert__color);
-  --alert__border--danger: hsl(358, 74%, 54%);
-  --alert__bg--danger: hsl(359, 63%, 18%);
+  --alert-color-title-danger: hsl(357, 100%, 96%);
+  --alert-color-danger: var(--alert-color);
+  --alert-border-danger: hsl(358, 74%, 54%);
+  --alert-bg-danger: hsl(359, 63%, 18%);
 
   // Hovercards
-  --hovercard__bg: #252830;
-  --hovercard__box-shadow: hsl(0deg, 0%, 0%, 0.4);
-  --hovercard__color: hsl(220, 13%, 66%);
+  --hovercard-bg: #252830;
+  --hovercard-box-shadow: hsl(0deg, 0%, 0%, 0.4);
+  --hovercard-color: hsl(220, 13%, 66%);
 
   // Sidebar
-  --sidebar__border: black;
+  --sidebar-border: black;
 
   // Blocks
-  --block__color: hsl(220, 13%, 66%);
-  --block__border: hsl(220, 13%, 10.8%);
-  --block__bg: hsl(220, 13%, 24%);
+  --block-color: hsl(220, 13%, 66%);
+  --block-border: hsl(220, 13%, 10.8%);
+  --block-bg: hsl(220, 13%, 24%);
 
-  --block__color--hover: hsl(220, 13%, 86%);
-  --block__border--hover: hsl(220, 13%, 10.8%);
-  --block__bg--hover: hsl(220, 13%, 26%);
+  --block-color-hover: hsl(220, 13%, 86%);
+  --block-border-hover: hsl(220, 13%, 10.8%);
+  --block-bg-hover: hsl(220, 13%, 26%);
 
   // Syntax highlighting
-  --syntax__string:   hsl( 95, 38%, 62%);
-  --syntax__comment:  hsl(220, 10%, 52%);
-  --syntax__variable: hsl(355, 65%, 65%);
-  --syntax__function: hsl(207, 82%, 66%);
-  --syntax__keyword:  hsl(286, 60%, 67%);
-  --syntax__constant: hsl( 29, 54%, 61%);
+  --syntax-string:   hsl( 95, 38%, 62%);
+  --syntax-comment:  hsl(220, 10%, 52%);
+  --syntax-variable: hsl(355, 65%, 65%);
+  --syntax-function: hsl(207, 82%, 66%);
+  --syntax-keyword:  hsl(286, 60%, 67%);
+  --syntax-constant: hsl( 29, 54%, 61%);
 
   // Code Documentation
-  --api-entry-name__color: var(--link__color);
-  --api-argument__color: var(--font__color--subtle);
+  --api-entry-name-color: var(--link-color);
+  --api-argument-color: var(--font-color-subtle);
 }
 
 :root {

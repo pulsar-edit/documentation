@@ -9,13 +9,13 @@ body {
   margin-left: 0px;
   min-width: 400px;
 
-  background-color: var(--body__color);
+  background-color: var(--body-color);
 
   font-size: 1.6rem;
   line-height: 1.6;
   font-weight: 400;
   font-family: system-ui, sans-serif;
-  color: var(--font__color);
+  color: var(--font-color);
 }
 
 p {
@@ -52,18 +52,18 @@ cite {
 
 a {
   text-decoration: none;
-  color: var(--link__color);
+  color: var(--link-color);
 
   &:hover {
     text-decoration: underline;
-    color: var(--link__color--hover);
+    color: var(--link-color-hover);
   }
 }
 
 th,
 td {
   padding: 12px 15px;
-  border-bottom: 1px solid var(--table__border);
+  border-bottom: 1px solid var(--table-border);
 
   text-align: left;
 }
@@ -142,11 +142,11 @@ ol {
 code {
   padding: .2rem .5rem;
   margin: 0 .2rem;
-  border: 1px solid var(--code__border);
-  border-color: var(--code__border);
+  border: 1px solid var(--code-border);
+  border-color: var(--code-border);
   border-radius: @global-radius;
 
-  background: var(--code__bg);
+  background: var(--code-bg);
 
   font-size: initial;
   white-space: initial;
@@ -167,9 +167,9 @@ pre > code {
 
 kbd {
   padding: 0.125rem 0.5rem;
-  border: 2px solid var(--kbd__border, var(--btn__border));
+  border: 2px solid var(--kbd-border, var(--btn-border));
   border-radius: 5px;
-  box-shadow: 0px 2px 0px var(--kbd__border, var(--btn__border));
+  box-shadow: 0px 2px 0px var(--kbd-border, var(--btn-border));
 
   font-size: 0.8em;
 }
@@ -184,7 +184,7 @@ hr {
   margin-top: 3rem;
   margin-bottom: 3.5rem;
   border-width: 0;
-  border-top: 1px solid var(--thematic-break__color);
+  border-top: 1px solid var(--thematic-break-color);
 }
 
 .button,
@@ -194,15 +194,15 @@ button {
   height: 38px;
   padding: 0 30px;
   border-radius: @global-radius;
-  border: 1px solid var(--btn__border);
+  border: 1px solid var(--btn-border);
   box-sizing: border-box;
-  border-color: var(--btn__border);
+  border-color: var(--btn-border);
   margin-bottom: 1rem;
 
-  background-color: var(--btn__bg);
+  background-color: var(--btn-bg);
   cursor: pointer;
 
-  color: var(--btn__color);
+  color: var(--btn-color);
   text-align: center;
   font-size: 11px;
   font-weight: 600;
@@ -222,14 +222,14 @@ input {
     height: 38px;
     padding: 0 30px;
     border-radius: @global-radius;
-    border: 1px solid var(--input-btn__border);
+    border: 1px solid var(--input-btn-border);
     box-sizing: border-box;
-    border-color: var(--input-btn__border);
+    border-color: var(--input-btn-border);
 
-    background-color: var(--input-btn__bg);
+    background-color: var(--input-btn-bg);
     cursor: pointer;
 
-    color: var(--input-btn__color);
+    color: var(--input-btn-color);
     text-align: center;
     font-size: 11px;
     font-weight: 600;
@@ -243,90 +243,90 @@ input {
 
 .button:hover,
 button:hover {
-  border-color: var(--btn__border--hover);
+  border-color: var(--btn-border-hover);
   outline: 0;
-  background-color: var(--btn__bg--hover);
-  color: var(--btn__color--hover);
+  background-color: var(--btn-bg-hover);
+  color: var(--btn-color-hover);
 }
 
 input {
   &[type="submit"]:hover,
   &[type="reset"]:hover,
   &[type="button"]:hover {
-    border-color: var(--input-btn__border--hover);
+    border-color: var(--input-btn-border-hover);
     outline: 0;
-    background-color: var(--input-btn__bg--hover);
-    color: var(--input-btn__color--hover);
+    background-color: var(--input-btn-bg-hover);
+    color: var(--input-btn-color-hover);
   }
 }
 
 .button:focus,
 button:focus {
-  border-color: var(--btn__border--focus);
+  border-color: var(--btn-border-focus);
   outline: 0;
-  background-color: var(--btn__bg--focus);
-  color: var(--btn__color--focus);
+  background-color: var(--btn-bg-focus);
+  color: var(--btn-color-focus);
 }
 
 input {
   &[type="submit"]:focus,
   &[type="reset"]:focus,
   &[type="button"]:focus {
-    border-color: var(--input-btn__border--focus);
+    border-color: var(--input-btn-border-focus);
     outline: 0;
-    background-color: var(--input-btn__bg--focus);
-    color: var(--input-btn__color--focus);
+    background-color: var(--input-btn-bg-focus);
+    color: var(--input-btn-color-focus);
   }
 }
 
 .button.button-primary,
 button:button-primary {
-  border-color: var(--btn__border--primary);
-  background-color: var(--btn__bg--primary);
-  color: var(--btn__color--primary);
+  border-color: var(--btn-border-primary);
+  background-color: var(--btn-bg-primary);
+  color: var(--btn-color-primary);
 }
 
 input {
   &[type="submit"].button-primary,
   &[type="reset"].button-primary,
   &[type="button"].button-primary {
-    border-color: var(--input-btn__border--primary);
-    background-color: var(--input-btn__bg--primary);
-    color: var(--input-btn__color--primary);
+    border-color: var(--input-btn-border-primary);
+    background-color: var(--input-btn-bg-primary);
+    color: var(--input-btn-color-primary);
   }
 }
 
 .button.button-primary:hover,
 button.button-primary:hover {
-  border-color: var(--btn__border--primary--hover);
-  background-color: var(--btn__bg--primary--hover);
-  color: var(--btn__color--primary--hover);
+  border-color: var(--btn-border-primary-hover);
+  background-color: var(--btn-bg-primary-hover);
+  color: var(--btn-color-primary-hover);
 }
 
 input {
   &[type="submit"].button-primary:hover,
   &[type="reset"].button-primary:hover,
   &[type="button"].button-primary:hover {
-    border-color: var(--input-btn__border--primary--hover);
-    background-color: var(--input-btn__bg--primary--hover);
-    color: var(--input-btn__color--primary--hover);
+    border-color: var(--input-btn-border-primary-hover);
+    background-color: var(--input-btn-bg-primary-hover);
+    color: var(--input-btn-color-primary-hover);
   }
 }
 
 .button.button-primary:focus,
 button.button-primary:focus {
-  border-color: var(--btn__border--primary--focus);
-  background-color: var(--btn__bg--primary--focus);
-  color: var(--btn__color--primary--focus);
+  border-color: var(--btn-border-primary-focus);
+  background-color: var(--btn-bg-primary-focus);
+  color: var(--btn-color-primary-focus);
 }
 
 input {
   &[type="submit"].button-primary:focus,
   &[type="reset"].button-primary:focus,
   &[type="button"].button-primary:focus {
-    border-color: var(--input-btn__border--primary--focus);
-    background-color: var(--input-btn__bg--primary--focus);
-    color: var(--input-btn__color--primary--focus);
+    border-color: var(--input-btn-border-primary-focus);
+    background-color: var(--input-btn-bg-primary-focus);
+    color: var(--input-btn-color-primary-focus);
   }
   &[type="email"],
   &[type="number"],
@@ -335,15 +335,15 @@ input {
   &[type="tel"],
   &[type="url"],
   &[type="password"] {
-    border: 1px solid var(--input-field__border);
+    border: 1px solid var(--input-field-border);
     height: 38px;
     padding: 6px 10px; // The 6px vertically centers text on FF, ignored by Webkit
     border-radius: @global-radius;
     box-shadow: none;
     box-sizing: border-box;
-    border-color: var(--input-field__border);
+    border-color: var(--input-field-border);
 
-    background-color: var(--input-field__bg);
+    background-color: var(--input-field-bg);
   }
 }
 
@@ -351,13 +351,13 @@ textarea,
 select {
   height: 38px;
   padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
-  border: 1px solid var(--textarea__border);
+  border: 1px solid var(--textarea-border);
   border-radius: @global-radius;
   box-shadow: none;
   box-sizing: border-box;
-  border-color: var(--textarea__border);
+  border-color: var(--textarea-border);
 
-  background-color: var(--textarea__bg);
+  background-color: var(--textarea-bg);
 }
 
 /* Removes awkward default styles on some inputs for iOS */
@@ -392,17 +392,17 @@ input {
   &[type="tel"]:focus,
   &[type="url"]:focus,
   &[type="password"]:focus {
-    border: 1px solid var(--input_field__border--focus);
+    border: 1px solid var(--input-field-border-focus);
     outline: 0;
-    border-color: var(--input_field__border--focus);
+    border-color: var(--input-field-border-focus);
   }
 }
 
 textarea:focus,
 select:focus {
-  border: 1px solid var(--textarea__border--focus);
+  border: 1px solid var(--textarea-border-focus);
   outline: 0;
-  border-color: var(--textarea__border--focus);
+  border-color: var(--textarea-border-focus);
 }
 
 label,
