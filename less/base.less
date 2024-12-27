@@ -1,0 +1,431 @@
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+  min-width: 400px;
+
+  background-color: var(--body-color);
+
+  font-size: 1.6rem;
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: system-ui, sans-serif;
+  color: var(--font-color);
+}
+
+p {
+  margin-top: 0;
+}
+
+input,
+textarea,
+select,
+fieldset {
+  margin-bottom: 1.5rem;
+}
+
+blockquote, dl, figure, form, ol, p, pre, table, ul {
+  margin-bottom: 2rem;
+}
+
+ul, li {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 1rem;
+}
+
+cite {
+  font-style: italic;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+
+
+a {
+  text-decoration: none;
+  color: var(--link-color);
+
+  &:hover {
+    text-decoration: underline;
+    color: var(--link-color-hover);
+  }
+}
+
+th,
+td {
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--table-border);
+
+  text-align: left;
+}
+
+th:first-child,
+td:first-child {
+  padding-left: 0;
+}
+
+th:last-child,
+td:last-child {
+  padding-right: 0;
+}
+
+@media (min-width: @bp-larger-than-phablet) {
+  h1 { font-size: 5.0rem; }
+  h2 { font-size: 4.2rem; }
+  h3 { font-size: 3.6rem; }
+  h4 { font-size: 3.0rem; }
+  h5 { font-size: 2.4rem; }
+  h6 { font-size: 1.5rem; }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+h1 { .h1(); }
+h2 { .h2(); }
+h3 { .h3(); }
+h4 { .h4(); }
+h5 { .h5(); }
+h6 { .h6(); }
+
+* {
+  & > :is(h1, h2, h3, h4, h5, h6) {
+    padding-top: 0.25rem;
+  }
+}
+
+* + :is(h1, h2, h3, h4, h5, h6) {
+  margin-top: 2.25rem;
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style-position: outside;
+}
+
+ul, ol {
+  margin-left: 2rem;
+  padding-left: 0;
+  margin-top: 0;
+}
+
+ul {
+  ul, ol {
+    margin: 1.5rem 0 1.5rem 3rem;
+
+    font-size: 90%;
+  }
+}
+
+ol {
+  ol, ul {
+    margin: 1.5rem 0 1.5rem 3rem;
+
+    font-size: 90%;
+  }
+}
+
+code {
+  padding: .2rem .5rem;
+  margin: 0 .2rem;
+  border: 1px solid var(--code-border);
+  border-color: var(--code-border);
+  border-radius: @global-radius;
+
+  background: var(--code-bg);
+
+  font-size: initial;
+  white-space: initial;
+}
+
+pre {
+  tab-size: 2;
+}
+
+pre > code {
+  display: block;
+
+  padding: 1rem 1.5rem;
+
+  overflow: auto;
+  white-space: pre-wrap;
+}
+
+kbd {
+  padding: 0.125rem 0.5rem;
+  border: 2px solid var(--kbd-border, var(--btn-border));
+  border-radius: 5px;
+  box-shadow: 0px 2px 0px var(--kbd-border, var(--btn-border));
+
+  font-size: 0.8em;
+}
+
+// Inline code blocks within headings should be scaled relative to the
+// heading's font size.
+*:is(h1, h2, h3, h4, h5, h6) code {
+  font-size: 0.9em;
+}
+
+hr {
+  margin-top: 3rem;
+  margin-bottom: 3.5rem;
+  border-width: 0;
+  border-top: 1px solid var(--thematic-break-color);
+}
+
+.button,
+button {
+  display: inline-block;
+
+  height: 38px;
+  padding: 0 30px;
+  border-radius: @global-radius;
+  border: 1px solid var(--btn-border);
+  box-sizing: border-box;
+  border-color: var(--btn-border);
+  margin-bottom: 1rem;
+
+  background-color: var(--btn-bg);
+  cursor: pointer;
+
+  color: var(--btn-color);
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+input {
+  &[type="submit"],
+  &[type="reset"],
+  &[type="button"] {
+    display: inline-block;
+
+    height: 38px;
+    padding: 0 30px;
+    border-radius: @global-radius;
+    border: 1px solid var(--input-btn-border);
+    box-sizing: border-box;
+    border-color: var(--input-btn-border);
+
+    background-color: var(--input-btn-bg);
+    cursor: pointer;
+
+    color: var(--input-btn-color);
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 38px;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+}
+
+.button:hover,
+button:hover {
+  border-color: var(--btn-border-hover);
+  outline: 0;
+  background-color: var(--btn-bg-hover);
+  color: var(--btn-color-hover);
+}
+
+input {
+  &[type="submit"]:hover,
+  &[type="reset"]:hover,
+  &[type="button"]:hover {
+    border-color: var(--input-btn-border-hover);
+    outline: 0;
+    background-color: var(--input-btn-bg-hover);
+    color: var(--input-btn-color-hover);
+  }
+}
+
+.button:focus,
+button:focus {
+  border-color: var(--btn-border-focus);
+  outline: 0;
+  background-color: var(--btn-bg-focus);
+  color: var(--btn-color-focus);
+}
+
+input {
+  &[type="submit"]:focus,
+  &[type="reset"]:focus,
+  &[type="button"]:focus {
+    border-color: var(--input-btn-border-focus);
+    outline: 0;
+    background-color: var(--input-btn-bg-focus);
+    color: var(--input-btn-color-focus);
+  }
+}
+
+.button.button-primary,
+button:button-primary {
+  border-color: var(--btn-border-primary);
+  background-color: var(--btn-bg-primary);
+  color: var(--btn-color-primary);
+}
+
+input {
+  &[type="submit"].button-primary,
+  &[type="reset"].button-primary,
+  &[type="button"].button-primary {
+    border-color: var(--input-btn-border-primary);
+    background-color: var(--input-btn-bg-primary);
+    color: var(--input-btn-color-primary);
+  }
+}
+
+.button.button-primary:hover,
+button.button-primary:hover {
+  border-color: var(--btn-border-primary-hover);
+  background-color: var(--btn-bg-primary-hover);
+  color: var(--btn-color-primary-hover);
+}
+
+input {
+  &[type="submit"].button-primary:hover,
+  &[type="reset"].button-primary:hover,
+  &[type="button"].button-primary:hover {
+    border-color: var(--input-btn-border-primary-hover);
+    background-color: var(--input-btn-bg-primary-hover);
+    color: var(--input-btn-color-primary-hover);
+  }
+}
+
+.button.button-primary:focus,
+button.button-primary:focus {
+  border-color: var(--btn-border-primary-focus);
+  background-color: var(--btn-bg-primary-focus);
+  color: var(--btn-color-primary-focus);
+}
+
+input {
+  &[type="submit"].button-primary:focus,
+  &[type="reset"].button-primary:focus,
+  &[type="button"].button-primary:focus {
+    border-color: var(--input-btn-border-primary-focus);
+    background-color: var(--input-btn-bg-primary-focus);
+    color: var(--input-btn-color-primary-focus);
+  }
+  &[type="email"],
+  &[type="number"],
+  &[type="search"],
+  &[type="text"],
+  &[type="tel"],
+  &[type="url"],
+  &[type="password"] {
+    border: 1px solid var(--input-field-border);
+    height: 38px;
+    padding: 6px 10px; // The 6px vertically centers text on FF, ignored by Webkit
+    border-radius: @global-radius;
+    box-shadow: none;
+    box-sizing: border-box;
+    border-color: var(--input-field-border);
+
+    background-color: var(--input-field-bg);
+  }
+}
+
+textarea,
+select {
+  height: 38px;
+  padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+  border: 1px solid var(--textarea-border);
+  border-radius: @global-radius;
+  box-shadow: none;
+  box-sizing: border-box;
+  border-color: var(--textarea-border);
+
+  background-color: var(--textarea-bg);
+}
+
+/* Removes awkward default styles on some inputs for iOS */
+input {
+  &[type="email"],
+  &[type="number"],
+  &[type="search"],
+  &[type="text"],
+  &[type="tel"],
+  &[type="url"],
+  &[type="password"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+}
+
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  min-height: 65px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+input {
+  &[type="email"]:focus,
+  &[type="number"]:focus,
+  &[type="search"]:focus,
+  &[type="text"]:focus,
+  &[type="tel"]:focus,
+  &[type="url"]:focus,
+  &[type="password"]:focus {
+    border: 1px solid var(--input-field-border-focus);
+    outline: 0;
+    border-color: var(--input-field-border-focus);
+  }
+}
+
+textarea:focus,
+select:focus {
+  border: 1px solid var(--textarea-border-focus);
+  outline: 0;
+  border-color: var(--textarea-border-focus);
+}
+
+label,
+legend {
+  display: block;
+  margin-bottom: .5rem;
+  font-weight: 600;
+}
+
+fieldset {
+  padding: 0;
+  border-width: 0;
+}
+
+input {
+  &[type="checkbox"],
+  &[type="radio"] {
+    display: inline;
+  }
+}
+
+label > .label-body {
+  display: inline-block;
+  margin-left: .5rem;
+  font-weight: normal;
+}

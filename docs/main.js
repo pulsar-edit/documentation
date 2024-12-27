@@ -389,13 +389,13 @@ const Hovercards = {
     }
 
     let html = `
-      <div class="hovercard-card">
-        <div class="hovercard-title">
+      <div class="hovercard__content">
+        <div class="hovercard__title">
           <a href="${card.link}" target="_blank">
             ${card.title}
           </a>
         </div>
-        <div class="hovercard-summary">
+        <div class="hovercard__summary">
           ${card.description}
         </div>
       </div>
@@ -633,7 +633,7 @@ const Sidebar = {
 let autoToc = new AutoTOC();
 
 {
-  let topMargin = document.querySelector('.page_header')?.offsetHeight ?? 0;
+  let topMargin = document.querySelector('.page-header')?.offsetHeight ?? 0;
   let manageHistoryEntries = !location.pathname.startsWith('/api/');
   window.headingObserver = new HeadingObserver({ topMargin, manageHistoryEntries });
 }

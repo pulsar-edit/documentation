@@ -5,53 +5,59 @@
   --min-margin-right: var(--margin-x);
   --max-margin-right: calc((100vw - var(--content-max-width)) / 2 + var(--margin-x));
 
+  position: sticky;
+  contain: paint;
+
   // Escaping this value because Less doesn't seem to handle it correctly.
   margin-right: e("max(var(--min-margin-right), var(--max-margin-right));");
   margin-top: -3rem;
   margin-bottom: 3rem;
   margin-left: auto;
-  contain: paint;
-  position: sticky;
   width: min-content;
   // The height of the padge header, but nudged down 1px so as not to overlap
   // its border.
-  top: calc(var(--pageHeader_height, 0) + 1px);
+  top: calc(var(--page-header-height, 0) + 1px);
   z-index: 1;
 
   &__inner {
+    flex-direction: row;
+    align-items: center;
+    list-style-type: none;
+    gap: 5px;
+
+    display: flex;
+
     margin-left: auto;
     width: min-content;
-    list-style-type: none;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    gap: 5px;
     padding: 0.5rem;
-    background-color: var(--pageHeader-bg);
-    backdrop-filter: blur(12px);
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
     border: 1px solid var(--btn-border);
     border-top-width: 0;
 
+    background-color: var(--page-header-bg);
+    backdrop-filter: blur(12px);
+
     span {
+      padding: 0 0.5rem;
       font-style: italic;
       font-size: 13px;
-      padding: 0 0.5rem;
     }
 
     button {
+      opacity: 0.5;
+
       padding: 0 1rem ;
-      line-height: 20px;
       height: auto;
       margin: 0;
-      opacity: 0.5;
+
+      line-height: 20px;
     }
 
     button.active {
       opacity: 1;
-      background-color: var(--btn_primary-bg);
-      color: var(--btn_primary-color);
+      background-color: var(--btn-bg-primary);
+      color: var(--btn-color-primary);
     }
   }
 }

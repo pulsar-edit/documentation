@@ -1,14 +1,9 @@
 
-:root {
-  --pageHeader_height: 55px;
-  --theme-switcher-height: 20px;
-}
-
 // When we use anchor links, add some padding here to account for the height of
 // the fixed header. Otherwise the headings we link to will be covered up by
 // the header.
 html {
-  scroll-padding-top: calc(var(--pageHeader_height) + 3rem);
+  scroll-padding-top: calc(var(--page-header-height) + 3rem);
 }
 
 .border-hover-effect() {
@@ -17,90 +12,108 @@ html {
 
   &:after {
     content: ' ';
+
     position: absolute;
+
+    visibility: hidden;
+
+    transition: left .2s ease-in-out, right .2s ease-in-out;
+
     bottom: 0;
     height: 2px;
     right: 50%;
     left: 50%;
+
     background: var(--link-color);
-    visibility: hidden;
-    transition: left .2s ease-in-out, right .2s ease-in-out;
   }
 
   &:hover {
     &:after {
+      visibility: visible;
       right: 0;
       left: 0;
-      visibility: visible;
     }
   }
 }
 
 
-.page_header {
-  backdrop-filter: blur(12px);
+.page-header {
   position: sticky;
-  top: 0;
   z-index: 1;
-  height: var(--pageHeader-height);
-  background-color: var(--pageHeader-bg);
-  box-shadow: 0 2px 8px var(--pageHeader_box-shadow-color);
+
+  top: 0;
+  height: var(--page-header-height);
+  box-shadow: 0 2px 8px var(--page-header-box-shadow-color);
   margin-bottom: 3rem;
+  border-bottom: 1px solid var(--page-header-border);
+
+  backdrop-filter: blur(12px);
+  background-color: var(--page-header-bg);
+
   font-size: 1.7rem;
   line-height: 1.2;
-  border-bottom: 1px solid var(--pageHeader-border);
-  // transition: all 0.3s ease-out-in;
 
   // Use the SVG to size the area properly, but hide it…
-  .page_header__img {
-    height: 4.5rem;
-    max-width: 100%;
+  .page-header__img {
     display: block;
     visibility: hidden;
+
+    height: 4.5rem;
+    max-width: 100%;
   }
 
   // …so that we can show the correct SVG as a background image.
-  .page_header__logo {
+  .page-header__logo {
     display: block;
+
     height: 4.5rem;
     max-width: 100%;
     width: auto;
+
     background: var(--svg-logo) no-repeat center;
     background-size: contain;
   }
 
-  .page_header__inner {
+  .page-header__content {
+    align-items: center;
+    gap: 1.5rem;
+
+    display: flex;
+
     padding: 0.5rem;
     padding-left: var(--margin-x);
     padding-right: var(--margin-x);
-    align-items: center;
-    display: flex;
-    gap: 1.5rem;
     max-width: var(--content-max-width);
     box-sizing: border-box;
     margin: 0 auto;
   }
 
-  .page_header__items {
-    padding: 0;
-    width: 100%;
-    display: flex;
+  .page-header__items {
     flex-direction: row;
     justify-content: center;
     gap: 0.5rem;
+
+    display: flex;
+
+    padding: 0;
+    width: 100%;
   }
 
-  .page_header__link {
-    padding: 0 0.5rem;
-    color: var(--pageHeader_link-color);
-    font-size: 1.4rem;
-    font-weight: 500;
-    display: flex;
+  .page-header__link {
+    .border-hover-effect();
     flex-direction: row;
     align-items: center;
+
+    display: flex;
+
+    padding: 0 0.5rem;
     min-height: 3.2rem;
+
+    color: var(--page-header-color-link);
+    font-size: 1.4rem;
+    font-weight: 500;
     text-decoration: none;
-    .border-hover-effect();
+
     span {
       line-height: 1.5rem;
       text-align: center;
@@ -110,6 +123,7 @@ html {
 
 .theme-switcher-menu {
   line-height: 0;
+
   button {
     .plain-button();
     width:  var(--theme-switcher-height) !important;
@@ -117,9 +131,9 @@ html {
     margin: 0;
 
     svg.icon {
+      display: none;
       width: var(--theme-switcher-height);
       height: var(--theme-switcher-height);
-      display: none;
     }
   }
 }
@@ -138,7 +152,6 @@ html {
 
 [data-theme-setting="light"] {
   .theme-switcher-menu {
-    // color: var(--body-color);
     .light-icon {
       display: block !important;
     }

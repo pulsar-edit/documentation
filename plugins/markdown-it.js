@@ -13,11 +13,11 @@ function makeContainerRenderer (name) {
     const content = tokens[idx].info.trim().match(titlePattern);
 
     if (tokens[idx].nesting === 1) {
-      let openingTag = `<aside class="${name} custom-container">\n`;
+      let openingTag = `<aside class="${name} alert">\n`;
       if (content) {
-        openingTag += `<div class="custom-container-title">${md.utils.escapeHtml(content[1])}</div>\n<div class="custom-container-content">\n`;
+        openingTag += `<div class="alert__title">${md.utils.escapeHtml(content[1])}</div>\n<div class="alert__content">\n`;
       } else {
-        openingTag += `<div class="custom-container-content">\n`
+        openingTag += `<div class="alert__content">\n`
       }
       return openingTag;
     } else {

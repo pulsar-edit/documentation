@@ -1,8 +1,25 @@
 
 .blocks {
   display: block;
+
+  .block {
+    margin-top: 0.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--block-color);
+
+    &__header {
+      font-weight: 600;
+      font-size: 2rem;
+      line-height: 1.5rem;
+    }
+
+    &__summary {
+      padding: 1rem 0 1.25rem;
+    }
+  }
 }
 
+// TODO: Does a top level media query generate any valid code? Does this do anything?
 @media (min-width: @bp-larger-than-phablet) {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -10,32 +27,15 @@
   row-gap: 1rem;
 }
 
-.block {
-  margin-top: 0.5rem;
-  margin-bottom: 0.75rem;
-  color: var(--block-color);
-
-  &__header {
-    font-weight: 600;
-    font-size: 2rem;
-    line-height: 1.5rem;
-  }
-
-  &__summary {
-    padding: 1rem 0 1.25rem;
-  }
-}
-
-
 .layout--home {
   .blocks {
     margin-top: 4rem;
     padding-top: 4rem;
-    border-top: 0.5rem solid var(--thematicBreak-color);
-  }
+    border-top: 0.5rem solid var(--thematic-break-color);
 
-  .block {
-    font-size: 2rem;
+    .block {
+      font-size: 2rem;
+    }
   }
 }
 
@@ -44,10 +44,10 @@
     .blocks {
       columns: 2;
       column-gap: 4rem;
-    }
 
-    .block {
-      break-inside: avoid-column;
+      .block {
+        break-inside: avoid-column;
+      }
     }
   }
 }
