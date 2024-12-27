@@ -84,3 +84,20 @@ But for all other links, please do follow this rule and do not use relative link
 Examples: When linking to `/example/sub/page` from `/example/sub/hello`
   - Do: `/example/sub/page`
   - Do **NOT**: `../page`
+
+## Update Source Code Documentation
+
+### Auto
+
+Create an issue against this repository, with the title formatted strictly as the new Pulsar version number.
+Such as `1.124.0`
+
+Then once the issue is created, afterwards add the label `update-docs`
+
+After a short time a PR will be created against the repository with the changes to go ahead and review.
+
+### Manual
+
+1) Update the JSON file `./pulsar-api/latest.json` with the newest Pulsar version.
+2) Update all submodules to their latest commit, such as `git submodule update --remote --merge`
+3) Run `npm run generate:docs` to trigger the documentation to be updated.
