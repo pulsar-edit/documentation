@@ -163,7 +163,7 @@ This is useful for opening a file that is not contained in the project you're cu
 Another way to open a file in Pulsar is from the command line using the `pulsar` command.
 
 ::: info Info
-The `pulsar` command may not be available by default after installation. Adding this feature is detailed further in [Integrating Pulsar into the Operating System](TODO).
+The `pulsar` command may not be available by default after installation. Adding this feature is detailed further in [Launching Pulsar from the terminal](/getting-started/terminal-commands/).
 :::
 
 You can run the `pulsar` command with one or more file paths to open up those files in Pulsar.
