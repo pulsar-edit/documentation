@@ -2,7 +2,7 @@
 title: Pulsar API
 layout: doc.ejs
 includeTemplate:
-  - latest_pulsar_version
+  - pulsar_versions
 ---
 
 The Pulsar API is what makes Pulsar so incredibly customizable. All packages consume it, including the packages built into the editor.
