@@ -1,15 +1,13 @@
 ---
-title: Using PPM (Pulsar Package Manager) (information may be out of date!)
+title: Using PPM (Pulsar Package Manager)
 layout: doc.ejs
 ---
 
-<!-- TODO: Needs updating. Not really accurate anymore. -->
+<!-- TODO: This language is rewritten to hedge a bit more just so we can remove the “information may be outdated!” scare text from the title. This still needs further investigation. -->
 
-`ppm` is used for installing and managing Pulsar's packages in much the same way that `apm` did on Atom. However at this point in the project there are a few hoops you have to jump through to get it to work correctly.
+`ppm` is used for installing and managing Pulsar’s packages in much the same way that `apm` did on Atom.
 
-After following the build instructions you will find the `ppm` binary at `pulsar/ppm/bin/apm` but by default Pulsar will be looking in the wrong place. There will also be issues relating to the Electron version which will prevent install from the package backend.
-
-To solve this a couple of environmental variables need to be exported.
+If you build Pulsar from source following the build instructions, you will find the `ppm` binary at `pulsar/ppm/bin/ppm`. This should be usable out of the box, but in some unusual scenarios you might find that you have to set some environment variables:
 
 ::: tabs#core-hacking
 
@@ -17,21 +15,24 @@ To solve this a couple of environmental variables need to be exported.
 
 ```sh
 export ATOM_HOME=/home/<user>/.pulsar
-export APM_PATH=/ppm/bin/apm
+export APM_PATH=<absolute path to your ppm binary>
 export ATOM_ELECTRON_VERSION=12.2.3
 ```
 
 @tab macOS
 
 ```sh
-TODO
+export ATOM_HOME=/Users/<user>/.pulsar
+export APM_PATH=<absolute path to your ppm binary>
+export ATOM_ELECTRON_VERSION=12.2.3
 ```
 
 @tab Windows
 
 ```
 set ATOM_HOME=C:\Users\<user>\.pulsar
-set APM_PATH=\ppm\bin\apm
+set APM_PATH=<absolute path to your ppm binary>
+set ATOM_ELECTRON_VERSION=12.2.3
 ```
 
 :::
@@ -46,5 +47,5 @@ git clone https://github.com/pulsar-edit/ide-java
 cd ide-java
 
 # from the directory where you are running pulsar source code
-<pulsar source>/ppm/bin/apm link
+<pulsar source>/ppm/bin/ppm link
 ```

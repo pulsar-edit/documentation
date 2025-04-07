@@ -17,15 +17,15 @@ Below is a list of some useful terms used with regard to Pulsar.
 
 ### Buffer
 
-A buffer is the text content of a file in Pulsar. It's basically the same as a file for most descriptions, but it's the version Pulsar has in memory. For instance, you can change the text of a buffer and it isn't written to its associated file until you save it.
+A _buffer_ is the text content of a file in Pulsar. It's basically the same as a file for most descriptions, but it's the version Pulsar has in memory. For instance, you can change the text of a buffer and it isn't written to its associated file until you save it.
 
 ### Command
 
-A command is a bit of functionality in Pulsar that can be triggered by the user either through a [keybinding](#keybinding) or a menu item.
+A _command_ is a bit of functionality in Pulsar that can be triggered by the user either through a [keybinding](#keybinding) or a menu item.
 
 ### Dock
 
-Docks are collapsible [pane containers](#pane-container) that attach to the left, right, and bottom sides of the Pulsar window.
+_Docks_ are collapsible [pane containers](#pane-container) that attach to the left, right, and bottom sides of the Pulsar window.
 
 Examples:
 
@@ -35,7 +35,7 @@ Examples:
 
 ### Key combination
 
-A key combination is some combination or sequence of keys that are pressed to perform a task.
+A _key combination_ is some combination or sequence of keys that are pressed to perform a task.
 
 Examples:
 
@@ -45,48 +45,48 @@ Examples:
 
 ### Key sequence
 
-A key sequence is a special case of a key combination. It is a key combination that consists of keys that must be pressed and released in sequence. [[Ctrl+K]] [[Down]] is a key sequence. [[Alt+S]] is not a key sequence because it is two keys that are pressed and released together rather than in succession.
+A _key sequence_ is a special case of a key combination. It is a key combination that consists of keys that must be pressed and released in sequence. [[Ctrl+K]] [[Down]] is a key sequence. [[Alt+S]] is not a key sequence because it is two keys that are pressed and released together rather than in succession.
 
 ### Keybinding
 
-A keybinding is a mapping of a [key combination](#key-combination), such as [[Ctrl+Enter]], to a Pulsar command.
+A _keybinding_ is a mapping of a [key combination](#key-combination), such as [[Ctrl+Enter]], to a Pulsar command.
 
 ### Keymap
 
-A keymap is a collection of [keybindings](#keybinding). It can also refer to a file or files containing keybindings for a Pulsar package or Pulsar itself.
+A _keymap_ is a collection of [keybindings](#keybinding). It can also refer to a file or files containing keybindings for a Pulsar package or Pulsar itself.
 
 ### Package
 
-A Pulsar plugin. There is a bunch more information in the section on [Pulsar Packages](/using-pulsar/pulsar-packages/).
+A _package_ is what other editors might call an extension or a plugin. You can read all about packages on the [Pulsar packages](/using-pulsar/pulsar-packages/) page.
 
 ### Pane
 
-A pane is a visual section of the editor space. Each pane can hold multiple [pane items](#pane-item). There is always at least one pane in each Pulsar window.
+A _pane_ is a visual section of the editor space. Each pane can hold multiple [pane items](#pane-item). There is always at least one pane in each Pulsar window.
 
 ### Pane container
 
-A section of the Pulsar UI that can contain multiple [panes](#pane).
+A _pane container_ is a section of the Pulsar UI that can contain multiple [panes](#pane).
 
 ### Pane item
 
-Some item, often an editor, that is displayed within a [pane](#pane). In the default configuration of Pulsar, pane items are represented by tags at the top of each pane.
+A _pane item_ is a view, often an editor, that is displayed within a [pane](#pane). In the default configuration of Pulsar, pane items are represented by tabs at the top of each pane.
 
 ::: info
-**Note:** The reason why we don't call them "tabs" is because you can disable the {tabs} package and then there aren't any tabs. For a similar reason, we don't call them files because some things can be shown in a pane that aren't files, like the Settings View.
+**Note:** The reason why we don't call them "tabs" is because you can disable the {tabs} package and then there aren't any tabs. For a similar reason, we don't call them files because some things can be shown in a pane that aren't files, like the {settings-view "settings view"}.
 :::
 
 ### Panel
 
-A piece of the Pulsar UI that is outside the editor space.
+A _panel_ is a piece of the Pulsar UI that is outside the editor space. Panels tend to live in one of the [docks](#dock) on the left, right, or bottom of the workspace.
 
 Examples:
 
-  * Find and Replace
-  * Keybinding Resolver
+  * The {find-and-replace "find and replace"} interface
+  * The {keybinding-resolver "keybinding resolver"} information view
 
 ## Command palette
 
-In that welcome screen, we are introduced to probably the most important feature in Pulsar: the **command palette**. If you press <kbd class="platform-linux platform-win">Ctrl+Shift+P</kbd><kbd class="platform-mac">Cmd+Shift+P</kbd> while focused in an editor pane, the command palette will pop up.
+In the welcome screen shown above, we are introduced to one of the most important features of Pulsar: the **_command palette_**. If you press <kbd class="platform-linux platform-win">Ctrl+Shift+P</kbd><kbd class="platform-mac">Cmd+Shift+P</kbd> while focused in an editor pane, the command palette will pop up.
 
 This search-driven menu can do just about any major task that is possible in Pulsar. Instead of clicking around all the application menus to look for something, you can press <kbd class="platform-linux platform-win">Ctrl+Shift+P</kbd><kbd class="platform-mac">Cmd+Shift+P</kbd> and search for the command.
 
@@ -94,7 +94,7 @@ This search-driven menu can do just about any major task that is possible in Pul
 
 Not only can you see and quickly search through thousands of possible commands, but you can also see if there is a keybinding associated with it. This is great because it means you can guess your way into doing interesting things while also learning key bindings for doing them more quickly in the future.
 
-For the rest of this documentation, we will try to refer to commands by name as well as keybinding. This will make it easier for you to customize the keybindings exactly how you like.
+For the rest of this documentation, we will refer to commands by name even when they have a default keybinding. We do this because the keybinding can be customized, but the name remains the same no matter what.
 
 ## Settings and preferences
 
@@ -109,6 +109,8 @@ To open the settings view, you can
 - use the <span class="platform-linux">_Edit > Preferences_</span> <span class="platform-mac">_Pulsar > Preferences_</span> <span class="platform-win">_File > Settings_</span> menu item in the menu bar,
 - search for `settings-view:open` in the [Command Palette](#command-palette), or
 - use the <kbd class="platform-linux platform-win">Ctrl+,</kbd><kbd class="platform-mac">Cmd+,</kbd> keybinding.
+
+The settings view is provided by the {settings-view} package.
 
 ### Finding settings
 
@@ -132,7 +134,7 @@ Pulsar ships with four different UI themes: dark and light variants of Atom’s 
 
 If you want to see what else is available, you can use the **Install** tab to browse community packages for both kinds of themes in the [Pulsar Package Repository](https://web.pulsar-edit.dev).
 
-You can even make your own themes! Customizing a theme (in [Style Tweaks](/customizing-pulsar/style-tweaks/)) and creating your own theme (in [Developing a Theme](/developing-for-pulsar/developing-a-theme/)) will be covered later.
+You can even make your own themes! Customizing a theme (in [Style tweaks](/customizing-pulsar/style-tweaks/)) and creating your own theme (in [Developing a theme](/developing-for-pulsar/developing-a-theme/)) will be covered later.
 
 ### Soft wrap
 
@@ -270,7 +272,7 @@ This is one of the interesting things about Pulsar: many of its core features ar
 
 Once you have a project open in Pulsar, you can easily find and open any file within that project.
 
-You can open the **fuzzy finder** with <span class="platform--linux platform--win">[[Ctrl+T]] or [[Ctrl+P]]</span><span class="platform-mac">[[Cmd+T]] or [[Cmd+P]]</span>. You can then start typing the file name of whatever file you’d like to open — or just type any part of the file’s path to narrow down the results shown in the list.
+You can open the **fuzzy finder** with <span class="platform-linux platform-win">[[Ctrl+T]] or [[Ctrl+P]]</span><span class="platform-mac">[[Cmd+T]] or [[Cmd+P]]</span>. You can then start typing the file name of whatever file you’d like to open — or just type any part of the file’s path to narrow down the results shown in the list.
 
 ![Opening files with the Fuzzy Finder](/img/atom/finder.png "Opening files with the Fuzzy Finder")
 
@@ -280,9 +282,9 @@ The fuzzy finder uses the `core.ignoredNames`, `fuzzy-finder.ignoredNames` and `
 
 We'll learn more about config settings in [Global configuration settings](/customizing-pulsar/global-configuration-settings/), but for now you can easily set these in the Settings View under Core Settings.
 
-Both `core.ignoredNames` and `fuzzy-finder.ignoredNames` are interpreted as glob
-patterns as implemented by the
-[minimatch Node module](https://github.com/isaacs/minimatch).
+Both `core.ignoredNames` and `fuzzy-finder.ignoredNames` are interpreted as glob patterns as implemented by the [minimatch Node module](https://github.com/isaacs/minimatch).
+
+The fuzzy finder is provided by the builtin {fuzzy-finder} package.
 
 ::: tip Configuration Setting Notation
 
@@ -290,12 +292,12 @@ Sometimes you'll see us refer to configuration settings all spelled out, like **
 
 In your config file, settings are organized by section (`core`, `editor`, etc.) or by package name (`tree-view`, `fuzzy-finder`, `etc`). Setting names themselves are `camelCased`. So if you were editing your config file manually, you’d look for a setting called `ignoredNames` under the `core` key.
 
-When viewed in the GUI with `settings-view`, however, names of settings are made friendlier. The `core` and `editor` sections have their own panes in the settings view, and each package has its own individual page of settings. By default, a setting like `ignoredNames` will be “humanized” to “Ignored Names” — though this can be overridden.
+When viewed in the GUI with `settings-view`, however, names of settings are made friendlier. The `core` and `editor` sections have their own panes in the settings view, and each package has its own individual page of settings. By default, a setting like `ignoredNames` will be “humanized” to “Ignored Names” — though, if desired, the package author can override this and set an arbitrary “humanized” name for a given setting.
 :::
 
-## Proxy and Firewall Settings
+## Proxy and firewall settings
 
-### Behind a Firewall?
+### Behind a firewall?
 
 If you are behind a firewall and seeing SSL errors when installing packages, you can disable strict SSL by running:
 
@@ -303,7 +305,7 @@ If you are behind a firewall and seeing SSL errors when installing packages, you
 $ pulsar -p config set strict-ssl false
 ```
 
-### Using a Proxy?
+### Using a proxy?
 
 If you are using a HTTP(S) proxy, you can configure `ppm` to use it by running:
 

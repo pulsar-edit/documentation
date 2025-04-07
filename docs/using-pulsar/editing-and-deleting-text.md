@@ -124,13 +124,13 @@ Return to a single cursor with [[Esc]] or by clicking anywhere in the file to po
 
 Pulsar comes with several commands to help you manage the whitespace in your document. One very useful pair of commands converts leading spaces into tabs and leading tabs into spaces. If you're working with a document that has mixed whitespace, these commands are great for helping to normalize the file. There are no keybindings for the whitespace commands, so you will have to search your command palette for **Convert Spaces to Tabs** (or vice versa) to run one of these commands.
 
-The whitespace commands are implemented in the {whitespace} package. Visit that package’s page if you want to disable it or change its configuration.
+The whitespace commands are implemented in the {whitespace} package. Visit that package’s settings page if you want to disable it or change its configuration.
 
 ![Managing your whitespace settings](/img/atom/whitespace.png)
 
 ::: note Note
 
-The "Remove Trailing Whitespace" option is on by default. This means that every time you save any file opened in Pulsar, it will strip all trailing whitespace from the file. If you want to disable this, go to the `whitespace` package in your settings panel and uncheck that option.
+The “Remove Trailing Whitespace” option is on by default. This means that every time you save any file opened in Pulsar, it will strip all trailing whitespace from the file. If you want to disable this, go to the `whitespace` package settings within the settings view and uncheck that option.
 
 :::
 
@@ -142,7 +142,9 @@ Pulsar ships with intelligent and easy-to-use management of “paired” charact
 
 It will by default highlight `[]`, `()`, and `{}` style brackets when your cursor is over them. It will also highlight matching XML and HTML tags.
 
-Pulsar will also automatically autocomplete `[]`, `()`, `{}`, `""`, `''`, `“”`, `‘’`, `«»`, `‹›`, and <code>\`\`</code> when you type the opening character in the pair. If you type any of these opening characters while you have text selected, Pulsar will wrap the input in the paired characters.
+Pulsar will also automatically autocomplete `[]`, `()`, `{}`, `""`, `''`, `“”`, `‘’`, `«»`, `‹›`, and <code>\`\`</code> when you type the opening character in the pair, and will position the cursor in between the paired charaters. When you want to advance past the closing character in the pair, you may either press <kbd>Right</kbd> or type the closing character; it will move the cursor rather than insert an extra character.
+
+If you type any of these opening characters while you have text selected, Pulsar will wrap the input in the paired characters.
 
 There are a few other interesting bracket related commands that you can use.
 
@@ -171,7 +173,7 @@ There are a few other interesting bracket related commands that you can use.
 
 :::
 
-The brackets functionality is implemented in the {bracket-matcher} package. To change defaults related to bracket handling, or to disable it entirely, visit this package’s page in the settings view.
+The brackets functionality is implemented in the {bracket-matcher} package. To change defaults related to bracket handling, or to disable it entirely, visit this package’s settings page in the settings view.
 
 ## Encoding
 

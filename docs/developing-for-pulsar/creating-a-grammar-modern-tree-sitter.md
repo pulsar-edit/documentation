@@ -3,7 +3,7 @@ title: Creating a grammar (modern Tree-sitter)
 layout: doc.ejs
 ---
 
-Pulsar's modern syntax highlighting and code folding system is powered by [Tree-sitter](http://tree-sitter.github.io/tree-sitter). Tree-sitter parsers create and maintain full [syntax trees](https://en.wikipedia.org/wiki/Abstract_syntax_tree) representing your code.
+Pulsar’s modern syntax highlighting and code folding system is powered by [Tree-sitter](http://tree-sitter.github.io/tree-sitter). Tree-sitter parsers create and maintain full [syntax trees](https://en.wikipedia.org/wiki/Abstract_syntax_tree) representing your code.
 
 Modeling the buffer as a syntax tree gives Pulsar a comprehensive understanding of the structure of your code, which has several benefits:
 
@@ -16,6 +16,12 @@ Modeling the buffer as a syntax tree gives Pulsar a comprehensive understanding 
 
 There are three components required to use Tree-sitter in Pulsar: a parser, a grammar file, and a handful of query files.
 
+:::info
+
+In most of this example code, we’ll assume you’re creating a grammar for a fictional language creatively titled MyLanguage. Your package will thus be named `language-mylanguage`, and we assume the existence of a project called `tree-sitter-mylanguage` that implements a Tree-sitter parser for MyLanguage.
+
+:::
+
 ## The parser
 
 Tree-sitter generates parsers based on [context-free grammars](https://en.wikipedia.org/wiki/Context-free_grammar) that are typically written in JavaScript. The generated parsers are C libraries that can be used in other applications as well as Pulsar.
@@ -27,25 +33,31 @@ Pulsar uses `web-tree-sitter` — the WebAssembly bindings to tree-sitter. That 
 :::warning Tree-sitter versions are important
 Currently, Pulsar builds its own custom copy of `web-tree-sitter` for reasons explained [in this README](https://github.com/pulsar-edit/pulsar/tree/master/vendor/web-tree-sitter). In the future, to know which version of `web-tree-sitter` Pulsar is using, please visit that folder on GitHub and read the commit message of the commit that most recently touched `tree-sitter.js`.
 
-At time of writing this document, it was 0.20.9, which would mean you’d be able to use a version of Tree-sitter **no newer than** 0.20.9 when generating your WASM file. (Older versions are generally OK; Tree-sitter preserves backwards-compatibility of parsers generated with older versions.)
+You do not have to use the exact same version of Tree-sitter to _build_ your parser as the version of Tree-sitter that will _consume_ it. In general, though, it’s a good idea not to allow _too much_ variance between Tree-sitter versions, as it introduces a new uncertainty into the mix.
+
+At time of writing this document, Pulsar was using `web-tree-sitter` version 0.25.3, which means you may want to generate your WASM file using an `0.25.x` version of `web-tree-sitter`.
 
 Building WASM files from the `tree-sitter` CLI requires either a local installation of [Emscripten](https://emscripten.org/) or use of a Docker image. See [this reference](https://github.com/sogaiu/ts-questions/blob/master/questions/which-version-of-emscripten-should-be-used-for-the-playground/README.md) for details.
 
 :::
 
-If you want to use an existing parser, you’ll probably be able to find it on [NPM](https://npmjs.com/). If you’ve written your own parser, it’s a good idea to publish it to NPM yourself. Either way, you should install it as a `devDependency` for your `language-*` package.
+If you want to use an existing parser, you’ll probably be able to find it [in this list](https://github.com/tree-sitter/tree-sitter/wiki/List-of-parsers) on the Tree-sitter wiki. (If you’ve written your own parser, it’s a good idea to reach out to the Tree-sitter maintainers and get your parser added to this wiki page.)
+
+Because the WASM file is self-contained, the source code for the Tree-sitter parser _should not_ be part of your package, since it’d just increase the file size of the package for no good reason.
 
 You can then go into the directory for your parser and use [the Tree-sitter CLI](https://github.com/tree-sitter/tree-sitter-cli) to build the WASM file:
 
-```
-cd node_modules/tree-sitter-foo
-tree-sitter build-wasm .
+```bash
+npm install
+cd node_modules/tree-sitter-mylanguage
+npx tree-sitter build --wasm
 ```
 
+This command will produce a `tree-sitter-mylanguage.wasm` file in the working directory; you should add it to your `language-mylanguage` project.
 
 ## The package
 
-Once you have a WASM file, you can use it in your Pulsar package. Packages with grammars are, by convention, always named starting with `language-`. You'll need a folder with a `package.json`, a `grammars` subdirectory, and a single JSON or CSON file in the `grammars` directory, which can be named anything.
+Once you have a WASM file, you can use it in your Pulsar package. Packages with grammars are, by convention, always named starting with `language-`. You’ll need a folder with a `package.json`, a `grammars` subdirectory, and a single JSON or CSON file in the `grammars` directory, which can be named anything.
 
 We’ve also decided to put our WASM file in the `grammars/tree-sitter` subdirectory, though this is just a convention. The SCM files alongside our WASM file will be explained in a moment.
 
@@ -79,9 +91,9 @@ type: 'modern-tree-sitter'
 parser: 'tree-sitter-mylanguage'
 ```
 
-* `scopeName` - A unique, stable identifier for the language. Pulsar users will use this identifier in configuration files if they want to specify custom configuration based on the language. Examples: `source.js`, `text.html.basic`.
-* `name` - A human readable name for the language.
-* `parser` - The name of the parser node module that will be used for parsing. This should point to the NPM package from which the WASM file was built. (This value is currently unused, but is required as a way of future-proofing in case Pulsar should migrate to a different Tree-sitter binding in the future.)
+* `scopeName` - A unique, stable identifier for the language. Pulsar users will use this identifier in configuration files if they want to specify custom configuration based on the language. Examples: `source.js`, `text.html.basic`. It will also be the root scope name used in syntax highlighing.
+* `name` - A human-readable name for the language.
+* `parser` - The name of the parser that will be used for parsing. In theory, this should point to an NPM package from which the WASM file was built; in practice it can just use the name of the project that contains the lanugage’s Tree-sitter parser, whether or not it exists on NPM. (This value is currently **unused**, but is required as a way of future-proofing in case Pulsar should migrate to a different Tree-sitter binding in the future.)
 * `type` - This should have the value `modern-tree-sitter` to indicate to Pulsar that this is a modern Tree-sitter grammar, as opposed to a legacy Tree-sitter grammar (soon to be removed from Pulsar) or a [TextMate grammar](https://pulsar-edit.dev/docs/launch-manual/sections/core-hacking/#creating-a-legacy-textmate-grammar).
 
 ### Tree-sitter fields
@@ -96,34 +108,45 @@ treeSitter:
   indentsQuery: 'tree-sitter/indents.scm'
 ```
 
-All values are paths that will be resolved relative to the grammar configuration file itself. Of these, `grammar` is the only required field.
+All values are paths that will be resolved relative to the directory in which the grammar configuration file itself lives. Of these, `grammar` is the only required field.
 
-* `grammar` — The path to the WASM file you generated earlier.
-* `highlightsQuery` — The path to a file (canonically called `highlights.scm`) that will tell Pulsar how to highlight the code in this language. (Most Tree-sitter repositories include a `highlights.scm` file that can be useful to consult, but _should not_ be used in Pulsar, because its naming conventions are different from Pulsar’s.)
-* `foldsQuery` — The path to a file (canonically called `folds.scm`) that will tell Pulsar which ranges of a buffer can be folded.
-* `indentsQuery` — The path to a file (canonically called `indents.scm`) that will tell Pulsar when it should indent or dedent lines of code in this language.
-* `tagsQuery` — The path to a file (canonically called `tags.scm`) that will identify the important symbols in the document (class names, function names, and so on) along with their locations. If present, Pulsar will use this query file for symbol navigation. (Most Tree-sitter repositories include a `tags.scm` file that _can be understood as-is_ by Pulsar and is a good starting point.)
+* `grammar` — The relative path to the WASM file you generated earlier.
+* `highlightsQuery` — The relative path to a file (canonically called `highlights.scm`) that will tell Pulsar how to highlight the code in this language. (Most Tree-sitter repositories include a `highlights.scm` file that can be useful to consult, but _should not_ be used in Pulsar, because its naming conventions are different from Pulsar’s.)
+* `foldsQuery` — The relative path to a file (canonically called `folds.scm`) that will tell Pulsar which ranges of a buffer can be folded.
+* `indentsQuery` — The relative path to a file (canonically called `indents.scm`) that will tell Pulsar when it should indent or dedent lines of code in this language.
+* `tagsQuery` — The relative path to a file (canonically called `tags.scm`) that will identify the important symbols in the document (class names, function names, and so on) along with their locations. If present, Pulsar will use this query file for symbol navigation. (Most Tree-sitter repositories include a `tags.scm` file that _can be understood as-is_ by Pulsar and is a good starting point.)
 
-You can skip `indentsQuery` if your language doesn’t need indentation hinting, `foldsQuery` if it doesn’t need code folding, or even `highlightsQuery` in the unlikely event that your language does not need syntax highlighting.
+Each of the settings ending in `Query` is optional. You can skip `indentsQuery` if your language doesn’t need indentation hinting, `foldsQuery` if it doesn’t need code folding, or even `highlightsQuery` in the unlikely event that your language does not need syntax highlighting.
 
-Any of the settings that end in `Query` can also accept an array of relative paths, instead of just a single path. At initialization time, the grammar will concatenate each file’s contents into a single query file. This isn’t a common need, but is explained further below.
+Any of the settings that end in `Query` can also accept an array of relative paths, instead of just a single relative path. At initialization time, the grammar will concatenate each file’s contents into a single query file. This isn’t a common need, but is explained further below.
 
 ### Language recognition
 
 Next, the file should contain some fields that indicate to Pulsar when this language should be chosen for a given file. These fields are all optional and are listed in the order that Pulsar consults them when making its decision.
 
 * `fileTypes` - An array of filename suffixes. The grammar will be used for files whose names end with one of these suffixes. Note that the suffix may be an entire filename, like `Makefile` or `.eslintrc`. If no grammars match (or more than one grammar matches) for a given file extension, ties are broken according to…  
-* `firstLineRegex` - A regex pattern that will be tested against the first line of the file. The grammar will be used if this regex matches. If no grammars match (or more than one grammar matches) for a given `firstLineRegex`, ties are broken according to…
-* `contentRegex` - A regex pattern that will be tested against the contents of the file. If the `contentRegex` matches, this grammar will be preferred over another grammar with no `contentRegex`. If the `contentRegex` does not match, a grammar with no `contentRegex` will be preferred over this one.
+* `firstLineRegex` - A regex pattern (written as a string) that will be tested against the first line of the file. The grammar will be used if this regex matches. If no grammars match (or more than one grammar matches) for a given `firstLineRegex`, ties are broken according to…
+* `contentRegex` - A regex pattern (written as a string) that will be tested against the contents of the file. If the `contentRegex` matches, this grammar will be preferred over another grammar with no `contentRegex`. If the `contentRegex` does not match, a grammar with no `contentRegex` will be preferred over this one.
 
 ### Comments
 
-The last field in the grammar file, `comments`, controls the behavior of Pulsar's **Editor: Toggle Line Comments** command. Its value is an object with values as follows:
+The last field in the grammar file, `comments`, tells Pulsar what sort of comment syntax this language uses. This helps the editor deal with comments for purposes such as the **Editor: Toggle Line Comments** command and for snippets that use magic comment-delimiter variables so that the snippet works equally well across more than one language.
+
+Its value is an object with values as follows:
 
 * `start`: The delimiter that should be added to the beginning of a line to mark a comment. If your language supports line comments, specify the line comment delimiter here and skip the `end` value. This value will be used by the **Editor: Toggle Line Comments** command.
 * `end`: The delimiter that should be added to the end of a line to mark a comment. Specify `end` _only_ if your language supports only block comments (for example, CSS). If present, this value will be used by the **Editor: Toggle Line Comments** command.
 * `line`: The delimiter that marks a line comment. Regardless of what is defined in `start` or `end`, `line` refers to the line comment delimiter. If your language doesn’t support line comments, omit this field. This value is used by snippets that want to insert comment delimiters in a language-agnostic fashion.
 * `block`: A two item array containing the starting and ending delimiters of a block comment. If your language doesn’t support block comments, omit this field. These values are used by snippets that one to insert comment delimiters in a language-agnostic fashion.
+
+
+:::note
+
+This may seem redundant. It’s because the **Editor: Toggle Line Comments** command uses _either_ a line comment _or_ a block comment to comment out a line, but expects you to define only one kind as needed.
+
+On the other hand, the `snippets` package needs to know about _both_ kinds of comments if your language supports more than one type.
+
+:::
 
 JavaScript has both line and block comments, so the `comments` field might look like this:
 
@@ -157,11 +180,15 @@ When present, Pulsar prefers for these values to be specified in CSON files in t
 
 If this isn’t something your language needs — and most don’t — then you can ignore this tip. But it’s occasionally crucial. For instance, comment syntax within JSX blocks (used in React and other framewokrs) is different from ordinary JavaScript comment syntax. [The settings file for `language-javascript`](https://github.com/pulsar-edit/pulsar/blob/master/packages/language-javascript/settings/language-javascript.cson) may help illustrate.
 
+When looking for settings instead of grammar metadata, **Editor: Toggle Line Comments** looks for the `commentStart` and/or `commentEnd` keys, whereas the `snippets` package looks for the `commentDelimiters` key.
+
 :::
 
 ## Syntax highlighting
 
-The HTML classes that Pulsar uses for syntax highlighting do not correspond directly to nodes in the syntax tree. Instead, Pulsar queries the tree using a file called `highlights.scm` and written using Tree-sitter’s own [query language](https://tree-sitter.github.io/tree-sitter/using-parsers#pattern-matching-with-queries).
+Tree-sitter analyzes your source code and turns it into a syntax tree in which each node has a descriptive name. However, HTML classes that Pulsar uses for syntax highlighting do not correspond directly to nodes in the syntax tree.
+
+Instead, Pulsar queries the tree using a file called `highlights.scm` and written using Tree-sitter’s own [query language](https://tree-sitter.github.io/tree-sitter/using-parsers#pattern-matching-with-queries).
 
 Here is a simple example:
 
@@ -278,7 +305,7 @@ Here’s one way to rewrite this to have the intended effect:
 
 ; …and use capture.final only on the second capture name.
 (call_expression (identifier) @meta.something-else.js
-  (#set! capture.final true))
+  (#set! capture.final))
 
 ```
 
@@ -306,7 +333,8 @@ Some tests take a single argument…
   (#is? test.lastOfType))
 ```
 
-Consult the [`ScopeResolver` API documentation](TODO) for a full list.
+<!-- TODO: Replace with actual API documentation for `ScopeResolver` once we figure out how to express it. -->
+Consult the [`ScopeResolver` API documentation](https://github.com/pulsar-edit/pulsar/blob/df0050f7b2f47448061895d14269ff97c4bae29f/src/scope-resolver.js#L608-L632) for a full list.
 
 ### Scope adjustments: tweaking buffer ranges
 
@@ -323,7 +351,8 @@ Some adjustments move the boundaries of the scope based on pattern matches insid
 
 There’s only one catch: **adjustments can only _narrow_ the range of a capture, not expand it**. That’s important because Pulsar depends on Tree-sitter to tell it when certain regions of the buffer are affected by edits and need to be re-highlighted. That system won’t work correctly if a capture that starts and ends on row 1 can stretch itself to add a scope to something on row 100.
 
-Consult the [`ScopeResolver` API documentation](TODO) for a full list.
+<!-- TODO: Replace with actual API documentation for `ScopeResolver` once we figure out how to express it. -->
+Consult the [`ScopeResolver` API documentation](https://github.com/pulsar-edit/pulsar/blob/df0050f7b2f47448061895d14269ff97c4bae29f/src/scope-resolver.js#L608-L632) for a full list.
 
 ### Sharing query files
 
@@ -343,7 +372,7 @@ treeSitter:
   indentsQuery: 'tree-sitter-tsx/indents.scm'
 ```
 
-The highlights query loads two different files: one that is common to `tree-sitter-typescript` and `tree-sitter-tsx`, and one that is unique to `tree-sitter-tsx`. The latter file would contain queries that deal with JSX and anything else that would not be understood by `tree-sitter-typescript`.
+The highlights query loads two different files: one that is common to `tree-sitter-typescript` and `tree-sitter-tsx`, and one that is unique to `tree-sitter-tsx`. The latter file would contain queries that deal with JSX and anything else that would not be understood by a `tree-sitter-typescript` parser.
 
 You might also notice a new key: `languageSegment`. This optional property allows one to write a shared query file generically…
 
@@ -352,8 +381,7 @@ You might also notice a new key: `languageSegment`. This optional property allow
   name: (type_identifier) @entity.name.type.class._LANG_)
 ```
 
-…while retaining the ability to add a grammar-specific scope segment at the end of a capture. At initialization time, all `_LANG_` segments in this SCM file would be dynamically replaced with `ts.tsx`, and the capture name above would become `@entity.name.type.class.ts.tsx`. In the ordinary TypeScript grammar, specifying a `languageSegment` of `ts` would allow that grammar to define a capture name of `@entity.name.type.class.ts`.
-
+…while retaining the ability to add a grammar-specific scope segment at the end of a capture. At initialization time, all `_LANG_` segments in this SCM file would be dynamically replaced with `ts.tsx`, and the capture name above would become `@entity.name.type.class.ts.tsx`. In the ordinary TypeScript grammar, specifying a `languageSegment` of `ts` would allow that grammar to define a capture name of `@entity.name.type.class.ts` instead.
 
 ## Language injection
 
@@ -361,9 +389,13 @@ Often, a source file will contain code written in several different languages. A
 
 Tree-sitter grammars support this situation using a two-part process called _language injection_. First, an “outer” language must define an injection point - a set of syntax nodes whose text can be parsed using a different language, along with some logic for guessing the name of the other language that should be used. Second, an “inner” language must define an `injectionRegex` - a regex pattern that will be tested against the language name provided by the injection point.
 
+This allows for loose coupling. One grammar can say “these sorts of nodes need a parser that understands `html`”; another can say “hey, I know what `html` is! I can be that grammar!”
+
 The inner language can, in turn, define any injection points _it_ may need, such that different grammars can be “nested” inside of a buffer to an arbitrary depth.
 
-The code to define language injections should be placed inside of `lib/main.js` within your `language-` package. That file should export a function called `activate` that defines the injection points:
+If your language package needs to inject other languages, it can define injection points in JavaScript via the {GrammarRegistry::addInjectionPoint "atom.grammars.addInjectionPoint()"} API.
+
+For instance, you could define `lib/main.js` within your `language-mylanguage` package. That file should export a function called `activate` that defines the injection points:
 
 ```js
 exports.activate = () => {
@@ -371,7 +403,7 @@ exports.activate = () => {
 };
 ```
 
-Be sure to include a `main` field in the package’s `package.json` that points to this file:
+Be sure to include a corresponding `main` field in the package’s `package.json` that points to this file:
 
 ```json
 "main": "lib/main"

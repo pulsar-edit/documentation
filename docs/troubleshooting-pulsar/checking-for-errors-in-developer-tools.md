@@ -7,7 +7,7 @@ When an unexpected error occurs in Pulsar, you will normally see a red notificat
 
 ![Exception Notification](/img/atom/exception-notification.png)
 
-Not all errors are logged with a notification. So if you suspect you're experiencing an error, but there's no notification, you can also look for errors in the Console tab of the developer tools. To access the Console tab, press <kbd class="platform-linux platform-win">Ctrl+Shift+I</kbd> <kbd class="platform-mac">Alt+Cmd+I</kbd> to open developer tools and then click the Console tab:
+Not all errors are logged with a notification. So if you suspect you’re experiencing an error, but there’s no notification, you can also look for errors in the Console tab of the developer tools. To access the Console tab, press <kbd class="platform-linux platform-win">Ctrl+Shift+I</kbd> <kbd class="platform-mac">Alt+Cmd+I</kbd> to open developer tools and then click the Console tab:
 
 ![DevTools Error](/img/atom/devtools-error.png)
 
@@ -15,6 +15,6 @@ If there are multiple errors, you can scroll down to the bottom of the panel to 
 
 ::: note Note
 
-When running in Dev Mode, the developer tools are automatically shown with the error logged in the Console tab.
+When running in dev mode, any action that produces an error in the console will automatically open the dev tools to bring attention to the error.
 
 :::

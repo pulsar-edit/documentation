@@ -18,8 +18,7 @@ The scope system is one of the many systems that Pulsar (and Atom before it) inh
 As a result, a given position in a source code file may contain a cascade of scope names, moving from the general to the specific.
 
 
-![Log cursor scope](TODO)
-
+![Log cursor scope](/img/atom/cursor-scope.png "Log cursor scope")
 
 You can see this yourself by placing a cursor in one of your own buffers and invoking the **Editor: Log Cursor Scope** command from the command palette.
 

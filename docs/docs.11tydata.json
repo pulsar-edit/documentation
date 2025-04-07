@@ -50,6 +50,11 @@
       "text": "APIs",
       "link": "/api",
       "summary": "Read reference documentation for our APIs: Pulsar’s own API and that of the package repository."
+    },
+    {
+      "text": "IDE Features",
+      "link": "/ide-features",
+      "summary": "Hook Pulsar up to ‘brain’ packages that make it behave more like a language-specific IDE."
     }
   ]
 

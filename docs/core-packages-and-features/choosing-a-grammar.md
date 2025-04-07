@@ -26,6 +26,6 @@ When Pulsar can’t even make a guess at the right grammar, it will default to �
 
 When the grammar of a file is changed, Pulsar will remember that change for the current session.
 
-Grammars are part of the core Pulsar editor, as is the logic for automatic detection of which grammar to use for a given file. Like most of the other features we’ve covered in this section, each grammar is implemented as its own package. Several dozen grammar packages are built into Pulsar, but many more can be installed.
+Grammars are part of the core Pulsar editor, as is the logic for automatic detection of which grammar to use for a given file. Like most of the other features we’ve covered in this section, grammars are provided by packages, whether builtin or third-party. Several dozen grammar packages are built into Pulsar, but many more can be installed.
 
 The grammar selector functionality is implemented in the {grammar-selector} package.

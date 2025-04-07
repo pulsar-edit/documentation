@@ -3,11 +3,11 @@ title: "Package: Word count"
 layout: doc.ejs
 ---
 
-Let's get started by writing a very simple package that will tell you how many words are in the current buffer and display it in a small modal window.
+Let’s get started by writing a very simple package that will tell you how many words are in the current buffer and display it in a small modal window.
 
 The simplest way to start a package is to use the built-in package generator that ships with Pulsar. As you might expect by now, this generator is itself a separate package implemented in {package-generator}.
 
-You can run the generator by invoking the command palette and searching for "Generate Package". A dialog will appear asking you to name your new project. Name it `your-name-word-count`. Pulsar will then create that directory and fill it out with a skeleton project and link it into your `~/.pulsar/packages` directory so it's loaded when you launch your editor next time.
+You can run the generator by invoking the command palette and searching for "Generate Package". A dialog will appear asking you to name your new project. Name it `your-name-word-count`. Pulsar will then create that directory and fill it out with a skeleton project and link it into your `~/.pulsar/packages` directory so it’s loaded when you launch your editor next time.
 
 ::: tip
 
@@ -15,7 +15,7 @@ The examples will proceed as though you had typed `your-name` literally, but you
 
 :::
 
-Your new project will also automatically be opened for editing. The boilerplate for the new package contains one command called **Your Name Word Count: Toggle**; if you were to invoke this command through the menu or command palette, you’d see a dialog that says "The YourNameWordCount package is Alive! It's Alive!"
+Your new project will also automatically be opened for editing. The boilerplate for the new package contains one command called **Your Name Word Count: Toggle**; if you were to invoke this command through the menu or command palette, you’d see a dialog that says "The YourNameWordCount package is Alive! It’s Alive!"
 
 ![Wordcount Package is Alive Dialog](/img/atom/toggle.png)
 
@@ -23,11 +23,11 @@ You can dismiss the dialog by executing the command again.
 
 ## Understanding the generated code
 
-Let's take a look at the code in our `lib` directory and see what is happening.
+Let’s take a look at the code in our `lib` directory and see what is happening.
 
 There are two files in our `lib` directory. One is the main file (`lib/your-name-word-count.js`), which is pointed to in the `package.json` file as the main file to execute for this package. This file handles the logic of the whole package.
 
-The second file is a view class, `lib/your-name-word-count-view.js`, which handles the UI elements of the package. Let's look at this file first, since it's pretty simple.
+The second file is a view class, `lib/your-name-word-count-view.js`, which handles the UI elements of the package. Let’s look at this file first, since it’s pretty simple.
 
 ```js
 export default class YourNameWordCountView {
@@ -57,11 +57,11 @@ export default class YourNameWordCountView {
 }
 ```
 
-Nothing complicated happens here. When the `YourNameWordCountView` class is instantiated, it creates a simple `div` element and adds the `your-name-word-count` class to it (so we can find or style it later) and then adds the "`Your Name Word Count package is Alive!`" text to it. It exposes that `div` via a `getElement` method. The `serialize` and `destroy` methods don't do anything yet; we won't have to worry about that until another example.
+Nothing complicated happens here. When the `YourNameWordCountView` class is instantiated, it creates a simple `div` element and adds the `your-name-word-count` class to it (so we can find or style it later) and then adds the "`Your Name Word Count package is Alive!`" text to it. It exposes that `div` via a `getElement` method. The `serialize` and `destroy` methods don’t do anything yet; we won’t have to worry about that until another example.
 
-Notice that we're simply using the basic browser DOM methods: `createElement()` and `appendChild()`.
+Notice that we’re simply using the basic browser DOM methods: `createElement()` and `appendChild()`.
 
-The second file we have is the main entry point to the package, as indicated in the `main` field of the `package.json` file. Let's take a look at that one:
+The second file we have is the main entry point to the package, as indicated in the `main` field of the `package.json` file. Let’s take a look at that one:
 
 ```js
 import YourNameWordCountView from "./your-name-word-count-view";
@@ -139,7 +139,7 @@ this.modalPanel = atom.workspace.addModalPanel({
 });
 ```
 
-We'll ignore the state stuff for now, since it's not important for this simple package. The rest should be fairly straightforward.
+We’ll ignore the state stuff for now, since it’s not important for this simple package. The rest should be fairly straightforward.
 
 Next, our `activate` method creates an instance of the `CompositeDisposable` class. It does this because some methods that are typically called during package activation — adding commands, subscribing to events, and so on — will create side effects that should be cleaned up if this package is ever deactivated. A `CompositeDisposable` helps us keep track of all of those clean-up tasks.
 
@@ -197,7 +197,7 @@ If you choose not to defer the loading of your package via `activationCommands`,
 
 So now that we understand what is happening, let's modify the code so that our little modal box shows us the current word count instead of static text.
 
-We'll do this in a very simple way. When the dialog is toggled, we'll count the words right before displaying the modal. So let's do this in the `toggle` command. If we add some code to count the words and ask the view to update itself, we'll have something like this:
+We’ll do this in a very simple way. When the dialog is toggled, we’ll count the words right before displaying the modal. So let’s do this in the `toggle` command. If we add some code to count the words and ask the view to update itself, we’ll have something like this:
 
 ```js
 toggle() {
@@ -212,11 +212,11 @@ toggle() {
 }
 ```
 
-Let's look at the three lines we've added. First we get an instance of the current `TextEditor` object by calling {Workspace::getActiveTextEditor "atom.workspace.getActiveTextEditor()"}.
+Let’s look at the three lines we’ve added. First we get an instance of the current `TextEditor` object by calling {Workspace::getActiveTextEditor "atom.workspace.getActiveTextEditor()"}.
 
 Next we get the number of words by calling {TextEditor::getText "getText()"} on our new editor object, splitting that text on whitespace with a regular expression, and getting the length of that array.
 
-Finally, we’ll tell our view to update the word count it displays by calling the `setCount()` method on our view and then showing the modal again. Since that method doesn't yet exist, let's create it now.
+Finally, we’ll tell our view to update the word count it displays by calling the `setCount()` method on our view and then showing the modal again. Since that method doesn’t yet exist, let’s create it now.
 
 We can add this code near the end of our `your-name-word-count-view.js` file:
 
@@ -231,7 +231,7 @@ Pretty simple! We take the count number that was passed in and place it into a s
 
 ::: note Note
 
-To see your changes, you'll need to reload the code. You can do this by reloading the window (the `window:reload` command in the Command Palette). A common practice is to have two Pulsar windows: one for developing your package, and one for testing and reloading.
+To see your changes, you’ll need to reload the code. You can do this by reloading the window (the `window:reload` command in the Command Palette). A common practice is to have two Pulsar windows: one for developing your package, and one for testing and reloading.
 
 :::
 
@@ -239,4 +239,4 @@ To see your changes, you'll need to reload the code. You can do this by reloadin
 
 ## Summary
 
-We've now generated, customized and tested our first package for Pulsar. Congratulations!
+We’ve now generated, customized and tested our first package for Pulsar. Congratulations!

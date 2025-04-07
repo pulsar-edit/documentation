@@ -5,7 +5,9 @@ layout: doc.ejs
 
 ## macOS error: “_App is damaged and can’t be opened_”
 
-The binary is likely from before macOS binaries started being signed. A up-to-date and signed binary may be downloaded from [the download page](/download.html). The unsigned binary can be made to run by running `xattr -cr /Applications/Pulsar.app/` in the terminal. See [here](https://appletoolbox.com/app-is-damaged-cannot-be-opened-mac/) for more information.
+The binary is likely from before macOS binaries started being signed. A up-to-date and signed binary may be downloaded from [the download page](/download.html). The unsigned binary can be made to run by running `xattr -cr /Applications/Pulsar.app/` in the terminal.
+
+[See here](https://appletoolbox.com/app-is-damaged-cannot-be-opened-mac/) for more information.
 
 ## Pulsar does not launch on Linux: “_GPU process isn't usable. Goodbye_”
 

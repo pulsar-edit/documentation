@@ -3,7 +3,7 @@ title: Creating a fork of a core package
 layout: doc.ejs
 ---
 
-Several of Pulsar's core packages are maintained in the [`packages` directory of the `pulsar-edit/pulsar` repository](https://github.com/pulsar-edit/pulsar/tree/master/packages). If you would like to use one of these packages as a starting point for your own package, please follow the steps below.
+Several of Pulsar’s core packages are maintained in the [`packages` directory of the `pulsar-edit/pulsar` repository](https://github.com/pulsar-edit/pulsar/tree/master/packages). If you would like to use one of these packages as a starting point for your own package, please follow the steps below.
 
 ::: tip Tip
 

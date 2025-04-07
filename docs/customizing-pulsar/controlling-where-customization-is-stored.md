@@ -13,16 +13,9 @@ The environment variable used to specify an alternate location is called `ATOM_H
 
 ## Taking your customization with you with portable mode
 
-In addition to using the `ATOM_HOME` environment variable, Pulsar can also be
-set to use “portable mode.”
+In addition to using the `ATOM_HOME` environment variable, Pulsar can also be set to use “portable mode.”
 
-Portable mode is most useful for taking Pulsar with you, with all your custom
-settings and packages, from machine to machine. This may take the form of
-keeping Pulsar on a USB drive or a cloud storage platform that syncs folders to
-different machines, like Dropbox. Pulsar is in portable mode when there is a
-directory named `.pulsar` sibling to the directory in which the pulsar executable <!-- TODO: Check if this is still true in Pulsar -->
-file lives. For example, the installed Pulsar directory can be placed into a
-Dropbox folder next to a `.pulsar` folder.
+Portable mode is most useful for taking Pulsar with you, with all your custom settings and packages, from machine to machine. This may take the form of keeping Pulsar on a USB drive or a cloud storage platform that syncs folders to different machines, like Dropbox. Pulsar is in portable mode when there is a directory named `.pulsar` sibling to the directory in which the `pulsar` executable <!-- TODO: Check if this is still true in Pulsar --> file lives. For example, the installed Pulsar directory can be placed into a Dropbox folder next to a `.pulsar` folder.
 
 ![Portable mode directory structure](/img/atom/portable-mode-folder.png)
 

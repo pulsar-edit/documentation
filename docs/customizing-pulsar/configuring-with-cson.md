@@ -12,22 +12,17 @@ key:
   key: [value, value]
 ```
 
-:::info
+:::info Why CSON?
 Pulsar’s predecessor Atom was originally written in CoffeeScript, but was slowly migrated to JavaScript over the years. Yet CSON has remained as a friendlier alternative to JSON files. It allows the user to use indentation in place of explicit delimiters like `{`/`}` and `,`, and it explicitly allows comments (which vanilla JSON does not).
 :::
 
-Objects are the backbone of any CSON file, and are delineated by indentation (as
-in the above example). A key's value can either be a string, a number, an
-object, a boolean, `null`, or an array of any of these data types.
+Objects are the backbone of any CSON file, and are delineated by indentation (as in the above example). A key’s value can either be a string, a number, an object, a boolean, `null`, or an array of any of these data types.
 
 ::: warning Warning
 
-Just like the more common JSON, CSON's keys can only be repeated once per
-object. If there are duplicate keys, then the last usage of that key overwrites
-all others, as if they weren't there. The same holds true for Pulsar's config
-files.
+Just like the more common JSON, CSON’s keys can only be used once per object. If there are duplicate keys, then the last usage of that key overwrites all others, as if they weren’t there. The same holds true for Pulsar’s config files.
 
-**Don't do this:**
+**Don’t do this:**
 
 ```coffee
 # Only the second snippet will be loaded
@@ -41,7 +36,28 @@ files.
     'body': 'console.error(${1:"crash"});$2'
 ```
 
-**Use this instead:**
+Why? Because it’s equivalent to this JSON:
+
+```json
+{
+  ".source.js": {
+    "console.log": {
+      "prefix": "log",
+      "body": "console.log(${1:\"crash\"});$2"
+    }
+  },
+  ".source.js": {
+    "console.error": {
+      "prefix": "error",
+      "body": "console.error(${1:\"crash\"});$2"
+    }
+  }
+}
+```
+
+The second `.source.js` key will overwrite the first!
+
+**Do this instead:**
 
 ```coffee
 # Both snippets will be loaded
@@ -72,4 +88,4 @@ Other than its optional delimiters, the main distinguishing feature of CSON is i
     """
 ```
 
-On multi-line CSON strings, the string starts on the second line, and the leading whitespace on each line is ignored.
+On multi-line CSON strings, the string starts on the second line, and the leading whitespace on each line is ignored. This makes triple-quoted strings an especially convenient format to use when defining snippets: you can use literal newline characters instead of `\n`, and neither single nor double quotation marks need to be escaped.

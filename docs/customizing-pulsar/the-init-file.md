@@ -36,7 +36,7 @@ atom.commands.add("atom-text-editor", "markdown:paste-as-link", () => {
 ```
 
 :::tip
-Other sorts of customizations can be applied without relaunching or reloading Pulsar — but not the init file, which requires a window reload to take effect.
+Other sorts of customizations can be applied without relaunching or reloading Pulsar — but not the init file, which requires a window reload before changes take effect.
 
 That’s because there’s no way to undo the side effects of the _previous_ execution of the init file — the one that happened when you first loaded your current window.
 

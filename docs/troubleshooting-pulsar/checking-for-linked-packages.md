@@ -20,6 +20,13 @@ $ pulsar -p unlink color-picker
 > Unlinking /Users/pulsy/.pulsar/packages/color-picker ✓
 ```
 
+It’s also possible that you’ve linked a certain package in dev mode only. If `pulsar -p links` shows you any links under `dev/packages`, add the `--dev` flag when you unlink them:
+
+```sh
+$ pulsar -p unlink --dev color-picker
+> Unlinking /Users/pulsy/.pulsar/dev/packages/color-picker ✓
+```
+
 See `pulsar -p links --help` and `pulsar -p unlink --help` for more information on these commands.
 
 ::: tip Tip

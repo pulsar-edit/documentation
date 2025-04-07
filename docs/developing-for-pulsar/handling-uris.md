@@ -11,7 +11,7 @@ Every URI still begins with `atom://` to keep backwards compatibility with all e
 
 ::: warning Warning
 
-Handling URIs triggered from other applications, like a web browser, is a powerful tool, but also one that can be jarring. You should shape your package's user experience to handle this well. In general, you should **avoid taking direct action on behalf of a user**. For example, a URI handler that immediately installs a package is too invasive, but a URI handler that shows the package's pane in the settings view is useful. A URI handler that begins to clone a repo is overly aggressive, but a URI handler that _prompts_ the user to clone a repo is okay.
+Handling URIs triggered from other applications, like a web browser, is a powerful tool, but also one that can be jarring. You should shape your package’s user experience to handle this well. In general, you should **avoid taking direct action on behalf of a user**. For example, a URI handler that immediately installs a package is too invasive, but a URI handler that shows the package’s pane in the settings view is useful. A URI handler that begins to clone a repo is overly aggressive, but a URI handler that _prompts_ the user to clone a repo is okay.
 
 Any package with a URI handler that we feel violates this guideline is subject to removal from the Pulsar package registry at our discretion.
 
@@ -23,7 +23,7 @@ The first step to handling URIs from your package is to modify its `package.json
 
 The `uriHandler` object _must_ contain a key called `method` with a string value that tells Pulsar which method in your package to call when a URI needs to be handled. The object can _optionally_ include a key called `deferActivation` which can be set to the boolean `false` to prevent Pulsar from deferring activation of your package — see more below.
 
-For example, if we want our package `my-package` to handle URIs with a method on our package's main module called `handleURI`, we could add the following to our `package.json`:
+For example, if we want our package `my-package` to handle URIs with a method on our package’s main module called `handleURI`, we could add the following to our `package.json`:
 
 ```json
 "uriHandler": {
@@ -33,9 +33,9 @@ For example, if we want our package `my-package` to handle URIs with a method on
 
 ## Modifying your main module
 
-Now that we've told Pulsar that we want our package to handle URIs beginning with `atom://my-package/` via our `handleURI` method, we need to actually write this method. Pulsar passes two arguments to your URI handler method; the first one is the fully-parsed URI plus query string, [parsed with Node's `url.parse(uri, true)`](https://nodejs.org/api/url.html#url_url_parse_urlstring_parsequerystring_slashesdenotehost). The second argument is the raw, string URI; this is normally not needed since the first argument gives you structured information about the URI.
+Now that we’ve told Pulsar that we want our package to handle URIs beginning with `atom://my-package/` via our `handleURI` method, we need to actually write this method. Pulsar passes two arguments to your URI handler method; the first one is the fully-parsed URI plus query string, [parsed with Node’s `url.parse(uri, true)`](https://nodejs.org/api/url.html#url_url_parse_urlstring_parsequerystring_slashesdenotehost). The second argument is the raw, string URI; this is normally not needed since the first argument gives you structured information about the URI.
 
-Here's a sample package, written in JavaScript, that handles URIs with the `package.json` configuration we saw above.
+Here’s a sample package, written in JavaScript, that handles URIs with the `package.json` configuration we saw above.
 
 ```js
 export default {
@@ -68,11 +68,11 @@ When Pulsar handles, for example, the URI `atom://my-package/my/test/url?value=4
 }
 ```
 
-Notice that the query string arguments are available in the `query` property, but are strings — you'll have to convert to other native types yourself.
+Notice that the query string arguments are available in the `query` property, but are strings — you’ll have to convert to other native types yourself.
 
 ## Controlling activation deferral
 
-For performance reasons, adding a `uriHandler` entry to your package's `package.json` will enable _deferred activation_. This means that Pulsar will not activate your package until it has a URI for it to handle — at which point it will activate your package and then immediately call the URI handler method. If you want to disable the deferred activation, ensuring your package is activated upon startup, you can add `"deferActivation": false` to the URI handler config:
+For performance reasons, adding a `uriHandler` entry to your package’s `package.json` will enable _deferred activation_. This means that Pulsar will not activate your package until it has a URI for it to handle — at which point it will activate your package and then immediately call the URI handler method. If you want to disable the deferred activation, ensuring your package is activated upon startup, you can add `"deferActivation": false` to the URI handler config:
 
 ```json
 "uriHandler": {

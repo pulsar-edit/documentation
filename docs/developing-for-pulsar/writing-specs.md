@@ -35,7 +35,7 @@ describe("TextEditor::moveUp", function () {
 
 ### Add one or more `it` methods
 
-The `it` method also takes two arguments: a description and a function. Try and make the description continue the sentence that an enclosing `describe` method started. For example, a description of "this should work" doesn't read well as "it this should work". But a description of "should work" sounds great as "it should work".
+The `it` method also takes two arguments: a description and a function. Try and make the description continue the sentence that an enclosing `describe` method started. For example, a description of "this should work" doesn’t read well as "it this should work". But a description of "should work" sounds great as "it should work".
 
 ```js
 describe("when a test is written", function () {
@@ -60,7 +60,7 @@ describe("when a test is written", function () {
 
 #### Custom matchers
 
-In addition to Jasmine's built-in matchers, Pulsar includes the following:
+In addition to Jasmine’s built-in matchers, Pulsar includes the following:
 
 - [jasmine-jquery](https://github.com/velesin/jasmine-jquery)
 - The `toBeInstanceOf` matcher is for the `instanceof` operator
@@ -190,7 +190,7 @@ For a more detailed documentation on asynchronous tests, please visit the [Jasmi
 
 ## Running specs
 
-Most of the time you'll want to run specs by triggering the `window:run-package-specs` command. This command is not only to run package specs, it can also be used to run Pulsar core specs when working on Pulsar itself. This will run all the specs in the current project's `spec` directory.
+Most of the time you’ll want to run specs by triggering the `window:run-package-specs` command. This command is not only to run package specs, it can also be used to run Pulsar core specs when working on Pulsar itself. This will run all the specs in the current project’s `spec` directory.
 
 To run a limited subset of specs, use the `fdescribe` or `fit` methods. You can use those to “focus” a single spec or several specs. Modified from the example above, focusing an individual spec looks like this:
 
@@ -205,7 +205,7 @@ describe("when a test is written", function () {
 
 ### Running on CI
 
-It is possible to run the specs in a CI environment like GitHub Actions. The [action-pulsar-dependency page](https://github.com/marketplace/actions/action-pulsar-dependency-tester) has details. 
+It is possible to run the specs in a CI environment like GitHub Actions. The [action-pulsar-dependency page](https://github.com/marketplace/actions/action-pulsar-dependency-tester) has details.
 
 
 ### Running via the command line
@@ -218,9 +218,9 @@ pulsar --test --timeout 60 ./test/test-1.js ./test/test-2.js
 
 ## Customizing your test runner
 
-By default, package tests are run with Jasmine 1.3, which is outdated but can't be changed for compatibility reasons. You can specify your own custom test runner by including an `atomTestRunner` field in your `package.json`. Pulsar will require whatever module you specify in this field, so you can use a relative path or the name of a module in your package's dependencies.
+By default, package tests are run with Jasmine 1.3, which is outdated but can’t be changed for compatibility reasons. You can specify your own custom test runner by including an `atomTestRunner` field in your `package.json`. Pulsar will require whatever module you specify in this field, so you can use a relative path or the name of a module in your package’s dependencies.
 
-Your test runner module must export a single function, which Pulsar will call within a new window to run your package's tests. Your function will be called with the following parameters:
+Your test runner module must export a single function, which Pulsar will call within a new window to run your package’s tests. Your function will be called with the following parameters:
 
 - `testPaths` An array of paths to tests to run. Could be paths to files or
   directories.
@@ -228,7 +228,7 @@ Your test runner module must export a single function, which Pulsar will call wi
   of the `atom` global. No `atom` global will be explicitly assigned, but you
   can assign one in your runner if desired. This function should be called with
   the following parameters:
-  - `applicationDelegate` An object responsible for Pulsar's interaction with
+  - `applicationDelegate` An object responsible for Pulsar’s interaction with
     the browser process and host OS. Use `buildDefaultApplicationDelegate` for a
     default instance. You can override specific methods on this object to prevent
     or test these interactions.

@@ -3,7 +3,7 @@ title: Hacking on the core
 layout: doc.ejs
 ---
 
-If you’re hitting a bug in Pulsar or just want to experiment with adding a feature to the core of the system, you’ll want to run Pulsar in Dev Mode with access to a local copy of the Pulsar source.
+If you’re hitting a bug in Pulsar or just want to experiment with adding a feature to the core of the system, you’ll want to run Pulsar in dev mode with access to a local copy of the Pulsar source.
 
 ## Check out the source code
 
@@ -36,17 +36,23 @@ To run Pulsar in dev mode, use the `--dev` parameter from the terminal:
 $ pulsar --dev <path-to-open>
 ```
 
-There are a couple benefits of running Pulsar in Dev Mode:
+There are a couple benefits of running Pulsar in dev mode:
 
-1. When the `ATOM_DEV_RESOURCE_PATH` environment variable is set correctly, Pulsar is run using the source code from your local `pulsar-edit/pulsar` repository. This means you don't have to rebuild after every change — just restart Pulsar.
-2. Packages that exist in <span class="platform-linux platform-mac">`~/.pulsar/dev/packages`</span><span class="platform-win">`%USERPROFILE%\.pulsar\dev\packages`</span> are loaded instead of packages of the same name normally loaded from other locations. This means that you can have development versions of packages you use loaded but easily go back to the stable versions by launching without dev mode. This makes Dev Mode useful for developing packages even when `ATOM_DEV_RESOURCE_PATH` isn’t set.
-3. Packages that contain stylesheets, such as syntax themes, will have those stylesheets automatically reloaded by the {dev-live-reload} package. This does not live reload JavaScript or CoffeeScript files — you'll need to reload the window (`window:reload`) to see changes to those.
+1. When the `ATOM_DEV_RESOURCE_PATH` environment variable is set correctly, Pulsar is run using the source code from your local `pulsar-edit/pulsar` repository. This means you don’t have to rebuild after every change — just reload your current window with **Window: Reload**.
+
+    (Changes to “main process” code — basically any code that lives in `src/main-process` — will require a full relaunch of Pulsar, but most of Pulsar’s logic is in the renderer process.)
+
+2. Packages that exist in <span class="platform-linux platform-mac">`~/.pulsar/dev/packages`</span><span class="platform-win">`%USERPROFILE%\.pulsar\dev\packages`</span> are loaded instead of packages of the same name normally loaded from other locations.
+
+    This means that you can have development versions of packages you use loaded (via `pulsar -p link --dev [path-to-local-copy-of-a-package]`) but easily go back to the stable versions by launching without dev mode. This makes dev mode useful for developing packages even when `ATOM_DEV_RESOURCE_PATH` isn’t set.
+
+3. Packages that contain stylesheets, such as syntax themes, will have those stylesheets automatically reloaded by the {dev-live-reload} package. This does not live reload JavaScript or CoffeeScript files — you’ll need to reload the window (`window:reload`) to see changes to those.
 
 ## Running Pulsar core tests locally
 
 ### Within the terminal
 
-In order to run Pulsar Core tests from the terminal, first be certain to set the `ATOM_DEV_RESOURCE_PATH` environment variable as mentioned above and then:
+In order to run Pulsar core tests from the terminal, first be certain to set the `ATOM_DEV_RESOURCE_PATH` environment variable as mentioned above and then:
 
 ```sh
 $ cd <path-to-your-local-pulsar-repo>
@@ -55,7 +61,7 @@ $ pulsar --test spec
 
 ### Within Pulsar
 
-First, make sure to set `ATOM_DEV_RESOURCE_PATH`, then launch Pulsar and open a project whose root is the root of the Pulsar codebase. You may then run the package specs from within Pulsar by invoking the **Window: Run Package Specs** command. This will spawn a window that runs the specs and reports on their outcomes.
+First, make sure to set `ATOM_DEV_RESOURCE_PATH`; then launch Pulsar and open a project whose root is the root of the Pulsar codebase. You may then run the package specs from within Pulsar by invoking the **Window: Run Package Specs** command. This will spawn a window that runs the specs and reports on their outcomes.
 
 ## Running Pulsar builtin package tests locally
 
