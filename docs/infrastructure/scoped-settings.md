@@ -39,7 +39,7 @@ In the dev tools, the first line’s markup looks like this.
 
 You can see that each segment of a scope name is prepended with `syntax--` to minimize the chances of naming collisions, but the effect is the same.
 
-All the class names on the `span`s are scope names. Any scope name can be used to target a setting's value.
+All the class names on the `span`s are scope names. Any scope name can be used to target a setting’s value.
 
 ## Scope selectors
 
@@ -105,7 +105,7 @@ Retrieval of scope-specific settings via {Config::get} will usually be performed
 
 :::
 
-Let's revisit our example using these methods:
+Let’s revisit our example using these methods:
 
 ```js
 const editor = atom.workspace.getActiveTextEditor();

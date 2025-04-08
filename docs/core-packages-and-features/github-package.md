@@ -49,7 +49,7 @@ These commands will move focus to their respective tabs when invoked once — re
 
 ## Initialize repositories
 
-In case a project doesn't have a Git repository yet, you can create one from the Git panel.
+In case a project doesn’t have a Git repository yet, you can create one from the Git panel.
 
 ![Initialize repositories](/img/atom/github-initialize.png "Initialize repositories")
 
@@ -86,7 +86,7 @@ Use the <kbd class="platform-linux platform-win">Ctrl+Left</kbd><kbd class="plat
 
 ## Discard changes
 
-If you no longer want to keep some changes, you can discard them. It's similar to staging, but accessible behind a context menu.
+If you no longer want to keep some changes, you can discard them. It’s similar to staging, but accessible behind a context menu.
 
 - **All changes**: Click the [[...]] menu in the "Unstaged Changes"
   header and choose "Discard All Changes".
@@ -104,7 +104,7 @@ To double check **all changes** that are going into your next commit, click the 
 
 ## Commit
 
-Once you've staged your changes, enter a commit **message**. Feel free to describe the commit in more detail after leaving an empty line. Finalize by clicking the **Commit** button. If you need more space, click the expand icon at the bottom right. It will open a commit editor in the center.
+Once you’ve staged your changes, enter a commit **message**. Feel free to describe the commit in more detail after leaving an empty line. Finalize by clicking the **Commit** button. If you need more space, click the expand icon at the bottom right. It will open a commit editor in the center.
 
 ![Commit changes](/img/atom/github-commit.png "Commit changes")
 
@@ -124,19 +124,19 @@ If you want to edit the commit message of your last commit, or add/remove change
 
 ## View commits
 
-Once you've made some commits, click on a commit message in the recent commit list to see the full diff and commit message associated with each:
+Once you’ve made some commits, click on a commit message in the recent commit list to see the full diff and commit message associated with each:
 
 ![View commit detai](/img/atom/github-commit-detail.png "View commit detai")
 
 ## Publish and push
 
-When you're ready to share your changes with your team members, click the **Publish** button in the status bar. It will push your local branch to the remote repository. After making more commits, you can **Push** them as well from the status bar.
+When you’re ready to share your changes with your team members, click the **Publish** button in the status bar. It will push your local branch to the remote repository. After making more commits, you can **Push** them as well from the status bar.
 
 ![Publish and push commits](/img/atom/github-publish-push.png "Publish and push commits")
 
 ## Fetch and pull
 
-From time to time it's a good idea to click on the **Fetch** button to see if any other team member pushed changes. If so, click on **Pull** to merge the changes into your local branch.
+From time to time it’s a good idea to click on the **Fetch** button to see if any other team member pushed changes. If so, click on **Pull** to merge the changes into your local branch.
 
 ![Fetch and pull commits](/img/atom/github-fetch-pull.png "Fetch and pull commits")
 
@@ -156,7 +156,7 @@ Sometimes there can be conflicts when trying to merge. Files that have merge con
 
 ## Create a pull request
 
-When your changes are ready to be reviewed by your team members, open the "GitHub" panel [[Ctrl+8]] and click on **Open new pull request**. It will open the browser where you can continue creating a pull request. If commits haven't been pushed or the branch isn't published yet, the GitHub package will do that automatically for you.
+When your changes are ready to be reviewed by your team members, open the "GitHub" panel [[Ctrl+8]] and click on **Open new pull request**. It will open the browser where you can continue creating a pull request. If commits haven’t been pushed or the branch isn’t published yet, the GitHub package will do that automatically for you.
 
 ![Create a pull request](/img/atom/github-create-a-pull-request.png "Create a pull request")
 

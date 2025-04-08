@@ -3,7 +3,7 @@ title: "Installing Pulsar"
 layout: doc.ejs
 ---
 
-To get started with Pulsar, you'll need to get it on your system. This involves picking a release channel, then choosing a release that matches your operating system, processor architecture, and preferred format.
+To get started with Pulsar, you’ll need to get it on your system. This involves picking a release channel, then choosing a release that matches your operating system, processor architecture, and preferred format.
 
 You can [download Pulsar](https://pulsar-edit.dev/download.html) from our web site.
 
@@ -17,7 +17,7 @@ Roughly once per month, the Pulsar team increments Pulsar’s version number and
 
 ### Rolling release
 
-The rolling release of Pulsar is bleeding-edge, containing the newest changes possible as soon as they are added to Pulsar. Every pull request that's merged to Pulsar’s `master` branch results in a new rolling release being created automatically by our CI. For this reason, rolling releases do not occur on a set schedule.
+The rolling release of Pulsar is bleeding-edge, containing the newest changes possible as soon as they are added to Pulsar. Every pull request that’s merged to Pulsar’s `master` branch results in a new rolling release being created automatically by our CI. For this reason, rolling releases do not occur on a set schedule.
 
 The rolling release is equivalent to a “nightly” or “canary” release. They can sometimes deliver bug fixes faster than possible from regular releases, and they give the community a chance to provide feedback to changes before they become more widely available.
 
@@ -115,7 +115,7 @@ Pulsar can be installed from some community-supported package manager systems fo
 
 Pulsar on Windows supports a standard installation as well as running Pulsar in “Portable Mode” (more on that below).
 
-To install Pulsar regularly, download the `Setup` file, and double click to run. During the installation process, you'll be able to choose either the default user install (just the current user) or a machine install (all users of the machine). A user install is recommended, but either one will work, though a machine install will require administrative privileges.
+To install Pulsar regularly, download the `Setup` file, and double click to run. During the installation process, you’ll be able to choose either the default user install (just the current user) or a machine install (all users of the machine). A user install is recommended, but either one will work, though a machine install will require administrative privileges.
 
 You’ll be asked whether the folders that contain the `pulsar` and `ppm` binaries should be added to your `PATH`. This is recommended; it will make it easier to [launch Pulsar from a terminal](http://localhost:8081/getting-started/terminal-commands/).
 
@@ -160,7 +160,7 @@ To setup Pulsar in portable mode, follow the directions for your platform:
 
 ### Linux
 
-Download the `.AppImage` or `.tag.gz` release then create a `.pulsar` directory alongside the directory that contains the Pulsar binary, for example:
+Download the `.AppImage` or `.tar.gz` release, then create a `.pulsar` directory alongside the directory that contains the Pulsar binary. For example:
 
 ```
 /media/myusb/pulsar-1.106.0/.pulsar
@@ -169,7 +169,7 @@ Download the `.AppImage` or `.tag.gz` release then create a `.pulsar` directory 
 
 ### macOS
 
-Download the `.zip` release then create a `.pulsar` directory alongside the `Pulsar.app` application, for example:
+Download the `.zip` release, then create a `.pulsar` directory alongside the `Pulsar.app` application. For example:
 
 ```
 /MyUSB/Pulsar.app
@@ -178,11 +178,11 @@ Download the `.zip` release then create a `.pulsar` directory alongside the `Pul
 
 ### Windows
 
-Download the `Portable` release then create a `.pulsar` directory alongside the directory that contains `Pulsar.exe`, for example:
+Download the `Portable` release, then create a `.pulsar` directory alongside the directory that contains `Pulsar.exe`. For example:
 
 ```
-E:\\pulsar-1.106.0\\Pulsar.exe
-E:\\.pulsar
+E:\pulsar-1.106.0\Pulsar.exe
+E:\.pulsar
 ```
 
 ### Portable install notes
@@ -191,4 +191,4 @@ E:\\.pulsar
   * You can move an existing `.pulsar` directory to your portable device.
   * Pulsar can also store its Electron user data in your `.pulsar` directory - just create a subdirectory called `electronUserData` inside `.pulsar`.
   * Alternatively you can set the `ATOM_HOME` environment variable to point wherever you want (you can write a `.sh` or `.cmd` script to temporarily set it and launch it from that).
-  * Users of portable mode on Windows will be notified of updates via {pulsar-updater}.
+  * Users of portable mode on Windows will be notified of updates via {pulsar-updater}. For portable mode on other platforms, Pulsar will not (yet) notify the user of newer versions.

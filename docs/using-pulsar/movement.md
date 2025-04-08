@@ -3,7 +3,7 @@ title: Movement
 layout: doc.ejs
 ---
 
-While it's pretty easy to move around Pulsar by clicking with the mouse or using the arrow keys, there are some keybindings that may help you keep your hands on the keyboard and navigate around a little faster.
+While it’s pretty easy to move around Pulsar by clicking with the mouse or using the arrow keys, there are some keybindings that may help you keep your hands on the keyboard and navigate around a little faster.
 
 :::tabs#using-pulsar-movement-keybindings
 
@@ -54,9 +54,9 @@ You can also move directly to a specific line (and column) number with [[Ctrl+G]
 
 ## Additional movement and selection commands
 
-Pulsar also has a few movement and selection commands that don't have keybindings by default. You can access these commands from the [command palette](../basics/#command-palette), but if you find yourself using commands that don't have a keybinding often, have no fear! You can easily add an entry to your `keymap.cson` to create a key combination. You can open `keymap.cson` file in an editor from the <span class="platform-linux">_Edit > Keymap_</span> <span class="platform-mac">_Pulsar > Keymap_</span> <span class="platform-win">_File > Keymap_</span> menu item.
+Pulsar also has a few movement and selection commands that don’t have keybindings by default. You can access these commands from the [command palette](../basics/#command-palette), but if you find yourself using commands that don’t have a keybinding often, have no fear! You can easily add an entry to your `keymap.cson` to create a key combination. You can open `keymap.cson` file in an editor from the <span class="platform-linux">_Edit > Keymap_</span> <span class="platform-mac">_Pulsar > Keymap_</span> <span class="platform-win">_File > Keymap_</span> menu item.
 
-For example, the command `editor:select-to-previous-word-boundary` is available in the command palette, but it's not bound to any key combination. To create a key combination you’d add an entry in your `keymap.cson` file:
+For example, the command `editor:select-to-previous-word-boundary` is available in the command palette, but it’s not bound to any key combination. To create a key combination you’d add an entry in your `keymap.cson` file:
 
 <!--TODO: Check if these are rebranded in core-->
 ::: tabs#using-pulsar-add-to-keymap
@@ -86,7 +86,7 @@ For example, the command `editor:select-to-previous-word-boundary` is available 
 
 This will bind the command `editor:select-to-previous-word-boundary` to <kbd class="platform-linux platform-win">Ctrl+Shift+E</kbd><kbd class="platform-mac">Cmd+Shift+E</kbd>. For more information on customizing your keybindings, see [Customizing keybindings](/customizing-pulsar/customizing-keybindings/).
 
-Here's a list of movement and selection commands that do not have a keyboard shortcut by default:
+Here’s a list of movement and selection commands that do not have a keyboard shortcut by default:
 
 ::: tabs#using-pulsar-unbound-commands
 

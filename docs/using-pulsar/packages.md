@@ -12,7 +12,7 @@ In fact, a stock installation of Pulsar includes more than 80 packages. To list 
 * The default themes are the packages {one-dark-ui} and {one-dark-syntax}.
 * The palette for choosing a file to open in the current project is implemented by {fuzzy-finder}.
 
-All these packages live in the main Pulsar repository on GitHub, but otherwise there’s little to distinguish them from the packages that are written by community members. Core packages have no special privileges; they use the same APIs that you have access to, as we'll see in great detail in [Hacking on the core](/contributing-to-pulsar/hacking-on-the-core/).
+All these packages live in the main Pulsar repository on GitHub, but otherwise there’s little to distinguish them from the packages that are written by community members. Core packages have no special privileges; they use the same APIs that you have access to, as we’ll see in great detail in [Hacking on the core](/contributing-to-pulsar/hacking-on-the-core/).
 
 This means that packages can be incredibly powerful! They can change everything from the look and feel of the entire interface to the basic behavior of core functionality.
 

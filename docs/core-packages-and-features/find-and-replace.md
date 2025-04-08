@@ -12,7 +12,7 @@ Finding and replacing text in your file or project is quick and easy in Pulsar.
 
 :::
 
-If you launch either of those commands, you'll be greeted with the Find and
+If you launch either of those commands, you’ll be greeted with the Find and
 Replace panel at the bottom of your screen.
 
 ![Find and replace text in the current file](/img/atom/find-replace-file.png "Find and replace text in the current file")

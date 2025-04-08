@@ -195,7 +195,7 @@ If you choose not to defer the loading of your package via `activationCommands`,
 
 ## Counting the words
 
-So now that we understand what is happening, let's modify the code so that our little modal box shows us the current word count instead of static text.
+So now that we understand what is happening, let’s modify the code so that our little modal box shows us the current word count instead of static text.
 
 We’ll do this in a very simple way. When the dialog is toggled, we’ll count the words right before displaying the modal. So let’s do this in the `toggle` command. If we add some code to count the words and ask the view to update itself, we’ll have something like this:
 

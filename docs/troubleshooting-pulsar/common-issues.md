@@ -9,7 +9,7 @@ The binary is likely from before macOS binaries started being signed. A up-to-da
 
 [See here](https://appletoolbox.com/app-is-damaged-cannot-be-opened-mac/) for more information.
 
-## Pulsar does not launch on Linux: “_GPU process isn't usable. Goodbye_”
+## Pulsar does not launch on Linux: “_GPU process isn’t usable. Goodbye_”
 
 You may need to launch the application with the argument `--no-sandbox` to get around this issue. This is something [under investigation](https://github.com/pulsar-edit/pulsar/issues/174).
 

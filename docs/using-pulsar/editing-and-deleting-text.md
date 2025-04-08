@@ -122,7 +122,7 @@ Return to a single cursor with [[Esc]] or by clicking anywhere in the file to po
 
 ## Whitespace
 
-Pulsar comes with several commands to help you manage the whitespace in your document. One very useful pair of commands converts leading spaces into tabs and leading tabs into spaces. If you're working with a document that has mixed whitespace, these commands are great for helping to normalize the file. There are no keybindings for the whitespace commands, so you will have to search your command palette for **Convert Spaces to Tabs** (or vice versa) to run one of these commands.
+Pulsar comes with several commands to help you manage the whitespace in your document. One very useful pair of commands converts leading spaces into tabs and leading tabs into spaces. If you’re working with a document that has mixed whitespace, these commands are great for helping to normalize the file. There are no keybindings for the whitespace commands, so you will have to search your command palette for **Convert Spaces to Tabs** (or vice versa) to run one of these commands.
 
 The whitespace commands are implemented in the {whitespace} package. Visit that package’s settings page if you want to disable it or change its configuration.
 
@@ -153,21 +153,21 @@ There are a few other interesting bracket related commands that you can use.
 @tab Linux
 
 - [[Ctrl+M]] - Jump to the bracket matching the one adjacent to the cursor.
-  It jumps to the nearest enclosing bracket when there's no adjacent bracket.
+  It jumps to the nearest enclosing bracket when there’s no adjacent bracket.
 - [[Alt+Ctrl+,]] - Select all the text inside the current brackets
 - [[Alt+Ctrl+.]] - Close the current XML/HTML tag
 
 @tab macOS
 
 - [[Ctrl+M]] - Jump to the bracket matching the one adjacent to the cursor.
-  It jumps to the nearest enclosing bracket when there's no adjacent bracket.
+  It jumps to the nearest enclosing bracket when there’s no adjacent bracket.
 - [[Cmd+Ctrl+M]] - Select all the text inside the current brackets
 - [[Alt+Cmd+.]] - Close the current XML/HTML tag
 
 @tab Windows
 
 - [[Ctrl+M]] - Jump to the bracket matching the one adjacent to the cursor.
-  It jumps to the nearest enclosing bracket when there's no adjacent bracket.
+  It jumps to the nearest enclosing bracket when there’s no adjacent bracket.
 - [[Alt+Ctrl+,]] - Select all the text inside the current brackets
 - [[Alt+Ctrl+.]] - Close the current XML/HTML tag
 
@@ -183,7 +183,7 @@ The file encoding is shown in the status bar. To change the encoding of the file
 
 This brings up the a fuzzy-filtered list allowing you to choose a different file encoding.
 
-When you open a file, Pulsar will try to auto-detect the encoding. If Pulsar can't identify the encoding, the encoding will default to UTF-8, which is also the default encoding for new files.
+When you open a file, Pulsar will try to auto-detect the encoding. If Pulsar can’t identify the encoding, the encoding will default to UTF-8, which is also the default encoding for new files.
 
 ![Changing your file encoding](/img/atom/encodings.png)
 
