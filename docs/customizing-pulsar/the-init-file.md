@@ -40,7 +40,7 @@ Other sorts of customizations can be applied without relaunching or reloading Pu
 
 That’s because there’s no way to undo the side effects of the _previous_ execution of the init file — the one that happened when you first loaded your current window.
 
-You can reload pulsar with the **Window: Reload** command.
+You can reload Pulsar with the **Window: Reload** command.
 :::
 
 Once you’ve saved your init file and reloaded Pulsar, use the [command palette](../../using-pulsar/basics/#command-palette) to execute the new command, **Markdown: Paste As Link**, by name. And if you’d like to trigger the command via a keyboard shortcut, you can define a [keybinding for the command](../customizing-keybindings).
