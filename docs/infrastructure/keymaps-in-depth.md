@@ -207,7 +207,7 @@ Or, if you’re building an interface in a community package, you can apply the 
 
 Occasionally, it makes sense to layer multiple actions on top of the same key binding.
 
-An example of this happens in the {snippets} package. Snippets are inserted by typing a snippet prefix such as `for` and then pressing [[Tab]]. Every time [[Tab]] is pressed, we want to execute code attempting to expand a snippet if one exists for the text preceding the cursor. But if a snippet _doesn’t_ exist for that prefix, we want to revert to the typical behavor for tab [[Tab]] – inserting a tab character.
+An example of this happens in the {snippets} package. Snippets are inserted by typing a snippet prefix such as `for` and then pressing [[Tab]]. Every time [[Tab]] is pressed, we want to execute code attempting to expand a snippet if one exists for the text preceding the cursor. But if a snippet _doesn’t_ exist for that prefix, we want to revert to the typical behavior for [[Tab]] – inserting a tab character.
 
 To achieve this, the snippets package makes use of the `.abortKeyBinding()` method on the event object representing the `snippets:expand` command.
 
