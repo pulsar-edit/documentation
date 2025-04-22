@@ -30,7 +30,7 @@ atom.commands.add("atom-text-editor", "markdown:paste-as-link", () => {
 	selection = editor.getLastSelection();
 	clipboardText = atom.clipboard.read();
 	return selection.insertText(
-		"[" + selection.getText() + "](" + clipboardText + ")"
+		`[${selection.getText()}](${clipboardText})`
 	);
 });
 ```
