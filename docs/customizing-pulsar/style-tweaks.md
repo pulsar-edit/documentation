@@ -58,7 +58,7 @@ Suppose you want to customize the color of a variable in Python. You can use the
 
 If we hard-coded a color value here, we’d probably want to change the value if we switched syntax themes in the future. Instead, we can use one of the variables that syntax themes must define; that way the rule will work no matter which syntax theme is active.
 
-Here’s [the full list of syntax variables](https://github.com/pulsar-edit/pulsar/blob/master/static/variables/syntax-variables.less) you can rely on existing in most syntax themes.
+Here’s [the full list of syntax variables](https://github.com/pulsar-edit/pulsar/blob/master/static/variables/syntax-variables.less) you can rely on being present in most syntax themes.
 
 There is a similar set of variables you can use when customizing the UI:
 

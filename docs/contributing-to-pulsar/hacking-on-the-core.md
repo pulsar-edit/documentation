@@ -17,6 +17,12 @@ $ git clone git@github.com:pulsar-edit/pulsar.git
 
 You should install a compatible version of Node. Read the `.nvmrc` file to learn which version of Node is best to use. If you don’t have one yet, you’ll probably find it useful to install a tool like <span class="platform-linux platform-mac"><a href="https://github.com/nvm-sh/nvm">NVM</a> or <a href="https://asdf-vm.com/">asdf</a></span><span class="platform-win"><a href="https://github.com/coreybutler/nvm-windows">NVM for Windows</a> or <a href="https://github.com/Schniz/fnm">fnm</a></span> to manage multiple versions of Node.
 
+:::tip
+
+If these tools seem intimidating, or if you run into difficulties, you can always [install Node through more traditional means](https://nodejs.org/en/download).
+
+:::
+
 Pulsar uses [Yarn](https://yarnpkg.com/) to manage Node dependencies. Once you’ve got the right version of Node set up, you can [install Yarn using these instructions](https://classic.yarnpkg.com/lang/en/docs/install/). (You want the “classic stable” version 1 of Yarn, not version 2.)
 
 To install the project’s Node dependencies, run
