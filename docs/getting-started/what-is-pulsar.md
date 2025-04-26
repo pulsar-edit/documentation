@@ -3,7 +3,7 @@ title: What is Pulsar?
 layout: doc.ejs
 ---
 
-There are a lot of text editors out there; why should you spend your time learning about and using Pulsar? Editors like Visual Studio Code offer convenience but are limited in their customizability. On the other end of the spectrum, Emacs and Vim offer extreme flexibility, but they aren't very approachable and can only be customized with special-purpose scripting languages.
+There are a lot of text editors out there; why should you spend your time learning about and using Pulsar? Editors like Visual Studio Code offer convenience but are limited in their customizability. On the other end of the spectrum, Emacs and Vim offer extreme flexibility, but they aren’t very approachable and can only be customized with special-purpose scripting languages.
 
 Pulsar tries to bridge this gap by offering a zero-compromise combination of hackability and usability: an editor that will be welcoming to an elementary school student on their first day learning to code, but also a tool they won’t outgrow as they develop into seasoned hackers.
 

@@ -13,7 +13,7 @@ To close a pane, you can close all pane items with <kbd class="platform-linux pl
 
 ::: tip Tip
 
-If you don't like using tabs, you don't have to. You can disable the {tabs} package and each pane will still support multiple pane items. You just won't have tabs to use to click between them.
+If you don’t like using tabs, you don’t have to. You can disable the {tabs} package and each pane will still support multiple pane items. You just won’t have tabs to use to click between them.
 
 :::
 
@@ -39,3 +39,5 @@ If you double-click a file in the tree view while it’s already open as a pendi
 If you would prefer to not have files open in pending form, you can disable this behavior by unchecking **Allow Pending Pane Items** in the _Core Settings_ section of the settings view.
 
 With pending pane items disabled, single-clicking a file in the tree view will select the file but not open it. You will have to double-click the file to open it.
+
+Panes are a core feature.

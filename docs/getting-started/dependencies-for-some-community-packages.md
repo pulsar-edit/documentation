@@ -66,7 +66,7 @@ If `ppm install --check` produces errors, [visit the section below](#troubleshoo
 
 ### Windows
 
-To be able to build native modules on Windows, you'll need to install the following applications:
+To be able to build native modules on Windows, you’ll need to install the following applications:
 
 * **Build Tools for Visual Studio** (or the Visual Studio IDE) with the **Desktop development with C++** component
 * **Python 3** (preferably the most recent version)

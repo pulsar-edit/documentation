@@ -25,7 +25,7 @@ The final package can be viewed at <a href="https://github.com/pulsar-edit/ascii
 
 To begin, press <kbd class="platform-linux platform-win">Ctrl+Shift+P</kbd> <kbd class="platform-mac">Cmd+Shift+P</kbd> to bring up the [command palette](/using-pulsar/basics/#command-palette). Type "generate package" and select the **Package Generator: Generate Package** command, just [as we covered earlier](/developing-for-pulsar/developing-a-package/#package-generator). Enter `ascii-art` as the name of the package.
 
-Now let's edit the package files to make our ASCII art package do something interesting. Since this package doesn't need any UI, we can remove all view-related code — so delete `lib/ascii-art-view.js`, `spec/ascii-art-view-spec.js`, and `styles/`.
+Now let’s edit the package files to make our ASCII art package do something interesting. Since this package doesn’t need any UI, we can remove all view-related code — so delete `lib/ascii-art-view.js`, `spec/ascii-art-view-spec.js`, and `styles/`.
 
 Next, open up `lib/ascii-art.js` and remove all view code, so it looks like this:
 
@@ -56,9 +56,9 @@ module.exports = {
 
 ## Create a command
 
-Now let's add a command. You should namespace your commands with the package name followed by a `:` and then the name of the command. As you can see in the code, we called our command `ascii-art:convert` and we will define it to call the `convert()` method when it’s executed.
+Now let’s add a command. You should namespace your commands with the package name followed by a `:` and then the name of the command. As you can see in the code, we called our command `ascii-art:convert` and we will define it to call the `convert()` method when it’s executed.
 
-So far, that will simply log to the console. Let's start by making it insert something into the text buffer.
+So far, that will simply log to the console. Let’s start by making it insert something into the text buffer.
 
 ```js
 convert() {
@@ -69,7 +69,7 @@ convert() {
 }
 ```
 
-As in [the last tutorial](../package-word-count/#counting-the-words), we're using `atom.workspace.getActiveTextEditor()` to get the object that represents the active text editor. If this `convert()` method is called when not focused on a text editor, nothing will happen.
+As in [the last tutorial](../package-word-count/#counting-the-words), we’re using `atom.workspace.getActiveTextEditor()` to get the object that represents the active text editor. If this `convert()` method is called when not focused on a text editor, nothing will happen.
 
 Next we insert a string into the current text editor with the {TextEditor::insertText} method. This will insert the text wherever the cursor currently is in the current editor. If there are selections, it will replace all selections with the "Hello, World!" text.
 
@@ -79,7 +79,7 @@ Before we can trigger `ascii-art:convert`, we need to load the latest code for o
 
 ## Trigger the command
 
-Now open the command palette and search for the **Ascii Art: Convert** command. But it's not there! To fix this, open `package.json` and find the property called `activationCommands`. Activation commands make Pulsar launch faster by allowing Pulsar to delay a package's activation until it's needed. So remove the existing command and use `ascii-art:convert` in `activationCommands`:
+Now open the command palette and search for the **Ascii Art: Convert** command. But it’s not there! To fix this, open `package.json` and find the property called `activationCommands`. Activation commands make Pulsar launch faster by allowing Pulsar to delay a package’s activation until it’s needed. So remove the existing command and use `ascii-art:convert` in `activationCommands`:
 
 ```json
 "activationCommands": {
@@ -91,7 +91,7 @@ First, reload the window by running the command "Window: Reload" from the comman
 
 ## Add a key binding
 
-Now let's add a key binding to trigger the `ascii-art:convert` command. Open `keymaps/ascii-art.json` and add a key binding linking [[Alt+Ctrl+A]] to the `ascii-art:convert` command. You can delete the pre-existing key binding since you won't need it anymore.
+Now let’s add a key binding to trigger the `ascii-art:convert` command. Open `keymaps/ascii-art.json` and add a key binding linking [[Alt+Ctrl+A]] to the `ascii-art:convert` command. You can delete the pre-existing key binding since you won’t need it anymore.
 
 When finished, the file should look like this:
 
@@ -124,9 +124,9 @@ Now we need to convert the selected text to ASCII art. To do this we will use th
 }
 ```
 
-After saving the file, run the command **Update Package Dependencies: Update** from the command palette. This will install the package's Node module dependencies, only figlet in this case. You will need to run **Update Package Dependencies: Update** whenever you update the dependencies field in your `package.json` file.
+After saving the file, run the command **Update Package Dependencies: Update** from the command palette. This will install the package’s Node module dependencies, only figlet in this case. You will need to run **Update Package Dependencies: Update** whenever you update the dependencies field in your `package.json` file.
 
-If for some reason this doesn't work, you'll see a message saying "Failed to update package dependencies" and you will find a new `npm-debug.log` file in your directory. That file should give you some idea as to what went wrong.
+If for some reason this doesn’t work, you’ll see a message saying "Failed to update package dependencies" and you will find a new `npm-debug.log` file in your directory. That file should give you some idea as to what went wrong.
 
 ::: tip
 
@@ -163,4 +163,4 @@ We then call the Figlet code to convert that into something else and replace the
 
 ## Summary
 
-In this section, we've made a UI-less package that takes selected text and replaces it with a processed version. This could be helpful in creating linters or checkers for your code.
+In this section, we’ve made a UI-less package that takes selected text and replaces it with a processed version. This could be helpful in creating linters or checkers for your code.

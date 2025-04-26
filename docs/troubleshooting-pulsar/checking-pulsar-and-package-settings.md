@@ -5,7 +5,7 @@ layout: doc.ejs
 
 In some cases, unexpected behavior might be caused by settings in Pulsar or in one of the packages.
 
-Open Pulsar's settings view with <kbd class="platform-linux platform-win">Ctrl+,</kbd><kbd class="platform-mac">Cmd+,</kbd>, the <span class="platform-linux">_Edit > Preferences_</span><span class="platform-mac">_Pulsar > Settings…_</span><span class="platform-win">_File > Preferences_</span> menu option, or the **Settings View: Open** command from the command palette.
+Open Pulsar’s settings view with <kbd class="platform-linux platform-win">Ctrl+,</kbd><kbd class="platform-mac">Cmd+,</kbd>, the <span class="platform-linux">_Edit > Preferences_</span><span class="platform-mac">_Pulsar > Settings…_</span><span class="platform-win">_File > Preferences_</span> menu option, or the **Settings View: Open** command from the command palette.
 
 ![Settings View](/img/atom/settings-view.png)
 
@@ -32,7 +32,7 @@ Why is there a separate “Enabled” setting if you can just disable the packag
 :::
 
 
-And if you don't like it when Pulsar strips trailing whitespace or ensures that there's a single trailing newline in the file, you can configure that in the {whitespace} package’s settings.
+And if you don’t like it when Pulsar strips trailing whitespace or ensures that there’s a single trailing newline in the file, you can configure that in the {whitespace} package’s settings.
 
 ![Package Settings](/img/atom/package-settings.png)
 

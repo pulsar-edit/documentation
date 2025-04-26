@@ -14,7 +14,7 @@ Ultimately, packages can see and inspect one another via the {PackageManager "Pa
 
 During the package activation phase, Pulsar acts as a matchmaker to providers and consumers of services — “introducing” them to one another whenever two packages match on service name and version. This introduction doesn’t happen until _both_ packages are activated.
 
-To provide a service, specify a `providedServices` field in your `package.json`. You should include one or more version numbers, each paired with the name of a method on your package's main module:
+To provide a service, specify a `providedServices` field in your `package.json`. You should include one or more version numbers, each paired with the name of a method on your package’s main module:
 
 ```json
 {
@@ -30,7 +30,7 @@ To provide a service, specify a `providedServices` field in your `package.json`.
 }
 ```
 
-In your package's main module, implement the methods named above. These methods will be called any time a package is activated that consumes their corresponding service. They should return a value that implements the service's API.
+In your package’s main module, implement the methods named above. These methods will be called any time a package is activated that consumes their corresponding service. They should return a value that implements the service’s API.
 
 ```js
 module.exports = {
@@ -48,7 +48,7 @@ module.exports = {
 };
 ```
 
-Similarly, to consume a service, specify one or more [version _ranges_](https://docs.npmjs.com/cli/v6/using-npm/semver#ranges), each paired with the name of a method on the package's main module:
+Similarly, to consume a service, specify one or more [version _ranges_](https://docs.npmjs.com/cli/v6/using-npm/semver#ranges), each paired with the name of a method on the package’s main module:
 
 ```json
 {

@@ -19,7 +19,7 @@ For example, if you have the Audio Beep configuration setting enabled, you could
 atom.beep();
 ```
 
-Because `init.js` provides access to Pulsar's API, you can use it to implement useful commands without creating a new package or extending an existing one. Here's a command which uses the {Selection} and {Clipboard} APIs to construct a Markdown link from the selected text and the clipboard contents as the URL:
+Because `init.js` provides access to Pulsar’s API, you can use it to implement useful commands without creating a new package or extending an existing one. Here’s a command which uses the {Selection} and {Clipboard} APIs to construct a Markdown link from the selected text and the clipboard contents as the URL:
 
 ```js
 atom.commands.add("atom-text-editor", "markdown:paste-as-link", () => {
@@ -30,20 +30,20 @@ atom.commands.add("atom-text-editor", "markdown:paste-as-link", () => {
 	selection = editor.getLastSelection();
 	clipboardText = atom.clipboard.read();
 	return selection.insertText(
-		"[" + selection.getText() + "](" + clipboardText + ")"
+		`[${selection.getText()}](${clipboardText})`
 	);
 });
 ```
 
 :::tip
-Other sorts of customizations can be applied without relaunching or reloading Pulsar — but not the init file, which requires a window reload to take effect.
+Other sorts of customizations can be applied without relaunching or reloading Pulsar — but not the init file, which requires a window reload before changes take effect.
 
 That’s because there’s no way to undo the side effects of the _previous_ execution of the init file — the one that happened when you first loaded your current window.
 
-You can reload pulsar with the **Window: Reload** command.
+You can reload Pulsar with the **Window: Reload** command.
 :::
 
-Once you’ve saved your init file and reloaded Pulsar, use the [command palette](../../using-pulsar/basics/#command-palette) to execute the new command, **Markdown: Paste As Link**, by name. And if you'd like to trigger the command via a keyboard shortcut, you can define a [keybinding for the command](../customizing-keybindings).
+Once you’ve saved your init file and reloaded Pulsar, use the [command palette](../../using-pulsar/basics/#command-palette) to execute the new command, **Markdown: Paste As Link**, by name. And if you’d like to trigger the command via a keyboard shortcut, you can define a [keybinding for the command](../customizing-keybindings).
 
 :::tip
 Since a command name takes the format `foo:bar`, where `foo` is typically the package name, you might wonder what value to use before the colon if you define commands in your init file.

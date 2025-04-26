@@ -3,24 +3,24 @@ title: "Package: Active editor info"
 layout: doc.ejs
 ---
 
-We saw in our [Word Count](../package-word-count) package how we could show information in a modal panel. However, panels aren't the only way to extend Pulsar's UI: you can also add items to the workspace. These items can be dragged to new locations (for example, one of the docks on the edges of the window), and Pulsar will restore them the next time you open the project.
+We saw in our [Word Count](../package-word-count) package how we could show information in a modal panel. However, panels aren’t the only way to extend Pulsar’s UI: you can also add items to the workspace. These items can be dragged to new locations (for example, one of the docks on the edges of the window), and Pulsar will restore them the next time you open the project.
 
 <!--Below was part of this section in the original docs but as Nuclide is retired we either need a new example or remove this entirely-->
-<!--This system is used by Pulsar's tree view, as well as by third party
+<!--This system is used by Pulsar’s tree view, as well as by third party
 packages like [Nuclide](https://nuclide.io) for its console, debugger, outline
 view, and diagnostics (linter results).-->
 
-For this package, we'll define a workspace item that tells us some information about our active text editor. The final package can be viewed at [https://github.com/pulsar-edit/active-editor-info](https://github.com/pulsar-edit/active-editor-info).
+For this package, we’ll define a workspace item that tells us some information about our active text editor. The final package can be viewed at [https://github.com/pulsar-edit/active-editor-info](https://github.com/pulsar-edit/active-editor-info).
 
 ## Create the package
 
-To begin, press <kbd class="platform-win platform-linux">Ctrl+Shift+P</kbd> <kbd class="platform-mac">Cmd+Shift+P</kbd> to bring up the [command palette](https://github.com/pulsar-edit/command-palette). ype "generate package" and select the **Package Generator: Generate Package** command, just [as we covered earlier](/developing-for-pulsar/developing-a-package/#package-generator). Enter `active-editor-info` as the name of the package.
+To begin, press <kbd class="platform-win platform-linux">Ctrl+Shift+P</kbd> <kbd class="platform-mac">Cmd+Shift+P</kbd> to bring up the [command palette](https://github.com/pulsar-edit/command-palette). Type “generate package” and select the **Package Generator: Generate Package** command, just [as we covered earlier](/developing-for-pulsar/developing-a-package/#package-generator). Enter `active-editor-info` as the name of the package.
 
 ## Add an opener
 
-Now let's edit the package files to show our view in a workspace item instead of a modal panel. The way we do this is by registering an _opener_ with Pulsar. Openers are just functions that accept a URI and return a view (if it's a URI that the opener knows about). When you call `atom.workspace.open()`, Pulsar will go through all of its openers until it finds one that can handle the URI you passed.
+Now let’s edit the package files to show our view in a workspace item instead of a modal panel. The way we do this is by registering an _opener_ with Pulsar. Openers are just functions that accept a URI and return a view (if it’s a URI that the opener knows about). When you call {Workspace::open "atom.workspace.open()"}, Pulsar will go through all of its openers until it finds one that can handle the URI you passed.
 
-Let's open `lib/active-editor-info.js` and edit our `activate()` method to register an opener:
+Let’s open `lib/active-editor-info.js` and edit our `activate()` method to register an opener:
 
 ```js
 "use babel";
@@ -66,9 +66,9 @@ export default {
 };
 ```
 
-You'll notice we also removed the `activeEditorInfoView` property and the `serialize()` method. That's because, with workspace items, it's possible to have more than one instance of a given view. Since each instance can have its own state, each should do its own serialization instead of relying on a package-level `serialize()` method. We'll come back to that later.
+You’ll notice we also removed the `activeEditorInfoView` property and the `serialize()` method. That’s because, with workspace items, it’s possible to have more than one instance of a given view. Since each instance can have its own state, each should do its own serialization instead of relying on a package-level `serialize()` method. We’ll come back to that later.
 
-You probably also noticed that our `toggle()` implementation just logs the text `Toggle it!` to the console. Let's make it actually toggle our view:
+You probably also noticed that our `toggle()` implementation just logs the text `Toggle it!` to the console. Let’s make it actually toggle our view:
 
 ```js
   toggle() {
@@ -96,13 +96,13 @@ Now reload the window and run the **Active Editor Info: Toggle** command from th
 
 ::: note Note
 
-We've repeated the same URI three times now. That's okay, but it's probably a good idea to define the URL in one place and then import it from that module wherever you need it.
+We’ve repeated the same URI three times now. That’s okay, but it’s probably a good idea to define the URL in one place and then import it from that module wherever you need it.
 
 :::
 
 ## Constraining our item’s locations
 
-The purpose of our view is to show information about the active text editor, so it doesn't really make sense to show our item in the center of the workspace (where the text editor will be). Let's add some methods to our view class to influence where its opened:
+The purpose of our view is to show information about the active text editor, so it doesn’t really make sense to show our item in the center of the workspace (where the text editor will be). Let’s add some methods to our view class to influence where its opened:
 
 ```js
   getDefaultLocation() {
@@ -122,7 +122,7 @@ Now our item will appear in the right dock initially and users will only be able
 
 ## Show active editor info
 
-Now that we have our view all wired up, let's update it to show some information about the active text editor. Add this to the constructor:
+Now that we have our view all wired up, let’s update it to show some information about the active text editor. Add this to the constructor:
 
 ```js
 this.subscriptions = atom.workspace
@@ -144,19 +144,15 @@ this.subscriptions = atom.workspace
 	});
 ```
 
-Now whenever you open a text editor in the center, the view will update with
-some information about it.
+Now whenever you open a text editor in the center, the view will update with some information about it.
 
 ::: warning WARNING
 
-We use a template string here because it's simple and we have a lot of control
-over what's going into it, but this could easily result in the insertion of
-unwanted HTML if you're not careful. Sanitize your input and use the DOM API or
-a templating system when doing this for real.
+We use a template string here because it’s simple and we have a lot of control over what’s going into it, but this could easily result in the insertion of unwanted HTML if you’re not careful. Sanitize your input and use the DOM API or a templating system when doing this for real.
 
 :::
 
-Also, don't forget to clean up the subscription in the `destroy()` method:
+Also, don’t forget to clean up the subscription in the `destroy()` method:
 
 ```js
 destroy() {
@@ -167,8 +163,8 @@ destroy() {
 
 ## Serialization
 
-If you were to reload Atom now, you'd see that our item had disappeared. That's
-because we haven't told Pulsar how to serialize it yet. Let's do that now.
+If you were to reload Atom now, you’d see that our item had disappeared. That’s
+because we haven’t told Pulsar how to serialize it yet. Let’s do that now.
 
 The first step is to implement a `serialize()` method on our
 ActiveEditorInfoView class. Atom will call the `serialize()` method on every
@@ -186,7 +182,7 @@ item in the workspace periodically to save its state.
 
 ::: note Note
 
-All of our view's state is derived from the active text editor so we only need the `deserializer` field. If we had other state that we wanted to preserve across reloads, we would just add things to the object we're returning. Just make sure that they're JSON-serializable!
+All of our view’s state is derived from the active text editor so we only need the `deserializer` field. If we had other state that we wanted to preserve across reloads, we would just add things to the object we’re returning. Just make sure that they’re JSON-serializable!
 
 :::
 
@@ -210,10 +206,10 @@ Notice that the key (`"active-editor-info/ActiveEditorInfoView"`) matches the st
   }
 ```
 
-The value returned from our `serialize()` method will be passed to this function. Since our serialized object didn't include any state, we can just return a new `ActiveEditorInfoView` instance.
+The value returned from our `serialize()` method will be passed to this function. Since our serialized object didn’t include any state, we can just return a new `ActiveEditorInfoView` instance.
 
 Reload Pulsar and toggle the view with the **Active Editor Info: Toggle** command. Then reload Pulsar again. Your view should be just where you left it!
 
 ## Summary
 
-In this section, we've made a toggleable workspace item whose placement can be controlled by the user. This could be helpful when creating all sorts of visual tools for working with code!
+In this section, we’ve made a toggleable workspace item whose placement can be controlled by the user. This could be helpful when creating all sorts of visual tools for working with code!

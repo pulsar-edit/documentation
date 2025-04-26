@@ -2,8 +2,8 @@
   // These values help the platform-switcher stay anchored to the implicit line
   // created on the right edge of the content area. I've forgotten how I
   // arrived at them.
-  --min-margin-right: var(--margin-x);
-  --max-margin-right: calc((100vw - var(--content-max-width)) / 2 + var(--margin-x));
+  --min-margin-right: var(--content-margin);
+  --max-margin-right: calc((100vw - var(--content-max-width)) / 2 + var(--content-margin));
 
   position: sticky;
   contain: paint;
@@ -47,7 +47,7 @@
     button {
       opacity: 0.5;
 
-      padding: 0 1rem ;
+      padding: 0 1rem;
       height: auto;
       margin: 0;
 
@@ -68,6 +68,7 @@
 
 // When active platform is Mac, show only `.platform-mac`.
 body[data-platform="mac"] {
+
   .platform-win:not(.platform-mac),
   .platform-linux:not(.platform-mac) {
     display: none;
@@ -76,6 +77,7 @@ body[data-platform="mac"] {
 
 // When active platform is Windows, show only `.platform-win`.
 body[data-platform="win"] {
+
   .platform-mac:not(.platform-win),
   .platform-linux:not(.platform-win) {
     display: none;
@@ -84,6 +86,7 @@ body[data-platform="win"] {
 
 // When active platform is Linux, show only `.platform-linux`.
 body[data-platform="linux"] {
+
   .platform-win:not(.platform-linux),
   .platform-mac:not(.platform-linux) {
     display: none;

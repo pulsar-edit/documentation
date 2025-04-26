@@ -1,5 +1,5 @@
 ---
-title: Keymaps in-depth
+title: Keymaps in depth
 layout: doc.ejs
 ---
 
@@ -60,7 +60,7 @@ Keymap files are encoded as JSON or CSON files containing nested hashes. They wo
 
 Beneath the first selector are several keybindings, mapping specific key combinations to commands. When an element with the `atom-text-editor` class is focused and <kbd class="platform-linux platform-win">Ctrl+Backspace</kbd> <kbd class="platform-mac">Alt+Backspace</kbd> is pressed, a custom DOM event called `editor:delete-to-beginning-of-word` is emitted on the `atom-text-editor` element.
 
-The second selector group also targets editors, but only if they don't have the `mini` attribute. In this example, the commands for code folding don't really make sense on mini-editors, so the selector restricts them to regular editors.
+The second selector group also targets editors, but only if they don’t have the `mini` attribute. In this example, the commands for code folding don’t really make sense on mini-editors, so the selector restricts them to regular editors.
 
 ### Key combinations
 
@@ -93,7 +93,7 @@ When you are looking to bind new keys, it is often useful to use the command pal
 
 ### “Composed” commands
 
-A common question is, “How do I make a single keybinding execute two or more commands?” There isn't any direct support for this in Pulsar, but it can be achieved by creating a custom command that performs the multiple actions you desire and then creating a keybinding for that command.
+A common question is, “How do I make a single keybinding execute two or more commands?” There isn’t any direct support for this in Pulsar, but it can be achieved by creating a custom command that performs the multiple actions you desire and then creating a keybinding for that command.
 
 For example, let’s say I want to create a “composed” command that performs a **Select Line** followed by **Cut**. I could add the following to my `init.js`:
 
@@ -116,7 +116,7 @@ And if I wanted to map this custom command to `alt-ctrl-z`, I could add the foll
 
 As is the case with CSS applying styles, when multiple bindings match for a single element, the conflict is resolved by choosing the most _specific_ selector. If two matching selectors have the same specificity, the binding for the selector appearing later in the cascade takes precedence.
 
-Currently, there's no way to specify selector ordering within a single keymap, because JSON objects do not preserve order. We handle cases where selector ordering is critical by breaking the keymap into separate files.
+Currently, there’s no way to specify selector ordering within a single keymap, because JSON objects do not preserve order. We handle cases where selector ordering is critical by breaking the keymap into separate files.
 
 For instance, the {snippets} package defines two keymap files: `snippets-1.cson` and `snippets-2.cson`. It does this because it binds two different commands to the [[Tab]] key, and it’s critical that one of those bindings is processed before the other.
 
@@ -199,7 +199,7 @@ Or, if you’re building an interface in a community package, you can apply the 
 
 ::: tip
 
-**Tip:** Components and input elements may not correctly handle backspace and arrow keys without forcing this behavior. If your backspace isn't working correctly inside of a component, add either the directive or the `native-key-bindings` class name.
+**Tip:** Components and input elements may not correctly handle backspace and arrow keys without forcing this behavior. If your backspace isn’t working correctly inside of a component, add either the directive or the `native-key-bindings` class name.
 
 :::
 
@@ -207,7 +207,7 @@ Or, if you’re building an interface in a community package, you can apply the 
 
 Occasionally, it makes sense to layer multiple actions on top of the same key binding.
 
-An example of this happens in the {snippets} package. Snippets are inserted by typing a snippet prefix such as `for` and then pressing [[Tab]]. Every time [[Tab]] is pressed, we want to execute code attempting to expand a snippet if one exists for the text preceding the cursor. But if a snippet _doesn't_ exist for that prefix, we want to revert to the typical behavor for tab [[Tab]] – inserting a tab character.
+An example of this happens in the {snippets} package. Snippets are inserted by typing a snippet prefix such as `for` and then pressing [[Tab]]. Every time [[Tab]] is pressed, we want to execute code attempting to expand a snippet if one exists for the text preceding the cursor. But if a snippet _doesn’t_ exist for that prefix, we want to revert to the typical behavior for [[Tab]] – inserting a tab character.
 
 To achieve this, the snippets package makes use of the `.abortKeyBinding()` method on the event object representing the `snippets:expand` command.
 
@@ -227,20 +227,14 @@ When the event handler in the {snippets} package observes that the cursor does n
 ## Step-by-step: how keydown events are mapped to commands
 
 - A keydown event occurs on a _focused_ element.
-- Starting at the focused element, the keymap walks upward towards the root of
-  the document, searching for the most specific CSS selector that matches the
-  current DOM element and also contains a keystroke pattern matching the keydown
-  event.
-- When a matching keystroke pattern is found, the search is terminated and the
-  pattern's corresponding command is triggered on the current element.
-- If `.abortKeyBinding()` is called on the triggered event object, the search
-  is resumed, triggering a binding on the next-most-specific CSS selector for
-  the same element or continuing upward to parent elements.
+- Starting at the focused element, the keymap walks upward towards the root of the document, searching for the most specific CSS selector that matches the current DOM element and also contains a keystroke pattern matching the keydown event.
+- When a matching keystroke pattern is found, the search is terminated and the pattern’s corresponding command is triggered on the current element.
+- If `.abortKeyBinding()` is called on the triggered event object, the search is resumed, triggering a binding on the next-most-specific CSS selector for the same element or continuing upward to parent elements.
 - If no bindings are found, the event is handled by Chromium normally.
 
 ## Overriding Pulsar’s keyboard layout recognition
 
-Sometimes the problem isn’t mapping the command to a key combination — but rather that Pulsar doesn't properly interpret which keys you’re pressing. This is due to [some limitations in how Chromium reports keyboard events](https://web.archive.org/web/20220729003828/https://blog.atom.io/2016/10/17/the-wonderful-world-of-keyboards.html). But even this can be customized now.
+Sometimes the problem isn’t mapping the command to a key combination — but rather that Pulsar doesn’t properly interpret which keys you’re pressing. This is due to [some limitations in how Chromium reports keyboard events](https://web.archive.org/web/20220729003828/https://blog.atom.io/2016/10/17/the-wonderful-world-of-keyboards.html). But even this can be customized now.
 
 For instance, you can add the following to your `init.js` to send [[Ctrl+@]] when
 you press [[Ctrl+Alt+G]]:

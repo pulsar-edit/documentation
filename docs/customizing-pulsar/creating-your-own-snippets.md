@@ -3,13 +3,13 @@ title: Creating your own snippets
 layout: doc.ejs
 ---
 
-In our earlier [introduction to snippets](/core-packages-and-features/snippets/), we learned about the snippets provided by core and community packages. But what should you do if a package doesn't include a snippet you think might be useful? Luckily, it's incredibly easy to add your own snippets.
+In our earlier [introduction to snippets](/core-packages-and-features/snippets/), we learned about the snippets provided by core and community packages. But what should you do if a package doesn’t include a snippet you think might be useful? Luckily, it’s incredibly easy to add your own snippets.
 
 There is a text file in your <span class="platform-linux platform-mac">`~/.pulsar`</span><span class="platform-win">`%USERPROFILE%\.pulsar`</span> directory called `snippets.cson` that contains all your custom snippets that are loaded when you launch Pulsar. You can also easily open up that file by selecting the <span class="platform-linux">_Edit > Snippets_</span><span class="platform-mac">_Pulsar > Snippets…_</span><span class="platform-win">_File > Snippets_</span> menu item.
 
 ## Snippet format
 
-Let's look at how to write a snippet. The basic snippet format looks like this:
+Let’s look at how to write a snippet. The basic snippet format looks like this:
 
 ```coffee
 '.source.js':
@@ -64,7 +64,7 @@ Tab stops don’t have to be ordered from left to right. No matter where they oc
 
 ::: warning Warning
 
-Snippet keys, unlike CSS selectors, can only be repeated once per level. If there are duplicate keys at the same level, then only the last one will be read. See [Configuring with CSON](/customizing-pulsar/configuring-with-cson/) for more information.
+Snippet keys, unlike CSS selectors, can only be used once per level. If there are duplicate keys at the same level, then only the last one will be read. See [Configuring with CSON](/customizing-pulsar/configuring-with-cson/) for more information.
 
 :::
 

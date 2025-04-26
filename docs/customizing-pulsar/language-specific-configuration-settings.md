@@ -61,11 +61,11 @@ When you save your `config.cson`, you might see its contents change slightly. Fo
 
 ## Finding a language’s scope name
 
-In order to write these overrides effectively, you'll need to know the scope name for the language.
+In order to write these overrides effectively, you’ll need to know the scope name for the language.
 
 One way to look this up is [an approach we’ve mentioned before](/customizing-pulsar/creating-your-own-snippets/#snippet-format). The scope name is shown in the settings view for each language. Click on "Packages" in the navigation on the left, search for the language of your choice, select it, and you should see the scope name under the language name heading:
 
-![Finding a language grammar](/img/atom/python-grammar.png "Finding a grammar's scope name")
+![Finding a language grammar](/img/atom/python-grammar.png "Finding a grammar’s scope name")
 
 Another way to find the scope for a specific language is to open a file of its kind and <span class="platform-linux platform-win">choose **Editor: Log Cursor Scope** in the command palette</span><span class="platform-mac">press <kbd>Alt+Cmd+P</kbd></span> to show all scopes for the current position of the cursor. The first scope in the list is always the root language scope for this kind of file. Each subsequent scope in the list represents a progressively more specific region of the buffer.
 

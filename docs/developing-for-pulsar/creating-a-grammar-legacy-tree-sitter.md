@@ -28,7 +28,7 @@ repository.
 
 Once you have created a parser, you need to publish it to [the NPM registry](https://npmjs.com)
 to use it in Pulsar. To do this, make sure you have a `name` and `version` in
-your parser's `package.json`:
+your parser’s `package.json`:
 
 ```js
 {
@@ -44,7 +44,7 @@ then run the command `npm publish`.
 
 Once you have a Tree-sitter parser that is available on npm, you can use it in
 your Pulsar package. Packages with grammars are, by convention, always named
-starting with _language_. You'll need a folder with a `package.json`, a
+starting with _language_. You’ll need a folder with a `package.json`, a
 `grammars` subdirectory, and a single `json` or `cson` file in the `grammars`
 directory, which can be named anything.
 
@@ -118,7 +118,7 @@ This entry means that, in the syntax tree, any `identifier` node whose parent is
 a `call_expression` should be highlighted using three classes: `syntax--entity`,
 `syntax--name`, and `syntax--function`.
 
-Note that in this selector, we're using the [immediate child combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Child_selectors)
+Note that in this selector, we’re using the [immediate child combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Child_selectors)
 (`>`). Arbitrary descendant selectors without this combinator (for example
 `'call_expression identifier'`, which would match any `identifier` occurring
 anywhere within a `call_expression`) are currently not supported.
@@ -194,9 +194,9 @@ In total there are four types of values that can be associated with selectors in
 
 - Strings - Each class name in the dot-separated string will be prefixed with
   `syntax--` and applied to the selected node.
-- Objects with the keys `exact` and `scopes` - If the node's text equals the
+- Objects with the keys `exact` and `scopes` - If the node’s text equals the
   `exact` string, the `scopes` string will be used as described above.
-- Objects with the keys `match` and `scopes` - If the node's text matches the
+- Objects with the keys `match` and `scopes` - If the node’s text matches the
   `match` regex pattern, the `scopes` string will be used as described above.
 - Arrays - The elements of the array will be processed from beginning to end.
   The first element that matches the selected node will be used as describe
@@ -204,7 +204,7 @@ In total there are four types of values that can be associated with selectors in
 
 ### Specificity
 
-If multiple selectors in the `scopes` object match a node, the node's classes
+If multiple selectors in the `scopes` object match a node, the node’s classes
 will be decided based on the [most specific](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)
 selector. Note that the `exact` and `match` rules do _not_ affect specificity,
 so you may need to supply the same `exact` or `match` rules for multiple
@@ -335,12 +335,12 @@ folds: [
 Fold patterns can have one or more of the following fields:
 
 - `type` - A string or array of strings. In order to be foldable according to
-  this pattern, a syntax node's type must match one of these strings.
+  this pattern, a syntax node’s type must match one of these strings.
 - `start` - An object that is used to identify a _child_ node after which the
   fold should start. The object can have one or both of the following fields:
-  - `type` - A string or array of strings. To start a fold, a child node's type
+  - `type` - A string or array of strings. To start a fold, a child node’s type
     must match one of these strings.
-  - `index` - a number that's used to select a specific child according to its
+  - `index` - a number that’s used to select a specific child according to its
     index. Negative values are interpreted as indices relative the last child,
     so that `-1` means the last child.
 - `end` - An object that is used to identify a _child_ node before which the
@@ -349,7 +349,7 @@ Fold patterns can have one or more of the following fields:
 ## Comments
 
 The last field in the grammar file, `comments`, controls the behavior of
-Pulsar's **Editor: Toggle Line Comments** command. Its value is an object with a
+Pulsar’s **Editor: Toggle Line Comments** command. Its value is an object with a
 `start` field and an optional `end` field. The start field is a string that
 should be prepended to or removed from lines in order to comment or uncomment
 them.

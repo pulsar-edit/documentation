@@ -16,16 +16,16 @@ combination, where each item in the list has the following:
 - the CSS selector used to define the context in which the keybinding is valid
 - the file in which the keybinding is defined
 
-The keybindings are listed in two colors. All the keybindings that are matched but not executed are shown in gray. The one that is executed, if any, is shown in green. If the command you wanted to trigger isn't listed, then a keybinding for that command hasn't been loaded.
+The keybindings are listed in two colors. All the keybindings that are matched but not executed are shown in gray. The one that is executed, if any, is shown in green. If the command you wanted to trigger isn’t listed, then a keybinding for that command hasn’t been loaded.
 
-If multiple keybindings are matched, Pulsar determines which keybinding will be executed based on the [specificity of the selectors and the order in which they were loaded](/behind-pulsar/keymaps-in-depth/#specificity-and-cascade-order). If the command you wanted to trigger is listed in the keybinding resolver, but wasn't the one that was executed, this is normally explained by one of two causes:
+If multiple keybindings are matched, Pulsar determines which keybinding will be executed based on the [specificity of the selectors and the order in which they were loaded](/behind-pulsar/keymaps-in-depth/#specificity-and-cascade-order). If the command you wanted to trigger is listed in the keybinding resolver, but wasn’t the one that was executed, this is normally explained by one of two causes:
 
-- **The key combination was not used in the context defined by the keybinding's selector.** For example, the {tree-view} package’s key bindings generally only have effect when the tree view is focused. If you want some of those keybindings to have effects when the focus is elsewhere, you’ll have to define them to apply more generally in your keymap file.
+- **The key combination was not used in the context defined by the keybinding’s selector.** For example, the {tree-view} package’s key bindings generally only have effect when the tree view is focused. If you want some of those keybindings to have effects when the focus is elsewhere, you’ll have to define them to apply more generally in your keymap file.
 
-- **There is another keybinding that took precedence.** This often happens when you install a package which defines keybindings that conflict with existing keybindings. If the package's keybindings have selectors with higher specificity or were loaded later, they'll have priority over existing ones.
+- **There is another keybinding that took precedence.** This often happens when you install a package which defines keybindings that conflict with existing keybindings. If the package’s keybindings have selectors with higher specificity or were loaded later, they’ll have priority over existing ones.
 
 Pulsar loads core Pulsar keybindings and package keybindings first, and
-user-defined keybindings last. Since user-defined keybindings are loaded last, they take precedence in the case of specificity ties. So if two of your packages are fighting over a certain key binding, you can break the tie via a tweak in your `keymap.cson`. See the [Keymaps in depth section](/behind-pulsar/keymaps-in-depth) for more information.
+user-defined keybindings last. Since user-defined keybindings are loaded last, they take precedence in the case of specificity ties. So if two of your packages are fighting over a certain key binding, you can break the tie via a tweak in your `keymap.cson`. See the [Keymaps in depth](/behind-pulsar/keymaps-in-depth) page for more information.
 
 :::tip
 Don’t forget, too, that any package’s keymap file can be disabled.
@@ -37,6 +37,7 @@ On the other hand, if you are largely unsatisfied with a package’s keybindings
 The table below the “Enable” setting lists the package’s keybindings. If there are any you wish to preserve after you’ve disabled them, you can click on the “copy” icon next to the keystroke. Your clipboard will then contain a keymap definition you can paste into your `keymap.cson`.
 
 <!-- TODO: Screenshot -->
+
 :::
 
-If you notice that a package's keybindings are taking precedence over core Pulsar keybindings, it might be a good idea to report the issue on that package's GitHub repository. You can contact Pulsar maintainers on [Pulsar's github discussions](https://github.com/orgs/pulsar-edit/discussions).
+If you notice that a package’s keybindings are taking precedence over core Pulsar keybindings, it might be a good idea to report the issue on that package’s GitHub repository. You can contact Pulsar maintainers on [Pulsar’s GitHub discussions](https://github.com/orgs/pulsar-edit/discussions).

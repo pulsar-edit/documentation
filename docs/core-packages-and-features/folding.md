@@ -3,7 +3,7 @@ title: Folding
 layout: doc.ejs
 ---
 
-If you want to see an overview of the structure of the code file you're working on, folding can be a helpful tool. Folding hides blocks of code such as functions or looping blocks in order to simplify what is on your screen.
+If you want to see an overview of the structure of the code file you’re working on, folding can be a helpful tool. Folding hides blocks of code such as functions or looping blocks in order to simplify what is on your screen.
 
 You can fold blocks of code by clicking the arrows that appear when you hover your mouse cursor over the gutter. You can also fold and unfold from the keyboard with the <kbd class="platform-linux platform-win">Alt+Ctrl+\[</kbd><kbd class="platform-mac">Alt+Cmd+\[</kbd> and <kbd class="platform-linux platform-win">Alt+Ctrl+\]</kbd><kbd class="platform-mac">Alt+Cmd+\]</kbd> keybindings. These correspond to the **Editor: Fold/Unfold Current Row** commands.
 

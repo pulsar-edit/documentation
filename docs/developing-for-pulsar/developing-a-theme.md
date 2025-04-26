@@ -3,7 +3,7 @@ title: Developing a theme
 layout: doc.ejs
 ---
 
-Pulsar's interface is rendered using HTML, and it's styled via [Less](http://lesscss.org/) which is a superset of CSS. Don't worry if you haven't heard of Less before; it's just like CSS, but with a few handy extensions.
+Pulsar’s interface is rendered using HTML, and it’s styled via [Less](http://lesscss.org/) which is a superset of CSS. Don’t worry if you haven’t heard of Less before; it’s just like CSS, but with a few handy extensions.
 
 Pulsar supports two types of themes: _UI_ and _Syntax_. UI themes style elements such as the tree view, the tabs, drop-down lists, and the status bar. Syntax themes style the code, gutter and other elements inside the editor view.
 
@@ -16,20 +16,20 @@ Themes can be installed and changed from the settings view — which you can ope
 Themes are pretty straightforward, but it’s still helpful to be familiar with a few things before starting:
 
 - Less is a superset of CSS, but it has some really handy features like
-  variables. If you aren't familiar with its syntax, take a few minutes to
+  variables. If you aren’t familiar with its syntax, take a few minutes to
   [familiarize yourself](https://speakerdeck.com/danmatthews/less-css).
 - You may also want to review the concept of a `package.json` (as covered in
   [Pulsar `package.json`](../developing-a-package/#package.json)). This file is used to help distribute your theme to Pulsar users.
-- Your theme's `package.json` must contain a `theme` key with a value of `ui`
+- Your theme’s `package.json` must contain a `theme` key with a value of `ui`
   or `syntax` for Pulsar to recognize and load it as a theme.
 - You can find existing themes to install or fork in
   [Pulsar Package Repository](https://web.pulsar-edit.dev/packages). <!--TODO: Update to a themes URL if we get one on the front end site-->
 
 ## Creating a syntax theme
 
-Let's create your first theme.
+Let’s create your first theme.
 
-To get started, press <kbd class="platform-linux platform-win">Ctrl+Shift+P</kbd> <kbd class="platform-mac">Cmd+Shift+P</kbd> and start typing `Generate Syntax Theme` to generate a new theme package. Select **Package Generator: Generate Syntax Theme**, and you'll be asked for the path where your theme will be created. Let's call ours `motif-syntax`.
+To get started, press <kbd class="platform-linux platform-win">Ctrl+Shift+P</kbd> <kbd class="platform-mac">Cmd+Shift+P</kbd> and start typing `Generate Syntax Theme` to generate a new theme package. Select **Package Generator: Generate Syntax Theme**, and you’ll be asked for the path where your theme will be created. Let’s call ours `motif-syntax`.
 
 ::: tip Tip
 
@@ -37,13 +37,13 @@ Syntax themes should end with `-syntax` and UI themes should end with `-ui`.
 
 :::
 
-Pulsar will display a new window, showing the `motif-syntax` theme, with a default set of folders and files created for us. If you open the Settings View with <kbd class="platform-linux platform-win">Ctrl+,</kbd><kbd class="platform-mac">Cmd+,</kbd> and click the **Themes** tab on the left, you'll see the "Motif" theme listed in the "Syntax Theme" drop-down. Select it from the menu to activate it. Now, when you open an editor, you should see your new motif-syntax theme in action.
+Pulsar will display a new window, showing the `motif-syntax` theme, with a default set of folders and files created for us. If you open the Settings View with <kbd class="platform-linux platform-win">Ctrl+,</kbd><kbd class="platform-mac">Cmd+,</kbd> and click the **Themes** tab on the left, you’ll see the "Motif" theme listed in the "Syntax Theme" drop-down. Select it from the menu to activate it. Now, when you open an editor, you should see your new motif-syntax theme in action.
 
 Open up `styles/colors.less` to change the various color variables which have already been defined. For example, turn `@red` into `#f4c2c1`.
 
 Then open `styles/base.less` and modify the various selectors that have already been defined. These selectors style different parts of code in the editor such as comments, strings and the line numbers in the gutter.
 
-As an example, let's make the `.gutter` `background-color` into `@red`.
+As an example, let’s make the `.gutter` `background-color` into `@red`.
 
 Reload Pulsar by pressing <kbd class="platform-linux platform-win">Alt+Ctrl+R</kbd><kbd class="platform-mac">Alt+Ctrl+Cmd+L</kbd> (or running the **Window: Reload** command) to see the changes you made reflected in your Pulsar window. Pretty neat!
 
@@ -55,7 +55,9 @@ You can avoid reloading to see changes you make by opening an Pulsar window in D
 
 ::: note Note
 
-It's advised to _not_ specify a `font-family` in your syntax theme because it will override the Font Family field in Pulsar's settings. If you still like to recommend a font that goes well with your theme, we suggest you do so in your README.
+It’s advised to _not_ specify a `font-family` in your syntax theme because it will override the Font Family field in Pulsar’s settings. Users will reasonably expect to use their preferred font for coding with your syntax theme. If you’d still like to recommend a font that goes well with your theme, we suggest you do so in your README.
+
+Because typefaces are a user interface concern, and because there is no general setting that controls the `font-family` of the Pulsar UI, you may specify a `font-family` in your _UI_ theme if you like.
 
 :::
 
@@ -65,21 +67,21 @@ To create a UI theme, do the following:
 
 1. Fork the [ui-theme-template](https://github.com/pulsar-edit/ui-theme-template)
 2. Clone the forked repository to the local filesystem
-3. Open a terminal in the forked theme's directory
-4. Open your new theme in a Dev Mode Pulsar window run `pulsar --dev .` in the
+3. Open a terminal in the forked theme’s directory
+4. Open your new theme in a dev mode Pulsar window: run `pulsar --dev .` in the
    terminal or use the _View > Developer > Open in Dev Mode_ menu
-5. Change the name of the theme in the theme's `package.json` file
+5. Change the name of the theme in the theme’s `package.json` file
 6. Name your theme end with a `-ui`, for example `super-white-ui`
-7. Run `pulsar -p link --dev` to symlink your repository to <span class="platform-linux platform-mac">`~/.pulsar/dev/packages`</span> <span class="platform-win">`%USERPROFILE%\.pulsar`</span>
+7. Run `pulsar -p link --dev` to symlink your repository to <span class="platform-linux platform-mac">`~/.pulsar/dev/packages`</span><span class="platform-win">`%USERPROFILE%\.pulsar`</span>
 8. Reload Pulsar using <kbd class="platform-linux platform-win">Alt+Ctrl+R</kbd> <kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd>
-9. Enable the theme via the "UI Theme" drop-down in the "Themes" tab of the
-   Settings View
-10. Make changes! Since you opened the theme in a Dev Mode window, changes will
+9. Enable the theme via the “UI Theme” drop-down menu in the “Themes” tab of the
+   settings view
+10. Make changes! Since you opened the theme in a dev mode window, changes will
     be instantly reflected in the editor without having to reload.
 
 ::: tip Tip
 
-Because we used `pulsar -p link --dev` in the above instructions, if you break anything you can always close Pulsar and launch Pulsar normally to force Pulsar to the default theme. This allows you to continue working on your theme even if something goes catastrophically wrong.
+Because we used `pulsar -p link --dev` in the above instructions, if you break anything you can always close your project window and relaunch Pulsar normally (without dev mode) to force the window to the default theme. This allows you to continue working on your theme even if something goes catastrophically wrong.
 
 :::
 
@@ -92,7 +94,7 @@ These files in the Pulsar repository define default values for certain variables
 - [ui-variables.less](https://github.com/pulsar-edit/pulsar/blob/master/static/variables/ui-variables.less)
 - [syntax-variables.less](https://github.com/pulsar-edit/pulsar/blob/master/static/variables/syntax-variables.less)
 
-These default values will be used as fallbacks in case a theme doesn't define its own variables.
+These default values will be used as fallbacks in case a theme doesn’t define its own variables.
 
 ### Use in user customizations
 
@@ -113,11 +115,15 @@ You don’t have to look up the specific color that your syntax theme uses for k
 
 ### Use in packages
 
-Community packages can also use these values to deliver theme-appropriate editor decorations and user interfaces. In any of your package's `.less` files, you can access the theme variables by importing the `ui-variables` or `syntax-variables` file from Pulsar.
+Community packages can also use these values to deliver theme-appropriate editor decorations and user interfaces. In any of your package’s `.less` files, you can access the theme variables by importing the `ui-variables` or `syntax-variables` file from Pulsar.
 
-Your package should generally only specify structural styling, and these should come from [the style guide](https://github.com/pulsar-edit/styleguide). Your package shouldn't specify colors, padding sizes, or anything in absolute pixels. You should instead use the theme variables. If you follow this guideline, your package will look good out of the box with any theme!
+If you’re writing a community package that _isn’t_ a theme, you might have to use CSS to lay out some interface elements. It’s fine to use structural styling (flexboxes, grids, positioning, et cetera), but your package should avoid specifying colors, padding sizes, or any measurements in absolute pixels. Why? Because those are the concerns of a UI theme!
 
-Here's an example `.less` file that a package can define using theme variables:
+Likewise, if your package adds decorations to source code within a text editor, you don’t want to hard-code any elements that will clash with the user’s syntax theme.
+
+Instead, your package should **use the theme variables**. If you follow this guideline, your package will look good out of the box with any theme!
+
+Here are two example `.less` files illustrating how a package can use `ui-variables` and `syntax-variables`:
 
 ```less
 @import "ui-variables";
@@ -149,7 +155,7 @@ To launch a dev mode window:
 - open your theme directory in a dev window by selecting the _View > Developer > Open in Dev Mode_ menu item; or
 - launch Pulsar from the terminal with `pulsar --dev`.
 
-If you'd like to reload all the styles at any time, you can use the shortcut <kbd class="platform-linux platform-win">Alt+Ctrl+R</kbd><kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd>.
+If you’d like to reload all the styles at any time, you can use the shortcut <kbd class="platform-linux platform-win">Alt+Ctrl+R</kbd><kbd class="platform-mac">Alt+Cmd+Ctrl+L</kbd>.
 
 ### Developer tools
 
@@ -159,19 +165,23 @@ The dev tools allow you to inspect elements and take a look at their CSS propert
 
 ![Developer Tools](/img/atom/dev-tools.png)
 
-Check out Google's [extensive tutorial](https://developer.chrome.com/devtools/docs/dom-and-styles) for a short introduction.
+Check out Google’s [extensive tutorial](https://developer.chrome.com/devtools/docs/dom-and-styles) for an introduction.
 
 ### Pulsar styleguide
 
-If you are creating an UI theme, you'll want a way to see how your theme changes affect all the components in the system. The {styleguide} is a page that renders every component Pulsar supports.
+If you are creating an UI theme, you’ll want a way to see how your theme changes affect all the components in the system. The {styleguide} is a page that renders every component Pulsar supports.
 
-To open the Styleguide, open the command palette with <kbd class="platform-linux platform-win">Ctrl+Shift+P</kbd><kbd class="platform-mac">Cmd+Shift+P</kbd> and search for `styleguide`, or use the shortcut <kbd class="platform-linux platform-win">Ctrl+Shift+G</kbd><kbd class="platform-mac">Cmd+Ctrl+Shift+G</kbd>.
+To open the Styleguide, open the command palette with <kbd class="platform-linux platform-win">Ctrl+Shift+P</kbd><kbd class="platform-mac">Cmd+Shift+P</kbd> and find the **Styleguide: Show** command, or use the shortcut <kbd class="platform-linux platform-win">Ctrl+Shift+G</kbd><kbd class="platform-mac">Cmd+Ctrl+Shift+G</kbd>.
 
 ![Style Guide](/img/atom/styleguide.png)
 
+If you’re editing your UI theme in dev mode, the elements shown in the styleguide will update in real time when you make changes, just like all other UI elements in the window.
+
 ### Side by side
 
-Sometimes when creating a theme (or package) things can go wrong and the editor becomes unusable. E.g. if the text and background have the same color or something gets pushed out of sight. To avoid having to open Pulsar in "normal" mode to fix the issue, it's advised to open **two** Pulsar windows: one for making changes and one in dev mode to see the changes getting applied.
+Sometimes when creating a theme (or package) things can go wrong and the editor becomes unusable. For instance: the text and background might accidentally use the same color, or a critical element might get hidden or pushed out of sight.
+
+To avoid having to open Pulsar in “normal” mode to fix the issue, it’s advised to open **two** Pulsar windows: one for making changes and one in dev mode to see the changes getting applied.
 
 ![Side by side screenshot](/img/atom/theme-side-by-side.png)
 
@@ -182,6 +192,6 @@ Now if you mess up something, only the window in dev mode will be affected and y
 
 ## Publish your theme
 
-Once you're happy with your theme and would like to share it with other Pulsar users, it's time to publish it.
+Once you’re happy with your theme and would like to share it with other Pulsar users, it’s time to publish it.
 
 Follow the steps on the [Publishing](../publishing/) page. The example used is for the Word Count package, but publishing a theme works exactly the same.
