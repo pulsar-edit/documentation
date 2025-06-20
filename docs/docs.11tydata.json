@@ -52,9 +52,9 @@
       "summary": "Read reference documentation for our APIs: Pulsar’s own API and that of the package repository."
     },
     {
-      "text": "IDE Features",
+      "text": "IDE features",
       "link": "/ide-features",
-      "summary": "Hook Pulsar up to ‘brain’ packages that make it behave more like a language-specific IDE."
+      "summary": "Hook Pulsar up to “brain” packages that make it behave more like a language-specific IDE."
     }
   ]
 
