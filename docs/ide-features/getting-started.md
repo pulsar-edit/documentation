@@ -61,17 +61,14 @@ In some cases, the package might specify the name of the language server rather 
 
 Let’s make this easy for the vast majority of you:
 
-* JavaScript and TypeScript authors can install {pulsar-ide-typescript}.
-* Python authors can install {pulsar-ide-python}.
+* JavaScript and [TypeScript](https://www.typescriptlang.org/) authors can install {pulsar-ide-typescript}.
+* Authors of CSS (and “enhanced” CSS languages like [Sass](https://sass-lang.com/) and [Less](https://lesscss.org/)) can install {pulsar-ide-css}.
+* [Python](https://www.python.org/) authors can install {pulsar-ide-python}.
 * C/C++ authors can install {pulsar-ide-clangd}.
-* Ruby authors can install {pulsar-ide-ruby-solargraph}.
-* Go authors can install {pulsar-ide-golang}.
-* D authors can install {pulsar-ide-d}.
-* Markdown authors can install {pulsar-ide-markdown}.
-
-In addition, there are some experimental servers:
-
-* Authors of CSS (and “enhanced” CSS languages like Sass and Less) can install {pulsar-ide-css-alpha}.
+* [Ruby](https://www.ruby-lang.org/) authors can install {pulsar-ide-ruby-solargraph}.
+* [Go](https://go.dev/) authors can install {pulsar-ide-golang}.
+* [D](https://dlang.org/) authors can install {pulsar-ide-d}.
+* [Markdown](https://www.markdownguide.org/) authors can install {pulsar-ide-markdown}.
 
 Be sure to **read the README of the package you install**. Some of these packages bundle the language server; these tend to be quicker to get up and running. Others require that you install the language server yourself and help the package find its location on your system.
 
