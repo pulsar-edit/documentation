@@ -20,4 +20,4 @@ The autocompletion interface is implemented in the {autocomplete-plus} package. 
 * The core {autocomplete-css} package suggests tag names, CSS property names, and contextually relevant values for properties.
 * The core {autocomplete-snippets} package suggests snippets whose prefixes match what has already been typed in the current word.
 
-Community packages — in particular packages that wrap language servers — can also act as “brains” for autocompletion. Pulsar’s package registry can show you [a list of packages](https://web.pulsar-edit.dev/packages?serviceType=provided&service=autocomplete.provider) that can supply data to `autocomplete-plus`.
+Community packages — in particular [packages that wrap language servers](/ide-features/) — can also act as “brains” for autocompletion. Pulsar’s package registry can show you [a list of packages](https://web.pulsar-edit.dev/packages?serviceType=provided&service=autocomplete.provider) that can supply data to `autocomplete-plus`.
