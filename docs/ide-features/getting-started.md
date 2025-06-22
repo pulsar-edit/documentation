@@ -63,6 +63,7 @@ Let’s make this easy for the vast majority of you:
 
 * JavaScript and [TypeScript](https://www.typescriptlang.org/) authors can install {pulsar-ide-typescript}.
 * Authors of CSS (and “enhanced” CSS languages like [Sass](https://sass-lang.com/) and [Less](https://lesscss.org/)) can install {pulsar-ide-css}.
+* Those who routinely write JSON can install {pulsar-ide-json}.
 * [Python](https://www.python.org/) authors can install {pulsar-ide-python}.
 * C/C++ authors can install {pulsar-ide-clangd}.
 * [Ruby](https://www.ruby-lang.org/) authors can install {pulsar-ide-ruby-solargraph}.
