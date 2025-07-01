@@ -19,7 +19,7 @@ It depends! Here are a few reasons why:
 
 ::: tip Not the only game in town
 
-Some of the packages suggested below are common choices, but not the _only_ choice. Pulsar’s service-driven package architecture presents an opportunity here; since IDE packages commucate with UI packages via [services](/infrastructure/interacting-with-other-packages-via-services/), any UI package is interchangeable with any other package that consumes the same service.
+Some of the packages suggested below are common choices, but not the _only_ choice. Pulsar’s service-driven package architecture presents an opportunity here; since IDE packages communicate with UI packages via [services](/infrastructure/interacting-with-other-packages-via-services/), any UI package is interchangeable with any other package that consumes the same service.
 
 Even built-in packages! If you didn’t like how {autocomplete-plus} did autocompletion, you could disable it and write your own version, and it’d be able to talk to the exact same autocompletion providers as `autocomplete-plus`. For this reason, the list below is a starting point, but it is not exhaustive!
 

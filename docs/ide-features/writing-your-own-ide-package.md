@@ -39,11 +39,11 @@ Language servers are similar, but they’re not identical to one another. There 
 * It doesn’t know how to launch your specific language server — what it’s called, whether it runs in a Node process or not, or its communications strategy. It relies on you to tell it these things.
 * It doesn’t know the name of your language or your language server.
 * It doesn’t know anything about the configuration format of your language server. The LSP specification [allows the client to provide configuration data to the server](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#workspace_configuration), but the format of this data is left up to the individual server. You may want to add configuration to your IDE package that manages the configuration object that gets sent to the server.
-* It doesn’t know how to identify files should trigger it. By default, `atom-languageclient` doesn’t spawn a language server as soon as you launch Pulsar; it waits until you’ve got a relevant kind of file open for editing. (For instance, `pulsar-ide-typescript` won’t run a language server until you open a TypeScript or JavaScript file.)
+* It doesn’t know how to identify which files should trigger it. By default, `atom-languageclient` doesn’t spawn a language server as soon as you launch Pulsar; it waits until you’ve got a relevant kind of file open for editing. (For instance, `pulsar-ide-typescript` won’t run a language server until you open a TypeScript or JavaScript file.)
 
     Rather than identify these languages by file extension (which can be ambiguous and doesn’t do anything for brand-new files), it identifies them by the grammar you assign — and grammars are identified by their root scopes. For `pulsar-ide-typescript`, those scopes are `source.js`, `source.ts`, and `source.ts.tsx`. Your IDE package probably works on a fixed subset of grammars, but there are ways to expand this list and make it user-configurable.
 
-* Some IDE packages try to improve the “onboarding” experience for new installations. For instance, if the package is unable to bundle the language server, it might offer a notification on first run offering a link to where the language server can be downloaded. This is outside the scope of what `atom-languageclient` does, so if you want a feature like this, you’ll need to write it yourself.
+* Some IDE packages try to improve the “onboarding” experience for new installations. For instance, if the package is unable to bundle the language server, it might show a notification on first run offering a link to where the language server can be downloaded. This is outside the scope of what `atom-languageclient` does, so if you want a feature like this, you’ll need to write it yourself.
 
 ## Writing your package
 
@@ -267,7 +267,7 @@ class ZzyzxLanguageClient extends AutoLanguageClient {
     return diagnostic.severity === 4;
   }
 
-  // And you can also filter code actions before they're showin in an
+  // And you can also filter code actions before they're shown in an
   // `intentions` menu.
   filterCodeActions(commandsOrCodeActions) {
     // Not the most elegant example, but this would be one way of disabling
