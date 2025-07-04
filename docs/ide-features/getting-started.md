@@ -63,6 +63,7 @@ Let’s make this easy for the vast majority of you:
 
 * JavaScript and [TypeScript](https://www.typescriptlang.org/) authors can install {pulsar-ide-typescript}.
 * Authors of CSS (and “enhanced” CSS languages like [Sass](https://sass-lang.com/) and [Less](https://lesscss.org/)) can install {pulsar-ide-css}.
+* Authors of HTML (and templating languages that wrap HTML — like [PHP](https://www.php.net/), [ERB](https://github.com/ruby/erb?tab=readme-ov-file#erb), and [Handlebars](https://handlebarsjs.com/guide/)) can install {pulsar-ide-html}.
 * Those who routinely write JSON can install {pulsar-ide-json}.
 * [Python](https://www.python.org/) authors can install {pulsar-ide-python}.
 * C/C++ authors can install {pulsar-ide-clangd}.
@@ -78,7 +79,7 @@ Be sure to **read the README of the package you install**. Some of these package
 
 Several reasons:
 
-* As mentioned above, they often require external tools and can’t easily be bundled within the package itself. [Clangd](https://clangd.llvm.org/) is a good example: {pulsar-ide-clangd} isn’t going to bundle a tool that has to be compiled for a particular OS and processor architecture. Better for you to download it yourself and tell the package where to find the executable.
+* As mentioned above, they often require external tools and can’t easily be bundled within the package itself. [Clangd](https://clangd.llvm.org/) is a good example: since it must be built for your OS and processor architecture, {pulsar-ide-clangd} isn’t going to bundle it. Better for you to download it yourself and tell the package where to find the executable.
 * Packages that bundle their own language server _could_ be built into Pulsar, but they’d increase the download and installation size, so we have to be mindful of that trade-off.
 
 Still, it’s possible that some of these packages will be bundled by default in future Pulsar versions.
