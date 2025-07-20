@@ -56,7 +56,7 @@ Global settings are under the `*` key, and each language can have its own top-le
 ```
 
 :::tip
-When you save your `config.cson`, you might see its contents change slightly. For instance, the keys above will be “normalized” to `.gfm.source`, `.ruby.source`, and `.python.source` (with the segments of each scope ordered alphabetically). This is normal.
+When you save your `config.cson`, you might see its contents change slightly — or it might happen at some point in the future. For instance, the keys above will generally be “normalized” to `.gfm.source`, `.ruby.source`, and `.python.source` (with the segments of each scope ordered alphabetically). This is normal.
 :::
 
 ## Finding a language’s scope name

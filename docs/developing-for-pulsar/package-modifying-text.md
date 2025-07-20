@@ -3,10 +3,7 @@ title: "Package: Modifying text"
 layout: doc.ejs
 ---
 
-This section will guide you though creating a
-simple command that replaces the selected text with [ascii art](https://en.wikipedia.org/wiki/ASCII_art).
-When you run our new command with the word "cool" selected, it will be replaced
-with:
+This section will guide you though creating a simple command that replaces the selected text with [ascii art](https://en.wikipedia.org/wiki/ASCII_art). When you run our new command with the word "cool" selected, it will be replaced with:
 
 <pre>
                                      o888

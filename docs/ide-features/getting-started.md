@@ -24,7 +24,7 @@ But for most mainstream languages, that external help already exists!
 
 A language server is a “brain” designed to supply all the logic needed to support features like those listed above.
 
-For a given language, instead of writing a specific deep integration with each commonly used code editor in the world, it’s easier to write _one_ deep integration that abides by the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/). Each editor can then write its own adapter to communicate according to that protocol.
+For a given language, instead of writing a specific deep integration with each commonly used code editor in the world, it’s easier to write _one_ deep integration that abides by the [Language Server Protocol][]. Each editor can then write its own adapter to communicate according to that protocol.
 
 The Language Server Protocol therefore functions as “middleware”: each language community can write a language server in whatever way they please, with whatever tools they want, as long as it fulfills its end of the protocol. Likewise, every code editor can write a <cite>language client</cite> that implements the other half of the protocol, then wires it up to the specific features that editor can support.
 
@@ -61,16 +61,18 @@ In some cases, the package might specify the name of the language server rather 
 
 Let’s make this easy for the vast majority of you:
 
-* JavaScript and [TypeScript](https://www.typescriptlang.org/) authors can install {pulsar-ide-typescript}.
-* Authors of CSS (and “enhanced” CSS languages like [Sass](https://sass-lang.com/) and [Less](https://lesscss.org/)) can install {pulsar-ide-css}.
-* Authors of HTML (and templating languages that wrap HTML — like [PHP](https://www.php.net/), [ERB](https://github.com/ruby/erb?tab=readme-ov-file#erb), and [Handlebars](https://handlebarsjs.com/guide/)) can install {pulsar-ide-html}.
-* Those who routinely write JSON can install {pulsar-ide-json}.
-* [Python](https://www.python.org/) authors can install {pulsar-ide-python}.
-* C/C++ authors can install {pulsar-ide-clangd}.
-* [Ruby](https://www.ruby-lang.org/) authors can install {pulsar-ide-ruby-solargraph}.
-* [Go](https://go.dev/) authors can install {pulsar-ide-golang}.
-* [D](https://dlang.org/) authors can install {pulsar-ide-d}.
-* [Markdown](https://www.markdownguide.org/) authors can install {pulsar-ide-markdown}.
+* **JavaScript** and **[TypeScript][]** authors can install {pulsar-ide-typescript}.
+* Authors of **CSS** (and “enhanced” CSS languages like **[Sass][]** and **[Less][]** can install {pulsar-ide-css}.
+* Authors of **HTML** (and templating languages that wrap HTML — like **[PHP][]**, **[ERB][]**, and **[Handlebars][]**) can install {pulsar-ide-html}.
+* Those who routinely write **JSON** can install {pulsar-ide-json}.
+* Those who need help writing **YAML** can install {pulsar-ide-yaml}.
+* Authors of **`bash` scripts** can install {pulsar-ide-bash}.
+* **[Python][]** authors can install {pulsar-ide-python}.
+* **C**/**C++** authors can install {pulsar-ide-clangd}.
+* **[Ruby][]** authors can install {pulsar-ide-ruby-solargraph}.
+* **[Go][]** authors can install {pulsar-ide-golang}.
+* **[D][]** authors can install {pulsar-ide-d}.
+* **[Markdown][]** authors can install {pulsar-ide-markdown}.
 
 Be sure to **read the README of the package you install**. Some of these packages bundle the language server; these tend to be quicker to get up and running. Others require that you install the language server yourself and help the package find its location on your system.
 
@@ -91,3 +93,16 @@ If you’ve got experience with JavaScript or have read through [our package tut
 The whole point of a language server is to reduce the implementation burden on code editors, since most of the “glue” code is shared across language servers. For that reason, we maintain [a library called `atom-languageclient`](https://github.com/savetheclocktower/atom-languageclient) designed to make it easy to [connect a language server to Pulsar](https://github.com/savetheclocktower/atom-languageclient?tab=readme-ov-file#developing-packages). With practice, you can do it in about a half-hour!
 
 If you’re not comfortable writing JavaScript, [reach out to us](https://pulsar-edit.dev/community) instead. Creating an IDE package for Pulsar is easier than you think! We can often coach you through the process, or perhaps even write it for you.
+
+[PHP]: https://php.net
+[ERB]: https://github.com/ruby/erb?tab=readme-ov-file#erb
+[Handlebars]: https://handlebarsjs.com/guide/
+[TypeScript]: https://www.typescriptlang.org/
+[Sass]: https://sass-lang.com/
+[Less]: https://lesscss.org/
+[Language Server Protocol]: https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/
+[Python]: https://www.python.org/
+[Ruby]: https://www.ruby-lang.org/
+[Go]: https://go.dev/
+[D]: https://dlang.org/
+[Markdown]: https://www.markdownguide.org/
