@@ -92,7 +92,7 @@ If you’ve got experience with JavaScript or have read through [our package tut
 
 The whole point of a language server is to reduce the implementation burden on code editors, since most of the “glue” code is shared across language servers. For that reason, we maintain [a library called `atom-languageclient`](https://github.com/savetheclocktower/atom-languageclient) designed to make it easy to [connect a language server to Pulsar](https://github.com/savetheclocktower/atom-languageclient?tab=readme-ov-file#developing-packages). With practice, you can do it in about a half-hour!
 
-If you’re not comfortable writing JavaScript, [reach out to us](https://pulsar-edit.dev/community) instead. Creating an IDE package for Pulsar is easier than you think! We can often coach you through the process, or perhaps even write it for you.
+If you’re not comfortable writing JavaScript, [reach out to us](https://pulsar-edit.dev/community) instead. Creating an IDE package for Pulsar is easier than you think! We can often coach you through the process or help you find collaborators.
 
 [PHP]: https://php.net
 [ERB]: https://github.com/ruby/erb?tab=readme-ov-file#erb

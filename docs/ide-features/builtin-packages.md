@@ -29,7 +29,7 @@ Even where other autocompletion providers exist — like the built-in {autocompl
 
 ## Symbol resolution
 
-We briefly mentioned how you can [navigate through files by symbol](http://localhost:8082/using-pulsar/movement/#navigating-by-symbols). Those symbols could be a number of things depending on the kind of file: method names, CSS selectors, or Markdown heading names, to list a few examples.
+We briefly mentioned how you can [navigate through files by symbol](/using-pulsar/movement/#navigating-by-symbols). Those symbols could be a number of things depending on the kind of file: method names, CSS selectors, or Markdown heading names, to list a few examples.
 
 This functionality is supplied by the built-in {symbols-view} package. Even without an IDE package, Pulsar allows you to navigate by symbols in most languages for the current file. (Since the file is already open, this isn’t hard!) But `symbols-view` also has the ability to jump to a symbol in a _different_ file, but not automatically; it needs something to tell it what those symbols are. A language server can do that very thing!
 
