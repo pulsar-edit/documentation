@@ -6,7 +6,7 @@ const semver = require("semver");
 module.exports = {
   nextAndPreviousSidebarEntries(url, sidebar) {
     let prev = null, next = null;
-    if (!url) return [prev, next];
+    if (!url || !sidebar) return [prev, next];
     let lastIndex = sidebar.length - 1;
     let index = sidebar.findIndex(entry => entry.link === url || `${entry.link}/` === url);
     if (index > -1) {

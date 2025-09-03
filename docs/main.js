@@ -349,6 +349,7 @@ const Tabs = {
 }
 
 const Hovercards = {
+  failedRetrievals: new Set(),
   setup () {
     document.body.addEventListener('click', this.onClick.bind(this));
 
@@ -374,6 +375,11 @@ const Hovercards = {
     let value = node.dataset.hovercard;
     if (!value) return;
 
+    if (this.failedRetrievals.has(value)) {
+      // We failed on a previous attempt, so let's not try again.
+      return
+    }
+
     let targetRect = node.getBoundingClientRect();
     let bodyRect = document.body.getBoundingClientRect();
 
@@ -381,6 +387,11 @@ const Hovercards = {
     let left = Math.abs(bodyRect.left) + targetRect.left + targetRect.width;
 
     const res = await fetch(`/hovercards/${value}.json`);
+    if (!res.ok) {
+      // We didn't fetch a hovercard, so we'll remember not to try again.
+      this.failedRetrievals.add(value)
+      return
+    }
     const card = await res.json();
 
     if (card.empty) return;

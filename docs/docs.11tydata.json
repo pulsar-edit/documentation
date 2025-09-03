@@ -22,6 +22,11 @@
       "summary": "Learn about how to customize Pulsar’s keybindings, per-language settings, and styles."
     },
     {
+      "text": "IDE features",
+      "link": "/ide-features",
+      "summary": "Hook Pulsar up to “brain” packages that make it behave more like a language-specific IDE."
+    },
+    {
       "text": "Developing for Pulsar",
       "link": "/developing-for-pulsar",
       "summary": "Learn about advanced topics relating to package development."
@@ -50,11 +55,6 @@
       "text": "APIs",
       "link": "/api",
       "summary": "Read reference documentation for our APIs: Pulsar’s own API and that of the package repository."
-    },
-    {
-      "text": "IDE Features",
-      "link": "/ide-features",
-      "summary": "Hook Pulsar up to ‘brain’ packages that make it behave more like a language-specific IDE."
     }
   ]
 

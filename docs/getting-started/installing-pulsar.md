@@ -117,7 +117,7 @@ Pulsar on Windows supports a standard installation as well as running Pulsar in 
 
 To install Pulsar regularly, download the `Setup` file, and double click to run. During the installation process, you’ll be able to choose either the default user install (just the current user) or a machine install (all users of the machine). A user install is recommended, but either one will work, though a machine install will require administrative privileges.
 
-You’ll be asked whether the folders that contain the `pulsar` and `ppm` binaries should be added to your `PATH`. This is recommended; it will make it easier to [launch Pulsar from a terminal](http://localhost:8081/getting-started/terminal-commands/).
+You’ll be asked whether the folders that contain the `pulsar` and `ppm` binaries should be added to your `PATH`. This is recommended; it will make it easier to [launch Pulsar from a terminal](/getting-started/terminal-commands/).
 
 :::note
 
