@@ -47,9 +47,9 @@ Using language servers in Pulsar is a two-step process:
 
 The Language Server Project site maintains [a list of known language servers](https://microsoft.github.io/language-server-protocol/implementors/servers/) for various languages and frameworks. Often you’ll see more than one language server on that page for the same language! But it’s typically enough simply to verify that at least one server exists for your language.
 
-### Search the package repository for an IDE package for your language
+### Search the package registry for an IDE package for your language
 
-Packages that integrate with language servers are named according to convention. If you’re looking for an IDE package for a given language, search for `ide-[language]` in the package repository.
+Packages that integrate with language servers are named according to convention. If you’re looking for an IDE package for a given language, search for `ide-[language]` in the package registry.
 
 Suppose you use a language `foo`. You may find an `ide-foo` package in the repository; this would’ve been written for Atom and may be several years old by now, but may still work to some extent.
 

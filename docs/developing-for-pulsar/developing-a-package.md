@@ -14,7 +14,7 @@ You can run the generator by invoking the command palette and searching for "Gen
 ::: note Note
 
 You may encounter a situation where your package is not loaded.
-Make sure the package name you choose isn’t an existing bundled package name or one hosted on [pulsar-edit.dev](https://web.pulsar-edit.dev/packages).
+Make sure the package name you choose isn’t an existing bundled package name or one hosted on [pulsar-edit.dev](https://packages.pulsar-edit.dev/packages).
 
 :::
 

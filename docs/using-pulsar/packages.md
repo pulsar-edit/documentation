@@ -18,7 +18,7 @@ This means that packages can be incredibly powerful! They can change everything 
 
 In order to install a new package, you can use the **Install** tab in the now familiar settings view. Open up the settings view using <kbd class="platform-linux platform-win">Ctrl+,</kbd><kbd class="platform-mac">Cmd+,</kbd>, click on the Install tab, and type your search query into the box labelled “Search packages.” Some suggestions are displayed even when the search field is empty.
 
-The packages listed here have been published to [https://web.pulsar-edit.dev](https://web.pulsar-edit.dev), which is the official registry for Pulsar packages. Searching on the settings view will run your search against the package registry and display any results that match your search terms.
+The packages listed here have been published to [https://packages.pulsar-edit.dev](https://packages.pulsar-edit.dev), which is the official registry for Pulsar packages. Searching on the settings view will run your search against the package registry and display any results that match your search terms.
 
 ![Package install screen](/img/atom/packages-install.png "Package install screen") <!--TODO: Replace with Pulsar branded pictures-->
 
@@ -83,7 +83,7 @@ You can install packages by using the `pulsar -p install` command:
 - `pulsar -p install <package_name>` to install the latest version.
 - `pulsar -p install <package_name>@<package_version>` to install a specific version.
 
-For example, `pulsar -p install minimap@4.40.0 ` installs the `4.40.0` release of the [minimap](https://web.pulsar-edit.dev/packages/minimap) package.
+For example, `pulsar -p install minimap@4.40.0 ` installs the `4.40.0` release of the [minimap](https://packages.pulsar-edit.dev/packages/minimap) package.
 
 You can also use the command line to find new packages to install. If you run `pulsar -p search`, you can search the package registry for a search term.
 
@@ -116,7 +116,7 @@ $ pulsar -p view linter
 
 ### Using `ppm` to install from other sources
 
-By default, `pulsar -p install foo` will search the [Pulsar Package Repository](https://web.pulsar-edit.dev/) for a package called `foo`. But you can also install from other locations.
+By default, `pulsar -p install foo` will search the [Pulsar Package Registry](https://packages.pulsar-edit.dev/) for a package called `foo`. But you can also install from other locations.
 
 #### GitHub or Git Remotes
 

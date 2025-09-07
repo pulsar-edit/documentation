@@ -23,7 +23,7 @@ Themes are pretty straightforward, but it’s still helpful to be familiar with 
 - Your theme’s `package.json` must contain a `theme` key with a value of `ui`
   or `syntax` for Pulsar to recognize and load it as a theme.
 - You can find existing themes to install or fork in
-  [Pulsar Package Repository](https://web.pulsar-edit.dev/packages). <!--TODO: Update to a themes URL if we get one on the front end site-->
+  [Pulsar Package Registry](https://packages.pulsar-edit.dev/packages). <!--TODO: Update to a themes URL if we get one on the front end site-->
 
 ## Creating a syntax theme
 
