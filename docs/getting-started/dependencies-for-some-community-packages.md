@@ -9,8 +9,8 @@ This is an advanced topic and it might not be necessary! Most community packages
 
 However, some popular packages will involve the use of native modules. Please read this page if you’re planning to install one of the packages below:
 
-* [x-terminal-reloaded](https://web.pulsar-edit.dev/packages/x-terminal-reloaded)
-* [Hydrogen](https://web.pulsar-edit.dev/packages/hydrogen) (which should be [installed directly from GitHub](https://github.com/pulsar-edit/package-backend/blob/main/docs/reference/Admin_Actions.md#hydrogen))
+* [x-terminal-reloaded](https://packages.pulsar-edit.dev/packages/x-terminal-reloaded)
+* [Hydrogen](https://packages.pulsar-edit.dev/packages/hydrogen) (which should be [installed directly from GitHub](https://github.com/pulsar-edit/package-backend/blob/main/docs/reference/Admin_Actions.md#hydrogen))
 
 :::
 

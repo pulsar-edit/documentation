@@ -105,12 +105,12 @@ Pulsar has a number of settings and preferences you can modify in the **settings
 
 ![Settings View](/img/atom/settings-view.png "Settings View")
 
-This includes things like changing the theme, specifying how to handle wrapping, font settings, tab size, scroll speed and much more. You can also use this screen to install new packages and themes, as we’ll cover in [Pulsar Packages](/using-pulsar/pulsar-packages/).
+This includes things like changing the theme, specifying how to handle wrapping, font settings, tab size, scroll speed and much more. You can also use this screen to install new packages and themes, as we’ll cover on [the page about packages](/using-pulsar/packages/).
 
 To open the settings view, you can
 
 - use the <span class="platform-linux">_Edit > Preferences_</span> <span class="platform-mac">_Pulsar > Preferences_</span> <span class="platform-win">_File > Settings_</span> menu item in the menu bar,
-- search for `settings-view:open` in the [Command Palette](#command-palette), or
+- search for `settings-view:open` in the [command palette](#command-palette), or
 - use the <kbd class="platform-linux platform-win">Ctrl+,</kbd><kbd class="platform-mac">Cmd+,</kbd> keybinding.
 
 The settings view is provided by the {settings-view} package.
@@ -135,7 +135,7 @@ Pulsar ships with four different UI themes: dark and light variants of Atom’s 
 
 ![Changing the theme from Settings View](/img/atom/theme.png "Changing the theme from Settings View")
 
-If you want to see what else is available, you can use the **Install** tab to browse community packages for both kinds of themes in the [Pulsar Package Repository](https://web.pulsar-edit.dev).
+If you want to see what else is available, you can use the **Install** tab to browse community packages for both kinds of themes in the [Pulsar Package Registry](https://packages.pulsar-edit.dev).
 
 You can even make your own themes! Customizing a theme (in [Style tweaks](/customizing-pulsar/style-tweaks/)) and creating your own theme (in [Developing a theme](/developing-for-pulsar/developing-a-theme/)) will be covered later.
 
@@ -212,7 +212,7 @@ $ pulsar getting-started/sections/pulsar-basics.md:150:722
 
 Editing text in Pulsar will feel familiar. You can click around and scroll with your mouse and type to change the content. There is no special editing mode, and the default key bindings for common tasks match the default bindings for your system.
 
-If you prefer editors with modes or more complex key commands, you should take a look at the [Pulsar Package Registry](https://web.pulsar-edit.dev). There are a lot of packages that emulate popular styles.
+If you prefer editors with modes or more complex key commands, you should take a look at the [Pulsar Package Registry](https://packages.pulsar-edit.dev). There are a lot of packages that emulate popular styles.
 
 To save a file, you can choose _File > Save_ from the menu bar or <kbd class="platform-win platform-linux">Ctrl+S</kbd><kbd class="platform-mac">Cmd+S</kbd> to save the file. If you choose _File > Save As_ or press <kbd class="platform-win platform-linux">Ctrl+Shift+S</kbd><kbd class="platform-mac">Cmd+Shift+S</kbd> then you can save the current content in your editor under a different file name.
 Finally, you can choose _File > Save All_  <span class="platform-mac">or press <kbd>Alt+Cmd+S</kbd></span> to save all the open files in Pulsar.

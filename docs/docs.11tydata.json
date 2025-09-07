@@ -54,7 +54,7 @@
     {
       "text": "APIs",
       "link": "/api",
-      "summary": "Read reference documentation for our APIs: Pulsar’s own API and that of the package repository."
+      "summary": "Read reference documentation for our APIs: Pulsar’s own API and that of the package registry."
     }
   ]
 

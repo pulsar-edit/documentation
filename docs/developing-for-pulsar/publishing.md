@@ -25,15 +25,15 @@ There are a few things you should double check before publishing:
 
 ## Publish your package
 
-Before you publish a package it is a good idea to check ahead of time if a package with the same name has already been published to [the Pulsar Package Repository](https://web.pulsar-edit.dev/packages). You can do that by visiting `https://web.pulsar-edit.dev/packages/your-package-name` to see if the package already exists. If it does, update your package’s name to something that is available before proceeding.
+Before you publish a package, it’s a good idea to check ahead of time if a package with the same name has already been published to [the Pulsar Package Registry](https://packages.pulsar-edit.dev/packages). You can do that by visiting `https://packages.pulsar-edit.dev/packages/your-package-name` to see if the package already exists. If it does, update your package’s name to something that is available before proceeding.
 
 Now let’s review what the `pulsar -p publish` command does:
 
-1. Registers the package name on Pulsar Package Repository if it is being published for the first time.
+1. Registers the package name on Pulsar Package Registry if it is being published for the first time.
 2. Updates the `version` field in the `package.json` file and commits it.
 3. Creates a new [Git tag](https://git-scm.com/book/en/Git-Basics-Tagging) for the version being published.
 4. Pushes the tag and current branch up to GitHub.
-5. Updates Pulsar Package Repository with the new version being published.
+5. Updates Pulsar Package Registry with the new version being published.
 
 Now run the following commands to publish your package:
 
@@ -46,7 +46,7 @@ $ pulsar -p publish minor
 
 If this is the first package you are publishing, the `pulsar -p publish` command may prompt you for your GitHub username and password. If you have two-factor authentication enabled, use a [personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) in lieu of a password. This is required to publish and you only need to enter this information the first time you publish. The credentials are stored securely in your [keychain](<https://en.wikipedia.org/wiki/Keychain_(software)>) once you login.
 
-Your package is now published and available on Pulsar Package Repository. Head on over to `https://web.pulsar-edit.dev/packages/your-package-name` to see your package’s page.
+Your package is now published and available on Pulsar Package Registry. Head on over to `https://packages.pulsar-edit.dev/packages/your-package-name` to see your package’s page.
 
 With `pulsar -p publish`, you can bump the version and publish by using
 

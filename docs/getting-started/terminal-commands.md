@@ -80,7 +80,7 @@ The `-p`/`--package` switch is most useful for AppImage installations, but you m
 
 ## About `ppm`
 
-`ppm` stands for _Pulsar Package Manager_. It’s a Pulsar-branded version of [`npm`](https://web.pulsar-edit.dev/) that installs packages from Pulsar’s own [package registry](https://web.pulsar-edit.dev/).
+`ppm` stands for _Pulsar Package Manager_. It’s a Pulsar-branded version of [`npm`](https://packages.pulsar-edit.dev/) that installs packages from Pulsar’s own [package registry](https://packages.pulsar-edit.dev/).
 
 It’ll be covered in greater depth later; just know that it’s a way to install Pulsar packages from the command line, and it works whether or not Pulsar is running.
 

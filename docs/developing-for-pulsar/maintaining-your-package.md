@@ -18,7 +18,7 @@ Some people prefer to control every aspect of the package publishing process. No
 
 ::: note Note
 
-The `ppm` tool will only publish and [Pulsar Package Registry](https://web.pulsar-edit.dev) will only list packages that are hosted on [GitHub](https://github.com), regardless of what process is used to publish them.
+The `ppm` tool will only publish and [Pulsar Package Registry](https://packages.pulsar-edit.dev) will only list packages that are hosted on [GitHub](https://github.com), regardless of what process is used to publish them.
 
 :::
 
@@ -56,7 +56,7 @@ The name of your package will be reserved even after being unpublished!
 
 :::
 
-If you no longer want to support your package and cannot find anyone to take it over, you can unpublish your package from [Pulsar Package Registry](https://web.pulsar-edit.dev). For example, if your package is named `package-name`, you’d run:
+If you no longer want to support your package and cannot find anyone to take it over, you can unpublish your package from [Pulsar Package Registry](https://packages.pulsar-edit.dev). For example, if your package is named `package-name`, you’d run:
 
 ```sh
 $ pulsar -p unpublish package-name

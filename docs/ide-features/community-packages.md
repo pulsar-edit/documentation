@@ -53,7 +53,7 @@ In this case, the services’ differing designs are the reason. The `linter` ser
 
 Nonetheless, this is an implementation detail that users usually won’t have to care about. All you need to know is that **providers** need to match up with **consumers** and _vice versa_.
 
-In the Pulsar package repository, each package will list the services it consumes and provides. Clicking on a particular service in that list will show you search results for packages that fulfill the _opposite_ side of that service (and can therefore be paired with the original package).
+In the Pulsar Package Registry, each package will list the services it consumes and provides. Clicking on a particular service in that list will show you search results for packages that fulfill the _opposite_ side of that service (and can therefore be paired with the original package).
 
 :::
 
