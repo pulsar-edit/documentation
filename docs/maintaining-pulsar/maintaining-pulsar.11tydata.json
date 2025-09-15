@@ -4,6 +4,18 @@
     {
       "text": "Tooling",
       "link": "/maintaining-pulsar/tooling"
+    },
+    {
+      "text": "GitHub Package Wiki",
+      "link": "/maintaining-pulsar/github-package-wiki"
+    },
+    {
+      "text": "Atom-LanguageClient Package Wiki",
+      "link": "/maintaining-pulsar/atom-languageclient-package-wiki"
+    },
+    {
+      "text": "IDE-Java Package Wiki",
+      "link": "/maintaining-pulsar/ide-java-package-wiki"
     }
   ]
 }
