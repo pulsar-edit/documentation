@@ -56,13 +56,7 @@ $ pulsar -p publish minor
 
 <!-- TODO: Rewrite this Section once Authentication Information is Public -->
 
-If this is the first package you are publishing, the `pulsar -p publish` command
-may prompt you for your GitHub username and password. If you have two-factor
-authentication enabled, use a [personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)
-in lieu of a password. This is required to publish and you only need to enter
-this information the first time you publish. The credentials are stored securely
-in your [keychain](<https://en.wikipedia.org/wiki/Keychain_(software)>) once you
-login.
+If this is the first package you are publishing, the `pulsar -p publish` command may prompt you to authenticate.
 
 Your package is now published and available on Pulsar Package Repository. Head
 on over to `https://web.pulsar-edit.dev/packages/your-package-name` to see your
