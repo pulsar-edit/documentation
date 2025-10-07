@@ -12,7 +12,7 @@ Some older icons from version `2.1.2` are still kept for backwards compatibility
 
 ## Overview
 
-In the {styleguide} under the "Icons" section you'll find all the Octicons that are available. Invoke the **Styleguide: Show** command in the command palette.
+In the {styleguide} under the “Icons” section you’ll find all the Octicons that are available. Invoke the **Styleguide: Show** command in the command palette.
 
 ![Octicons in the Styleguide](/img/atom/iconography.png "Octicons in the Styleguide")
 

@@ -67,7 +67,7 @@ module.exports = {
 };
 ```
 
-Similarly, to consume a service, specify one or more [version _ranges_](https://docs.npmjs.com/cli/v6/using-npm/semver#ranges), each paired with the name of a method on the package's main module:
+Similarly, to consume a service, specify one or more [version _ranges_](https://docs.npmjs.com/cli/v6/using-npm/semver#ranges), each paired with the name of a method on the package’s main module:
 
 ```json
 {

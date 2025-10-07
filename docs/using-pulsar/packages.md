@@ -12,13 +12,13 @@ In fact, a stock installation of Pulsar includes more than 80 packages. To list 
 * The default themes are the packages {one-dark-ui} and {one-dark-syntax}.
 * The palette for choosing a file to open in the current project is implemented by {fuzzy-finder}.
 
-All these packages live in the main Pulsar repository on GitHub, but otherwise there’s little to distinguish them from the packages that are written by community members. Core packages have no special privileges; they use the same APIs that you have access to, as we'll see in great detail in [Hacking the Core](TODO).
+All these packages live in the main Pulsar repository on GitHub, but otherwise there’s little to distinguish them from the packages that are written by community members. Core packages have no special privileges; they use the same APIs that you have access to, as we’ll see in great detail in [Hacking on the core](/contributing-to-pulsar/hacking-on-the-core/).
 
 This means that packages can be incredibly powerful! They can change everything from the look and feel of the entire interface to the basic behavior of core functionality.
 
-In order to install a new package, you can use the **Install** tab in the now familiar settings view. Open up the settings view using <kbd class="platform-linux platform-win">Ctrl+,</kbd><kbd class="platform-mac">Cmd+,</kbd> click on the Install tab, and type your search query into the box labelled “Search packages.” Some suggestions are displayed even when the search field is empty.
+In order to install a new package, you can use the **Install** tab in the now familiar settings view. Open up the settings view using <kbd class="platform-linux platform-win">Ctrl+,</kbd><kbd class="platform-mac">Cmd+,</kbd>, click on the Install tab, and type your search query into the box labelled “Search packages.” Some suggestions are displayed even when the search field is empty.
 
-The packages listed here have been published to [https://web.pulsar-edit.dev](https://web.pulsar-edit.dev), which is the official registry for Pulsar packages. Searching on the settings view will run your search against the package registry and display any results that match your search terms.
+The packages listed here have been published to [https://packages.pulsar-edit.dev](https://packages.pulsar-edit.dev), which is the official registry for Pulsar packages. Searching on the settings view will run your search against the package registry and display any results that match your search terms.
 
 ![Package install screen](/img/atom/packages-install.png "Package install screen") <!--TODO: Replace with Pulsar branded pictures-->
 
@@ -57,19 +57,24 @@ Clicking on **Install** will install the theme and make it available for activat
 
 ## Command Line
 
-You can also install packages or themes from the command line using `ppm` (Pulsar Package Manager). This is used by running `pulsar -p <commmand>` or `pulsar --package <command>`.
+You can also install packages or themes from the command line using `ppm` (Pulsar Package Manager). This is used by running either `ppm <command>` or `pulsar -p <commmand>`.
 
 ::: tip Tip
 
-Check that you have `ppm` available by running the following command in your terminal:
+For all intents and purposes, `ppm <command>` and `pulsar -p <command>` are equivalent. Depending on how you installed Pulsar, `ppm` may not be automatically available to run from the command line; you can use `pulsar -p` to work around this, or else fix it by following the instructions on the [Terminal commands](/getting-started/terminal-commands/#adding-pulsar-and-ppm-to-your-shell) page.
+
+To find out whether you can run `ppm` or `pulsar -p` from your command line, try the following commands in your terminal:
 
 ```sh
+$ ppm help install
 $ pulsar -p help install
 ```
 
-You should see a message print out with details about the `pulsar -p install` command.
+Both of these commands should show a message with documentation about the `ppm install` command.
 
-If you do not, see the [Installing Pulsar section](../../getting-started/installing-pulsar) for instructions on how to install the `pulsar` command for your system.
+If either of them doesn’t work, consult the instructions on the [Terminal commands](/getting-started/terminal-commands/#adding-pulsar-and-ppm-to-your-shell) page.
+
+Otherwise: whenever you see `pulsar -p` in these instructions, you may substitute `ppm`, and vice versa.
 
 :::
 
@@ -78,10 +83,9 @@ You can install packages by using the `pulsar -p install` command:
 - `pulsar -p install <package_name>` to install the latest version.
 - `pulsar -p install <package_name>@<package_version>` to install a specific version.
 
-For example, `pulsar -p install minimap@4.40.0 ` installs the `4.40.0` release of the [minimap](https://web.pulsar-edit.dev/packages/minimap) package.
+For example, `pulsar -p install minimap@4.40.0 ` installs the `4.40.0` release of the [minimap](https://packages.pulsar-edit.dev/packages/minimap) package.
 
-You can also use `ppm` to find new packages to install. If you run
-`pulsar -p search`, you can search the package registry for a search term.
+You can also use the command line to find new packages to install. If you run `pulsar -p search`, you can search the package registry for a search term.
 
 ```sh
 $ pulsar -p search linter
@@ -112,7 +116,7 @@ $ pulsar -p view linter
 
 ### Using `ppm` to install from other sources
 
-By default, `pulsar -p install foo` will search the [Pulsar Package Repository](https://web.pulsar-edit.dev/) for a package called `foo`. But you can also install from other locations.
+By default, `pulsar -p install foo` will search the [Pulsar Package Registry](https://packages.pulsar-edit.dev/) for a package called `foo`. But you can also install from other locations.
 
 #### GitHub or Git Remotes
 

@@ -5,7 +5,7 @@ layout: doc.ejs
 
 ## Reading config settings
 
-If you are writing a package that you want to make configurable, you'll need to read config settings via the `atom.config` global. You can read the current value of a namespaced config key with `atom.config.get`:
+If you are writing a package that you want to make configurable, you’ll need to read config settings via the `atom.config` global. You can read the current value of a namespaced config key with {Config::get "atom.config.get"}:
 
 ```js
 // read a value with `config.get`
@@ -14,10 +14,10 @@ if (atom.config.get("editor.showInvisibles")) {
 }
 ```
 
-Or you can subscribe via `atom.config.observe` to track changes from any view object.
+Or you can subscribe via {Config::observe "atom.config.observe"} to track changes from any view object.
 
 ```js
-const {View} = require('space-pen')
+const { View } = require('space-pen')
 
 class MyView extends View {
   function attached() {
@@ -46,4 +46,4 @@ The `atom.config` database is populated on startup from <span class="platform-li
 atom.config.set("core.showInvisibles", true);
 ```
 
-If you're exposing package configuration via specific key paths, you'll want to associate them with a schema in your package's main module. Read more about schemas in the [Config API documentation](/api/pulsar/latest/Config/).
+If you’re exposing package configuration via specific key paths, you’ll want to associate them with a schema in your package’s main module. Read more about schemas in the [Config API documentation](/api/pulsar/latest/Config/).

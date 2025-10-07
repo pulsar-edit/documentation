@@ -18,8 +18,7 @@ The scope system is one of the many systems that Pulsar (and Atom before it) inh
 As a result, a given position in a source code file may contain a cascade of scope names, moving from the general to the specific.
 
 
-![Log cursor scope](TODO)
-
+![Log cursor scope](/img/atom/cursor-scope.png "Log cursor scope")
 
 You can see this yourself by placing a cursor in one of your own buffers and invoking the **Editor: Log Cursor Scope** command from the command palette.
 
@@ -40,7 +39,7 @@ In the dev tools, the first line’s markup looks like this.
 
 You can see that each segment of a scope name is prepended with `syntax--` to minimize the chances of naming collisions, but the effect is the same.
 
-All the class names on the `span`s are scope names. Any scope name can be used to target a setting's value.
+All the class names on the `span`s are scope names. Any scope name can be used to target a setting’s value.
 
 ## Scope selectors
 
@@ -106,7 +105,7 @@ Retrieval of scope-specific settings via {Config::get} will usually be performed
 
 :::
 
-Let's revisit our example using these methods:
+Let’s revisit our example using these methods:
 
 ```js
 const editor = atom.workspace.getActiveTextEditor();

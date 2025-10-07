@@ -43,7 +43,7 @@ Fetch the latest changes from the pulsar-edit/pulsar repository:
 $ git fetch upstream
 ```
 
-Identify recent changes to the core package. For example, if you're maintaining a fork of the one-light-ui package, then you'll want to identify recent changes in the `packages/one-light-ui` directory:
+Identify recent changes to the core package. For example, if you’re maintaining a fork of the one-light-ui package, then you’ll want to identify recent changes in the `packages/one-light-ui` directory:
 
 ```sh
 $ git log --oneline upstream/master -- packages/one-light-ui

@@ -13,7 +13,7 @@ In order to use version control in Pulsar, the root of the Git repository needs 
 
 The <kbd class="platform-linux platform-win">Alt+Ctrl+Z</kbd><kbd class="platform-mac">Alt+Cmd+Z</kbd> keybinding (the **Editor: Checkout Head Revision** command) checks out the `HEAD` revision of the file in the editor.
 
-This is a quick way to discard any saved and staged changes you've made and restore the file to the version in the `HEAD` commit. This is essentially the same as running `git checkout HEAD -- <path>` and `git reset HEAD -- <path>` from the command line for that path.
+This is a quick way to discard any saved and staged changes you’ve made and restore the file to the version in the `HEAD` commit. This is essentially the same as running `git checkout HEAD -- <path>` and `git reset HEAD -- <path>` from the command line for that path.
 
 ![Git checkout `HEAD`](/img/atom/git-checkout-head.gif "Git checkout `HEAD`")
 
@@ -41,7 +41,7 @@ You can configure Pulsar to be your Git commit editor with the following command
 $ git config --global core.editor "pulsar --wait"
 ```
 
-The {language-git} package will help remind you to be brief by colorizing the first lines of commit messages when they're longer than 50 or 65 characters.
+The {language-git} package will help remind you to be brief by colorizing the first lines of commit messages when they’re longer than 50 or 65 characters.
 
 ## Status bar icons
 
@@ -68,7 +68,7 @@ previous diff in the current editor. These bindings map to the **Git Diff: Move 
 
 ## Open on GitHub
 
-If the project you're working on is on GitHub, there are also some very useful integrations you can use. Most of the commands will take the current file you're viewing and open a view of that file on GitHub — for instance, the blame or commit history of that file.
+If the project you’re working on is on GitHub, there are also some very useful integrations you can use. Most of the commands will take the current file you’re viewing and open a view of that file on GitHub — for instance, the blame or commit history of that file.
 
 - [[Alt+G]] [[O]] - Open file on GitHub
 - [[Alt+G]] [[B]] - Open Blame view of file on GitHub

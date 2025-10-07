@@ -61,13 +61,15 @@ zypper in libX11-devel libxkbfile-devel libsecret-devel
 
 @tab macOS
 
-```sh
-TODO
-```
+macOS installations must have the components described on the [Installing dependencies for some community packages](/getting-started/dependencies-for-some-community-packages/#macos) page.
+
+You can run `xcode-select --install` to setup these build tools if you think they’re not already present. You _do not_ need a full installation of Xcode.
 
 @tab Windows
 
-Firstly install [Visual Studio](https://visualstudio.microsoft.com/downloads/) from Microsoft.
+Install all of the components described on the [Installing dependencies for some community packages](/getting-started/dependencies-for-some-community-packages/#installing-visual-studio-tools) page.
+
+In particular, you must have either Visual Studio or Visual Studio Tools (_not_ Visual Studio Code) and the “Desktop development with C++” component must be enabled.
 
 :::
 
@@ -119,15 +121,15 @@ These instructions will also build `ppm` (Pulsar Package Manager) but it will re
 
 The following will allow you to build Pulsar as a stand alone binary or installer. After running you will find your built application in `pulsar/binaries`.
 
-The build script will automatically build for your system's CPU architecture, for example building on an `x86_64` CPU will produce binaries for `x86_64`, building on `arm64` will only produce binaries for `arm64`.
+The build script will automatically build for your system’s CPU architecture. For example, building on an `x86_64` CPU will produce binaries for `x86_64`, and building on `arm64` will only produce binaries for `arm64`.
 
-It is not possible to “cross-build” for different OSs. For Linux binaries you must build from a Linux machine; macOS binaries must be built from macOS; and so on. Your OS is detected automatically and the script will build the correct binaries for it.
+It is not possible to “cross-build” for different OSes. For Linux binaries you must build from a Linux machine; macOS binaries must be built from macOS; and so on. Your OS is detected automatically and the script will build the correct binaries for it.
 
 ::: tabs#core-hacking
 
 @tab Linux
 
-By default, running `yarn dist` will attempt to create `appimage` (for most Linux distributions), `deb` (for Debian or Ubuntu based distributions) and `rpm` (for Red Hat or Fedora based distributions) binaries but you can select the actual target you want to build by appending the above targets to the command. e.g.:
+By default, running `yarn dist` will attempt to create `AppImage` (for most Linux distributions), `deb` (for Debian or Ubuntu based distributions) and `rpm` (for Red Hat or Fedora based distributions) binaries but you can select the actual target you want to build by appending the above targets to the command. e.g.:
 
 - `yarn dist appimage`
 - `yarn dist deb`

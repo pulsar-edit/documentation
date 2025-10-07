@@ -14,13 +14,26 @@
   color: var(--alert-color);
 
   .alert__content {
-    // (when there's no title)
-    &:first-child {
-      padding-top: 0.75rem;
+    padding-top: 0.75rem;
+
+    // In general, we want tighter spacing between block-level elements within
+    // alert content…
+    p, ul {
+      margin-bottom: 1rem;
     }
 
-    & > :last-child {
+    // …and we also want to prevent excess amounts of space at the bottom of
+    // the alert from redundant padding/margins.
+    & > :last-child,
+    p:last-child {
       margin-bottom: 0.75rem;
+    }
+
+    ul {
+      li:last-child,
+      p:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 

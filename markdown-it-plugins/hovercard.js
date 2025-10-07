@@ -134,7 +134,7 @@ function inferHrefFromHovercardText (text, isApiPage) {
       //
       // TODO: We might just want to add a whitelist of package names to
       // `static_hovercards.json`.
-      return `https://web.pulsar-edit.dev/packages/${text}`;
+      return `https://packages.pulsar-edit.dev/packages/${text}`;
     }
   }
 

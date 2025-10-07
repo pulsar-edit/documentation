@@ -9,8 +9,8 @@ This is an advanced topic and it might not be necessary! Most community packages
 
 However, some popular packages will involve the use of native modules. Please read this page if you’re planning to install one of the packages below:
 
-* [x-terminal-reloaded](https://web.pulsar-edit.dev/packages/x-terminal-reloaded)
-* [Hydrogen](https://web.pulsar-edit.dev/packages/hydrogen) (which should be [installed directly from GitHub](https://github.com/pulsar-edit/package-backend/blob/main/docs/reference/Admin_Actions.md#hydrogen))
+* [x-terminal-reloaded](https://packages.pulsar-edit.dev/packages/x-terminal-reloaded)
+* [Hydrogen](https://packages.pulsar-edit.dev/packages/hydrogen) (which should be [installed directly from GitHub](https://github.com/pulsar-edit/package-backend/blob/main/docs/reference/Admin_Actions.md#hydrogen))
 
 :::
 
@@ -66,7 +66,7 @@ If `ppm install --check` produces errors, [visit the section below](#troubleshoo
 
 ### Windows
 
-To be able to build native modules on Windows, you'll need to install the following applications:
+To be able to build native modules on Windows, you’ll need to install the following applications:
 
 * **Build Tools for Visual Studio** (or the Visual Studio IDE) with the **Desktop development with C++** component
 * **Python 3** (preferably the most recent version)

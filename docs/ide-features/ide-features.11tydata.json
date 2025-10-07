@@ -1,0 +1,30 @@
+{
+  "indexTitle": "IDE features",
+  "sidebar": [
+    {
+      "text": "Getting started",
+      "link": "/ide-features/getting-started",
+      "summary": "What are “IDE features”? How can they improve your editor experience?"
+    },
+    {
+      "text": "IDE features provided by builtin packages",
+      "link": "/ide-features/builtin-packages",
+      "summary": "Learn which IDE features work out of the box."
+    },
+    {
+      "text": "IDE features provided by community packages",
+      "link": "/ide-features/community-packages",
+      "summary": "Learn which IDE features require the installation of additional packages."
+    },
+    {
+      "text": "Writing your own IDE package",
+      "link": "/ide-features/writing-your-own-ide-package",
+      "summary": "Useful information for package developers who want to wrap language servers."
+    },
+    {
+      "text": "Troubleshooting",
+      "link": "/ide-features/troubleshooting",
+      "summary": "Learn how to diagnose the problem when IDE features aren't working."
+    }
+  ]
+}

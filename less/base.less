@@ -90,6 +90,13 @@ td:last-child {
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 2rem;
+
+  code {
+    font-weight: 600;
+    border-width: 0;
+    padding: 0;
+    background-color: transparent;
+  }
 }
 
 h1 { .h1(); }
@@ -428,4 +435,17 @@ label > .label-body {
   display: inline-block;
   margin-left: .5rem;
   font-weight: normal;
+}
+
+video {
+  width: auto;
+  max-width: 100%;
+}
+
+
+figure {
+  margin-left: 0;
+  figcaption {
+    font-style: italic;
+  }
 }
