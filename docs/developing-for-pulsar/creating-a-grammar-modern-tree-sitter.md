@@ -118,7 +118,7 @@ All values are paths that will be resolved relative to the directory in which th
 
 Each of the settings ending in `Query` is optional. You can skip `indentsQuery` if your language doesn’t need indentation hinting, `foldsQuery` if it doesn’t need code folding, or even `highlightsQuery` in the unlikely event that your language does not need syntax highlighting.
 
-Any of the settings that end in `Query` can also accept an array of relative paths, instead of just a single relative path. At initialization time, the grammar will concatenate each file’s contents into a single query file. This isn’t a common need, but is explained further below.
+Any of the settings that end in `Query` can also accept an array of relative paths, instead of just a single relative path. At initialization time, the grammar will concatenate each file’s contents into a single query file. This isn’t a common need, but is explained further below in the [Sharing query files](#sharing-query-files) section.
 
 ### Language recognition
 
