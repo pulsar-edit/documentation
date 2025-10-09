@@ -137,7 +137,7 @@ Its value is an object with values as follows:
 * `start`: The delimiter that should be added to the beginning of a line to mark a comment. If your language supports line comments, specify the line comment delimiter here and skip the `end` value. This value will be used by the **Editor: Toggle Line Comments** command.
 * `end`: The delimiter that should be added to the end of a line to mark a comment. Specify `end` _only_ if your language supports only block comments (for example, CSS). If present, this value will be used by the **Editor: Toggle Line Comments** command.
 * `line`: The delimiter that marks a line comment. Regardless of what is defined in `start` or `end`, `line` refers to the line comment delimiter. If your language doesn’t support line comments, omit this field. This value is used by snippets that want to insert comment delimiters in a language-agnostic fashion.
-* `block`: A two item array containing the starting and ending delimiters of a block comment. If your language doesn’t support block comments, omit this field. These values are used by snippets that one to insert comment delimiters in a language-agnostic fashion.
+* `block`: A two item array containing the starting and ending delimiters of a block comment. If your language doesn’t support block comments, omit this field. These values are used by snippets that want to insert comment delimiters in a language-agnostic fashion.
 
 
 :::note
@@ -643,7 +643,7 @@ For instance, we can handle “hanging” indents like this one…
   (#is? test.lastTextOnRow))
 ```
 
-(They can also use some specialized tests that apply only to indentation queries: `indent.matchesComparisonRow` an `indent.matchesCurrentRow`. You’ll see an example of this below.)
+(Indent captures can also use some specialized tests that apply only to indentation queries: `indent.matchesComparisonRow` and `indent.matchesCurrentRow`. You’ll see an example of this below.)
 
 `@indent` and `@dedent` are often the only captures you need. But for unusual situations, Pulsar allows for other sorts of captures:
 
@@ -693,7 +693,7 @@ For instance, we can handle “hanging” indents like this one…
     { save: true, notifyObservers: false });
   ```
 
-  In this example, the indentation on row 2 is meant to be one-off rather than to set a new level for future lines. When the cursor is at the end of row 2 and we press [[Enter]], we know we should move the indentation level back to `0` on row 3 without even waiting to see what the user types.
+  In this example, the author has chosen a slightly unusual way to handle the indentation of this awkward parameter list: with a hanging indent. Hence the indentation on row 2 is meant to be a “one-off” exception rather than to set a new level for future lines. When the cursor is at the end of row 2 and we press [[Enter]], we know we should move the indentation level back to `0` on row 3 without even waiting to see what the user types.
 
   A `@match.next` capture can handle this as follows:
 
@@ -715,7 +715,6 @@ For instance, we can handle “hanging” indents like this one…
 
   * a `@match.next` capture works in phase one, not phase two — hence it supersedes other captures that are considered in phase one, like `@indent` and `@dedent.next`;
   * unlike `@match`, `@match.next` does not immediately return a result — it instead proceeds to phase two and can still have its suggestion altered by a `@dedent` (or overridden entirely by `@match`).
-
 
 Read the full indent query documentation to learn the details.
 
