@@ -94,7 +94,10 @@ If you have a pre-existing installation of any of these tools…
 * Build Tools for Visual Studio 2022
 * Build Tools for Visual Studio 2019
 
-…you do not need to download a new installer. But you may still need to re-run your original installer in order to add the **Desktop development with C++** component.
+…you do not need to download a new installer. But you may still need to re-run your original installer in order to add the following components:
+
+* Desktop development with C++
+* Windows 10 SDK (If you are currently running Windows 11)
 
 If you’re unsure whether the right components are already installed, try `ppm install --check` [as documented below](#troubleshooting-with-ppm-install---check).
 
