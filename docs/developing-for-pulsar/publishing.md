@@ -17,7 +17,7 @@ There are a few things you should double check before publishing:
   - …has a `description` field.
   - …has a `repository` field containing the URL of your repository.
   - …has a `version` field that is [Semver V2](https://semver.org/spec/v2.0.0.html) compliant and has a value of `"0.0.0"` before the first release.
-  - has an `engine` field that contains an entry for `atom` such as: `"engines": { "atom": ">=1.0.0 <2.0.0" }`.
+  - …has an `engine` field that contains an entry for `atom` such as: `"engines": { "atom": ">=1.0.0 <2.0.0" }`.
 
 ## Publish your package
 
