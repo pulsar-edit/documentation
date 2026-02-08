@@ -51,7 +51,7 @@ You can also find and install new UI themes and syntax themes for Pulsar from th
 
 Clicking on the theme title will take you to the theme’s page on the package registry, where the package’s README will be visible. Most themes have a sample screenshot of the theme in their README; this lets you preview the look of the theme before installing it.
 
-Clicking on **Install** will install the theme and make it available for activation in the **Themes** pane, as we saw in [Changing the theme](/using-pulsar/pulsar-basics/#changing-the-theme).
+Clicking on **Install** will install the theme and make it available for activation in the **Themes** pane, as we saw in [Changing the theme](/using-pulsar/basics/#changing-the-theme).
 
 ![Example of the Unity UI theme with Monokai syntax theme](/img/atom/unity-theme.png "Example of the Unity UI theme with Monokai syntax theme")
 
