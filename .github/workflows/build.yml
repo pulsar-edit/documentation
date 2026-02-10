@@ -46,3 +46,6 @@ jobs:
     - name: Deploy to GitHub pages
       id: deployment
       uses: actions/deploy-pages@v4
+
+    - name: Trigger re-index for `https://search.pulsar-edit.dev`
+      run: curl -X POST https://search.pulsar-edit.dev/reindex/docs
