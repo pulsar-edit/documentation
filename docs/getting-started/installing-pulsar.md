@@ -137,6 +137,7 @@ Optionally, Pulsar can be installed from the following officially supported pack
 Optionally, Pulsar can be installed from some community-supported package manager systems for Windows:
 
   * [winget](https://winstall.app/apps/Pulsar-Edit.Pulsar)
+  * [scoop](https://scoop.sh/#/apps?q=pulsar&id=b73e2993681c0efcdf8f5eb26582458e106e7d05)
 
 ## Updating Pulsar
 
