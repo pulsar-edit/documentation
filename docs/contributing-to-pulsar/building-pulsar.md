@@ -31,17 +31,18 @@ For OS- or distribution-specific instructions, see below:
 
 On Linux, certain libraries must be installed in order to build Pulsar:
 
+  - Standard packages for compiling code (`gcc`, `make`, etc.) — often available bundled into their own package
   - [`libsecret`](https://wiki.gnome.org/Projects/Libsecret) development headers (for storage of secrets)
   - `libx11` and various libraries relating to [XKB](https://www.x.org/wiki/XKB/) (so that Pulsar can detect and handle keyboard layouts in X11)
-  - `libwayland` (so Pulsar can detect and handle keyboard layouts in [Wayland](https://en.wikipedia.org/wiki/Wayland_(protocol)))
+  - `libwayland` (so that Pulsar can detect and handle keyboard layouts in [Wayland](https://en.wikipedia.org/wiki/Wayland_(protocol)))
 
-These are the packages believed to be necessary for various distributions. If any of these are wrong or insufficient, please [open an issue](https://github.com/pulsar-edit/documentation/issues) so we can keep these instructions accurate.
+Listed below are the specific packages believed to be necessary for various distributions. If any of these are wrong or insufficient, please [open an issue](https://github.com/pulsar-edit/documentation/issues) so we can keep these instructions accurate.
 
 ### Ubuntu/Debian
 
 ```sh
 # Install development packages
-apt install build-essential libsecret-1-dev libx11-dev libxkbfile-dev libxkbcommon-dev libxkbcommon-x11-dev libxkbcommon0 xkb-data libwayland-dev libwayland-client0
+apt install build-essential libsecret-1-dev libx11-dev libxkbfile-dev libxkbcommon-dev libxkbcommon-x11-dev libxkbcommon0 xkb-data libwayland-dev libwayland-client0 python3-setuptools pkg-config
 ```
 
 ### Fedora/RHEL
