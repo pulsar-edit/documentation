@@ -77,7 +77,7 @@ You can run `xcode-select --install` to setup these build tools if you think the
 
 Install all of the components described on the [Installing dependencies for some community packages](/getting-started/dependencies-for-some-community-packages/#installing-visual-studio-tools) page.
 
-In particular, you must have either Visual Studio or Visual Studio Tools (_not_ Visual Studio Code) and the “Desktop development with C++” component _must_ be enabled.
+In particular, you must have either Visual Studio or Visual Studio Tools (Visual Studio Code isn’t the same thing!) and the “Desktop development with C++” component _must_ be enabled.
 
 If you don’t have either one installed and you want to get set up quickly, install Visual Studio Tools as directed in the instructions above.
 
@@ -95,10 +95,10 @@ git clone https://github.com/pulsar-edit/pulsar.git && cd pulsar
 
 ### Pick the right Node version and ensure Yarn is present
 
-Switch to the correct version of Node for the project; if you’re running `nvm`, this should be as simple as `nvm use` (which will install the version of Node specified in specified in [pulsar/.nvmrc](https://github.com/pulsar-edit/pulsar/blob/master/.nvmrc)). Then, in order to get `yarn`, you’ll need to run `corepack enable`.
+Switch to the correct version of Node for the project; if you’re running `nvm`, this should be as simple as `nvm install` (which will install the version of Node specified in specified in [pulsar/.nvmrc](https://github.com/pulsar-edit/pulsar/blob/master/.nvmrc), or else use it if it’s already installed). Then, in order to get `yarn`, you’ll need to run `corepack enable`.
 
 ```sh
-nvm use # Or the equivalent for your version manager
+nvm install # Or the equivalent for your version manager
 corepack enable
 ```
 
