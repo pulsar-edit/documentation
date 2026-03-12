@@ -77,7 +77,7 @@ You can run `xcode-select --install` to setup these build tools if you think the
 
 Install all of the components described on the [Installing dependencies for some community packages](/getting-started/dependencies-for-some-community-packages/#installing-visual-studio-tools) page.
 
-In particular, you must have either Visual Studio or Visual Studio Tools (Visual Studio Code isn’t the same thing!) and the “Desktop development with C++” component _must_ be enabled.
+In particular, you must have either [**Visual Studio** or **Build Tools for Visual Studio**](https://visualstudio.microsoft.com/downloads/) (Visual Studio Code isn’t the same thing!) and the “Desktop development with C++” and “Windows 10 SDK” components _must_ be enabled.
 
 If you don’t have either one installed and you want to get set up quickly, install Visual Studio Tools as directed in the instructions above.
 
