@@ -21,6 +21,14 @@ There are a few things you should double check before publishing:
 
 ## Publish your package
 
+To publish your package, you must [sign into the Pulsar Package Registry](https://packages.pulsar-edit.dev/login) with your GitHub account. You can do this automatically via an OAuth flow (as with the `pulsar -p login` command demonstrated below) or manually by creating an access token on your own.
+
+::: info Why?
+
+This is a necessary step in order to ensure that only those with control over a given repository are allowed to publish it to the registry. We request the fewest possible permissions needed to verify this.
+
+:::
+
 Before you publish a package, it’s a good idea to check ahead of time if a package with the same name has already been published to [the Pulsar Package Registry](https://packages.pulsar-edit.dev/). You can do that by visiting `https://packages.pulsar-edit.dev/packages/your-package-name` to see if the package already exists. If it does, update your package’s name to something that is available before proceeding.
 
 If this is your first time publishing, run:
