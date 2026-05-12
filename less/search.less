@@ -1,0 +1,102 @@
+:root {
+  /* Colors */
+  --pf-text: var(--font-color);
+  --pf-text-secondary: var(--font-color-subtle);
+  --pf-text-muted: var(--link-color-subtle);
+  --pf-background: var(--body-color);
+  --pf-border: var(--btn-border);
+  --pf-border-focus: var(--kbd-border);
+  --pf-skeleton: var(--body-color);
+  --pf-skeleton-shine: var(--table-border);
+  --pf-hover: var(--btn-bg-hover);
+  --pf-mark: var(--btn-color-focus);
+  --pf-scroll-shadow: rgba(0, 0, 0, 0.08);
+
+  /* Shadows */
+  --pf-shadow-sm: 0 2px 8px var(--_pf-shadow-color-sm);
+  --pf-shadow-md: 0 4px 12px var(--_pf-shadow-color-med);
+  --pf-shadow-lg: 0 16px 48px var(--_pf-shadow-color-lg);
+
+  /* Error states */
+  --pf-error-bg: var(--alert-bg-danger);
+  --pf-error-border: var(--alert-border-danger);
+  --pf-error-text: var(--alert-color-title-danger);
+  --pf-error-text-secondary: var(--alert-color-danger);
+
+  /* Focus ring */
+  --pf-outline-focus: var(--input-field-border-focus);
+  --pf-outline-width: 2px;
+  --pf-outline-offset: 2px;
+
+  /* Typography */
+  --pf-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* Sizing */
+  --pf-input-height: 36px;
+  --pf-input-font-size: 16px; /* Keep at 16px+ to prevent iOS auto-zoom on focus */
+  --pf-summary-font-size: 12px;
+  --pf-result-title-font-size: 14px;
+  --pf-result-excerpt-font-size: 13px;
+
+  /* Results layout */
+  --pf-results-display: flex;
+  --pf-results-flex-direction: column;
+  --pf-results-flex-wrap: nowrap;
+  --pf-results-columns: none; /* grid-template-columns value, used when display is grid */
+  --pf-results-gap: 8px;
+
+  --pf-border-radius: 6px;
+  --pf-image-width: 64px;
+  --pf-image-height: 48px;
+
+  /* Icons (SVG data URIs) */
+  // --pf-icon-search: url("data:image/svg+xml,...");
+  // --pf-icon-arrow: url("data:image/svg+xml,...");
+
+  /* Modal */
+  --pf-modal-backdrop: rgba(0, 0, 0, 0.5);
+  --pf-modal-max-width: 720px;
+  --pf-modal-max-height: min(80dvh, 800px);
+  --pf-modal-top: 10dvh;
+
+  /* Searchbox dimensions */
+  --pf-searchbox-max-width: 480px;
+  --pf-searchbox-dropdown-max-height: 320px;
+
+  /* Dropdown settings */
+  --pf-dropdown-max-height: 280px;
+  --pf-dropdown-z-index: 9999;
+}
+
+mark.pagefind-highlight {
+  display: inline-block;
+  background-color: var(--alert-bg-warning);
+  color: var(--alert-color-warning);
+  outline: 1px solid color-mix(in srgb, var(--alert-border-warning) 50%, transparent);
+  border-radius: 2px;
+}
+
+.pf-result-link {
+  color: var(--link-color) !important;
+}
+
+.pagefind-highlight-animate {
+  animation: pagefind-highlight-animation;
+  animation-iteration-count: 1;
+  animation-duration: 0.6s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes pagefind-highlight-animation {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

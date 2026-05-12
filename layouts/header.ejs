@@ -30,6 +30,25 @@
         document.documentElement.dataset.theme = theme;
       }
     </script>
+    <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet">
+    <script src="/pagefind/pagefind-component-ui.js" type="module"></script>
+
+    <script type="module">
+      await import('/pagefind/pagefind-highlight.js');
+      new PagefindHighlight({
+        markContext: "main",
+        highlightParam: "highlight",
+        addStyles: false
+      });
+
+      {
+        let match = document.querySelector('mark.pagefind-highlight');
+        if (match) {
+          match.scrollIntoView();
+          match.classList.add('pagefind-highlight-animate');
+        }
+      }
+    </script>
 
     <link rel="stylesheet" href="/main.css" />
 
