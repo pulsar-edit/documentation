@@ -4,6 +4,7 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const less = require("less");
 const _helpers = require('./helpers');
 const PRISM_LANGUAGE_SCM = require('./plugins/prism-language-scm');
+const { execSync } = require('child_process');
 
 module.exports = (eleventyConfig) => {
 
@@ -12,6 +13,18 @@ module.exports = (eleventyConfig) => {
     // Markdown is changed. We have JavaScript code that needs to react to
     // changed content, so it’s better to reload the page instead.
     domDiff: false
+  });
+
+  eleventyConfig.on("eleventy.after", async ({ dir }) => {
+    // Regenerate the search index after changes.
+    //
+    // TODO: If we converted this file to use ESM, we could import the
+    // `pagefind` library directly and use its Node API.
+    try {
+      execSync(`npx pagefind --site ${dir.output}`, { stdio: 'inherit' });
+    } catch (err) {
+      console.error(`[pagefind] Index failed:`, err);
+    }
   });
 
   eleventyConfig.addPlugin(syntaxHighlight, {
