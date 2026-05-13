@@ -8,7 +8,7 @@
       <a class="page-header__link" href="/api/pulsar">
         <span>Pulsar API</span>
       </a>
-      <a class="page-header__link" href="https://api.pulsar-edit.dev/swagger-ui/">
+      <a class="page-header__link page-header__link--registry" href="https://api.pulsar-edit.dev/swagger-ui/">
         <span>Package Registry API</span>
       </a>
       <a class="page-header__link" href="https://pulsar-edit.dev">
@@ -34,7 +34,10 @@
         highlight-param="highlight"
         excerpt-length="60"
       ></pagefind-config>
-      <pagefind-modal-trigger></pagefind-modal-trigger>
+
+      <pagefind-modal-trigger class="page-header__search-trigger--full"></pagefind-modal-trigger>
+      <pagefind-modal-trigger class="page-header__search-trigger--compact" compact hide-shortcut></pagefind-modal-trigger>
+
       <pagefind-modal>
         <pagefind-modal-header>
           <pagefind-input></pagefind-input>
