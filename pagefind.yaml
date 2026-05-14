@@ -1,0 +1,15 @@
+
+site: "_dist"
+# This dumb glob allows us to exclude all of `api` except for the one set of
+# API docs we care about (the latest). This works fine as long as `api` is the
+# only section that starts with A.
+#
+# (Pagefind uses Wax, a Rust glob library whose negation syntax is not very
+# robust.)
+glob: "{*.html,[b-z]*/**/*.html,api/pulsar/latest/**/*.html}"
+
+exclude_selectors:
+  - ".sidebar"
+  - ".page_header"
+  - ".page_footer"
+  - ".adjacent"
