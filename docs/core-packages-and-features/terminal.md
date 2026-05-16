@@ -51,6 +51,25 @@ The full set of keybindings can be seen on the package’s configuration page or
 
 Eventually, we plan to allow keybindings to be defined in layout-independent fashion (targeting a key by its location rather than by the symbol it produces) — but for now, we’d encourage users of other keyboard layouts to [remap these keybindings](/customizing-pulsar/customizing-keybindings/) to suit their own tastes.
 
+For instance, if you were fond of `platformio-ide-terminal` back in the Atom days, you might prefer these mappings:
+
+```coffee
+'atom-workspace':
+  'ctrl-alt-t': 'terminal:focus'
+  'ctrl-alt-t n': 'terminal:open'
+  'ctrl-alt-t up': 'terminal:open-split-up'
+  'ctrl-alt-t down': 'terminal:open-split-down'
+  'ctrl-alt-t left': 'terminal:open-split-left'
+  'ctrl-alt-t right': 'terminal:open-split-right'
+  'ctrl-alt-t b': 'terminal:open-split-bottom-dock'
+  'ctrl-alt-t l': 'terminal:open-split-left-dock'
+  'ctrl-alt-t r': 'terminal:open-split-right-dock'
+  # Run the selected text in the active terminal.
+  'ctrl-alt-t x': 'terminal:run-selected-text'
+  # Insert the selected text into the active terminal.
+  'ctrl-alt-t i': 'terminal:insert-selected-text'
+```
+
 :::
 
 ## Keyboard handling
@@ -62,7 +81,7 @@ The most reliable way to avoid this is to unfocus the terminal (by pressing <kbd
 * Any binding defined by the `terminal` package itself.
 * Any binding that begins with `pane:` (since pane management keybindings are designed to work anywhere in the workspace).
 
-You can add your own commands to this list via `terminal`’s package settings; find **Behavior → Prioritized Commands for Keyboard Handling** and add a specific command or an entire command prefix to the list.
+You can add your own commands to this list via `terminal`’s [package settings](/using-pulsar/packages/#package-settings); find **Behavior → Prioritized Commands for Keyboard Handling** and add a specific command or an entire command prefix to the list.
 
 Note that this is needed only in cases where keybindings conflict! If a given binding has no meaning in your terminal session, it will automatically be handled by Pulsar. It’s a good idea to be selective with what you add to this list.
 
