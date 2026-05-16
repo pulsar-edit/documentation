@@ -29,7 +29,7 @@ The built-in terminal has all the features you’d expect:
 
 You may open a new terminal in several ways:
 
-* Using the main **Terminal: Open** command (bound to <kbd>Ctrl+\`</kbd> by default). This sets the working directory to your project root, if it exists, or otherwise your default working directory (typically your user’s home folder).
+* Using the main **Terminal: Open** command (bound to <kbd>Ctrl+\`</kbd> by default). This sets the working directory to your project root, if it exists, or otherwise your default working directory (typically your <span class="platform-mac platform-linux">user’s home folder</span><span class="platform-win">user profile folder</span>).
 * Right-clicking on a file or directory in the tree view and choosing **Terminal → Open New**, or one of the options in the **Open New In…** sub-menu. This will treat the directory you clicked on (or the parent directory of the file you clicked on) as the working directory and open a new terminal either in your workspace center or in the location you chose.
 * Right-clicking within an editor and choosing **Terminal → Open New**, or one of the options in the **Open New In…** sub-menu. This will treat the parent directory of the file you’re editing as the working directory and open a new terminal either in your workspace center or in the location you chose.
 
@@ -38,7 +38,7 @@ You may open a new terminal in several ways:
 The default keybindings for the `terminal` package aim to make it easy to summon a terminal:
 
 * Press <kbd>Ctrl+\`</kbd> to focus the terminal, or create a new terminal if one does not yet exist.
-* Press <kbd>Ctrl+~</kbd> — which, on US QWERTY keyboard layouts, is the same as <kbd>Ctrl+Shift+\`</kbd> — to start a [key sequence](/using-pulsar/basics/#key-sequence). After starting the sequence, you can press one of a handfull of other keys to perform various tasks:
+* Press <kbd>Ctrl+~</kbd> — which, on US QWERTY keyboard layouts, is the same as <kbd>Ctrl+Shift+\`</kbd> — to start a [key sequence](/using-pulsar/basics/#key-sequence). After starting the sequence, you can press one of a handful of other keys to perform various tasks:
   * Press <kbd>n</kbd> to spawn a new terminal in the default location, even if one already exists.
   * Press an arrow key to split the workspace and spawn a new terminal at the same time. For instance, <kbd>Ctrl+~</kbd> <kbd>→</kbd> will split the active workspace area, create a new pane container to the right of the active container, and put a new terminal in that new pane container.
   * Presss <kbd>x</kbd> to take the selected text in the active editor and run it as a terminal command — or <kbd>i</kbd> to insert the text into the active terminal without running it.
