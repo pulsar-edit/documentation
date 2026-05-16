@@ -11,7 +11,7 @@ Should you wish to reference the specific version of this document for CoffeeScr
 
 When Pulsar finishes loading, it will evaluate `init.js` in your <span class="platfom-linux platform-mac">`~/.pulsar`</span> <span class="platform-win">`%USERPROFILE%\.pulsar`</span> directory, giving you a chance to run JavaScript code to make customizations. Code in this file has full access to [Pulsar’s API](/api/pulsar/latest). If customizations become extensive, consider creating a package, which we will cover in [Package: Word count](/developing-for-pulsar/package-word-count/).
 
-You can open the `init.js` file in an editor from the <span class="platform-linux platform-win">_Edit > Init Script..._</span><span class="platform-mac">_File > Init Script..._</span> menu.
+You can open the `init.js` file in an editor from the <span class="platform-mac">Pulsar > Init Script..._</span><span class="platform-win">_File > Init Script..._</span><span class="platform-linux">_Edit > Init Script..._</span> menu.
 
 For example, if you have the Audio Beep configuration setting enabled, you could add the following code to your `init.js` file to have Pulsar greet you with an audio beep every time it loads:
 
