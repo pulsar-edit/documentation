@@ -3,7 +3,7 @@ title: Terminal
 layout: doc.ejs
 ---
 
-What’s a development environment without a terminal? If you prefer to have your terminal close at hand instead of in another application, you can use the built-in terminal provided by Pulsar’s {terminal} package.
+What’s a development environment without a terminal? If you prefer to have your terminal close at hand instead of in another application, you can use the built-in terminal provided by Pulsar’s [`terminal` package](https://github.com/pulsar-edit/terminal).
 
 ![Screenshot of the terminal package](/img/atom/terminal-bottom-dock.png)
 
@@ -11,7 +11,7 @@ The built-in terminal has all the features you’d expect:
 
 * It can live anywhere in your workspace: one of the center pane containers, or any of the docks to the bottom, left, or right.
 * You can open any number of different terminals for different purposes.
-* Terminals have sensible defaults for your platform. If you’re on Linux or macOS, by default the terminal will spawn your system shell — be it `bash`, `zsh`, `fish`, or something more exotic. If you’re on Windows, the terminal will default to PowerShell if it’s available, and battle-tested `cmd.exe` if it isn’t. And if you prefer something other than the default, you can explicitly specify your desired shell in the package settings.
+* Terminals have sensible defaults for your platform. If you’re on Linux or macOS, by default the terminal will spawn your system shell — be it `bash`, `zsh`, `fish`, or something more exotic. If you’re on Windows, the terminal will default to PowerShell if it’s available, and battle-tested `cmd.exe` if it isn’t. And if you prefer something other than the default, you can explicitly specify your desired shell in the [package settings](/using-pulsar/packages/#package-settings).
 * Terminals are designed to reuse the existing color palette of your syntax theme. But you’re still able to choose a different theme, or else override one or more colors in targeted fashion.
 * A terminal can be created or brought to the foreground with a simple keystroke.
 * Terminals will automatically adjust to fit the dimensions of their container. If you resize a terminal’s pane container, the terminal’s output will reflow to adjust to the new size.
@@ -76,7 +76,9 @@ For instance, if you were fond of `platformio-ide-terminal` back in the Atom day
 
 Terminal emulators like to handle their own keyboard input. This can lead to surprising behavior, since Pulsar generally expects to be able to handle keyboard events. While the terminal is focused, you may press a certain key combination intending to invoke a Pulsar command… yet discover you performed an unintended action within the terminal instead!
 
-The most reliable way to avoid this is to unfocus the terminal (by pressing <kbd>Ctrl+\`</kbd> when the terminal is in focus) before invoking your keybinding. But this is annoying! So for certain commands, we bypass this requirement. Here are the commands whose bindings Pulsar will handle _instead of_ letting the terminal handle the binding:
+If you think this is happening with a certain keystroke, the easiest way to confirm it is by [using the keybinding resolver](/troubleshooting-pulsar/checking-your-keybindings/). Normally, _every_ keystroke — even a single letter typed in an editor — is seen and handled by the keybinding resolver. So when the terminal has focus, press your keystroke to see how it’s interpreted; if the keybinding resolver doesn’t see the keystroke _at all_, that means it’s being handled by the terminal.
+
+The most reliable way to avoid this is to unfocus the terminal (by pressing <kbd>Ctrl+\`</kbd> when the terminal is in focus) before invoking your keystroke. But this is annoying! So for certain commands, we bypass this requirement. Here are the commands whose bindings Pulsar will handle _instead of_ letting the terminal handle the binding:
 
 * Any binding defined by the `terminal` package itself.
 * Any binding that begins with `pane:` (since pane management keybindings are designed to work anywhere in the workspace).
@@ -89,4 +91,4 @@ Note that this is needed only in cases where keybindings conflict! If a given bi
 
 If a URL is present in your terminal’s buffer output, you can click on that URL to open it in your default web browser.
 
-By default, it requires more than just clicking on the URL: you must hold the <kbd class="platform-mac">Cmd</kbd><kbd class="platform-win platform-linux">Ctrl</kbd> key while clicking. This is meant to prevent accidental clicks. If you prefer, you can disable this behavior in the {terminal} package’s settings.
+By default, it requires more than just clicking on the URL: you must hold the <kbd class="platform-mac">Cmd</kbd><kbd class="platform-win platform-linux">Ctrl</kbd> key while clicking. This is meant to prevent accidental clicks. If you prefer, you can disable this behavior in `terminal`’s [package settings](/using-pulsar/packages/#package-settings).
