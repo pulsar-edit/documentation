@@ -46,13 +46,7 @@ module.exports = (eleventyConfig) => {
       //
       // (Pagefind uses Wax, a Rust glob library whose negation syntax is not
       // very robust.)
-      glob: "{*.html,[b-z]*/**/*.html}"
-    });
-
-    await index.addDirectory({
-      // Now we can add back the only directory underneath `api` that we care
-      // about.
-      path: path.join(dir.output, 'api', 'pulsar', 'latest')
+      glob: "{*.html,[b-z]*/**/*.html,api/pulsar/latest/**/*.html}"
     });
 
     await index.writeFiles({
