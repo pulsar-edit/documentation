@@ -27,6 +27,11 @@
       "summary": "Integrate with GitHub from within Pulsar."
     },
     {
+      "text": "Terminal",
+      "link": "/core-packages-and-features/terminal",
+      "summary": "Bring your shell session into Pulsar."
+    },
+    {
       "text": "Spell check",
       "link": "/core-packages-and-features/spell-check",
       "summary": "Fix misspellings in your text."
