@@ -1,12 +1,18 @@
+const path = require('path');
+
 const pulsarApi = require("./pulsar-api/src/index.js");
 const hovercardResolution = require("./hovercard_resolution/index.js");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const less = require("less");
 const _helpers = require('./helpers');
 const PRISM_LANGUAGE_SCM = require('./plugins/prism-language-scm');
-const { execSync } = require('child_process');
 
 module.exports = (eleventyConfig) => {
+
+  // `pagefind` is ESM, so has to be `import`ed rather than `require`d. Can't
+  // use `await` at the top level or in this function (not until we upgrade to
+  // 11ty v3) so we'll do it later.
+  const pagefindImport = import('pagefind');
 
   eleventyConfig.setServerOptions({
     // Prevent the server from trying to do a clever hot-reload when only
@@ -15,16 +21,43 @@ module.exports = (eleventyConfig) => {
     domDiff: false
   });
 
+  // Regenerate the search index after changes.
   eleventyConfig.on("eleventy.after", async ({ dir }) => {
-    // Regenerate the search index after changes.
-    //
-    // TODO: If we converted this file to use ESM, we could import the
-    // `pagefind` library directly and use its Node API.
-    try {
-      execSync(`npx pagefind --site ${dir.output}`, { stdio: 'inherit' });
-    } catch (err) {
-      console.error(`[pagefind] Index failed:`, err);
-    }
+    // Now we can `await` the import we couldn't above.
+    let pagefind = await pagefindImport;
+
+    const { index } = await pagefind.createIndex({
+      excludeSelectors: [
+        ".sidebar",
+        ".page_header",
+        ".page_footer",
+        ".adjacent",
+        ".platform-win",
+        ".platform-mac"
+      ],
+      verbose: process.env.DEBUG
+    });
+
+    await index.addDirectory({
+      path: dir.output,
+      // This dumb glob allows us to exclude all of `api` except for the one set
+      // of API docs we care about (the latest). This works fine as long as `api`
+      // is the only section that starts with A.
+      //
+      // (Pagefind uses Wax, a Rust glob library whose negation syntax is not
+      // very robust.)
+      glob: "{*.html,[b-z]*/**/*.html}"
+    });
+
+    await index.addDirectory({
+      // Now we can add back the only directory underneath `api` that we care
+      // about.
+      path: path.join(dir.output, 'api', 'pulsar', 'latest')
+    });
+
+    await index.writeFiles({
+      outputPath: path.join(dir.output, 'pagefind')
+    });
   });
 
   eleventyConfig.addPlugin(syntaxHighlight, {
