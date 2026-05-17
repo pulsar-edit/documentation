@@ -1,6 +1,10 @@
 <!-- Pulsar API Documentation Page -->
-<%- include("header", { title: content.customData?.name ?? title }) %>
-
+<%
+  let pageTitle = (content.customData?.name ?? title);
+  let fullPageTitle = `${pageTitle} — Pulsar API documentation v${locals.version}`;
+  let searchTitle = `${pageTitle} (API documentation)`;
+%>
+<%- include("header", { title: fullPageTitle, searchTitle }) %>
 <body>
   <%- include("page_header", { platform_switcher: false }) %>
   <div class="content">
@@ -18,7 +22,6 @@
     -%>
     <main class="container">
       <section class="header">
-        <% let pageTitle = (content.customData?.name ?? title) %>
         <h1 class="title" id="title"><%= pageTitle %></h1>
       </section>
 
