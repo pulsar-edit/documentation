@@ -24,6 +24,10 @@
     {
       "text": "Interacting with other packages via services",
       "link": "/infrastructure/interacting-with-other-packages-via-services"
+    },
+    {
+      "text": "Integrate with Autocomplete Plus",
+      "link": "/infrastructure/integrate-with-autocomplete-plus"
     }
   ]
 
