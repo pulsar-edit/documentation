@@ -3,7 +3,7 @@ title: Terminal
 layout: doc.ejs
 ---
 
-What’s a development environment without a terminal? If you prefer to have your terminal close at hand instead of in another application, you can use the built-in terminal provided by Pulsar’s {terminal}.
+What’s a development environment without a terminal? If you prefer to have your terminal close at hand instead of in another application, you can use the built-in terminal provided by Pulsar’s {terminal} package.
 
 ![Screenshot of the terminal package](/img/atom/terminal-bottom-dock.png)
 
