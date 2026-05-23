@@ -48,5 +48,10 @@
     "title": "HTMLElement",
     "description": "The <code>HTMLElement</code> interface represents any HTML element.",
     "link": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement"
+  },
+  "terminal": {
+    "title": "terminal",
+    "description": "A terminal emulator built into Pulsar",
+    "link": "https://packages.pulsar-edit.dev/packages/terminal"
   }
 }

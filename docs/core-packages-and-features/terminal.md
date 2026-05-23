@@ -3,7 +3,7 @@ title: Terminal
 layout: doc.ejs
 ---
 
-What’s a development environment without a terminal? If you prefer to have your terminal close at hand instead of in another application, you can use the built-in terminal provided by Pulsar’s [`terminal` package](https://github.com/pulsar-edit/terminal).
+What’s a development environment without a terminal? If you prefer to have your terminal close at hand instead of in another application, you can use the built-in terminal provided by Pulsar’s {terminal}.
 
 ![Screenshot of the terminal package](/img/atom/terminal-bottom-dock.png)
 
@@ -80,7 +80,7 @@ If you think this is happening with a certain keystroke, the easiest way to conf
 
 The most reliable way to avoid this is to unfocus the terminal (by pressing <kbd>Ctrl+\`</kbd> when the terminal is in focus) before invoking your keystroke. But this is annoying! So for certain commands, we bypass this requirement. Here are the commands whose bindings Pulsar will handle _instead of_ letting the terminal handle the binding:
 
-* Any binding defined by the `terminal` package itself.
+* Any binding defined by the {terminal} package itself.
 * Any binding that begins with `pane:` (since pane management keybindings are designed to work anywhere in the workspace).
 
 You can add your own commands to this list via `terminal`’s [package settings](/using-pulsar/packages/#package-settings); find **Behavior → Prioritized Commands for Keyboard Handling** and add a specific command or an entire command prefix to the list.
@@ -91,4 +91,4 @@ Note that this is needed only in cases where keybindings conflict! If a given bi
 
 If a URL is present in your terminal’s buffer output, you can click on that URL to open it in your default web browser.
 
-By default, it requires more than just clicking on the URL: you must hold the <kbd class="platform-mac">Cmd</kbd><kbd class="platform-win platform-linux">Ctrl</kbd> key while clicking. This is meant to prevent accidental clicks. If you prefer, you can disable this behavior in `terminal`’s [package settings](/using-pulsar/packages/#package-settings).
+By default, it requires more than just clicking on the URL: you must hold the <kbd class="platform-mac">Cmd</kbd><kbd class="platform-win platform-linux">Ctrl</kbd> key while clicking. This is meant to prevent accidental clicks. If you prefer, you can disable this behavior in {terminal}’s [package settings](/using-pulsar/packages/#package-settings).
