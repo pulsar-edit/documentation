@@ -1,3 +1,5 @@
+const path = require('path');
+
 const pulsarApi = require("./pulsar-api/src/index.js");
 const hovercardResolution = require("./hovercard_resolution/index.js");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
@@ -7,11 +9,49 @@ const PRISM_LANGUAGE_SCM = require('./plugins/prism-language-scm');
 
 module.exports = (eleventyConfig) => {
 
+  // `pagefind` is ESM, so has to be `import`ed rather than `require`d. Can't
+  // use `await` at the top level or in this function (not until we upgrade to
+  // 11ty v3) so we'll do it later.
+  const pagefindImport = import('pagefind');
+
   eleventyConfig.setServerOptions({
     // Prevent the server from trying to do a clever hot-reload when only
     // Markdown is changed. We have JavaScript code that needs to react to
     // changed content, so it’s better to reload the page instead.
     domDiff: false
+  });
+
+  // Regenerate the search index after changes.
+  eleventyConfig.on("eleventy.after", async ({ dir }) => {
+    // Now we can `await` the import we couldn't above.
+    let pagefind = await pagefindImport;
+
+    const { index } = await pagefind.createIndex({
+      excludeSelectors: [
+        ".sidebar",
+        ".page_header",
+        ".page_footer",
+        ".adjacent",
+        ".platform-win",
+        ".platform-mac"
+      ],
+      verbose: process.env.DEBUG
+    });
+
+    await index.addDirectory({
+      path: dir.output,
+      // This dumb glob allows us to exclude all of `api` except for the one set
+      // of API docs we care about (the latest). This works fine as long as `api`
+      // is the only section that starts with A.
+      //
+      // (Pagefind uses Wax, a Rust glob library whose negation syntax is not
+      // very robust.)
+      glob: "{*.html,[b-z]*/**/*.html,api/pulsar/latest/**/*.html}"
+    });
+
+    await index.writeFiles({
+      outputPath: path.join(dir.output, 'pagefind')
+    });
   });
 
   eleventyConfig.addPlugin(syntaxHighlight, {

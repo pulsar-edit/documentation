@@ -8,12 +8,89 @@
       <a class="page-header__link" href="/api/pulsar">
         <span>Pulsar API</span>
       </a>
-      <a class="page-header__link" href="https://api.pulsar-edit.dev/swagger-ui/">
+      <a class="page-header__link page-header__link--registry" href="https://api.pulsar-edit.dev/swagger-ui/">
         <span>Package Registry API</span>
       </a>
       <a class="page-header__link" href="https://pulsar-edit.dev">
         <span>Homepage</span>
       </a>
+    </nav>
+
+    <style>
+      pagefind-modal-body:has(.pf-result) .pf-skeleton-text {
+        display: none !important;
+      }
+      p.pf-skeleton-text {
+        font-size: 25px !important;
+        text-align: center !important;
+        color: var(--pf-text-muted) !important;
+        font-family: var(--pf-font) !important;
+        font-weight: 600 !important;
+      }
+    </style>
+
+    <nav class="page-header__search">
+      <pagefind-config
+        highlight-param="highlight"
+        excerpt-length="60"
+      ></pagefind-config>
+
+      <pagefind-modal-trigger class="page-header__search-trigger--full"></pagefind-modal-trigger>
+      <pagefind-modal-trigger class="page-header__search-trigger--compact" compact hide-shortcut></pagefind-modal-trigger>
+
+      <pagefind-modal>
+        <pagefind-modal-header>
+          <pagefind-input></pagefind-input>
+        </pagefind-modal-header>
+        <pagefind-modal-body>
+          <pagefind-summary></pagefind-summary>
+          <pagefind-results hide-sub-results>
+            <script type="text/pagefind-template">
+              <li class="pf-result">
+                <div class="pf-result-card">
+                  {{#if and(options.show_images, meta.image)}}
+                  <img class="pf-result-image" src="{{ meta.image | resolveUrl(meta.url | default(url)) }}" alt="{{ meta.image_alt | default(meta.title) }}">
+                  {{/if}}
+                  <div class="pf-result-content">
+                    <p class="pf-result-title">
+                      <a class="pf-result-link" href="{{ meta.url | default(url) | safeUrl }}"{{#if options.link_target}} target="{{ options.link_target }}"{{/if}}{{#if eq(options.link_target, "_blank")}} rel="noopener"{{/if}}>{{ meta.title }}</a>
+                    </p>
+                    {{#if excerpt}}
+                    <p class="pf-result-excerpt">{{+ excerpt +}}</p>
+                    {{/if}}
+                  </div>
+                </div>
+                {{#if sub_results}}
+                <ul class="pf-heading-chips">
+                  {{#each sub_results as sub}}
+                  <li class="pf-heading-chip">
+                    <a class="pf-heading-link" href="{{ sub.url | safeUrl }}"{{#if options.link_target}} target="{{ options.link_target }}"{{/if}}{{#if eq(options.link_target, "_blank")}} rel="noopener"{{/if}}>{{ sub.title }}</a>
+                    <p class="pf-heading-excerpt">{{+ sub.excerpt +}}</p>
+                  </li>
+                  {{/each}}
+                </ul>
+                {{/if}}
+              </li>
+            </script>
+
+            <script type="text/pagefind-template" data-template="placeholder">
+              <li class="pf-result" aria-hidden="true">
+                <div class="pf-result-card">
+                  <div class="pf-skeleton pf-skeleton-image"></div>
+                  <div class="pf-result-content">
+                    <p class="pf-result-title pf-skeleton pf-skeleton-title">Type a search term</p>
+                    <p class="pf-result-excerpt pf-skeleton pf-skeleton-excerpt"></p>
+                  </div>
+                </div>
+              </li>
+            </script>
+
+          </pagefind-results>
+        </pagefind-modal-body>
+        <pagefind-modal-footer>
+          <pagefind-keyboard-hints></pagefind-keyboard-hints>
+        </pagefind-modal-footer>
+      </pagefind-modal>
     </nav>
 
     <nav class="page-header__actions">
@@ -30,8 +107,11 @@
           </svg>
         </button>
       </div>
+
     </nav>
   </div>
+
+
 </header>
 
 <% if (platform_switcher) { -%>

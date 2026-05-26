@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" id="meta-scheme" content="">
     <meta property="og:title" content="<%= locals.title %>">
+    <% if (locals.searchTitle) { %>
+    <meta name="search-title" data-pagefind-meta="title[content]" content="<%= locals.searchTitle %>">
+    <% } %>
     <link rel="shortcut icon" type="image/svg+xml" href="/static/favicon.svg">
     <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
     <link rel="apple-touch-icon" type="image/svg+xml" href="/static/favicon.svg">
@@ -28,6 +31,25 @@
         document.getElementById('meta-scheme').setAttribute("content", theme);
         document.documentElement.dataset.themeSetting = themeSetting ?? theme;
         document.documentElement.dataset.theme = theme;
+      }
+    </script>
+    <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet">
+    <script src="/pagefind/pagefind-component-ui.js" type="module"></script>
+
+    <script type="module">
+      await import('/pagefind/pagefind-highlight.js');
+      new PagefindHighlight({
+        markContext: "main",
+        highlightParam: "highlight",
+        addStyles: false
+      });
+
+      {
+        let match = document.querySelector('mark.pagefind-highlight');
+        if (match) {
+          match.scrollIntoView();
+          match.classList.add('pagefind-highlight-animate');
+        }
       }
     </script>
 
