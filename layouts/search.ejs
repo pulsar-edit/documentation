@@ -1,0 +1,16 @@
+<%-include("header")%>
+
+  <body>
+    <%-include("page_header", { platform_switcher: true }) %>
+    <div class="content">
+      <main class="container">
+        <section class="header">
+          <h1 class="title" id="title"<%= title %></h1>
+        </section>
+
+        <%- content %>
+      </main>
+    </div>
+  </body>
+<script src="/search.js"></script>
+<%-include("footer")%>
