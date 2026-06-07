@@ -98,6 +98,11 @@ html {
     width: 100%;
   }
 
+  .page-header__search {
+    position: relative;
+    top: 4px;
+  }
+
   .page-header__link {
     .border-hover-effect();
     flex-direction: row;
@@ -154,5 +159,30 @@ html {
     .light-icon {
       display: block !important;
     }
+  }
+}
+
+@media (max-width: (@bp-larger-than-phablet - 1px)) {
+  .page-header .page-header__link--registry {
+    display: none;
+  }
+}
+
+// Show the compact search widget…
+.page-header__search-trigger--full {
+  display: none;
+}
+.page-header__search-trigger--compact {
+  display: inline-block;
+}
+
+
+// …but swap in the bigger one when we have the room.
+@media(min-width: @bp-larger-than-tablet) {
+  .page-header__search-trigger--full {
+    display: inline-block;
+  }
+  .page-header__search-trigger--compact {
+    display: none;
   }
 }

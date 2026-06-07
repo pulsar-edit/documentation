@@ -25,6 +25,7 @@
     "markdown-it-container": "^4.0.0",
     "markdown-it-include": "^2.0.0",
     "markdown-it-kbd": "^2.2.2",
+    "pagefind": "^1.5.2",
     "pulsardoc": "github:confused-Techie/pulsardoc",
     "semver": "^7.6.0",
     "terser": "^5.28.1"
