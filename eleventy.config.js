@@ -33,7 +33,8 @@ module.exports = (eleventyConfig) => {
         ".page_footer",
         ".adjacent",
         ".platform-win",
-        ".platform-mac"
+        ".platform-mac",
+        '.platform-switcher'
       ],
       verbose: process.env.DEBUG
     });
